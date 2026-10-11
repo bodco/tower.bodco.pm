@@ -2,7 +2,7 @@
 title: "Changelog: what changed in each version"
 lead: What changed in each version of the plugin, the Notion template and the documentation.
 facts:
-  - { k: Current, v: "v1.6.1" }
+  - { k: Current, v: "v1.6.2" }
   - { k: First public, v: "2026-09-11" }
   - { k: Licence, v: "MIT" }
   - { k: Status, v: "beta" }
@@ -12,6 +12,7 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
+| 1.6.2 | 2026-10-11 | **The tips window** for the call co-pilot: a small window under the camera, always on top, with a field for questions. Movable, minimisable, closable, hidden from screen sharing (verified with Google Meet). Plus a "your turn" update when someone calls you by name |
 | 1.6.1 | 2026-10-11 | Notion template and documentation aligned: relation names, historical decisions, an AI review queue in Topics and Risks, a fix to the follow-up check, a sync runbook |
 | 1.6.0 | 2026-10-11 | **Call co-pilot** (the `live-tips` skill): hints during the call. Local transcription, tips on triggers, a Meetings page after the call, an interview mode, switching language mid-call. A local recorder in `tools/live-transcriber/` and document 17 |
 | 1.5.2 | 2026-10-10 | The **Focus desk** at the top of the Notion template. Restricted internal sources: candid internal channels are context only and never reach the client |

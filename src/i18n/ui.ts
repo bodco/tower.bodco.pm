@@ -13,7 +13,7 @@ export const LINKS = {
   github: 'https://github.com/bodco',
 };
 
-export const VERSION = '1.6.1';
+export const VERSION = '1.6.2';
 
 /** Page order drives the header, the footer and the prev/next pager. */
 export const PAGES = [

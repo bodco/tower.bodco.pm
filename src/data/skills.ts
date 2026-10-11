@@ -101,8 +101,8 @@ export const SKILLS: Skill[] = [
   {
     name: 'live-tips', run: 'mac', group: 'prep', when: { en: 'during the call', uk: 'під час дзвінка' }, out: 'Meetings',
     what: {
-      en: 'Short hints during the call when something matters, and a transcript with a wrap-up afterwards. Audio stays on your Mac.',
-      uk: 'Короткі підказки під час дзвінка, коли трапляється щось важливе, а після нього транскрипт і підсумок. Звук лишається на вашому Маку.',
+      en: 'Short hints in a small window under the camera when something matters, and a transcript with a wrap-up afterwards. Audio stays on your Mac.',
+      uk: 'Короткі підказки в маленькому вікні під камерою, коли трапляється щось важливе, а після дзвінка транскрипт і підсумок. Звук лишається на вашому Маку.',
     },
     say: { en: 'live tips', uk: 'live tips' },
   },

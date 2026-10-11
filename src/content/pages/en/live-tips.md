@@ -6,6 +6,7 @@ facts:
   - { k: Runs on, v: "Apple Silicon Mac" }
   - { k: Speech model, v: "Whisper, local" }
   - { k: Skill, v: "<code>live-tips</code>" }
+  - { k: Tips in, v: "A window under the camera" }
   - { k: Writes to, v: "Meetings DB" }
 ---
 
@@ -35,12 +36,25 @@ Built for a small window right under the camera, so your eyes do not wander. 2 t
 
 A tip marked as internal relies on an internal source and is never meant to be repeated to the client.
 
+## The tips window
+
+Tips appear in their own small window, not in a chat you have to keep open. It opens by itself when the recording starts, at the top centre of the screen, right under the camera.
+
+<div class="grid" style="--min: 240px;">
+<div class="card"><h3 class="card__title">Always on top</h3><p class="card__text">Stays above Google Meet and every other window. Pin it or unpin it with one button.</p></div>
+<div class="card"><h3 class="card__title">Hidden from screen sharing</h3><p class="card__text">Share your entire screen in Google Meet and the window is not in the picture. Verified with Meet in Chrome on macOS 26.</p></div>
+<div class="card"><h3 class="card__title">A field for questions</h3><p class="card__text">Type "what did we promise on exports?" and the answer arrives in the same window, while it keeps listening.</p></div>
+<div class="card"><h3 class="card__title">An ordinary window</h3><p class="card__text">Drag it, resize it, minimise it, close it. It remembers where you put it. Closing it does not stop the recording.</p></div>
+</div>
+
+The newest tip is on top in a large font, older ones fade below. Font size and transparency are one click away. Prefer the chat? One setting sends tips to the window, the chat or both. Other meeting apps (Zoom, Teams) are not verified yet: if in doubt, share a window or a tab instead of the entire screen.
+
 ## A call, step by step
 
 1. **Prep in the same session.** Meeting prep, the Notion pages or folder to focus on. The Live Brief of the project starts from it.
-2. **Say "live tips" right before the call.** A Terminal window opens and records the microphone and the system audio as 2 separate channels: you and them.
-3. **Ask anything mid-call.** "What did we promise on exports?" You get a short answer from the brief and the transcript, and it keeps listening.
-4. **Stop it explicitly.** Write "stop" in the chat, close the Terminal window, or let the idle timer ask. Closing Zoom or Meet does not stop the recording.
+2. **Say "live tips" right before the call.** A Terminal window starts recording the microphone and the system audio as 2 separate channels, you and them, and the tips window opens under the camera.
+3. **Ask anything mid-call.** Type it in the window: "What did we promise on exports?" You get a short answer from the brief and the transcript, and it keeps listening.
+4. **Stop it explicitly.** Type "stop" in the window or the chat, close the Terminal window, or let the idle timer ask. Closing Zoom or Meet does not stop the recording.
 
 A client interview gets its own mode that tracks the planned questions and suggests follow-ups.
 
@@ -131,7 +145,15 @@ check ~/work/Tools/live-transcriber/logs/install.log and tell me if the install 
 
 **Done when** the log ends with `install OK` and both the `mic` and `sys` peaks are above zero. If `sys` is zero, most likely nothing was playing during the test. Play a video and ask Claude to run the system audio check from `docs/en/17-live-tips.md`.
 
-### 6. Try it on a fake call
+### 6. Try the tips window
+
+```
+~/work/Tools/live-transcriber/bin/prompter --demo
+```
+
+A window with 3 sample tips opens under the camera. Drag it, minimise it, type a question and press Enter: a demo answer comes back. Then start a meeting in Google Meet, share your entire screen and look at what Meet shows you are presenting. **Done when** the window is not in that picture.
+
+### 7. Try it on a fake call
 
 In a Cowork task with the `work` folder and Notion on:
 
@@ -139,4 +161,4 @@ In a Cowork task with the `work` folder and Notion on:
 live tips <your project>
 ```
 
-A "Live transcriber" Terminal window opens by itself. Talk for a minute, then write `end live` in the chat. **Done when** you get a wrap-up in the chat and a new page in your Meetings database.
+A "Live transcriber" Terminal window and the tips window open by themselves. Talk for a minute, then write `end live` in the chat. **Done when** you get a wrap-up in the chat and a new page in your Meetings database.
