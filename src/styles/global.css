@@ -453,3 +453,8 @@ html[data-theme='dark'] .theme-btn .i-moon { display: none; }
 .shot img { display: block; width: 100%; height: auto; background: #fff; }
 .shot figcaption { min-height: 5.4em; box-sizing: border-box; padding: 12px 14px; font-size: 14px; line-height: 1.5; color: var(--text-2); border-top: 1px solid var(--line); }
 .shot figcaption b { color: var(--text); font-weight: 600; }
+
+/* Way back to the author's site, mirrors the "Control Tower" button on bodco.pm. */
+.author-link .mark { width: 18px; height: 18px; flex: none; display: block; }
+@media (max-width: 480px) { .gh.author-link { display: inline-flex; padding: 11px 12px; } }
+@media (max-width: 360px) { .gh.author-link { display: none; } }
