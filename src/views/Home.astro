@@ -94,7 +94,7 @@ const C = {
   shotsP: 'Real pages from the public template, with demo data. You can open them yourself.',
   shots: [
     ['demo-prep.webp', 570, 690, 'Reports · Daily Team Prep', 'A sync prep', 'written by daily-team-prep: what moved, what is blocked, what to ask.'],
-    ['demo-thread.webp', 570, 650, 'Threads · Awaiting Reply', 'A thread that waits on you', 'with the sources it read and a reply draft from inbox-responder. You edit and send.'],
+    ['demo-thread.webp', 570, 636, 'Threads · Awaiting Reply', 'A thread that waits on you', 'with the sources it read and a reply draft from inbox-responder. You edit and send.'],
   ],
   shotsLink: 'Open the template',
 
@@ -217,7 +217,7 @@ const C = {
   shotsP: 'Справжні сторінки з публічного шаблону, з демо-даними. Їх можна відкрити самому.',
   shots: [
     ['demo-prep.webp', 570, 690, 'Reports · Daily Team Prep', 'Підготовка до синку', 'від daily-team-prep: що зрушило, що заблоковано, що спитати.'],
-    ['demo-thread.webp', 570, 650, 'Threads · Awaiting Reply', 'Тред, який чекає на вас', 'з джерелами, які прочитано, і драфтом відповіді від inbox-responder. Ви правите й надсилаєте.'],
+    ['demo-thread.webp', 570, 636, 'Threads · Awaiting Reply', 'Тред, який чекає на вас', 'з джерелами, які прочитано, і драфтом відповіді від inbox-responder. Ви правите й надсилаєте.'],
   ],
   shotsLink: 'Відкрити шаблон',
 
@@ -405,7 +405,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
       {C.shots.map(([src, w, h, bar, title, text]) => (
         <figure class="shot">
           <div class="shot__bar" aria-hidden="true"><i></i><i></i><i></i><span>{bar}</span></div>
-          <img src={`/${src}`} width={w} height={h} loading="lazy" decoding="async" alt={`${title}: ${text}`} />
+          <div class="shot__img"><img src={`/${src}`} width={w} height={h} loading="lazy" decoding="async" alt={`${title}: ${text}`} /></div>
           <figcaption><b>{title}</b> {text}</figcaption>
         </figure>
       ))}
