@@ -1,0 +1,100 @@
+---
+import Base from './Base.astro';
+import Arrow from '../components/Arrow.astro';
+import { t, path, neighbours, LINKS, type Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+  slug: string;
+  title: string;
+  lead: string;
+  description?: string;
+  facts?: { k: string; v: string }[];
+  doc?: string;
+  headings?: { depth: number; slug: string; text: string }[];
+}
+const { lang, slug, title, lead, description, facts = [], doc, headings = [] } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2);
+const { prev, next } = neighbours(slug);
+---
+<Base title={title} description={description ?? lead}>
+  <section class="page-hero">
+    <div class="page-hero__in wrap">
+      <div class="page-hero__text">
+        <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {t(lang, `nav.${slug}` as any)}</p>
+        <h1 class="h1 h1--page">{title}</h1>
+        <p class="lead">{lead}</p>
+      </div>
+      {facts.length > 0 && (
+        <dl class="facts">
+          {facts.map((f) => (<div><dt>{f.k}</dt><dd set:html={f.v} /></div>))}
+        </dl>
+      )}
+    </div>
+  </section>
+
+  <div class="page-body wrap">
+    {toc.length > 1 && (
+      <nav class="toc" aria-label={t(lang, 'page.onthis')}>
+        <span class="label">{t(lang, 'page.onthis')}</span>
+        {toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}
+      </nav>
+    )}
+    <div class="page-main">
+      <article class="prose"><slot /></article>
+
+      {doc && (
+        <aside class="docs-cta">
+          <div><b>{t(lang, 'page.docs.title')}</b><span class="muted">{t(lang, 'page.docs.text')}</span></div>
+          <a class="btn" href={LINKS.docs(lang, doc)}>{t(lang, 'page.docs.btn')} <code>docs/{lang}/{doc}</code></a>
+        </aside>
+      )}
+
+      <nav class="pager" aria-label="Pager">
+        {prev ? <a href={path(lang, prev)}><span class="label">{t(lang, 'page.prev')}</span><b>{t(lang, `nav.${prev}` as any)}</b></a> : <span />}
+        {next && <a class="next" href={path(lang, next)}><span class="label">{t(lang, 'page.next')}</span><b>{t(lang, `nav.${next}` as any)} <Arrow /></b></a>}
+      </nav>
+    </div>
+  </div>
+</Base>
+
+<script>
+  // Copy buttons on every code block, so nobody has to select text by hand.
+  const copyLabel = document.documentElement.lang === 'uk' ? ['Копіювати', 'Скопійовано'] : ['Copy', 'Copied'];
+  document.querySelectorAll<HTMLPreElement>('.prose pre').forEach((pre) => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'copy';
+    btn.textContent = copyLabel[0];
+    btn.addEventListener('click', async () => {
+      const text = pre.querySelector('code')?.innerText ?? pre.innerText;
+      try { await navigator.clipboard.writeText(text.trim()); } catch { return; }
+      btn.textContent = copyLabel[1];
+      btn.dataset.done = 'true';
+      setTimeout(() => { btn.textContent = copyLabel[0]; btn.dataset.done = 'false'; }, 1600);
+    });
+    const wrap = document.createElement('div');
+    wrap.className = 'code-wrap';
+    const bar = document.createElement('div');
+    bar.className = 'code-wrap__bar';
+    bar.appendChild(btn);
+    pre.parentNode?.insertBefore(wrap, pre);
+    wrap.appendChild(bar);
+    wrap.appendChild(pre);
+  });
+
+  // Highlight the current section in the table of contents.
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.toc a')];
+  if (links.length && 'IntersectionObserver' in window) {
+    const map = new Map(links.map((a) => [decodeURIComponent(a.hash.slice(1)), a]));
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          links.forEach((a) => a.classList.remove('is-active'));
+          map.get(e.target.id)?.classList.add('is-active');
+        }
+      }
+    }, { rootMargin: '-90px 0px -70% 0px' });
+    document.querySelectorAll('.prose h2[id]').forEach((h) => io.observe(h));
+  }
+</script>

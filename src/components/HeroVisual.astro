@@ -1,0 +1,177 @@
+---
+/**
+ * HeroVisual: "Shift handover".
+ * A typographic diagram of a PM morning, not a screenshot. The top shift (autopilot, in the background)
+ * lists the chores that leave the PM's plate, struck through, each with the skill that takes it.
+ * At 09:00 the shift is handed over. The bottom shift (you) lists what stays human.
+ * Facts: docs/en/00-manifest.md (what the framework does not promise), 07-operating-rhythm.md (before 09:00),
+ * skill names from src/data/skills.ts. Themes through the site's CSS variables.
+ */
+interface Props { lang?: 'en' | 'uk' }
+const { lang = 'en' } = Astro.props;
+
+const T = {
+  en: {
+    title: 'Shift handover: a PM morning',
+    tag: 'Diagram',
+    autoLabel: 'Autopilot · in the background',
+    autoNote: 'Off your plate',
+    auto: [
+      ['Re-read every chat channel', 'slack-collector'],
+      ['Sort the mail: whose turn is it', 'mac-mail-collector'],
+      ['Draft the replies', 'inbox-responder'],
+      ['Gather blockers for each team sync', 'daily-team-prep'],
+      ['Prep each client meeting', 'client-meeting-prep'],
+    ],
+    srDone: 'taken by the skill',
+    handoff: 'Handover. The analysis is waiting for you.',
+    youLabel: 'From 09:00 · You',
+    youNote: 'What stays human',
+    you: ['Pick the top 3 for the day', 'Decide priorities', 'Talk to the client, the hard parts too', 'Work with people'],
+    foot: 'Drafts, yes. Sending is always you.',
+  },
+  uk: {
+    title: 'Передача зміни: ранок ПМа',
+    tag: 'Схема',
+    autoLabel: 'Автопілот · у фоні',
+    autoNote: 'Знято з вас',
+    auto: [
+      ['Перечитати кожен чат-канал', 'slack-collector'],
+      ['Розібрати пошту: чия черга', 'mac-mail-collector'],
+      ['Написати драфти відповідей', 'inbox-responder'],
+      ['Зібрати блокери до кожного синку команди', 'daily-team-prep'],
+      ['Підготуватися до кожного мітингу з клієнтом', 'client-meeting-prep'],
+    ],
+    srDone: 'бере на себе скіл',
+    handoff: 'Передача зміни. Аналіз уже чекає на вас.',
+    youLabel: 'З 09:00 · Ви',
+    youNote: 'Що лишається людині',
+    you: ['Вибрати топ-3 на день', 'Вирішити пріоритети', 'Говорити з клієнтом, і про складне теж', 'Працювати з людьми'],
+    foot: 'Драфти так. Відправка завжди за вами.',
+  },
+}[lang];
+const id = `hv-${lang}`;
+---
+<figure class="hv" aria-labelledby={`${id}-t`}>
+  <div class="hv__head">
+    <span class="hv__logo" aria-hidden="true">🗼</span>
+    <span class="hv__title" id={`${id}-t`}>{T.title}</span>
+    <span class="hv__tag">{T.tag}</span>
+  </div>
+
+  <div class="hv__shift hv__shift--auto">
+    <p class="hv__label"><span class="hv__lane hv__lane--auto" aria-hidden="true"></span>{T.autoLabel}<span class="hv__note">{T.autoNote}</span></p>
+    <ul class="hv__list">
+      {T.auto.map(([chore, skill]) => (
+        <li class="hv__item hv__item--done">
+          <s>{chore}</s>
+          <span class="hv__skill"><span class="sr">{T.srDone}: </span><span aria-hidden="true">→ </span>{skill}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="hv__handoff">
+    <span class="hv__clock">09:00</span>
+    <span class="hv__handoff-text">{T.handoff}</span>
+  </div>
+
+  <div class="hv__shift hv__shift--you">
+    <p class="hv__label"><span class="hv__lane hv__lane--you" aria-hidden="true"></span>{T.youLabel}<span class="hv__note">{T.youNote}</span></p>
+    <ul class="hv__list">
+      {T.you.map((task) => <li class="hv__item hv__item--you">{task}</li>)}
+    </ul>
+  </div>
+
+  <figcaption class="hv__foot">{T.foot}</figcaption>
+</figure>
+
+<style>
+  .hv {
+    margin: 0;
+    min-width: 0;
+    border: 1px solid var(--line-strong);
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    font-family: var(--sans);
+    color: var(--text);
+  }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .hv__head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line-strong);
+    font-family: var(--mono); font-size: 12px; color: var(--text-3);
+  }
+  .hv__logo { font-size: 16px; line-height: 1; }
+  .hv__title { flex: 1; min-width: 0; letter-spacing: 0.04em; }
+  .hv__tag {
+    border: 1px dashed var(--line-button); padding: 3px 8px;
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3);
+  }
+
+  .hv__shift { position: relative; padding: 20px 22px 22px 46px; }
+  .hv__shift--auto {
+    /* Night shift: faint hatch, so it reads as "background work". */
+    background-image: repeating-linear-gradient(135deg, var(--grid-line) 0 1px, transparent 1px 9px);
+  }
+  .hv__shift::before {
+    content: ''; position: absolute; left: 24px; top: 0; bottom: 0; width: 0;
+  }
+  .hv__shift--auto::before { border-left: 2px dashed var(--accent); opacity: 0.7; }
+  .hv__shift--you::before { border-left: 2px solid var(--text); }
+
+  .hv__label {
+    margin: 0 0 12px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px;
+    font-family: var(--mono); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-2);
+  }
+  .hv__lane { display: none; }
+  .hv__note { letter-spacing: 0.04em; text-transform: none; color: var(--text-3); }
+  .hv__note::before { content: '/ '; color: var(--muted-sep); }
+
+  .hv__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .hv__item {
+    position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+    gap: 2px 16px; padding: 8px 0; border-top: 1px solid var(--line); font-size: 15px; line-height: 1.4;
+  }
+  .hv__item:first-child { border-top: 0; }
+  .hv__item::before {
+    content: ''; position: absolute; left: -21px; top: 19px; width: 7px; height: 7px; transform: translate(-50%, -50%);
+    background: var(--surface); border: 1.5px solid var(--accent);
+  }
+  .hv__item--done s {
+    color: var(--text-2);
+    text-decoration: line-through; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px;
+  }
+  .hv__skill { font-family: var(--mono); font-size: 12px; color: var(--text-3); white-space: nowrap; }
+  .hv__item--you { font-weight: 600; font-size: 16px; }
+  .hv__item--you::before { background: var(--text); border-color: var(--text); }
+
+  .hv__handoff {
+    display: flex; align-items: center; gap: 16px; padding: 14px 22px;
+    border-top: 1px solid var(--accent); border-bottom: 1px solid var(--accent);
+    background: var(--surface-warm);
+  }
+  .hv__clock {
+    font-family: var(--mono); font-weight: 500; font-size: 34px; line-height: 1; letter-spacing: -0.02em; color: var(--accent);
+  }
+  .hv__handoff-text { font-size: 15px; font-weight: 500; line-height: 1.4; }
+
+  .hv__foot {
+    padding: 12px 18px; border-top: 1px solid var(--line-strong);
+    font-family: var(--mono); font-size: 12px; color: var(--text-3);
+  }
+
+  @media (max-width: 480px) {
+    .hv__shift { padding: 16px 16px 18px 38px; }
+    .hv__shift::before { left: 18px; }
+    .hv__item::before { left: -19px; }
+    .hv__item { font-size: 14.5px; }
+    .hv__skill { white-space: normal; }
+    .hv__handoff { padding: 12px 16px; gap: 12px; }
+    .hv__clock { font-size: 28px; }
+    .hv__handoff-text { font-size: 14px; }
+    .hv__title { font-size: 11px; }
+  }
+</style>

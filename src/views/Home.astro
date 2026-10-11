@@ -1,0 +1,536 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+import NotionLogo from '../components/NotionLogo.astro';
+import GithubLogo from '../components/GithubLogo.astro';
+import HeroVisual from '../components/HeroVisual.astro';
+import { LINKS, VERSION, path, t, type Lang } from '../i18n/ui';
+import { SKILLS, GROUPS } from '../data/skills';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+
+const C = {
+  en: {
+  // 1. HERO
+  eyebrow: 'Open-source AI setup for project managers',
+  h1: 'Your meeting prep and reply drafts, ready before the day starts',
+  lead: 'Early each morning it reads your chats, mail, meetings and tracker. By 09:00 you have a report on yesterday and a draft for every message waiting on you. Each meeting prep arrives about 55 minutes before the call. You read, fix and send. Nothing goes to the client without you.',
+  chips: ['Free Notion template', 'Drafts only, you press send', 'Beta, used daily by its author', `MIT · v${VERSION}`],
+
+  // 2. BEFORE
+  problemH: 'Where the week of a delivery PM actually goes',
+  problemP: 'Numbers from the project this grew up on, before any automation. The real cost was not the hours. It was living in reaction mode, with no time left to think about risks or the client.',
+  problem: [
+    ['5+', 'chat channels to scroll every day, so nothing slips'],
+    ['3-4', 'client meetings a week, each to prepare and write up'],
+    ['50+', 'tickets to label, estimate and chase'],
+    ['2h+', 'a week spent only on weekly and monthly reports'],
+  ],
+
+  // 3. AFTER
+  dayEyebrow: 'After',
+  dayH: 'What the same day looks like now',
+  dayMore: 'Day, week and month in full',
+  day: [
+    ['Before 09:00', 'It runs without you', 'Chats and mail from yesterday are sorted by whose turn it is to answer. A daily report and reply drafts are waiting.'],
+    ['09:00 · 15-30 min', 'You read instead of digging', 'Read the report. Send, edit or park each draft. Pick 3 things for today.'],
+    ['Before each meeting', 'The prep is already there', 'About 55 minutes before the call: board movement, blockers, open questions, errors from the last 24 hours. You add your own notes.'],
+    ['During the day', 'Your head is free for decisions', 'Replies in 2-3 batches instead of all day long. A decision goes into the log as a sentence. A "small extra" from the client gets sorted before you agree to it.'],
+    ['End of day · 5 min', 'Close and leave', 'Mark what is done, empty the inbox, write a line about tomorrow. The analysis waits for the morning report.'],
+  ],
+
+  // 4. TIME BACK
+  timeEyebrow: 'Time back',
+  timeH: 'About a full working day a week, back',
+  timeP: 'Before and after, estimated on the author\'s own project in April 2026. Your numbers will depend on your tools and on how well your project file is filled in, so measure them on your own project.',
+  timeCols: ['Task', 'Before', 'After', 'Saved'],
+  time: [
+    ['Prep for the daily sync', '30 min', '3 min', 90],
+    ['Writing up a meeting', '45 min', '5 min', 89],
+    ['Weekly scan of the chats', '2 h', '10 min', 92],
+    ['Monthly client report', '4 h', '30 min', 88],
+    ['Cleaning up the board', '1 h', '5 min', 92],
+    ['Error and log scan, 7 services', '~2 days', '~15 min', 99],
+  ],
+
+  // 5. ON THE CALL
+  liveEyebrow: 'On the call',
+  liveH: 'A quiet hint when the client asks for "just a small extra"',
+  liveP: 'It listens to the call with you and stays silent until something matters: a new request, a date someone wants you to promise, a line that contradicts a recorded decision, an answer of yours that was off. Then a short hint and a ready phrase appear in a small window. Audio is transcribed on your Mac and never leaves it. After the call, the transcript and a wrap-up are in Notion. Needs an Apple Silicon Mac.',
+  liveMore: 'How the call co-pilot works',
+  liveHead: 'LIVE · Client status sync · 14:32',
+  liveClient: 'Client', liveYou: 'You',
+  liveL1: 'And could you also add an export to CSV? Should be quick, right?',
+  liveL2: 'Sure, I think we can squeeze it into this sprint.',
+  liveTag: 'Tip · new request', liveGist: 'New request. Do not agree now.', livePhrase: '"Good idea. I will write it down. We will check it and come back to you."',
+
+  // 6. HOW IT KNOWS YOUR PROJECT
+  ideaEyebrow: 'How it knows your project',
+  ideaH: 'Everything about your project sits in a short text file',
+  ideaP1: 'Who is on the team, which channels matter, which tracker you use and whether you have access to it, when the meetings are. All of it lives in a short file per project, the config. Every skill (a written recipe for a PM task, like a meeting prep) reads that file first, every time.',
+  ideaP2: 'Someone leaves the team or the client takes back an access? You change a line in that file, and every prep, report and draft works from the new reality on the next run. If a skill and the file disagree, the file wins.',
+  ideaMore: 'How the pieces fit',
+  demo: 'demo project',
+
+  // 7. HOW IT WORKS
+  flowH: 'How it works, in 5 steps',
+  flowMore: 'Full architecture',
+  flow: [
+    ['Collect', 'Nothing gets lost', 'It reads chats, mail, calendar, meetings, the tracker and error monitoring, through connectors (the links that let Claude read a tool) and files on your Mac.'],
+    ['Sort', 'You see whose turn it is', 'Every conversation lands in Notion with a status that says whose move it is: yours, theirs, or nobody\'s.'],
+    ['Prepare', 'The routine writing is done', 'Skills in Claude Cowork (the Claude desktop app that works with your files) write preps, reports, risk lists and reply drafts, all from your project file.'],
+    ['Remember', 'History you can search', 'Reports, decisions, risks and meeting notes stay in linked Notion databases. Last month is a search away.'],
+    ['Decide', 'You stay in charge', 'You send, decide and record. Drafts, yes. Sending to the client is always you.'],
+  ],
+
+  // 8. NOTION
+  notionEyebrow: 'The Notion template',
+  notionH: 'A Notion home for every project you run',
+  notionP: 'A free template with 11 linked databases. All your projects share it and never mix, because every record is tied to its project. It works by hand, with no AI at all. You can start there and add the automation later, or never.',
+  notionTour: 'See what is inside',
+  dbs: [
+    ['Inbox', 'drop it now, sort it later'],
+    ['Tasks Tracker', 'your tasks from every project, in a single list'],
+    ['Meetings', 'transcript, summary, action items'],
+    ['Threads', 'who owes whom a reply'],
+    ['Topics', 'subjects that run for weeks'],
+    ['Knowledge Base', 'how things work, where things are'],
+    ['Risks', 'risks, assumptions, issues, dependencies'],
+    ['Decisions', 'a sentence, a date, a source'],
+    ['Reports', 'every prep and report, kept'],
+    ['Projects', 'what everything else links to'],
+    ['Workspaces', 'company, client, personal'],
+  ],
+
+  // 9. SKILLS
+  skillsEyebrow: 'The skills',
+  skillsH: 'Ask the way you would ask a colleague',
+  skillsP: '"Prep me for the sync on Orbit" is enough, in English or Ukrainian. There are 22 skills. Start with 4, and add the next when a routine starts to hurt.',
+  skillsBtn: 'All 22 skills',
+  foundation: 'Holds your project files. Every other skill reads it first. There is exactly 1 in the system.',
+
+  // 10. RULES
+  rulesH: 'What it will never do on its own',
+  rulesMore: 'All 13 principles',
+  rules: [
+    ['Rule 0', 'Your project file wins', 'If a skill and the file disagree, the skill is out of date. Facts in the file carry an "as of" date.'],
+    ['02', 'It never guesses the project', 'No project named, it asks. Mixing up 2 clients is the worst thing it could do.'],
+    ['03', 'It never writes to the client', 'It prepares drafts. Whether to send is always your call.'],
+    ['04', 'It says what it could not see', 'A source was down or out of date? The report says so at the top. A report that looks complete when it is not is the real danger.'],
+  ],
+
+  // 11. NEW: LIMITS
+  limitsEyebrow: 'Before you try it',
+  limitsH: 'What it does not do',
+  limitsP: 'Better to hear it here than to find out on day 3.',
+  limits: [
+    ['It does not replace you', 'It takes away the repackaging, not the judgement. Priorities, hard conversations and people stay with you.'],
+    ['It is not plug and play', 'The basics take an evening. Fitting it to your project takes 2-4 weeks, about 15 minutes a day, mostly small edits to the project file.'],
+    ['It is beta', 'The author uses it every day. Nobody else has installed it yet. Expect rough edges, and please report them.'],
+    ['It does not do budgets or contracts', 'Budget burn, margin and contract milestones are not covered. Its strength is the flow of messages, meetings and reports.'],
+    ['It needs a Mac and Claude Max', 'Mail collection and the call co-pilot work only on a Mac. Claude Pro has not been tested.'],
+  ],
+
+  // 12. NEW: AUTHOR
+  authorEyebrow: 'Who made it',
+  authorH: 'Why it exists',
+  authorP: 'I am a delivery PM with 6+ years in software outsourcing. I built this over a year on my own client project, a routine at a time: each skill started when I caught myself asking Claude for the same thing again. I use it every day. It is free and MIT licensed, because other PMs have the same week I had.',
+
+  // 13. START
+  startEyebrow: 'Set it up yourself',
+  startH: 'An evening to start, a few weeks to fit',
+  startP: 'You need a Mac, a Claude Max plan and a Notion account. No Terminal for the basics: every prompt is written out for you. Slack, mail, Jira, the schedule and the call co-pilot come later, each on its own, when you miss it.',
+  startBtn: 'Set it up, step by step',
+  steps: [
+    ['Duplicate the Notion template', '11 linked databases with demo data you can delete later.', ''],
+    ['Install the plugin', 'Drag the plugin file (dist/pm-control-tower.plugin from the repo) into a Cowork chat and press Install.', ''],
+    ['Let Claude connect it to your Notion', 'It finds your database IDs itself.', 'customize the pm-control-tower plugin for me'],
+    ['Add your first project', 'Claude asks about your team, meetings and tools, then writes the project file.', 'set up a new project Orbit, case A'],
+    ['Try it', '', 'prepare me for the sync on Orbit'],
+  ],
+},
+  uk: {
+  // 1. HERO
+  eyebrow: 'Відкритий AI-інструмент для проєктних менеджерів',
+  h1: 'Підготовка до мітингів і драфти відповідей готові ще до початку дня',
+  lead: 'Щоранку він читає ваші чати, пошту, мітинги і трекер. О 09:00 на вас чекає звіт за вчора і драфт на кожне повідомлення, де відповідь за вами. Підготовка до мітингу зʼявляється десь за 55 хвилин до дзвінка. Ви читаєте, правите і надсилаєте. Без вас клієнту не йде нічого.',
+  chips: ['Безкоштовний шаблон Notion', 'Лише драфти, надсилаєте ви', 'Бета, автор користується щодня', `MIT · v${VERSION}`],
+
+  // 2. ДО
+  problemH: 'Куди насправді йде тиждень ПМа на проєкті',
+  problemP: 'Цифри з проєкту, на якому все це виросло, до будь-якої автоматизації. Найдорожче коштували не години. Найдорожче коштував режим реакції, коли на ризики й клієнта вже не лишається голови.',
+  problem: [
+    ['5+', 'чат-каналів, які гортаєте щодня, щоб нічого не проґавити'],
+    ['3-4', 'клієнтські мітинги на тиждень, кожен треба підготувати й задокументувати'],
+    ['50+', 'тікетів: лейбли, оцінки, нагадування'],
+    ['2 год+', 'на тиждень лише на тижневі й місячні звіти'],
+  ],
+
+  // 3. ПІСЛЯ
+  dayEyebrow: 'Після',
+  dayH: 'Який вигляд той самий день має тепер',
+  dayMore: 'Повний ритм: день, тиждень, місяць',
+  day: [
+    ['До 09:00', 'Працює без вас', 'Вчорашні чати й пошта розкладені за тим, чия черга відповідати. Щоденний звіт і драфти відповідей уже чекають.'],
+    ['09:00 · 15-30 хв', 'Читаєте, а не розкопуєте', 'Прочитати звіт. Кожен драфт надіслати, поправити або відкласти. Вибрати 3 справи на сьогодні.'],
+    ['Перед кожним мітингом', 'Підготовка вже є', 'Десь за 55 хвилин до дзвінка: рух на борді, блокери, відкриті питання, помилки за 24 години. Ви дописуєте свої нотатки.'],
+    ['Протягом дня', 'Голова вільна для рішень', 'Відповідаєте 2-3 пачками, а не цілий день. Рішення йде в лог коротким реченням. Клієнтську "дрібничку" спершу розбираєте, а вже потім погоджуєте.'],
+    ['Кінець дня · 5 хв', 'Закрили й пішли', 'Готове в Done, Inbox порожній, рядок про завтра. Аналіз почекає ранкового звіту.'],
+  ],
+
+  // 4. ПОВЕРНЕНИЙ ЧАС
+  timeEyebrow: 'Повернений час',
+  timeH: 'Приблизно повний робочий день на тиждень',
+  timeP: 'Оцінка до і після на проєкті автора, квітень 2026. Ваші цифри залежатимуть від інструментів і від того, наскільки повно заповнений файл проєкту, тож поміряйте їх у себе.',
+  timeCols: ['Задача', 'До', 'Після', 'Економія'],
+  time: [
+    ['Підготовка до дейлі', '30 хв', '3 хв', 90],
+    ['Документування мітингу', '45 хв', '5 хв', 89],
+    ['Тижневий перегляд чатів', '2 год', '10 хв', 92],
+    ['Місячний звіт клієнту', '4 год', '30 хв', 88],
+    ['Навести лад на борді', '1 год', '5 хв', 92],
+    ['Скан помилок і логів, 7 сервісів', '~2 дні', '~15 хв', 99],
+  ],
+
+  // 5. НА ДЗВІНКУ
+  liveEyebrow: 'На дзвінку',
+  liveH: 'Тиха підказка, коли клієнт просить "ще дрібничку"',
+  liveP: 'Він слухає дзвінок разом з вами і мовчить, доки не трапиться щось важливе: нова вимога, дата, яку від вас хочуть почути, суперечність записаному рішенню, ваша неточна відповідь. Тоді в маленькому вікні зʼявляється коротка підказка і готова фраза. Звук розпізнається на вашому Маку і нікуди не йде. Після дзвінка в Notion уже лежать транскрипт і підсумок. Потрібен Мак на Apple Silicon.',
+  liveMore: 'Як працює підказувач на дзвінку',
+  liveHead: 'LIVE · Статус-синк з клієнтом · 14:32',
+  liveClient: 'Клієнт', liveYou: 'Ви',
+  liveL1: 'And could you also add an export to CSV? Should be quick, right?',
+  liveL2: 'Sure, I think we can squeeze it into this sprint.',
+  liveTag: 'Підказка · нова вимога', liveGist: 'Нова вимога. Не погоджуй зараз.', livePhrase: '"Good idea. I will write it down. We will check it and come back to you."',
+
+  // 6. ЯК ВІН ЗНАЄ ВАШ ПРОЄКТ
+  ideaEyebrow: 'Як він знає ваш проєкт',
+  ideaH: 'Усе про проєкт лежить у короткому текстовому файлі',
+  ideaP1: 'Хто в команді, які канали важливі, який трекер і чи є до нього доступ, коли мітинги. Усе це в короткому файлі на кожен проєкт, його називають конфігом. Кожен скіл (записаний рецепт під конкретну задачу ПМа, наприклад підготовку до мітингу) читає цей файл першим, щоразу.',
+  ideaP2: 'Хтось пішов з команди чи клієнт забрав доступ? Правите рядок у файлі, і з наступного запуску всі підготовки, звіти й драфти працюють з новою реальністю. Якщо скіл і файл кажуть різне, правий файл.',
+  ideaMore: 'Як усе складається докупи',
+  demo: 'демо-проєкт',
+
+  // 7. ЯК ЦЕ ПРАЦЮЄ
+  flowH: 'Як це працює, за 5 кроків',
+  flowMore: 'Повна архітектура',
+  flow: [
+    ['Збір', 'Нічого не губиться', 'Читає чати, пошту, календар, мітинги, трекер і моніторинг помилок. Через конектори (так Claude підключається до сервісу) і файли на вашому Маку.'],
+    ['Сортування', 'Видно, чия черга', 'Кожна розмова потрапляє в Notion зі статусом, який каже, чий хід: ваш, їхній чи вже нічий.'],
+    ['Підготовка', 'Рутинне писання вже зроблене', 'Скіли в Claude Cowork (десктопний Claude, який працює з вашими файлами) пишуть підготовки, звіти, списки ризиків і драфти відповідей, усе за файлом проєкту.'],
+    ['Памʼять', 'Історія, в якій можна шукати', 'Звіти, рішення, ризики й нотатки мітингів лишаються в повʼязаних базах Notion. Минулий місяць знаходиться пошуком.'],
+    ['Рішення', 'Керуєте ви', 'Надсилаєте, вирішуєте і записуєте ви. Драфти так, відправка клієнту завжди за вами.'],
+  ],
+
+  // 8. NOTION
+  notionEyebrow: 'Шаблон Notion',
+  notionH: 'Дім у Notion для всіх ваших проєктів',
+  notionP: 'Безкоштовний шаблон з 11 повʼязаних баз. Усі проєкти живуть у ньому разом і не змішуються, бо кожен запис привʼязаний до свого проєкту. Працює і вручну, зовсім без AI. Можна почати з нього, а автоматизацію додати потім. Або взагалі не додавати.',
+  notionTour: 'Що всередині',
+  dbs: [
+    ['Inbox', 'кинути зараз, розібрати потім'],
+    ['Tasks Tracker', 'ваші задачі з усіх проєктів у спільному списку'],
+    ['Meetings', 'транскрипт, підсумок, action items'],
+    ['Threads', 'хто кому винен відповідь'],
+    ['Topics', 'теми, що тягнуться тижнями'],
+    ['Knowledge Base', 'як усе влаштовано і де що лежить'],
+    ['Risks', 'ризики, припущення, проблеми, залежності'],
+    ['Decisions', 'речення, дата, джерело'],
+    ['Reports', 'кожна підготовка і кожен звіт, збережені'],
+    ['Projects', 'до чого привʼязане все інше'],
+    ['Workspaces', 'компанія, клієнт, особисте'],
+  ],
+
+  // 9. СКІЛИ
+  skillsEyebrow: 'Скіли',
+  skillsH: 'Просіть так, як попросили б колегу',
+  skillsP: '"Підготуй мене до синку по Orbit" цілком достатньо, українською чи англійською. Скілів 22. Почніть з 4, а наступний додавайте, коли якась рутина почне муляти.',
+  skillsBtn: 'Усі 22 скіли',
+  foundation: 'Зберігає файли ваших проєктів. Кожен інший скіл читає його першим. У системі має бути рівно 1.',
+
+  // 10. ПРАВИЛА
+  rulesH: 'Чого він ніколи не зробить сам',
+  rulesMore: 'Усі 13 принципів',
+  rules: [
+    ['Правило 0', 'Файл проєкту головніший', 'Якщо скіл і файл кажуть різне, застарів скіл. Факти у файлі мають дату "станом на".'],
+    ['02', 'Ніколи не вгадує проєкт', 'Проєкт не названо, він питає. Переплутати 2 клієнтів це найгірше, що може статися.'],
+    ['03', 'Ніколи не пише клієнту сам', 'Він готує драфти. Надсилати чи ні, вирішуєте ви.'],
+    ['04', 'Каже, чого не побачив', 'Джерело впало чи застаріло? Звіт пише про це зверху. Найнебезпечніше, коли звіт виглядає повним, а насправді ні.'],
+  ],
+
+  // 11. НОВА: МЕЖІ
+  limitsEyebrow: 'Перш ніж пробувати',
+  limitsH: 'Чого він не робить',
+  limitsP: 'Краще почути це тут, ніж зрозуміти на 3-й день.',
+  limits: [
+    ['Не замінює вас', 'Він забирає перепаковування інформації, а не судження. Пріоритети, складні розмови і люди лишаються за вами.'],
+    ['Не запрацює з коробки', 'Основа займає вечір. Підлаштувати під свій проєкт це 2-4 тижні, десь по 15 хвилин на день, здебільшого дрібні правки у файлі проєкту.'],
+    ['Це бета', 'Автор користується щодня. Більше ніхто ще не встановлював. Шорсткості будуть, і про них варто написати.'],
+    ['Не про бюджет і контракти', 'Спалювання бюджету, маржа і контрактні віхи не покриті. Його сильна сторона це потік повідомлень, мітингів і звітів.'],
+    ['Потрібні Мак і Claude Max', 'Збір пошти і підказувач на дзвінку працюють лише на Маку. На Claude Pro не тестували.'],
+  ],
+
+  // 12. НОВА: АВТОР
+  authorEyebrow: 'Хто це зробив',
+  authorH: 'Навіщо це існує',
+  authorP: 'Я delivery-ПМ, 6+ років в аутсорс-розробці. Будував це рік на своєму клієнтському проєкті, рутину за рутиною: кожен скіл зʼявлявся, коли я ловив себе на тому, що вкотре прошу Claude про те саме. Користуюсь щодня. Це безкоштовно і під ліцензією MIT, бо в інших ПМів такий самий тиждень, який був у мене.',
+
+  // 13. СТАРТ
+  startEyebrow: 'Як розгорнути в себе',
+  startH: 'Вечір на старт, кілька тижнів на притирку',
+  startP: 'Потрібні Мак, підписка Claude Max і акаунт Notion. Для основи Terminal не знадобиться: кожен промпт уже написаний. Slack, пошта, Jira, розклад і підказувач на дзвінку потім, кожне окремо і тоді, коли справді забракне.',
+  startBtn: 'Розгорнути крок за кроком',
+  steps: [
+    ['Дублюйте шаблон Notion', '11 повʼязаних баз з демо-даними, які потім можна видалити.', ''],
+    ['Встановіть плагін', 'Перетягніть файл плагіна (dist/pm-control-tower.plugin з репозиторію) у чат Cowork і натисніть Install.', ''],
+    ['Дайте Claude підключити ваш Notion', 'ID баз він знайде сам.', 'customize the pm-control-tower plugin for me'],
+    ['Додайте перший проєкт', 'Claude розпитає про команду, мітинги й інструменти і сам напише файл проєкту.', 'заведи новий проєкт Orbit, case A'],
+    ['Спробуйте', '', 'підготуй мене до синку по Orbit'],
+  ],
+},
+}[lang];
+
+const groups = Object.keys(GROUPS).filter((g) => g !== 'found');
+---
+<Base>
+  <!-- 1. HERO: what changes for you -->
+  <section class="wrap" style="padding-top: 88px; padding-bottom: 88px;">
+    <div class="split">
+      <div class="stack" style="gap: 28px; flex-basis: 520px;">
+        <p class="eyebrow eyebrow--muted">{C.eyebrow}</p>
+        <h1 class="h1 h1--hero">{C.h1}</h1>
+        <p class="lead" style="font-size: 19px; max-width: 580px;">{C.lead}</p>
+        <div class="btns">
+          <a class="btn btn--primary" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
+          <a class="btn btn--primary" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
+          <a class="btn" href={path(lang, 'start')}>{t(lang, 'cta.setup')} <Arrow /></a>
+        </div>
+        <ul class="chips">{C.chips.map((c) => <li>{c}</li>)}</ul>
+      </div>
+      <div style="min-width: 0;"><HeroVisual lang={lang} /></div>
+    </div>
+  </section>
+
+  <!-- 2. BEFORE -->
+  <section class="band" aria-labelledby="problem-h">
+    <div class="wrap section--tight">
+      <div class="head-row">
+        <h2 id="problem-h" class="h2 h2--sm" style="max-width: 660px;">{C.problemH}</h2>
+        <p class="muted" style="margin: 0; max-width: 420px; line-height: 1.6;">{C.problemP}</p>
+      </div>
+      <div class="grid grid--seams" style="--min: 220px;">
+        {C.problem.map(([n, s]) => <div class="stat"><b>{n}</b><span>{s}</span></div>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. AFTER: the same day now -->
+  <section class="wrap section" aria-labelledby="day-h">
+    <div class="head-row">
+      <div class="stack" style="gap: 16px; max-width: 720px;">
+        <p class="eyebrow">{C.dayEyebrow}</p>
+        <h2 id="day-h" class="h2">{C.dayH}</h2>
+      </div>
+      <a class="more" href={path(lang, 'day')}>{C.dayMore} <Arrow /></a>
+    </div>
+    <ol class="timeline">
+      {C.day.map(([when, title, text]) => <li><code>{when.toUpperCase()}</code><b>{title}</b><span>{text}</span></li>)}
+    </ol>
+  </section>
+
+  <!-- 4. TIME BACK -->
+  <section class="band" aria-labelledby="time-h">
+    <div class="wrap section split" style="align-items: flex-start;">
+      <div class="stack" style="flex-basis: 340px;">
+        <p class="eyebrow">{C.timeEyebrow}</p>
+        <h2 id="time-h" class="h2">{C.timeH}</h2>
+        <p class="muted" style="margin: 0; line-height: 1.65;">{C.timeP}</p>
+      </div>
+      <div class="table-box" style="flex-basis: 560px;">
+        <table class="table">
+          <thead><tr>{C.timeCols.map((c, i) => <th scope="col" style={i === 3 ? 'width: 34%' : undefined}>{c}</th>)}</tr></thead>
+          <tbody>
+            {C.time.map(([task, before, after, pct]) => (
+              <tr><td>{task}</td><td class="muted">{before}</td><td>{after}</td><td><div class="bar"><span style={`width:${pct}%`}></span><code>{pct === 99 ? '~99' : pct}%</code></div></td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ON THE CALL -->
+  <section class="wrap section split" aria-labelledby="live-h">
+    <div class="card" style="padding: 0; gap: 0;">
+      <div class="label" style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line-strong); letter-spacing: 0.06em;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent);" aria-hidden="true"></span>{C.liveHead}</div>
+      <div style="padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; line-height: 1.55;" class="muted">
+        <p style="margin: 0;"><b style="color: var(--text); font-weight: 500;">{C.liveClient}:</b> <span lang="en">{C.liveL1}</span></p>
+        <p style="margin: 0;"><b style="color: var(--text); font-weight: 500;">{C.liveYou}:</b> <span lang="en">{C.liveL2}</span></p>
+      </div>
+      <div class="tip" style="margin: 0 20px 22px;">
+        <span class="card__tag" style="font-size: 11px;">{C.liveTag}</span>
+        <b>{C.liveGist}</b>
+        <span lang="en">{C.livePhrase}</span>
+      </div>
+    </div>
+    <div class="stack">
+      <p class="eyebrow">{C.liveEyebrow}</p>
+      <h2 id="live-h" class="h2">{C.liveH}</h2>
+      <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.liveP}</p>
+      <a class="more" href={path(lang, 'live-tips')}>{C.liveMore} <Arrow /></a>
+    </div>
+  </section>
+
+  <!-- 6. HOW IT KNOWS YOUR PROJECT -->
+  <section class="band" aria-labelledby="idea-h">
+    <div class="wrap section split">
+      <div class="stack">
+        <p class="eyebrow">{C.ideaEyebrow}</p>
+        <h2 id="idea-h" class="h2">{C.ideaH}</h2>
+        <p class="muted" style="margin: 0; font-size: 18px; line-height: 1.65;">{C.ideaP1}</p>
+        <p class="muted" style="margin: 0; font-size: 18px; line-height: 1.65;">{C.ideaP2}</p>
+        <a class="more" href={path(lang, 'how-it-works')}>{C.ideaMore} <Arrow /></a>
+      </div>
+      <figure class="codefig">
+        <figcaption><span>projects/orbit.md</span><span>{C.demo}</span></figcaption>
+<pre><span class="c-dim"># Orbit SaaS Launch</span>
+status: <span class="c-ok">active</span>
+team:
+  pm: Alex
+  devs: [Mira, Tomas, Lena]
+slack:
+  channels: [orbit-dev, orbit-client]
+task_tracker:
+  type: jira
+  api_access: <span class="c-warn">false</span>
+  fallback_source: mail_buffer
+meetings:
+  internal_sync: Mon/Wed/Fri 12:00
+  client_status: Thu 16:00
+<span class="c-dim"># as of 2026-10-11</span></pre>
+      </figure>
+    </div>
+  </section>
+
+  <!-- 7. HOW IT WORKS -->
+  <section class="wrap section" aria-labelledby="flow-h">
+    <div class="head-row">
+      <h2 id="flow-h" class="h2 h2--sm">{C.flowH}</h2>
+      <a class="more" href={path(lang, 'how-it-works')}>{C.flowMore} <Arrow /></a>
+    </div>
+    <ol class="grid" style="--min: 200px; list-style: none; margin: 0; padding: 0;">
+      {C.flow.map(([tag, title, text], i) => (
+        <li class={`card ${i === C.flow.length - 1 ? 'card--accent' : ''}`}>
+          <span class="card__tag">0{i + 1} {tag}</span>
+          <h3 class="card__title">{title}</h3>
+          <p class="card__text">{text}</p>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- 8. NOTION -->
+  <section class="band" aria-labelledby="notion-h">
+    <div class="wrap section split">
+      <div class="stack" style="flex-basis: 400px;">
+        <p class="eyebrow">{C.notionEyebrow}</p>
+        <h2 id="notion-h" class="h2">{C.notionH}</h2>
+        <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.notionP}</p>
+        <div class="btns">
+          <a class="btn btn--primary" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
+          <a class="btn" href={path(lang, 'notion')}>{C.notionTour}</a>
+        </div>
+      </div>
+      <ul class="grid" style="--min: 160px; list-style: none; margin: 0; padding: 0; flex-basis: 540px; gap: 10px;">
+        {C.dbs.map(([name, note]) => (
+          <li class="card" style="padding: 16px 18px; gap: 4px;"><b>{name}</b><span class="db-note">{note}</span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- 9. SKILLS -->
+  <section class="wrap section" aria-labelledby="skills-h">
+    <div class="head-row">
+      <div class="stack" style="gap: 16px; max-width: 680px;">
+        <p class="eyebrow">{C.skillsEyebrow}</p>
+        <h2 id="skills-h" class="h2">{C.skillsH}</h2>
+        <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.6;">{C.skillsP}</p>
+      </div>
+      <a class="btn" href={path(lang, 'skills')}>{C.skillsBtn} <Arrow /></a>
+    </div>
+    <div class="grid">
+      {groups.map((g) => (
+        <a class="card" href={`${path(lang, 'skills')}#${g}`}>
+          <h3 class="card__title">{GROUPS[g][lang]}</h3>
+          <code class="list" set:html={SKILLS.filter((s) => s.group === g).map((s) => s.name).join('<br>')} />
+        </a>
+      ))}
+      <a class="card card--accent" href={`${path(lang, 'skills')}#found`}>
+        <h3 class="card__title">{GROUPS.found[lang]}</h3>
+        <code class="list">projects</code>
+        <p class="card__text">{C.foundation}</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- 10. RULES -->
+  <section class="band" aria-labelledby="rules-h">
+    <div class="wrap section">
+      <div class="head-row">
+        <h2 id="rules-h" class="h2 h2--sm" style="max-width: 640px;">{C.rulesH}</h2>
+        <a class="more" href={path(lang, 'principles')}>{C.rulesMore} <Arrow /></a>
+      </div>
+      <div class="grid grid--seams">
+        {C.rules.map(([tag, title, text]) => (
+          <div class="card card--flat"><span class="card__tag">{tag}</span><h3 class="card__title" style="font-size: 19px;">{title}</h3><p class="card__text">{text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. LIMITS -->
+  <section class="wrap section" aria-labelledby="limits-h">
+    <div class="head-row">
+      <div class="stack" style="gap: 12px; max-width: 660px;">
+        <p class="eyebrow">{C.limitsEyebrow}</p>
+        <h2 id="limits-h" class="h2 h2--sm">{C.limitsH}</h2>
+      </div>
+      <p class="muted" style="margin: 0; max-width: 400px; line-height: 1.6;">{C.limitsP}</p>
+    </div>
+    <div class="grid grid--seams" style="--min: 200px;">
+      {C.limits.map(([title, text]) => (
+        <div class="card card--flat"><h3 class="card__title" style="font-size: 19px;">{title}</h3><p class="card__text">{text}</p></div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 12. AUTHOR -->
+  <section class="band" aria-labelledby="author-h">
+    <div class="wrap section--tight">
+      <div class="stack" style="max-width: 760px;">
+        <p class="eyebrow">{C.authorEyebrow}</p>
+        <h2 id="author-h" class="h2 h2--sm">{C.authorH}</h2>
+        <p class="muted" style="margin: 0; font-size: 18px; line-height: 1.65;">{C.authorP}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13. START -->
+  <section id="start" aria-labelledby="start-h" style="border-top: 1px solid var(--line); background: var(--surface);">
+    <div class="wrap section split" style="align-items: flex-start;">
+      <div class="stack" style="flex-basis: 360px;">
+        <p class="eyebrow">{C.startEyebrow}</p>
+        <h2 id="start-h" class="h2">{C.startH}</h2>
+        <p class="muted" style="margin: 0; line-height: 1.65;">{C.startP}</p>
+        <div class="btns"><a class="btn btn--primary" href={path(lang, 'start')}>{C.startBtn} <Arrow /></a></div>
+      </div>
+      <ol class="steps" style="flex-basis: 560px;">
+        {C.steps.map(([title, text, prompt]) => (
+          <li><div style="min-width: 0; flex: 1;"><b>{title}</b>{text && <p>{text}</p>}{prompt && <code class="prompt">{prompt}</code>}</div></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</Base>

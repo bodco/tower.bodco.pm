@@ -1,0 +1,10 @@
+---
+import FeaturePage from '../../views/FeaturePage.astro';
+import { PAGES } from '../../i18n/ui';
+
+export function getStaticPaths() {
+  return PAGES.filter((p) => p.slug !== 'skills').map((p) => ({ params: { slug: p.slug } }));
+}
+const { slug } = Astro.params;
+---
+<FeaturePage lang="uk" slug={slug!} />

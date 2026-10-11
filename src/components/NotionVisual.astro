@@ -1,0 +1,294 @@
+---
+/**
+ * NotionVisual: honest schematics for the /notion page, replacing the marketing composites.
+ * variant="hub"   scattered context -> one hub of 11 databases, separated by Project/Workspace relations
+ * variant="page"  a blueprint of the Control Tower page, top to bottom (order = your morning)
+ * variant="ball"  thread statuses as "where the ball is"
+ * Facts: docs/en/02-notion-control-tower.md, docs/en/00-manifest.md, the current /notion page.
+ * Pure HTML/CSS, themes through the site's CSS variables. Every visible string in EN and UK.
+ */
+interface Props {
+  lang?: 'en' | 'uk';
+  variant?: 'hub' | 'page' | 'ball';
+  /** page variant only: which block is highlighted */
+  highlight?: 'focus' | 'reports' | 'howto';
+}
+const { lang = 'en', variant = 'hub', highlight = 'focus' } = Astro.props;
+
+const DBS = ['Inbox', 'Tasks Tracker', 'Meetings', 'Threads', 'Topics', 'Knowledge Base', 'Risks', 'Decisions', 'Reports', 'Projects', 'Workspaces'];
+
+const T = {
+  en: {
+    tag: 'Schematic',
+    hub: {
+      title: 'Where project context lives',
+      before: 'Before: smeared across',
+      scattered: ['chats', 'mailboxes', 'call transcripts', 'the tracker', "people's heads"],
+      after: 'After: one hub, 11 linked databases',
+      rel: 'Every record carries',
+      filter: 'One filter, one project. Never mixed.',
+      demo: 'demo names',
+      sr: 'Diagram: context scattered across chats, mailboxes, call transcripts, the tracker and people\'s heads is gathered into one Notion hub of 11 linked databases. Every record carries a Project and a Workspace relation, so a filter shows one project.',
+    },
+    page: {
+      title: 'The Control Tower page, top to bottom',
+      side: 'Top to bottom is the order of your morning',
+      start: 'Start here',
+      blocks: {
+        focus: ['Focus desk', 'My day: the next task, replies, risks, fresh reports. A second tab: Overdue.', ['Do next', 'Reply & follow up', 'Risks needing attention', 'Recent reports']],
+        capture: ['Quick capture', 'A thought in one line, routed later.', ['Inbox', 'Meetings', 'Decisions']],
+        grid: ['11 databases', 'The full databases, for a deep dive.', []],
+        tasks: ['Today / This Week', 'The task board: today, this week, next week, past week.', []],
+        threads: ['Awaiting Reply', 'Threads by channel and a chart by status.', []],
+        reports: ['Reports and project health', 'What the skills produced and what is slipping.', ['Latest reports', 'Task health', 'Overdue tasks', 'Open risks']],
+        howto: ['How to use', 'For anyone new: the workflow, the rules, getting started.', []],
+      },
+      sr: 'Schematic of the Control Tower page in Notion, from top to bottom: Focus desk, Quick capture, the grid of 11 databases, Today / This Week, Awaiting Reply, Reports and project health, How to use.',
+    },
+    ball: {
+      title: 'Thread status = where the ball is',
+      you: 'You', them: 'Them',
+      rows: [
+        ['Awaiting Reply', 'Your move', 'you'],
+        ['Need Follow-up', 'Their move, time to nudge', 'them'],
+        ['Replied', 'You answered, nobody confirmed yet', 'over'],
+        ['AI Review', 'The rules could not decide, a human looks', 'net'],
+        ['Spectator Mode', 'No ask to you, kept for context', 'none'],
+        ['Closed', 'Result confirmed by the other side', 'done'],
+      ],
+      foot: 'Collectors set the status on every pass, from the actual replies.',
+      pos: { you: 'ball on your side', them: 'ball on their side', over: 'ball just sent to their side', net: 'ball on the net', none: 'no ball', done: 'rally finished' },
+    },
+  },
+  uk: {
+    tag: 'Схема',
+    hub: {
+      title: 'Де живе контекст проєкту',
+      before: 'До: розмазаний по',
+      scattered: ['чатах', 'поштових скриньках', 'транскриптах дзвінків', 'трекері', 'головах людей'],
+      after: 'Після: один хаб, 11 повʼязаних баз',
+      rel: 'Кожен запис має',
+      filter: 'Один фільтр, один проєкт. Без змішування.',
+      demo: 'демо-назви',
+      sr: 'Схема: контекст, розкиданий по чатах, поштових скриньках, транскриптах дзвінків, трекеру і головах людей, збирається в один Notion-хаб з 11 повʼязаних баз. Кожен запис має relation Project і Workspace, тож фільтр показує один проєкт.',
+    },
+    page: {
+      title: 'Сторінка Control Tower, згори донизу',
+      side: 'Порядок згори донизу це порядок вашого ранку',
+      start: 'Почніть тут',
+      blocks: {
+        focus: ['Focus desk', 'My day: наступна задача, відповіді, ризики, свіжі звіти. Друга вкладка: Overdue.', ['Do next', 'Reply & follow up', 'Risks needing attention', 'Recent reports']],
+        capture: ['Quick capture', 'Думка одним рядком, розкласти потім.', ['Inbox', 'Meetings', 'Decisions']],
+        grid: ['11 баз', 'Повні бази, щоб зануритися глибше.', []],
+        tasks: ['Today / This Week', 'Дошка задач: сьогодні, цей тиждень, наступний, минулий.', []],
+        threads: ['Awaiting Reply', 'Треди за каналами і графік за статусами.', []],
+        reports: ['Reports and project health', 'Що зробили скіли і що вислизає.', ['Latest reports', 'Task health', 'Overdue tasks', 'Open risks']],
+        howto: ['How to use', 'Для новачків: робочий процес, правила, як почати.', []],
+      },
+      sr: 'Схема сторінки Control Tower у Notion згори донизу: Focus desk, Quick capture, сітка з 11 баз, Today / This Week, Awaiting Reply, Reports and project health, How to use.',
+    },
+    ball: {
+      title: 'Статус треду = на чиєму боці мʼяч',
+      you: 'Ви', them: 'Вони',
+      rows: [
+        ['Awaiting Reply', 'Ваш хід', 'you'],
+        ['Need Follow-up', 'Їхній хід, час нагадати', 'them'],
+        ['Replied', 'Ви відповіли, ніхто ще не підтвердив', 'over'],
+        ['AI Review', 'Правила не змогли вирішити, дивиться людина', 'net'],
+        ['Spectator Mode', 'До вас немає прохання, лишається для контексту', 'none'],
+        ['Closed', 'Інша сторона підтвердила результат', 'done'],
+      ],
+      foot: 'Колектори ставлять статус на кожному проході, за реальними відповідями.',
+      pos: { you: 'мʼяч на вашому боці', them: 'мʼяч на їхньому боці', over: 'мʼяч щойно відправлено на їхній бік', net: 'мʼяч на сітці', none: 'мʼяча немає', done: 'розіграш завершено' },
+    },
+  },
+}[lang];
+
+const order = ['focus', 'capture', 'grid', 'tasks', 'threads', 'reports', 'howto'] as const;
+---
+{variant === 'hub' && (
+  <figure class="nv nv--hub" role="img" aria-label={T.hub.sr}>
+    <div class="nv__head" aria-hidden="true"><span>🗼</span><span class="nv__title">{T.hub.title}</span><span class="nv__tag">{T.tag}</span></div>
+    <div class="hub" aria-hidden="true">
+      <div class="hub__before">
+        <p class="nv__label">{T.hub.before}</p>
+        <ul class="hub__scatter">{T.hub.scattered.map((s, i) => <li style={`--i:${i}`}>{s}</li>)}</ul>
+      </div>
+      <div class="hub__arrow"><svg viewBox="0 0 48 24" width="48" height="24"><path d="M2 12h40M34 4l8 8-8 8" fill="none" stroke="currentColor" stroke-width="2" /></svg></div>
+      <div class="hub__after">
+        <p class="nv__label">{T.hub.after}</p>
+        <ol class="hub__dbs">{DBS.map((d) => <li class={d === 'Projects' || d === 'Workspaces' ? 'is-anchor' : ''}>{d}</li>)}</ol>
+        <div class="hub__rel">
+          <span class="hub__rel-k">{T.hub.rel}</span>
+          <span class="hub__pill is-on">Project: Orbit SaaS Launch</span>
+          <span class="hub__pill">Workspace: Northwind Studio</span>
+        </div>
+        <p class="hub__filter">{T.hub.filter} <span class="nv__demo">({T.hub.demo})</span></p>
+      </div>
+    </div>
+  </figure>
+)}
+
+{variant === 'page' && (
+  <figure class="nv nv--page" role="img" aria-label={T.page.sr}>
+    <div class="nv__head" aria-hidden="true"><span>🗼</span><span class="nv__title">{T.page.title}</span><span class="nv__tag">{T.tag}</span></div>
+    <div class="bp" aria-hidden="true">
+      <div class="bp__side"><span>{T.page.side}</span></div>
+      <ol class="bp__blocks">
+        {order.map((k, i) => {
+          const [name, what, cells] = T.page.blocks[k] as [string, string, string[]];
+          const on = k === highlight;
+          return (
+            <li class={`bp__b bp__b--${k} ${on ? 'is-on' : ''}`}>
+              <span class="bp__n">{String(i + 1).padStart(2, '0')}</span>
+              <div class="bp__body">
+                <div class="bp__name">{name}{on && k === 'focus' && <em class="bp__start">{T.page.start}</em>}</div>
+                <div class="bp__what">{what}</div>
+                {cells.length > 0 && <div class={`bp__cells bp__cells--${cells.length}`}>{cells.map((c) => <span>{c}</span>)}</div>}
+                {k === 'grid' && <div class="bp__grid">{DBS.map((d) => <span>{d}</span>)}</div>}
+                {k === 'tasks' && <div class="bp__board"><span></span><span></span><span></span><span></span></div>}
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+    </div>
+  </figure>
+)}
+
+{variant === 'ball' && (
+  <figure class="nv nv--ball" aria-labelledby={`nv-ball-${lang}`}>
+    <div class="nv__head"><span aria-hidden="true">🗼</span><span class="nv__title" id={`nv-ball-${lang}`}>{T.ball.title}</span><span class="nv__tag">{T.tag}</span></div>
+    <div class="court-key" aria-hidden="true"><span>{T.ball.you}</span><span class="court-key__net"></span><span>{T.ball.them}</span></div>
+    <ul class="court">
+      {T.ball.rows.map(([name, meaning, pos]) => (
+        <li class={`court__row is-${pos}`}>
+          <div class="court__text"><b>{name}</b><span>{meaning}</span></div>
+          <div class="court__track" role="img" aria-label={(T.ball.pos as Record<string, string>)[pos]}>
+            <span class="court__half"></span><span class="court__net"></span><span class="court__half"></span>
+            <span class="court__ball">{pos === 'net' ? '?' : pos === 'done' ? '✓' : ''}</span>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <figcaption class="nv__foot">{T.ball.foot}</figcaption>
+  </figure>
+)}
+
+<style>
+  .nv {
+    margin: 2em 0 0; min-width: 0;
+    border: 1px solid var(--line-strong); background: var(--surface);
+    font-family: var(--sans); color: var(--text); line-height: 1.45;
+  }
+  .nv li { margin: 0; }
+  .nv__head {
+    display: flex; align-items: center; gap: 10px; padding: 12px 18px;
+    border-bottom: 1px solid var(--line-strong);
+    font-family: var(--mono); font-size: 12px; color: var(--text-3);
+  }
+  .nv__title { flex: 1; min-width: 0; letter-spacing: 0.04em; }
+  .nv__tag { border: 1px dashed var(--line-button); padding: 3px 8px; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; }
+  .nv__label { margin: 0 0 14px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); }
+  .nv__demo { margin-left: 4px; font-weight: 400; color: var(--text-3); font-family: var(--mono); font-size: 11.5px; }
+  .nv__foot { padding: 12px 18px; border-top: 1px solid var(--line-strong); font-family: var(--mono); font-size: 12px; color: var(--text-3); }
+
+  /* ---------- hub ---------- */
+  .hub { display: grid; grid-template-columns: minmax(0, 0.8fr) auto minmax(0, 1.4fr); gap: 20px; align-items: center; padding: 26px 22px; }
+  .hub__scatter { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 8px; }
+  .hub__scatter li {
+    font-size: 13.5px; color: var(--text-2); border: 1px dashed var(--line-button); padding: 5px 9px;
+    transform: rotate(calc((var(--i) - 2) * 1.6deg));
+  }
+  .hub__scatter li:nth-child(even) { transform: rotate(calc((var(--i) - 2) * 1.6deg)) translateY(6px);
+  }
+  .hub__arrow { color: var(--accent); display: flex; }
+  .hub__dbs {
+    list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(118px, 1fr));
+    gap: 6px;
+  }
+  .hub__dbs li { background: var(--bg); border: 1px solid var(--line-strong); padding: 8px 10px; font-size: 13px; font-weight: 500; }
+  .hub__dbs li.is-anchor { box-shadow: inset 3px 0 0 var(--accent); }
+  .hub__rel { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; }
+  .hub__rel-k { font-size: 13px; color: var(--text-3); }
+  .hub__pill { font-family: var(--mono); font-size: 12px; border: 1px solid var(--line-strong); padding: 4px 8px; color: var(--text-2); }
+  .hub__pill.is-on { border-color: var(--accent); color: var(--text); background: var(--surface-warm); }
+  .hub__filter { margin: 12px 0 0; font-size: 14px; font-weight: 600; }
+  @media (max-width: 720px) {
+    .hub { grid-template-columns: minmax(0, 1fr); padding: 20px 16px; gap: 14px; }
+    .hub__arrow { transform: rotate(90deg); justify-self: start; margin-left: 8px; }
+    .hub__dbs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  /* ---------- page blueprint ---------- */
+  .bp { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 0 14px; padding: 22px 22px 22px 14px; }
+  .bp__side { position: relative; display: flex; justify-content: center; }
+  .bp__side::before { content: ''; position: absolute; top: 4px; bottom: 14px; left: 50%; border-left: 1px dashed var(--line-button); }
+  .bp__side::after { content: ''; position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--line-button); border-bottom: 0; }
+  .bp__side span {
+    position: sticky; top: 50%; writing-mode: vertical-rl; transform: rotate(180deg);
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3);
+    background: var(--surface); padding: 8px 0; align-self: center;
+  }
+  .bp__blocks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+  .bp__b { display: flex; gap: 14px; padding: 12px 14px; border: 1px dashed var(--line-button); background: var(--bg); }
+  .bp__b.is-on { border: 1px solid var(--accent); background: var(--surface-warm); }
+  .bp__n { font-family: var(--mono); font-size: 12px; color: var(--text-3); padding-top: 2px; }
+  .bp__b.is-on .bp__n { color: var(--accent); }
+  .bp__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+  .bp__name { font-weight: 600; font-size: 15px; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+  .bp__start { font-style: normal; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+  .bp__what { font-size: 13.5px; color: var(--text-2); }
+  .bp__cells { display: grid; gap: 6px; margin-top: 6px; grid-template-columns: repeat(var(--n, 4), minmax(0, 1fr)); }
+  .bp__cells--3 { --n: 3; }
+  .bp__cells span { font-family: var(--mono); font-size: 11.5px; color: var(--text-2); border: 1px solid var(--line-strong); background: var(--surface); padding: 6px 8px; }
+  .bp__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 4px; margin-top: 6px; }
+  .bp__grid span { font-size: 11.5px; color: var(--text-3); border-bottom: 1px solid var(--line-strong); padding: 3px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .bp__board { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+  .bp__board span { height: 18px; border: 1px solid var(--line-strong); background: repeating-linear-gradient(180deg, transparent 0 5px, var(--line) 5px 6px); }
+  @media (max-width: 560px) {
+    .bp { grid-template-columns: minmax(0, 1fr); padding: 16px 14px; }
+    .bp__side { display: none; }
+    .bp__cells { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bp__b { padding: 10px 12px; gap: 10px; }
+  }
+
+  /* ---------- ball ---------- */
+  .court-key, .court__track { display: grid; grid-template-columns: 1fr 2px 1fr; align-items: center; }
+  .court-key {
+    margin: 16px 22px 0 auto; width: min(260px, 42%); text-align: center;
+    font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2);
+  }
+  .court-key__net { height: 14px; background: var(--line-button); }
+  .court { list-style: none; margin: 0; padding: 6px 22px 14px; }
+  .court__row { display: flex; align-items: center; gap: 20px; padding: 10px 0; border-top: 1px solid var(--line); }
+  .court__row:first-child { border-top: 0; }
+  .court__text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .court__text b { font-weight: 600; font-size: 15px; }
+  .court__text span { color: var(--text-2); font-size: 14px; }
+  .court__track { position: relative; width: min(260px, 42%); height: 28px; flex: none; }
+  .court__half { height: 2px; background: var(--line-strong); }
+  .court__net { height: 22px; background: var(--line-button); }
+  .court__ball {
+    position: absolute; top: 50%; width: 18px; height: 18px; border-radius: 50%; transform: translate(-50%, -50%);
+    display: grid; place-items: center; font: 600 11px/1 var(--mono);
+    background: var(--text-2); color: var(--surface);
+  }
+  .is-you .court__ball { left: 22%; background: var(--accent); width: 20px; height: 20px; box-shadow: 0 0 0 5px var(--surface-warm); }
+  .is-you .court__text b { color: var(--accent); }
+  .is-them .court__ball { left: 78%; background: var(--text); }
+  .is-them .court__ball::after { content: ''; position: absolute; right: 100%; margin-right: 6px; width: 26px; border-top: 2px dashed var(--accent); }
+  .is-over .court__ball { left: 64%; background: transparent; border: 2px solid var(--text-2); }
+  .is-net .court__ball { left: 50%; background: var(--surface); color: var(--text); border: 2px solid var(--text); }
+  .is-none .court__half { background: transparent; border-top: 2px dotted var(--line-strong); height: 0; }
+  .is-none .court__ball { display: none; }
+  .is-done .court__half, .is-done .court__net { opacity: 0.45; }
+  .is-done .court__ball { left: calc(100% - 10px); background: var(--ok); color: var(--surface); }
+  @media (max-width: 560px) {
+    .court-key { width: 100%; margin: 14px 0 0; padding: 0 16px; }
+    .court { padding: 4px 16px 12px; }
+    .court__row { flex-direction: column; align-items: stretch; gap: 8px; }
+    .court__track { width: 100%; }
+    .is-done .court__ball { left: calc(100% - 10px); }
+  }
+</style>

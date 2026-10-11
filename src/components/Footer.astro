@@ -1,0 +1,32 @@
+---
+import { PAGES, LINKS, VERSION, t, path, getLangFromUrl } from '../i18n/ui';
+const lang = getLangFromUrl(Astro.url);
+const learn = PAGES.filter((p) => !['start', 'changelog'].includes(p.slug));
+---
+<footer class="site-footer">
+  <div class="footer wrap">
+    <div class="footer__about">
+      <b><span aria-hidden="true">🗼</span> PM Control Tower</b>
+      <span>{t(lang, 'footer.about')}</span>
+      <span class="label">v{VERSION} · {lang === 'uk' ? 'бета' : 'beta'} · MIT</span>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <span class="label">{t(lang, 'footer.get')}</span>
+        <a href={LINKS.notion}>{t(lang, 'footer.notion')}</a>
+        <a href={LINKS.repo}>{t(lang, 'footer.repo')}</a>
+        <a href={path(lang, 'start')}>{t(lang, 'nav.start')}</a>
+        <a href={path(lang, 'changelog')}>{t(lang, 'nav.changelog')}</a>
+      </div>
+      <div class="footer__col">
+        <span class="label">{t(lang, 'footer.learn')}</span>
+        {learn.map((p) => <a href={path(lang, p.slug)}>{t(lang, `nav.${p.slug}` as any)}</a>)}
+      </div>
+      <div class="footer__col">
+        <span class="label">{t(lang, 'footer.more')}</span>
+        <a href={LINKS.docs(lang)}>{t(lang, 'footer.docs')}</a>
+        <a href={LINKS.site}>{t(lang, 'footer.source')}</a>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+import { path, t, type Lang } from '../i18n/ui';
+import { SKILLS, GROUPS } from '../data/skills';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const C = {
+  en: {
+    title: 'Skills: ask in plain words',
+    lead: '22 written recipes for PM routine, not code. Each skill reads your project file first, runs when you ask or on a schedule, and saves its result to Notion. Ask in English or Ukrainian.',
+    intro: 'You ask for a prep or a report the way you would ask a colleague, and you get it in minutes, saved where you will look for it. Start with 4 skills and add the next when a routine starts to hurt.',
+    all: 'All 22', say: 'Say', filter: 'Filter by group',
+    startH: 'Start with 4',
+    startP: 'Add the next when a routine starts to hurt.',
+    anatomyH: 'What a skill is',
+    anatomyP: 'A skill is a text file: when to start, what steps to take, what the result looks like and where to save it. The first step is always the same: read the project file, and ask if no project was named. Most skills work for any project. Skills written for a single client stack stay with that project and are not in the shared plugin.',
+    docs: 'Read docs/en/04-skills-library.md',
+  },
+  uk: {
+    title: 'Скіли: просіть звичайними словами',
+    lead: '22 записані рецепти для рутини ПМа, а не код. Кожен спершу читає файл вашого проєкту, запускається на прохання або за розкладом і зберігає результат у Notion. Просіть українською чи англійською.',
+    intro: 'Ви просите підготовку чи звіт так, як попросили б колегу, і за кілька хвилин отримуєте його там, де потім шукатимете. Почніть з 4 скілів, а наступний додавайте, коли якась рутина почне муляти.',
+    all: 'Усі 22', say: 'Скажіть', filter: 'Фільтр за групою',
+    startH: 'Почніть з 4',
+    startP: 'Наступний додавайте, коли рутина почне муляти.',
+    anatomyH: 'Що таке скіл',
+    anatomyP: 'Скіл це текстовий файл: коли запускатись, які кроки робити, який вигляд має результат і куди його зберегти. Перший крок завжди однаковий: прочитати файл проєкту і спитати, якщо проєкт не названо. Більшість скілів працює для будь-якого проєкту. Скіли під стек конкретного клієнта лишаються в тому проєкті і в спільний плагін не входять.',
+    docs: 'Читати docs/uk/04-skills-library.md',
+  },
+}[lang];
+---
+<Base title={C.title} description={C.lead}>
+  <section class="page-hero">
+    <div class="page-hero__in wrap">
+      <div class="page-hero__text">
+        <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {t(lang, 'nav.skills')}</p>
+        <h1 class="h1 h1--page">{C.title}</h1>
+        <p class="lead">{C.lead}</p>
+        <p class="muted" style="margin: 0; max-width: 640px; line-height: 1.65;">{C.intro}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-top: 48px; padding-bottom: 48px;">
+    <div class="filters" role="group" aria-label={C.filter}>
+      <button class="filter" type="button" data-group="all" aria-pressed="true">{C.all}</button>
+      {Object.entries(GROUPS).map(([k, v]) => <button class="filter" type="button" data-group={k} aria-pressed="false">{v[lang]}</button>)}
+    </div>
+    <div class="grid" style="--min: 300px;" id="skills">
+      {SKILLS.map((s) => (
+        <article class="skill" data-group={s.group} id={s.name}>
+          <div class="skill__head">
+            <h2 class="skill__name">{s.name}</h2>
+            <span class="skill__group">{GROUPS[s.group][lang]}</span>
+          </div>
+          <p class="skill__what">{s.what[lang]}</p>
+          <div class="skill__say"><span class="label">{C.say}</span><span>"{s.say[lang]}"</span></div>
+          <div class="skill__meta"><span class="when">{s.when[lang]}</span><span class="sep" aria-hidden="true">·</span><span class="out">{s.out}</span></div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="wrap" style="padding-bottom: 112px;">
+    <div class="grid" style="--min: 300px;">
+      <div class="card card--accent">
+        <h2 class="card__title" style="font-size: 20px;">{C.startH}</h2>
+        <p class="card__text"><code>projects</code>, <code>daily-team-prep</code>, <code>weekly-overview</code>, <code>mac-mail-collector</code>. {C.startP}</p>
+        <a class="more" href={path(lang, 'start')}>{t(lang, 'nav.start')} <Arrow /></a>
+      </div>
+      <div class="card">
+        <h2 class="card__title" style="font-size: 20px;">{C.anatomyH}</h2>
+        <p class="card__text">{C.anatomyP}</p>
+        <a class="more" href={`https://github.com/bodco/pm-control-tower/blob/main/docs/${lang}/04-skills-library.md`}>{C.docs} <Arrow /></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.filter')];
+  const cards = [...document.querySelectorAll<HTMLElement>('.skill')];
+  function apply(group: string) {
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.group === group)));
+    cards.forEach((c) => { c.hidden = group !== 'all' && c.dataset.group !== group; });
+  }
+  buttons.forEach((b) => b.addEventListener('click', () => {
+    const g = b.dataset.group || 'all';
+    apply(g);
+    history.replaceState(null, '', g === 'all' ? location.pathname : `#${g}`);
+  }));
+  function fromHash() {
+    const h = location.hash.slice(1);
+    if (buttons.some((b) => b.dataset.group === h)) apply(h);
+    else if (!h) apply('all');
+  }
+  fromHash();
+  window.addEventListener('hashchange', fromHash);
+</script>

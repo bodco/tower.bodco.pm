@@ -1,0 +1,86 @@
+---
+title: Your projects in a single Notion page
+lead: A free template with 11 linked databases. Duplicate it and it is useful on day 1, by hand, before you add any AI.
+doc: 02-notion-control-tower.md
+facts:
+  - { k: Databases, v: "11" }
+  - { k: Demo data, v: "2 projects" }
+  - { k: Cost, v: "free template" }
+  - { k: Works without AI, v: "yes" }
+---
+
+import NotionVisual from '../../../components/NotionVisual.astro';
+
+Chats, meetings, decisions and risks from all your projects in a single place, without mixing them up. In the morning you open a page and see what is yours to answer, what is overdue and which reports came in. With the skills connected, thread statuses follow the actual replies, so you never set them by hand.
+
+## Why databases, not folders
+
+Notion here is not a document store. It is structured memory made of databases that link to each other. The key choice: **databases are shared across all projects**. Not a folder per project, but a single Threads, Meetings and Reports, where every record is linked to its `Project` and `Workspace` (Notion calls such a link a relation).
+
+That gives you the same skill for every project (only the filter changes) and cross-project overviews without duplication. The price is a strict rule: never mix projects.
+
+<NotionVisual lang="en" variant="hub" />
+
+## The 11 databases
+
+| Database | What lives there |
+|---|---|
+| Inbox | Anything you capture in a second. Routed later |
+| Tasks Tracker | Your personal operating system: every task of every project and of life, so you see the real load |
+| Meetings | Meetings with transcripts, summaries and action items |
+| Threads | Every conversation from chat, mail and calls, with the full text and a status that says whose turn it is |
+| Topics | Long-running subjects that span many meetings and threads |
+| Knowledge Base | What the team knows: how things work, where things are |
+| Risks | A living RAID log (risks, assumptions, issues, dependencies), kept current |
+| Decisions | The decision log: 1 sentence, a date, a source |
+| Reports | Every output of every skill, with a type, a date and a visibility |
+| Projects | The anchor every other record relates to |
+| Workspaces | The company, the client or personal life |
+
+## The page you open every morning
+
+The page you open in the morning and before every meeting:
+
+- **Focus desk** at the very top. *My day* shows *Do next*, *Reply & follow up*, *Risks needing attention* and *Recent reports*. A second tab shows what is *Overdue*. These are views of the original records, not a second list.
+- **Quick capture** links to Inbox, Meetings and Decisions.
+- **The grid of all 11 databases** for a deep dive.
+- **Today / This Week**: the task board with tabs for today, this week, next week and the past week.
+- **Awaiting Reply**: threads by channel and a chart of threads by status.
+- **Reports and project health**: the latest reports, task health, overdue tasks, open risks.
+- **How to use** at the bottom, for anyone new.
+
+<NotionVisual lang="en" variant="page" highlight="focus" />
+
+## Whose turn is it: thread statuses
+
+The most useful thing in the hub is a single property on every thread. Collectors set it on every pass, from the actual replies, so you never update it by hand.
+
+<NotionVisual lang="en" variant="ball" />
+
+| Status | Meaning |
+|---|---|
+| Awaiting Reply | The next move is yours: a question to you, a request, a bug, a promise you have not kept yet |
+| Need Follow-up | You asked, the ball is on their side, and it is time to nudge them |
+| Replied | You answered, nothing is open, but nobody confirmed the result yet |
+| Spectator Mode | There is no ask to you. Kept for context |
+| AI Review | The rules could not decide. A human looks |
+| Closed | The ask has a result and the other side confirmed it |
+
+The page icon follows the status, so a glance at a list tells you where you stand.
+
+## A day with the hub
+
+**Morning.** *My day*: the plan, then replies (*Awaiting Reply* first, it is your turn), then risks and fresh reports. Check *Overdue*. Clear the Inbox in 2 minutes.
+
+**Before a meeting.** The prep is already in *Recent reports*. Turn the recommendations you accept into tasks.
+
+**During the day.** A thought or a task goes to the Inbox. Skills run and their reports land in Reports.
+
+**End of day.** Inbox triage, close what is done, a line on tomorrow's top priority.
+
+
+## After you duplicate it: 3 checks
+
+- Check that the inline views on the main page point to **your** duplicated databases, not the template's.
+- The demo projects and records are marked so you can find and delete them.
+- To connect the skills, give the Claude integration access to the page, then let Claude find the database IDs itself during setup.
