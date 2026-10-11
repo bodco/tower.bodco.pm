@@ -12,7 +12,6 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 
 const PRICE_URL = 'https://claude.com/pricing';
-const AUTHOR_URL = 'https://github.com/bodco';
 const PRIVACY_URL = 'https://www.anthropic.com/legal/privacy';
 
 const C = {
@@ -124,6 +123,7 @@ const C = {
 
   // 8. AUTHOR
   authorLink: 'Bohdan on GitHub',
+  authorCv: 'About me and my CV: bodco.pm',
   authorEyebrow: 'Who made it',
   authorH: 'Why it exists',
   authorP: 'I am Bohdan, a delivery PM with 7+ years in software outsourcing. I built this over a year on my own client project: each skill started when I caught myself asking Claude for the same thing again. It is free and MIT licensed, because other PMs have the same week I had.',
@@ -247,6 +247,7 @@ const C = {
 
   // 8. АВТОР
   authorLink: 'Богдан на GitHub',
+  authorCv: 'Про мене і CV: bodco.pm',
   authorEyebrow: 'Хто це зробив',
   authorH: 'Навіщо це існує',
   authorP: 'Я Богдан, delivery-ПМ, 7+ років в аутсорс-розробці. Будував це рік на своєму клієнтському проєкті: кожен скіл зʼявлявся, коли я ловив себе на тому, що вкотре прошу Claude про те саме. Це безкоштовно і під ліцензією MIT, бо в інших ПМів такий самий тиждень, який був у мене.',
@@ -446,7 +447,10 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
         <p class="eyebrow">{C.authorEyebrow}</p>
         <h2 id="author-h" class="h2 h2--sm">{C.authorH}</h2>
         <p class="muted" style="margin: 0; font-size: 18px; line-height: 1.65;">{C.authorP}</p>
-        <a class="more" href={AUTHOR_URL}><GithubLogo /> {C.authorLink} <Arrow /></a>
+        <div class="author-links">
+          <a class="more" href={LINKS.author(lang)}>{C.authorCv} <Arrow /></a>
+          <a class="more" href={LINKS.github}><GithubLogo /> {C.authorLink} <Arrow /></a>
+        </div>
       </div>
     </div>
   </section>
@@ -518,6 +522,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
   .tlink:hover { color: var(--accent-hover); }
   .tlink :global(svg) { display: inline; vertical-align: -2px; margin-left: 4px; }
 
+  .author-links { display: flex; flex-wrap: wrap; gap: 0 32px; }
   .floors { list-style: none; padding: 0; margin-top: 0; }
   .floor__cta { margin-top: auto; align-self: flex-start; }
 </style>

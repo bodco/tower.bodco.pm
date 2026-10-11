@@ -115,6 +115,8 @@ img { max-width: 100%; height: auto; display: block; }
 .btns { display: flex; flex-wrap: wrap; gap: 12px; }
 .more { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-weight: 500; padding: 10px 0; min-height: 44px; }
 .more svg { transition: transform 0.15s; }
+.more svg.logo { width: 18px; height: 18px; flex: none; transition: none; }
+.more:hover svg.logo { transform: none; }
 .more:hover svg { transform: translateX(3px); }
 
 .chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }

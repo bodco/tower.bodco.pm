@@ -9,6 +9,8 @@ export const LINKS = {
   docs: (lang: Lang, file = '') =>
     `https://github.com/bodco/pm-control-tower/blob/main/docs/${lang}/${file || 'README.md'}`,
   release: 'https://github.com/bodco/pm-control-tower/tree/main/dist',
+  author: (lang: Lang) => (lang === 'uk' ? 'https://bodco.pm/uk/' : 'https://bodco.pm/'),
+  github: 'https://github.com/bodco',
 };
 
 export const VERSION = '1.6.1';
@@ -61,6 +63,7 @@ export const ui = {
     'footer.repo': 'GitHub repository',
     'footer.docs': 'Full documentation',
     'footer.source': 'Source of this site',
+    'footer.author': 'About the author: bodco.pm',
     'page.onthis': 'On this page',
     'page.docs.title': 'The full document lives in the repository',
     'page.docs.text': 'Every detail, in English and Ukrainian.',
@@ -103,6 +106,7 @@ export const ui = {
     'footer.repo': 'Репозиторій GitHub',
     'footer.docs': 'Повна документація',
     'footer.source': 'Код цього сайту',
+    'footer.author': 'Про автора: bodco.pm',
     'page.onthis': 'На цій сторінці',
     'page.docs.title': 'Повний документ лежить у репозиторії',
     'page.docs.text': 'Усі деталі, англійською та українською.',
