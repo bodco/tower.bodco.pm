@@ -65,5 +65,5 @@ MIT.
 
 ## Theme
 
-Light by day (07:00-19:00 in the viewer's local time) and dark at night. The switch next to
-the language buttons overrides it, and the choice is remembered in the browser.
+Dark by default. The switch next to the language buttons turns on the light theme, and the
+choice is remembered in the browser.
