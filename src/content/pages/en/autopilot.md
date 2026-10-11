@@ -1,6 +1,6 @@
 ---
 title: "Autopilot: the work is done before you arrive"
-lead: A skill you start by hand saves time. A skill that runs by itself and leaves the result where you look in the morning changes how your day starts.
+lead: A skill you run by hand saves time. A skill on a schedule puts the result in Notion before you sit down.
 doc: 05-autopilot.md
 facts:
   - { k: Sends to client, v: "never" }
@@ -9,7 +9,7 @@ facts:
   - { k: Prep lead time, v: "~55 min" }
 ---
 
-Preps, reports and scans run on a schedule and land in the Reports database. You arrive to a prep that is already done, about 55 minutes before each meeting. Nothing is sent to the client. Run a skill (a written recipe for a single routine job) by hand 3 times before you put it on the schedule, so you trust what it writes.
+Preps, reports and scans run on a schedule and land in the Reports database. You arrive to a prep that is already done, about 55 minutes before each meeting. Nothing is sent to the client. Run a skill (a written instruction for a single routine job) by hand 3 times before you put it on the schedule, so you trust what it writes.
 
 ## What changes
 
@@ -34,7 +34,7 @@ In plain words: a task that reads files on your Mac runs only if the Mac is awak
 This is the shape of the author's schedule. Yours will follow your own meeting calendar.
 
 <div class="grid" style="--min: 230px;">
-<div class="card"><span class="card__tag">Every morning</span><p class="card__text">Chat sync, the daily work report, mail collection and reply drafts. The internal sync prep an hour before the sync.</p></div>
+<div class="card"><span class="card__tag">Every morning</span><p class="card__text">Chat sync, the daily work report, mail collection and reply drafts. The internal sync prep about 55 minutes before the sync.</p></div>
 <div class="card"><span class="card__tag">Monday</span><p class="card__text">Topics, the weekly overview, the planning prep before the planning call.</p></div>
 <div class="card"><span class="card__tag">Tuesday and Thursday</span><p class="card__text">Status and 1-1 preps before the client calls. The weekly stability scan on Thursday night.</p></div>
 <div class="card"><span class="card__tag">Friday</span><p class="card__text">Board health and the review prep, as 2 separate reports. The risk register as part of the review cycle.</p></div>

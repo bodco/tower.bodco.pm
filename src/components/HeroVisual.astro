@@ -5,7 +5,7 @@
  * lists the chores that leave the PM's plate, struck through, each with the skill that takes it.
  * At 09:00 the shift is handed over. The bottom shift (you) lists what stays human.
  * Facts: docs/en/00-manifest.md (what the framework does not promise), 07-operating-rhythm.md (before 09:00),
- * skill names from src/data/skills.ts. Themes through the site's CSS variables.
+ * skill names from src/data/skills.ts (shown above 480px only). Themes through the site's CSS variables.
  */
 interface Props { lang?: 'en' | 'uk' }
 const { lang = 'en' } = Astro.props;
@@ -27,8 +27,7 @@ const T = {
     handoff: 'Handover. The analysis is waiting for you.',
     youLabel: 'From 09:00 · You',
     youNote: 'What stays human',
-    you: ['Pick the top 3 for the day', 'Decide priorities', 'Talk to the client, the hard parts too', 'Work with people'],
-    foot: 'Drafts, yes. Sending is always you.',
+    you: ['Pick the top 3 for today', 'Negotiate scope with the client', 'Decide whether to take a risk or push a deadline', 'Read between the lines, protect the team'],
   },
   uk: {
     title: 'Передача зміни: ранок ПМа',
@@ -46,8 +45,7 @@ const T = {
     handoff: 'Передача зміни. Аналіз уже чекає на вас.',
     youLabel: 'З 09:00 · Ви',
     youNote: 'Що лишається людині',
-    you: ['Вибрати топ-3 на день', 'Вирішити пріоритети', 'Говорити з клієнтом, і про складне теж', 'Працювати з людьми'],
-    foot: 'Драфти так. Відправка завжди за вами.',
+    you: ['Вибрати 3 головні справи на сьогодні', 'Домовлятися з клієнтом про скоуп', 'Вирішити, чи брати ризик і чи тиснути на дедлайн', 'Читати між рядків і захищати команду'],
   },
 }[lang];
 const id = `hv-${lang}`;
@@ -83,7 +81,6 @@ const id = `hv-${lang}`;
     </ul>
   </div>
 
-  <figcaption class="hv__foot">{T.foot}</figcaption>
 </figure>
 
 <style>
@@ -158,17 +155,13 @@ const id = `hv-${lang}`;
   }
   .hv__handoff-text { font-size: 15px; font-weight: 500; line-height: 1.4; }
 
-  .hv__foot {
-    padding: 12px 18px; border-top: 1px solid var(--line-strong);
-    font-family: var(--mono); font-size: 12px; color: var(--text-3);
-  }
 
   @media (max-width: 480px) {
     .hv__shift { padding: 16px 16px 18px 38px; }
     .hv__shift::before { left: 18px; }
     .hv__item::before { left: -19px; }
     .hv__item { font-size: 14.5px; }
-    .hv__skill { white-space: normal; }
+    .hv__skill { display: none; }
     .hv__handoff { padding: 12px 16px; gap: 12px; }
     .hv__clock { font-size: 28px; }
     .hv__handoff-text { font-size: 14px; }

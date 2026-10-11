@@ -1,15 +1,15 @@
 ---
 title: Set it up yourself
-lead: It looks like a spaceship. It is not. You need a Mac, Claude Max, Notion and a quiet evening. Everything else can wait until you actually miss it.
+lead: It looks like a spaceship. It is not. You need a computer (it is built and tested on a Mac), a Claude plan, Notion and a quiet evening. Everything else can wait until you actually miss it.
 doc: 16-runbook.md
 facts:
-  - { k: "Must have", v: "an evening" }
-  - { k: "Typing in Terminal", v: "none" }
+  - { k: "The core", v: "an evening" }
+  - { k: "Terminal for floor 2", v: "not needed" }
   - { k: "Add-ons", v: "one at a time" }
   - { k: "Status", v: "beta" }
 ---
 
-By the end of the evening, Claude can read and write your Notion, knows your first project and prepares your syncs. You do not type anything in Terminal for this part. Fitting it to your project takes the next 2-4 weeks, about 15 minutes a day.
+By the end of the evening, about 4-5 hours, Claude can read and write your Notion, knows your first project and prepares your syncs. You do not type anything in Terminal for this part. If your project has code, add a few hours in week 1. Fitting it to your project then takes 2-4 weeks, about 15 minutes a day.
 
 ## Pick how far to go: 3 floors
 
@@ -17,13 +17,13 @@ Think of it as 3 floors. You can stop on any of them and it still works.
 
 <div class="levels">
 <div class="level"><span class="level__n">Floor 1 · 10 min</span><h3 class="card__title">Just the Notion template</h3><p class="card__text">Duplicate it and use it by hand. Inbox, tasks, meetings, threads, risks, decisions. No AI at all. You can stay here as long as you like.</p></div>
-<div class="level level--must"><span class="level__n">Floor 2 · an evening · must have</span><h3 class="card__title">Claude plus Notion</h3><p class="card__text">Claude reads and writes your Notion, knows your first project and prepares your syncs. This page walks you through it, click by click.</p></div>
-<div class="level"><span class="level__n">Floor 3 · when you need it</span><h3 class="card__title">Add-ons</h3><p class="card__text">Slack, mail, Jira, a schedule, the co-pilot on calls. Each one is separate. Add one, live with it for a week, then the next.</p></div>
+<div class="level level--must"><span class="level__n">Floor 2 · an evening · the core</span><h3 class="card__title">Claude plus Notion</h3><p class="card__text">Claude reads and writes your Notion, knows your first project and prepares your syncs. This page walks you through it, click by click.</p></div>
+<div class="level"><span class="level__n">Floor 3 · when you need it</span><h3 class="card__title">Add-ons</h3><p class="card__text">Slack, mail, Jira, a schedule, the call co-pilot. Each one is separate. Add one, live with it for a week, then the next.</p></div>
 </div>
 
 <div class="btns" style="margin-top: 24px;">
-<a class="btn btn--primary" href="https://bodco.notion.site/pm-control-tower"><svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 4.2 16.2 3.3l3.3 2.3v14.2l-12.2.9-2.8-2.6V4.2Z"/><path d="M8.6 8.3v9.2M8.6 8.3l6.4 9.2V7.6" stroke-linecap="round"/></svg> Duplicate the Notion template</a>
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg> Clone the GitHub repo</a>
+<a class="btn btn--ink" href="https://bodco.notion.site/pm-control-tower"><svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 4.2 16.2 3.3l3.3 2.3v14.2l-12.2.9-2.8-2.6V4.2Z"/><path d="M8.6 8.3v9.2M8.6 8.3l6.4 9.2V7.6" stroke-linecap="round"/></svg> Duplicate the Notion template</a>
+<a class="btn btn--ink" href="https://github.com/bodco/pm-control-tower"><svg class="logo" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg> Open the GitHub repo</a>
 </div>
 
 ## Before you start
@@ -31,36 +31,28 @@ Think of it as 3 floors. You can stop on any of them and it still works.
 You need these for floor 2. Nothing here asks you to open Terminal.
 
 <ul class="checklist">
-<li><b>A Mac.</b> This is what the author uses every day. Mail collection and live tips work only on a Mac.</li>
-<li><b>A Claude Max subscription.</b> Pro has not been tested: fewer tokens, and the schedule may not fit.</li>
+<li><b>A Mac, ideally.</b> The framework is built and tested on macOS. Cowork also runs on Windows: 2 skills need a Mac (mail and the call co-pilot), the rest should work, but Windows is not tested yet. <a href="/skills/#where">Where each skill runs</a>.</li>
+<li><b>A paid Claude plan.</b> Tested on Max. Pro has not been tested yet, but for a start with 3-4 skills it may be enough. See <a href="#what-it-costs">what it costs</a>.</li>
 <li><b>The Claude desktop app.</b> Download it from <a href="https://claude.ai/download">claude.ai/download</a> and sign in. Cowork is inside it.</li>
 <li><b>A Notion account.</b> Any plan is enough for the template. Meeting transcripts need Notion's paid AI Meeting Notes, but that is an add-on.</li>
-<li><b>A quiet evening.</b> Most of it is Claude asking you questions.</li>
+<li><b>A quiet evening, about 4-5 hours.</b> Most of it is Claude asking you questions.</li>
+<li><b>An OK from your client contract.</b> Claude reads the channels you connect. Check that your contract allows AI tools before you connect a client channel. More in <a href="/principles/#security-and-privacy">security and privacy</a>.</li>
 </ul>
 
-### Only if you will use add-ons that need it
+## What it costs
 
-Some add-ons need small programs on your Mac. **Skip this until an add-on asks for it.** Each one is a single line you paste into Terminal (press <kbd>Cmd</kbd>+<kbd>Space</kbd>, type "Terminal", press Enter).
+The template and the plugin are free (MIT). You pay only for Claude and Notion.
 
-| Tool | What it is | Needed for | Install |
-|---|---|---|---|
-| Xcode Command Line Tools | Apple's basic developer tools, includes `git` | live tips, cloning repositories | `xcode-select --install` |
-| Homebrew | an app store for the command line | everything below | see the line under this table |
-| Node.js | runs JavaScript servers | a self-hosted Jira or Bitbucket | `brew install node` |
-| uv | runs Python tools | Confluence | `brew install uv` |
-| Python 3.12 | runs the speech model | live tips | `brew install python@3.12` |
+| | Per month | What is in it |
+|---|---|---|
+| A start | about $30-50 | Claude Pro plus Notion with Notion AI, which gives you meeting transcripts. Pro has not been tested yet, so treat it as a guess. |
+| The author's setup | about $150 | Claude Max plus Notion with Notion AI. He experiments a lot: 20+ background tasks, large log analysis and new skills in testing. You do not need this on day 1. |
 
-Homebrew, the official one-liner from [brew.sh](https://brew.sh):
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-At the end Homebrew prints "Next steps" with 2 or 3 lines. Copy them and run them too, otherwise `brew` will not be found.
+Prices change, so check the current ones: [Claude plans](https://claude.com/pricing) and [Notion plans](https://www.notion.com/pricing).
 
 ## Step by step: the evening setup
 
-### 1. Make a home for everything
+### 1. Make a work folder
 
 **You do.** Open Finder, press <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>H</kbd> to go to your home folder, and create a folder called `work`.
 
@@ -98,7 +90,7 @@ Find my PM Control Tower page in Notion and list its databases.
 
 **You do.** Drag `work/pm-control-tower/dist/pm-control-tower.plugin` from Finder into the chat. A card appears. Press **Install**.
 
-**You see** 22 skills (written recipes for PM routine) added to Claude. They do nothing yet: they do not know your Notion or your projects.
+**You see** 22 skills (written instructions for PM routine) added to Claude. They do nothing yet: they do not know your Notion or your projects.
 
 ### 6. Tell the plugin about your Notion
 
@@ -116,7 +108,7 @@ customize the pm-control-tower plugin for me.
 
 ### 7. Give Claude its house rules
 
-**You do.** In the Claude app: **Settings**, **Cowork**, global instructions. Paste this block. Change the language line to yours. The block mentions a config and a slug: the config is the short file Claude keeps about each project, and the slug is the project's short name.
+**You do.** In the Claude app: **Settings**, **Cowork**, global instructions. Paste this block. Change the language line to yours, and fill in or delete the line in angle brackets. The block mentions a config and a slug: the config is the short file Claude keeps about each project, and the slug is the project's short name.
 
 ```
 # PM Workspace
@@ -136,7 +128,7 @@ Every project fact lives in the `projects` skill, one file per project.
 1. Rule Zero: the config `projects/<slug>.md` beats any skill, report or document.
 2. Never guess the project. If it is not named and not visible from a ticket key, ask.
 3. Language: internal in <my language>, everything client-facing in English.
-4. Never use an em dash.
+4. <optional: your style rules, for example tone or words to avoid>
 5. Secrets only in ~/work/Secrets/secrets.env; configs hold variable names only; never print them.
 6. Never send anything to the client yourself. Drafts yes, sending is always me.
 ```
@@ -180,6 +172,26 @@ prepare me for the sync on <your project>
 
 Add one at a time. Run anything new by hand 3 times before you put it on a schedule.
 
+### Programs some add-ons need
+
+Some add-ons need small programs on your Mac. **Skip this until an add-on asks for it.** Each one is a single line you paste into Terminal (press <kbd>Cmd</kbd>+<kbd>Space</kbd>, type "Terminal", press Enter).
+
+| Tool | What it is | Needed for | Install |
+|---|---|---|---|
+| Xcode Command Line Tools | Apple's basic developer tools, includes `git` | call co-pilot, cloning repositories | `xcode-select --install` |
+| Homebrew | an app store for the command line | everything below | see the line under this table |
+| Node.js | runs JavaScript servers | a self-hosted Jira or Bitbucket | `brew install node` |
+| uv | runs Python tools | Confluence | `brew install uv` |
+| Python 3.12 | runs the speech model | call co-pilot | `brew install python@3.12` |
+
+Homebrew, the official one-liner from [brew.sh](https://brew.sh):
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+At the end Homebrew prints "Next steps" with 2 or 3 lines. Copy them and run them too, otherwise `brew` will not be found.
+
 ### Slack
 **Gives you** every chat thread in Threads, with a status that says whose turn it is.
 
@@ -189,7 +201,7 @@ collect slack for <project> for last week
 ```
 
 ### Gmail and Google Calendar
-**Gives you** client mail when it lives in Gmail, and real meeting times in daily reports.
+**Gives you** real meeting times in preps and reports, and lets topic-manager search client mail in Gmail. Gmail mail does not land in Threads: for that, use Mail.app below.
 
 **Needs** the Gmail and Google Calendar connectors in **Settings**, **Connectors**.
 
@@ -202,9 +214,9 @@ meeting <link to the Notion meeting page>
 ```
 
 ### Mail from Mail.app
-**Gives you** corporate mail that is not in Gmail, collected into Threads every 15 minutes.
+**Gives you** corporate mail that is not in Gmail, exported from Mail.app every 15 minutes and added to Threads on the next collector run, daily or when you ask.
 
-**Needs** a few scripts and 1 macOS permission. About 30 minutes. Recipe: `docs/en/10a-mail-collector-setup.md`.
+**Needs** a few scripts and 1 macOS permission. About 30 minutes. Guide: `docs/en/10a-mail-collector-setup.md`.
 ```
 help me set up mail collection from Mail.app following docs/en/10a-mail-collector-setup.md
 ```
@@ -235,14 +247,14 @@ Jira Cloud is simpler: use the official Atlassian connector in **Settings**, **C
 
 **Needs** the Mac on and the Claude app running at that time, or a cloud task for things that need no local files.
 ```
-put daily-team-prep for <project> on a schedule, an hour before our internal sync
+put daily-team-prep for <project> on a schedule, about 55 minutes before our internal sync
 ```
 Start with a single task. Add the next after a week.
 
-### Live tips on calls
-**Gives you** a co-pilot that listens to the call and whispers tips.
+### Call co-pilot
+**Gives you** quiet hints during the call when something matters.
 
-**Needs** an Apple Silicon Mac, Python and 2 macOS permissions. Everything, including the microphone and system audio setup, is on [the live tips page](/live-tips/#install-about-15-minutes).
+**Needs** an Apple Silicon Mac, Python and 2 macOS permissions. Everything, including the microphone and system audio setup, is on [the call co-pilot page](/live-tips/#install-about-15-minutes).
 
 ## If something goes wrong
 
@@ -271,6 +283,6 @@ Claude does everything else. These few clicks are yours because they need your a
 
 ## Honest expectations
 
-Floor 2 takes a quiet evening. Making it fit your project takes a few weeks of small fixes, mostly in the project config. That is normal, and every fix makes all skills better at once.
+Floor 2 takes a quiet evening, about 4-5 hours. Making it fit your project takes a few weeks of small fixes, mostly in the project config. That is normal, and every fix makes all skills better at once.
 
 The plugin is in beta: the author uses it every day, the first handover to a colleague is still ahead. If a step here does not behave as written, that is exactly the feedback the author needs. [Open an issue](https://github.com/bodco/pm-control-tower/issues).

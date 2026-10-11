@@ -11,7 +11,30 @@ export const GROUPS: Record<string, L> = {
   tracker: { en: 'Board and stability', uk: 'Борда і стабільність' },
 };
 
-export type Skill = { name: string; group: keyof typeof GROUPS; what: L; say: L; when: L; out: string };
+export type Run = 'mac' | 'local' | 'either' | 'cloud';
+
+/** Where a skill can run. Built and tested on macOS. */
+export const RUNS: Record<Run, { label: L; hint: L }> = {
+  mac: {
+    label: { en: 'Mac only', uk: 'Тільки Mac' },
+    hint: { en: 'Needs a Mac: reads Mail.app or captures call audio on the machine.', uk: 'Потрібен Мак: читає Mail.app або захоплює звук дзвінка на машині.' },
+  },
+  local: {
+    label: { en: 'Your computer, any OS', uk: 'Ваш компʼютер, будь-яка ОС' },
+    hint: { en: 'Needs something on your computer: local files, git or a locally installed connector. Mac or Windows does not matter.', uk: 'Потребує чогось на вашому компʼютері: локальних файлів, git або локально встановленого конектора. Мак чи Windows, неважливо.' },
+  },
+  either: {
+    label: { en: 'Cloud or local', uk: 'Хмара або локально' },
+    hint: { en: 'Cloud if your tracker has a cloud connector, local if it is self-hosted.', uk: 'У хмарі, якщо трекер має хмарний конектор, локально, якщо він self-hosted.' },
+  },
+  cloud: {
+    label: { en: 'Cloud', uk: 'Хмара' },
+    hint: { en: 'Uses only cloud connectors such as Notion, Slack or Gmail. Nothing to install on your computer.', uk: 'Використовує лише хмарні конектори, як-от Notion, Slack чи Gmail. На компʼютер нічого ставити не треба.' },
+  },
+};
+
+export type Skill = { name: string; group: keyof typeof GROUPS; what: L; say: L; when: L; out: string; run?: Run };
+export const runOf = (s: Skill): Run => s.run ?? 'cloud';
 
 const daily = { en: 'daily', uk: 'щодня' };
 const weekly = { en: 'weekly', uk: 'щотижня' };
@@ -22,8 +45,8 @@ export const SKILLS: Skill[] = [
   {
     name: 'projects', group: 'found', when: onDemand, out: 'projects/*.md',
     what: {
-      en: 'Keeps a short file per project with everything the other skills need to know, plus the shared rules. Change a fact here and every skill follows. There is exactly 1 in the system.',
-      uk: 'Тримає короткий файл на кожен проєкт з усім, що треба знати іншим скілам, і спільні правила. Змінили факт тут, і всі скіли це підхоплюють. У системі рівно 1.',
+      en: 'Keeps a short file per project with everything the other skills need to know, plus the shared rules. Change a fact here and every skill follows.',
+      uk: 'Тримає короткий файл на кожен проєкт з усім, що треба знати іншим скілам, і спільні правила. Змінили факт тут, і всі скіли це підхоплюють.',
     },
     say: { en: 'what projects do I have', uk: 'які в мене проєкти' },
   },
@@ -36,7 +59,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'collect slack for Orbit', uk: 'збери слак по Orbit' },
   },
   {
-    name: 'mac-mail-collector', group: 'collect', when: daily, out: 'Threads',
+    name: 'mac-mail-collector', run: 'mac', group: 'collect', when: daily, out: 'Threads',
     what: {
       en: 'Your mail, incoming and sent, arrives in Threads as full conversations, sorted by project. Works from Mail.app on your Mac.',
       uk: 'Ваша пошта, вхідна й надіслана, потрапляє в Threads повними розмовами, розкладена по проєктах. Працює з Mail.app на Маку.',
@@ -52,7 +75,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'draft replies for Orbit', uk: 'підготуй відповіді по Orbit' },
   },
   {
-    name: 'thread-ticket-sync', group: 'collect', when: onDemand, out: 'tasks',
+    name: 'thread-ticket-sync', run: 'local', group: 'collect', when: onDemand, out: 'tasks',
     what: {
       en: 'Shows you which conversations should have become tickets, and turns the ones you pick into developer tasks.',
       uk: 'Показує розмови, які давно мали стати тікетами, і перетворює вибрані на задачі для розробників.',
@@ -76,7 +99,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'prep the client call', uk: 'підготуй клієнтський дзвінок' },
   },
   {
-    name: 'live-tips', group: 'prep', when: { en: 'during the call', uk: 'під час дзвінка' }, out: 'Meetings',
+    name: 'live-tips', run: 'mac', group: 'prep', when: { en: 'during the call', uk: 'під час дзвінка' }, out: 'Meetings',
     what: {
       en: 'Short hints during the call when something matters, and a transcript with a wrap-up afterwards. Audio stays on your Mac.',
       uk: 'Короткі підказки під час дзвінка, коли трапляється щось важливе, а після нього транскрипт і підсумок. Звук лишається на вашому Маку.',
@@ -100,15 +123,15 @@ export const SKILLS: Skill[] = [
     say: { en: 'weekly overview', uk: 'тижневий огляд' },
   },
   {
-    name: 'client-report', group: 'report', when: monthly, out: 'Reports',
+    name: 'client-report', run: 'local', group: 'report', when: monthly, out: 'Reports',
     what: {
-      en: 'A client report in English, weekly, monthly or for steering, that you proofread instead of writing from scratch.',
-      uk: 'Звіт клієнту англійською, тижневий, місячний або для керівництва, який ви вичитуєте, а не пишете з нуля.',
+      en: 'A client report in English, weekly, monthly or for steering, ready for you to proofread.',
+      uk: 'Звіт клієнту англійською, тижневий, місячний або для керівництва, готовий до вичитки.',
     },
     say: { en: 'monthly client report for Orbit', uk: 'місячний звіт клієнту по Orbit' },
   },
   {
-    name: 'velocity-report', group: 'report', when: monthly, out: 'Reports',
+    name: 'velocity-report', run: 'either', group: 'report', when: monthly, out: 'Reports',
     what: {
       en: 'Monthly numbers on throughput, cycle time, workload and estimate accuracy, compared with the month before.',
       uk: 'Місячні цифри: пропускна здатність, cycle time, навантаження і точність оцінок, у порівнянні з попереднім місяцем.',
@@ -118,8 +141,8 @@ export const SKILLS: Skill[] = [
   {
     name: 'client-satisfaction-tracker', group: 'report', when: monthly, out: 'Reports',
     what: {
-      en: 'Catches early signs that the client is getting frustrated or cooling off, from the tone of chats, mail and calls. Never shown to the client.',
-      uk: 'Ловить ранні ознаки того, що клієнт дратується чи охолоняє, за тоном чатів, листів і дзвінків. Клієнт цього ніколи не бачить.',
+      en: 'Catches early signs that the client is getting frustrated or cooling off, from the tone of chats, mail and calls. Marked internal. Keep these reports in a closed database or on your disk: an internal label does not stop someone from sharing the page.',
+      uk: 'Ловить ранні ознаки того, що клієнт дратується чи охолоняє, за тоном чатів, листів і дзвінків. Позначено як внутрішнє. Тримайте ці звіти в закритій базі або на диску: внутрішня мітка не завадить комусь поширити сторінку.',
     },
     say: { en: 'how is the client', uk: 'як там клієнт' },
   },
@@ -148,7 +171,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'update topics for Orbit', uk: 'онови теми по Orbit' },
   },
   {
-    name: 'project-lifecycle', group: 'scope', when: onDemand, out: 'config + Notion',
+    name: 'project-lifecycle', run: 'local', group: 'scope', when: onDemand, out: 'config + Notion',
     what: {
       en: 'Walks you through starting a project, taking over a project from another PM, the monthly health check and closing it.',
       uk: 'Веде вас через старт проєкту, прийом від іншого ПМа, щомісячний health check і закриття.',
@@ -156,7 +179,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'set up a new project Orbit, case A', uk: 'заведи новий проєкт Orbit, case A' },
   },
   {
-    name: 'jira-management', group: 'tracker', when: onDemand, out: 'tracker',
+    name: 'jira-management', run: 'either', group: 'tracker', when: onDemand, out: 'tracker',
     what: {
       en: 'Create, update and move tickets with a sentence, following the keys, labels and transitions set for your project.',
       uk: 'Створюйте, оновлюйте й рухайте тікети коротким реченням, за ключами, лейблами й переходами, заданими для вашого проєкту.',
@@ -164,7 +187,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'create a ticket for this bug', uk: 'заведи тікет на цей баг' },
   },
   {
-    name: 'jira-board-health', group: 'tracker', when: weekly, out: 'Reports',
+    name: 'jira-board-health', run: 'either', group: 'tracker', when: weekly, out: 'Reports',
     what: {
       en: 'A clean board before the review: stale tickets, missing labels, Done without a version and long blocks, found for you.',
       uk: 'Чиста борда перед ревʼю: завислі тікети, відсутні лейбли, Done без версії і довгі блокування, знайдені за вас.',
@@ -172,7 +195,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'board health for Orbit', uk: 'здоровʼя борди Orbit' },
   },
   {
-    name: 'stability-scan', group: 'tracker', when: weekly, out: 'Reports',
+    name: 'stability-scan', run: 'local', group: 'tracker', when: weekly, out: 'Reports',
     what: {
       en: 'A weekly digest of unresolved errors and logs across services, with tickets for new defects. If a source was unreachable, it says so.',
       uk: 'Тижневий дайджест невирішених помилок і логів по сервісах, з тікетами на нові дефекти. Якщо джерело було недоступне, так і пише.',
@@ -180,7 +203,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'stability scan', uk: 'скан стабільності' },
   },
   {
-    name: 'sentry-assistant', group: 'tracker', when: onDemand, out: 'chat',
+    name: 'sentry-assistant', run: 'local', group: 'tracker', when: onDemand, out: 'chat',
     what: {
       en: 'Ask about errors in your self-hosted Sentry in plain words and change their status, within the scope set for the project.',
       uk: 'Питайте про помилки в self-hosted Sentry звичайними словами і змінюйте їхній статус, у межах, заданих для проєкту.',
@@ -188,7 +211,7 @@ export const SKILLS: Skill[] = [
     say: { en: 'what is new in Sentry', uk: 'що нового в Sentry' },
   },
   {
-    name: 'deploy-analysis', group: 'tracker', when: onDemand, out: 'Reports',
+    name: 'deploy-analysis', run: 'local', group: 'tracker', when: onDemand, out: 'Reports',
     what: {
       en: 'What is on stage but not yet on production, with release notes. Reads local branches only.',
       uk: 'Що вже на стейджі, але ще не на проді, разом з реліз-ноутами. Читає лише локальні гілки.',

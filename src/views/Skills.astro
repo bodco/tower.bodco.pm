@@ -2,14 +2,14 @@
 import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
 import { path, t, type Lang } from '../i18n/ui';
-import { SKILLS, GROUPS } from '../data/skills';
+import { SKILLS, GROUPS, RUNS, runOf, type Run } from '../data/skills';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const C = {
   en: {
     title: 'Skills: ask in plain words',
-    lead: '22 written recipes for PM routine, not code. Each skill reads your project file first, runs when you ask or on a schedule, and saves its result to Notion. Ask in English or Ukrainian.',
+    lead: '22 written instructions for PM routine. Each skill reads your project file first, runs when you ask or on a schedule, and most save their result to Notion. Ask in English or Ukrainian.',
     intro: 'You ask for a prep or a report the way you would ask a colleague, and you get it in minutes, saved where you will look for it. Start with 4 skills and add the next when a routine starts to hurt.',
     all: 'All 22', say: 'Say', filter: 'Filter by group',
     startH: 'Start with 4',
@@ -17,10 +17,12 @@ const C = {
     anatomyH: 'What a skill is',
     anatomyP: 'A skill is a text file: when to start, what steps to take, what the result looks like and where to save it. The first step is always the same: read the project file, and ask if no project was named. Most skills work for any project. Skills written for a single client stack stay with that project and are not in the shared plugin.',
     docs: 'Read docs/en/04-skills-library.md',
+    runH: 'Where each skill runs',
+    runP: 'Built and tested on macOS. Cowork itself also runs on Windows; the skills marked Mac only will not work there, the rest should, but Windows is not tested yet.',
   },
   uk: {
     title: 'Скіли: просіть звичайними словами',
-    lead: '22 записані рецепти для рутини ПМа, а не код. Кожен спершу читає файл вашого проєкту, запускається на прохання або за розкладом і зберігає результат у Notion. Просіть українською чи англійською.',
+    lead: '22 записані інструкції для рутини ПМа. Кожна спершу читає файл вашого проєкту, запускається на прохання або за розкладом, і більшість зберігає результат у Notion. Просіть українською чи англійською.',
     intro: 'Ви просите підготовку чи звіт так, як попросили б колегу, і за кілька хвилин отримуєте його там, де потім шукатимете. Почніть з 4 скілів, а наступний додавайте, коли якась рутина почне муляти.',
     all: 'Усі 22', say: 'Скажіть', filter: 'Фільтр за групою',
     startH: 'Почніть з 4',
@@ -28,6 +30,8 @@ const C = {
     anatomyH: 'Що таке скіл',
     anatomyP: 'Скіл це текстовий файл: коли запускатись, які кроки робити, який вигляд має результат і куди його зберегти. Перший крок завжди однаковий: прочитати файл проєкту і спитати, якщо проєкт не названо. Більшість скілів працює для будь-якого проєкту. Скіли під стек конкретного клієнта лишаються в тому проєкті і в спільний плагін не входять.',
     docs: 'Читати docs/uk/04-skills-library.md',
+    runH: 'Де працює кожен скіл',
+    runP: 'Зроблено й перевірено на macOS. Сам Cowork працює і на Windows; скіли з позначкою «Тільки Mac» там не запрацюють, решта мали б, але на Windows ще не тестувалось.',
   },
 }[lang];
 ---
@@ -43,7 +47,17 @@ const C = {
     </div>
   </section>
 
-  <section class="wrap" style="padding-top: 48px; padding-bottom: 48px;">
+  <section class="wrap" id="where" style="padding-top: 48px; scroll-margin-top: 96px;">
+    <h2 class="h2 h2--sm" style="margin: 0 0 12px;">{C.runH}</h2>
+    <p class="muted" style="margin: 0 0 20px; max-width: 720px; line-height: 1.6;">{C.runP}</p>
+    <dl class="runs">
+      {(Object.keys(RUNS) as Run[]).map((r) => (
+        <div class="runs__item"><dt><span class={`run run--${r}`}>{RUNS[r].label[lang]}</span> <span class="runs__n">{SKILLS.filter((s) => runOf(s) === r).length}</span></dt><dd>{RUNS[r].hint[lang]}</dd></div>
+      ))}
+    </dl>
+  </section>
+
+  <section class="wrap" style="padding-top: 40px; padding-bottom: 48px;">
     <div class="filters" role="group" aria-label={C.filter}>
       <button class="filter" type="button" data-group="all" aria-pressed="true">{C.all}</button>
       {Object.entries(GROUPS).map(([k, v]) => <button class="filter" type="button" data-group={k} aria-pressed="false">{v[lang]}</button>)}
@@ -57,7 +71,7 @@ const C = {
           </div>
           <p class="skill__what">{s.what[lang]}</p>
           <div class="skill__say"><span class="label">{C.say}</span><span>"{s.say[lang]}"</span></div>
-          <div class="skill__meta"><span class="when">{s.when[lang]}</span><span class="sep" aria-hidden="true">·</span><span class="out">{s.out}</span></div>
+          <div class="skill__meta"><span class="when">{s.when[lang]}</span><span class="sep" aria-hidden="true">·</span><span class="out">{s.out}</span><span class={`run run--${runOf(s)}`} title={RUNS[runOf(s)].hint[lang]}>{RUNS[runOf(s)].label[lang]}</span></div>
         </article>
       ))}
     </div>
@@ -67,7 +81,7 @@ const C = {
     <div class="grid" style="--min: 300px;">
       <div class="card card--accent">
         <h2 class="card__title" style="font-size: 20px;">{C.startH}</h2>
-        <p class="card__text"><code>projects</code>, <code>daily-team-prep</code>, <code>weekly-overview</code>, <code>mac-mail-collector</code>. {C.startP}</p>
+        <p class="card__text"><code>projects</code>, <code>daily-team-prep</code>, <code>client-meeting-prep</code>, <code>weekly-overview</code>. {C.startP}</p>
         <a class="more" href={path(lang, 'start')}>{t(lang, 'nav.start')} <Arrow /></a>
       </div>
       <div class="card">

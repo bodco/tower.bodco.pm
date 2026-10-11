@@ -10,14 +10,15 @@ facts:
 ---
 
 import NotionVisual from '../../../components/NotionVisual.astro';
+import FocusVisual from '../../../components/FocusVisual.astro';
 
 Chats, meetings, decisions and risks from all your projects in a single place, without mixing them up. In the morning you open a page and see what is yours to answer, what is overdue and which reports came in. With the skills connected, thread statuses follow the actual replies, so you never set them by hand.
 
 ## Why databases, not folders
 
-Notion here is not a document store. It is structured memory made of databases that link to each other. The key choice: **databases are shared across all projects**. Not a folder per project, but a single Threads, Meetings and Reports, where every record is linked to its `Project` and `Workspace` (Notion calls such a link a relation).
+In this template Notion is structured memory, made of databases that link to each other. The key choice: **databases are shared across all projects**. A single Threads, Meetings and Reports serve every project, and every record is linked to its `Project` and `Workspace` (Notion calls such a link a relation).
 
-That gives you the same skill for every project (only the filter changes) and cross-project overviews without duplication. The price is a strict rule: never mix projects.
+That gives you the same skill for every project (only the filter changes) and cross-project overviews without duplication. The one rule this needs: every record names its project. Skills ask when no project is named, and internal channels never reach client reports.
 
 <NotionVisual lang="en" variant="hub" />
 
@@ -26,7 +27,7 @@ That gives you the same skill for every project (only the filter changes) and cr
 | Database | What lives there |
 |---|---|
 | Inbox | Anything you capture in a second. Routed later |
-| Tasks Tracker | Your personal operating system: every task of every project and of life, so you see the real load |
+| Tasks Tracker | Every task from every project and from your own life in a single list, so you see the real load |
 | Meetings | Meetings with transcripts, summaries and action items |
 | Threads | Every conversation from chat, mail and calls, with the full text and a status that says whose turn it is |
 | Topics | Long-running subjects that span many meetings and threads |
@@ -49,7 +50,7 @@ The page you open in the morning and before every meeting:
 - **Reports and project health**: the latest reports, task health, overdue tasks, open risks.
 - **How to use** at the bottom, for anyone new.
 
-<NotionVisual lang="en" variant="page" highlight="focus" />
+<FocusVisual lang="en" />
 
 ## Whose turn is it: thread statuses
 

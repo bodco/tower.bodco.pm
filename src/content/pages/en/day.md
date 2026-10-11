@@ -21,14 +21,14 @@ Yesterday's chat lands in Threads with statuses. The daily work report arrives: 
 2. Read the daily report. This replaces going through everything by hand.
 3. Open the threads with drafts. 3 moves per thread: **send it** (with your edits), **turn it into a ticket**, or **defer it** and write the decision into the page. Do not change the status by hand: the next collector pass moves it by the reply.
 4. Inbox in 2 minutes.
-5. Today, This Week and Overdue: pick the top 3 for the day. It is a menu, not a contract. You see the whole load together: every project, company matters, personal. If it does not fit, something moves now, not at 19:00.
+5. Today, This Week and Overdue: pick the top 3 for the day. It is a menu, not a contract. You see the whole load together: every project, company matters, personal. If it does not fit, move something right away.
 6. Red signals: new errors from the prep, critical risks, deadlines.
 
 ### Before each meeting
 The prep is already in Reports about 55 minutes before: who works on what, board movement, blockers, chat topics, action items, errors over the last 24 hours, and an empty block for your own notes.
 
-### During the day: decisions, not digging
-- Replies in batches 2 or 3 times a day, not reactively. The drafts exist, so a batch takes minutes.
+### During the day: replies in batches
+- Replies in 2 or 3 batches a day. The drafts exist, so a batch takes minutes.
 - Artefacts as you go: a decision into Decisions (1 sentence, date, source), a state change into the config (the short file about the project), a risk into Risks.
 - The client asks for "just a small extra"? `change-request` sorts it: **A** is logged even when free, **B** costs hours, **C** touches data, money or security and is always a change request. At the end of the month the Extras Log shows how much goodwill went beyond scope.
 - After a meeting: drop the link, get a bilingual report with action items on the meeting page.

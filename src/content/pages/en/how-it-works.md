@@ -1,6 +1,6 @@
 ---
 title: How a message becomes a draft on your desk
-lead: Your tools on the left, the Notion page you open in the morning on the right, and Claude in the middle, working from a short file about each project. Here is the whole path, with real examples.
+lead: Your tools on the left, the Notion page you open in the morning on the right, and Claude in the middle, working from a short file about each project. Here is the whole path, with 3 examples.
 doc: 01-architecture.md
 facts:
   - { k: Brain, v: "Claude Cowork" }
@@ -15,8 +15,8 @@ You stop being the person who copies information between tools. Messages, meetin
 
 <div class="grid" style="--min: 220px;">
 <div class="card"><span class="card__tag">Layer 1</span><h3 class="card__title">Sources</h3><p class="card__text">Chats, mail, calendar, meeting transcripts, the tracker, error monitoring, logs and repositories. Reached through MCP connectors (the official way Claude plugs into Slack, Notion, Jira and other tools) and local files on your Mac.</p></div>
-<div class="card"><span class="card__tag">Layer 2</span><h3 class="card__title">The hub</h3><p class="card__text">Notion Control Tower: 11 databases, where every record is linked to a project and a workspace (Notion calls these links relations). Structured memory, not a wiki.</p></div>
-<div class="card card--accent"><span class="card__tag">Layer 3</span><h3 class="card__title">The brain</h3><p class="card__text">Claude Cowork with global instructions, the project files and the skill library (a skill is a written recipe for a single routine job). A single agent that sees the full context, instead of several narrow bots.</p></div>
+<div class="card"><span class="card__tag">Layer 2</span><h3 class="card__title">The hub</h3><p class="card__text">Notion Control Tower: 11 databases, where every record is linked to a project and a workspace (Notion calls these links relations). Every record knows its project, so you can filter, link and search.</p></div>
+<div class="card card--accent"><span class="card__tag">Layer 3</span><h3 class="card__title">The brain</h3><p class="card__text">Claude Cowork with global instructions, the project files and the skill library (a skill is a written instruction for a single routine job). A single Claude session reads the project file, Notion and your sources together.</p></div>
 <div class="card"><span class="card__tag">Layer 4</span><h3 class="card__title">Autopilot</h3><p class="card__text">Scheduled tasks on the Mac and in the cloud: short prompts that call a skill for a named project and save the result.</p></div>
 <div class="card"><span class="card__tag">Layer 5 · optional</span><h3 class="card__title">A second agent</h3><p class="card__text">Gemini as a strategist and reviewer over the same Notion memory. Useful once history has accumulated, never required.</p></div>
 </div>
@@ -43,6 +43,27 @@ Every result lands in the Reports database with a type, a skill, a date and a pr
 
 The config (short for configuration) is that file: a markdown file in the `projects/` folder, 1 per project. It holds what is true about the project right now, with "as of" dates: the access matrix, the team (including former members, with dates), channels, the tracker and its access mode, meeting cadence, deploy rules, Notion IDs, local paths, a cultural profile of the client team and an append-only changelog.
 
+Someone leaves the team or the client takes back an access? You change a line in that file, and every prep, report and draft works from the new reality on the next run. Here is a shortened demo:
+
+<figure class="codefig">
+<figcaption><span>projects/orbit.md</span><span>demo project</span></figcaption>
+<pre><span class="c-dim"># Orbit SaaS Launch</span>
+status: <span class="c-ok">active</span>
+team:
+  pm: Alex
+  devs: [Mira, Tomas, Lena]
+slack:
+  channels: [orbit-dev, orbit-client]
+task_tracker:
+  type: jira
+  api_access: <span class="c-warn">false</span>
+  fallback_source: mail_buffer
+meetings:
+  internal_sync: Mon/Wed/Fri 12:00
+  client_status: Thu 16:00
+<span class="c-dim"># as of 2026-10-11</span></pre>
+</figure>
+
 Every shared skill starts with the same Step 0:
 
 1. Determine the project from the request. Not named? **Ask.**
@@ -64,13 +85,13 @@ Clients work in their own trackers, and their security teams often will not issu
 
 The line is drawn carefully. Degradation is allowed for **derived** data: a ticket status or a metric can be recomputed tomorrow. It is not allowed for **primary** data: a message or a meeting that was not recorded today is gone. That is why a collector is accepted only if it is complete.
 
-## 3 real situations, start to finish
+## 3 situations, start to finish
 
 ### A client message becomes a ticket
 The morning collector pulls yesterday's chat into Threads with a status. The mail collector does the same for email. `inbox-responder` drafts a reply with context from the tracker and error monitoring. You open Control Tower, edit and send the draft, or turn the thread into a ticket with a single sentence.
 
 ### A client meeting you did not have to prep for
-An hour before, `client-meeting-prep` writes the prep into Reports: the week in the tracker, open threads, risks, questions left from last time. After the call you drop the meeting link into the chat and get a bilingual report with decisions and action items on the same page. On Monday the topic and weekly skills pick it up.
+About 55 minutes before, `client-meeting-prep` writes the prep into Reports: the week in the tracker, open threads, risks, questions left from last time. After the call you drop the meeting link into the chat and get a bilingual report with decisions and action items on the same page. On Monday the topic and weekly skills pick it up.
 
-### Production went down overnight
-The stability scan reads unresolved errors and a week of logs, picks the top 3 with traces, writes a report and files tickets for new defects. In the morning the report and the tickets are already waiting, and the Friday review prep includes them.
+### Errors piled up during the week
+The weekly stability scan (Thursday night in the author's setup) reads unresolved errors and a week of logs, picks the top 3 with traces, writes a report and files tickets for new defects. In the morning the report and the tickets are already waiting, and the Friday review prep includes them.

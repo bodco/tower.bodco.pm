@@ -33,6 +33,6 @@ Push to `main`. The workflow runs `check:text`, builds and publishes. Watch it i
 
 GitHub Pages gives one custom domain per repository. This repository serves
 `tower.bodco.pm`. A site on `bodco.pm` itself (a CV, for example) is a second Pages site:
-another repository (for example `bodco/bodco.github.io`) with four A records at the
+another repository (`bodco/bodco.pm`) with four A records at the
 registrar, `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`,
 and `bodco.pm` as its custom domain. This subdomain is not affected.

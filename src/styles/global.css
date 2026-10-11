@@ -6,7 +6,7 @@
 @import '@fontsource/ibm-plex-mono/500.css';
 
 /* Ukrainian apostrophe U+02BC is drawn too wide in IBM Plex Sans; borrow it from a system font. */
-@font-face { font-family: 'Apostrophe'; src: local('Helvetica Neue'), local('HelveticaNeue'), local('Arial'), local('Roboto'), local('Segoe UI'); unicode-range: U+02BC; }
+@font-face { font-family: 'Apostrophe'; src: local('Helvetica Neue'), local('HelveticaNeue'), local('Helvetica'), local('Arial'), local('ArialMT'), local('Roboto'), local('Roboto-Regular'), local('Segoe UI'), local('Noto Sans'), local('NotoSans-Regular'), local('DejaVu Sans'), local('Liberation Sans'); unicode-range: U+02BC; }
 
 :root {
   --bg: #0e1014;
@@ -32,6 +32,9 @@
   --chip-active: #1b1f26;
   --muted-sep: #5a606a;
   --shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+  --ink-bg: #262b33;
+  --ink-bg-hover: #313740;
+  --ink-text: #f3f4f6;
   color-scheme: dark;
 
   --sans: 'Apostrophe', 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
@@ -161,7 +164,7 @@ a.card:hover { border-color: var(--accent); color: var(--text); }
 .steps > li::before { counter-increment: s; content: counter(s, decimal-leading-zero); font-family: var(--mono); font-size: 14px; color: var(--accent); padding-top: 3px; }
 .steps b { font-size: 17px; font-weight: 600; display: block; margin-bottom: 6px; }
 .steps p { margin: 0; color: var(--text-2); font-size: 15px; line-height: 1.6; }
-.prompt { display: block; color: var(--text); font-size: 14px; background: var(--bg); border: 1px solid var(--line-strong); padding: 10px 12px; margin-top: 8px; overflow-x: auto; white-space: nowrap; }
+.prompt { display: block; color: var(--text); font-size: 14px; background: var(--bg); border: 1px solid var(--line-strong); padding: 10px 12px; margin-top: 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
 
 /* Timeline */
 .timeline { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-top: 2px solid var(--line-strong); }
@@ -238,11 +241,20 @@ a.card:hover { border-color: var(--accent); color: var(--text); }
 .facts dd { margin: 6px 0 0; font-size: 15px; }
 
 .page-body { display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; padding-top: 56px; padding-bottom: 112px; }
-.toc { flex: 1 1 220px; position: sticky; top: 88px; display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+.toc { flex: 1 1 220px; position: sticky; top: 88px; display: block; font-size: 14px; }
 .toc a { padding: 11px 12px; border-left: 2px solid var(--line-strong); color: var(--text-2); }
 .toc a:hover, .toc a.is-active { border-left-color: var(--accent); color: var(--text); }
-.toc .label { padding-bottom: 10px; }
+.toc__links { display: flex; flex-direction: column; gap: 2px; }
+.toc__sum { display: block; padding-bottom: 10px; list-style: none; pointer-events: none; }
+.toc__sum::-webkit-details-marker { display: none; }
 @media (max-width: 960px) { .toc { position: static; } }
+@media (max-width: 700px) {
+  .toc { flex-basis: 100%; border: 1px solid var(--line-strong); background: var(--surface); }
+  .toc__sum { pointer-events: auto; cursor: pointer; display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 0 16px; }
+  .toc__sum::after { content: '+'; font-size: 18px; color: var(--accent); letter-spacing: 0; }
+  .toc[open] .toc__sum::after { content: '\2212'; }
+  .toc__links { padding: 0 8px 10px; }
+}
 .page-main { flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
 
 /* Prose (Markdown) */
@@ -259,6 +271,8 @@ a.card:hover { border-color: var(--accent); color: var(--text); }
 .prose code { font-size: 0.88em; color: var(--text); background: var(--surface); border: 1px solid var(--line-strong); padding: 1px 6px; }
 .prose pre { background: var(--surface) !important; border: 1px solid var(--line-strong); padding: 20px; overflow-x: auto; font-size: 13.5px; line-height: 1.7; }
 .prose pre code { background: none; border: 0; padding: 0; font-size: inherit; }
+@media (max-width: 700px) { .prose pre:not(.pre--nowrap) { white-space: pre-wrap; overflow-wrap: anywhere; } .prose .codefig pre { white-space: pre; overflow-wrap: normal; } }
+.prose .codefig pre { border: 0; margin: 0; }
 .prose table { width: 100%; border-collapse: collapse; font-size: 15px; display: block; overflow-x: auto; }
 .prose th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); text-align: left; font-weight: 500; padding: 0 16px 12px 0; white-space: nowrap; }
 .prose td { padding: 12px 16px 12px 0; border-top: 1px solid var(--line); vertical-align: top; }
@@ -349,6 +363,9 @@ html[data-theme='light'] {
   --chip-active: #e9e6df;
   --muted-sep: #a6a29a;
   --shadow: 0 30px 60px rgba(40, 30, 20, 0.14);
+  --ink-bg: #1c1f25;
+  --ink-bg-hover: #2e323a;
+  --ink-text: #ffffff;
   color-scheme: light;
 }
 html[data-theme='light'] .btn--primary:hover { color: var(--on-accent); }
@@ -399,3 +416,36 @@ html[data-theme='dark'] .theme-btn .i-moon { display: none; }
 .nav__links { order: 1; }
 .nav__tools { order: 2; }
 @media (max-width: 1100px) { .nav__links { order: 3; } }
+
+/* Equal neutral buttons for the two places you clone from. */
+.btn--ink { background: var(--ink-bg); border-color: var(--ink-bg); color: var(--ink-text); font-weight: 600; }
+.btn--ink:hover { background: var(--ink-bg-hover); border-color: var(--accent); color: var(--ink-text); }
+.prose a.btn--ink, .prose a.btn--ink:hover { color: var(--ink-text); }
+
+/* Where a skill runs */
+.run { display: inline-block; padding: 1px 7px; border: 1px solid var(--line-strong); font-family: var(--mono); font-size: 11px; line-height: 18px; color: var(--text-2); white-space: nowrap; }
+.skill__meta .run { margin-left: auto; }
+.run--mac { border-color: var(--accent); color: var(--accent); }
+.run--local { border-color: var(--text-3); color: var(--text); }
+.run--either { border-style: dashed; }
+.run--cloud { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 55%, transparent); }
+.runs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 12px; margin: 0; }
+.runs__item { border: 1px solid var(--line); background: var(--surface); padding: 14px 16px; }
+.runs__item dt { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.runs__n { font-family: var(--mono); font-size: 12px; color: var(--text-3); }
+.runs__item dd { margin: 0; font-size: 14px; line-height: 1.5; color: var(--text-2); }
+
+/* Footnote marker and small print */
+.fn { color: var(--accent); text-decoration: none; font-weight: 600; }
+.smallprint { font-size: 13px; line-height: 1.55; color: var(--text-3); max-width: 640px; }
+.smallprint a { color: var(--text-2); }
+
+/* Real screenshots of the public template */
+.shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 24px; }
+.shot { margin: 0; border: 1px solid var(--line-strong); background: var(--surface); }
+.shot__bar { display: flex; align-items: center; gap: 6px; padding: 9px 12px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 11px; color: var(--text-3); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.shot__bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); flex: none; }
+.shot__bar span { margin-left: 6px; overflow: hidden; text-overflow: ellipsis; }
+.shot img { display: block; width: 100%; height: auto; background: #fff; }
+.shot figcaption { padding: 12px 14px; font-size: 14px; line-height: 1.5; color: var(--text-2); border-top: 1px solid var(--line); }
+.shot figcaption b { color: var(--text); font-weight: 600; }

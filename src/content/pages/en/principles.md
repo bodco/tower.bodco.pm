@@ -15,7 +15,7 @@ You know in advance what it will and will not do, so you can trust a report with
 
 1. **Routine runs without a human.** Collection, preps, overviews, scans, reports, board hygiene, metrics, risks and sentiment run on a schedule and land where you look in the morning.
 2. **All project context in one place.** Not "it exists somewhere", but in structured databases, each record linked to its project.
-3. **A single truth about the state of the project.** The config (a short file per project) is the single source of truth. Skills (the written recipes Claude follows) read it instead of carrying facts inside.
+3. **A single truth about the state of the project.** The config (a short file per project) is the single source of truth. Skills (the written instructions Claude follows) read it instead of carrying facts inside.
 4. **New projects without rewriting the core.** A new config, pages in Notion, a schedule. The shared skills pick it up, even without a tracker API.
 5. **Built to be handed over.** Everything project-specific lives in the config, so another PM can set up their own copy. The first handover to a colleague is still ahead.
 
@@ -30,14 +30,14 @@ You know in advance what it will and will not do, so you can trust a report with
 
 | # | Principle | In one line |
 |---|---|---|
-| 1 | Claude Cowork at the centre | A single agent with the full context, instead of several narrow bots |
+| 1 | Claude Cowork at the centre | A single agent with the full context of every project |
 | 2 | Notion as a hub, not a file store | Databases linked to each other, so projects live together without mixing |
 | 3 | The config wins | It beats any skill, report or old document. Facts carry "as of" dates |
 | 4 | Never guess the project | No project named, the skill asks |
-| 5 | Skills are recipes, not code | Markdown with triggers, steps, format and storage, born from routine |
+| 5 | Skills are written instructions | Markdown with triggers, steps, format and storage, born from routine |
 | 6 | Engines apart from project facts | No prefix means an engine (works for any project). A prefix means a single project |
 | 7 | The result is always written somewhere | Every report lands in the Reports database |
-| 8 | Natural language, not commands | "Prep me for the daily" is enough, in 2 languages |
+| 8 | Natural language | "Prep me for the daily" is enough, in 2 languages |
 | 9 | Start small | A single skill, then the next once the first delivered value |
 | 10 | Complete context, and knowing its limits | Collect everything you can reach, and say what is missing |
 | 11 | An 80% core and 20% adapters | Adapters are skills for a single client stack. Do not try to abstract every tracker in the world |
@@ -50,12 +50,12 @@ You know in advance what it will and will not do, so you can trust a report with
 
 - **Start small, iterate.** Automating everything at once gives you 10 reports nobody trusts.
 - **Separate engines from project facts.** When the team shrank and half the repositories went to the client, dozens of skills that "knew" the old reality had to be rewritten. Once the facts moved to the config, a change of state became a single file.
-- **A skill is born out of routine, not documentation.** Catch the "I am asking the same thing again" moment.
+- **A skill is born out of routine.** Catch the "I am asking the same thing again" moment.
 - **Verification matters more than generation.** Every autopilot report is a draft with sources.
 - **Client culture is data.** Without cultural calibration, sentiment analysis is meaningless.
 - **Completeness is not traded for convenience.** Partial collection is worse than none: the system looks full while reports rest on a leaky sample.
 - **An internal channel never goes to the client, not even as a paraphrase.**
-- **A time marker is not a filter.** A queue is defined by location, not by time, or late data disappears silently.
+- **A time marker is not a filter.** A queue is defined by where an item sits, so late data cannot disappear silently.
 
 ## Mistakes that break it
 
@@ -75,6 +75,6 @@ You know in advance what it will and will not do, so you can trust a report with
 ## Security and privacy
 
 - **No secrets in skills, configs or repositories.** Only the variable name. Values live in a local secrets file and are read at runtime, never printed.
-- **Client chats and mail stay with you.** They are read through your own connectors into your own Notion, and the framework sends them nowhere else. Sentiment reports about the client are internal and never shown to the client.
+- **Client chats and mail go only through your own accounts.** Claude, in Anthropic's cloud, reads the chats, mail and meeting notes you connect, through connectors you signed in to, to write drafts and reports. The results go into your own Notion. Call audio is transcribed on your Mac, and only the text transcript is used. Nothing else is added unless you switch on the optional second agent. Before you connect a client channel, check that your client contract allows AI tools. For how Anthropic handles data, see [Anthropic's privacy policy](https://www.anthropic.com/legal/privacy). Sentiment reports are marked internal: keep them in a closed database or on your disk, because a label does not stop someone from sharing the page.
 - **Client context is internal.** Transcripts, quotes, names and sentiment reports never reach the client. External reports use roles instead of people.
 - **Agent permissions are narrow: the 5-minute rule.** Without your confirmation the agent writes only where the result can be undone within 5 minutes: a Notion page, a draft, a comment in its own thread, a ticket in its own tracker project. Anything that cannot be undone that fast (a message to the client, a change on the client's board, production, deleting something) waits for you.

@@ -80,7 +80,7 @@ Most of the time is the model download. Do it once, after [floor 2](/start/) wor
 
 ### 1. The tools it needs
 
-If you do not have them yet, paste these into Terminal one at a time (<kbd>Cmd</kbd>+<kbd>Space</kbd>, "Terminal"). Homebrew itself is on [the setup page](/start/#before-you-start).
+If you do not have them yet, paste these into Terminal one at a time (<kbd>Cmd</kbd>+<kbd>Space</kbd>, "Terminal"). Homebrew itself is on [the setup page](/start/#programs-some-add-ons-need).
 
 ```
 xcode-select --install

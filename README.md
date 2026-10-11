@@ -1,4 +1,4 @@
-# bodco.pm: the PM Control Tower website
+# tower.bodco.pm: the PM Control Tower website
 
 Source of [tower.bodco.pm](https://tower.bodco.pm), the landing and feature pages for
 [PM Control Tower](https://github.com/bodco/pm-control-tower).

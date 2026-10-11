@@ -35,10 +35,18 @@ const { prev, next } = neighbours(slug);
 
   <div class="page-body wrap">
     {toc.length > 1 && (
-      <nav class="toc" aria-label={t(lang, 'page.onthis')}>
-        <span class="label">{t(lang, 'page.onthis')}</span>
-        {toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}
-      </nav>
+      <details class="toc" open>
+        <summary class="label toc__sum">{t(lang, 'page.onthis')}</summary>
+        <nav class="toc__links" aria-label={t(lang, 'page.onthis')}>
+          {toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}
+        </nav>
+      </details>
+    )}
+    {toc.length > 1 && (
+      <script is:inline>
+        // Collapsed by default on narrow screens, so step 1 is not pushed a screen down. Runs before paint.
+        (function () { var d = document.currentScript && document.currentScript.previousElementSibling; if (d && d.tagName === 'DETAILS' && window.matchMedia('(max-width: 700px)').matches) d.open = false; })();
+      </script>
     )}
     <div class="page-main">
       <article class="prose"><slot /></article>
@@ -61,7 +69,11 @@ const { prev, next } = neighbours(slug);
 <script>
   // Copy buttons on every code block, so nobody has to select text by hand.
   const copyLabel = document.documentElement.lang === 'uk' ? ['Копіювати', 'Скопійовано'] : ['Copy', 'Copied'];
+  // Short prompts wrap on phones; shell commands and diagrams keep their lines and scroll sideways.
+  const NOWRAP = /^\s*(\/bin\/|brew |xcode-select|git |curl |sudo |python|pip |npm |cd |\.\/|~\/)|[─│┐┘┤▶]/m;
   document.querySelectorAll<HTMLPreElement>('.prose pre').forEach((pre) => {
+    if (pre.closest('.codefig')) return; // illustrations, not prompts to copy
+    if (NOWRAP.test(pre.textContent ?? '')) pre.classList.add('pre--nowrap');
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'copy';
