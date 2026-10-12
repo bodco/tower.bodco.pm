@@ -58,21 +58,10 @@ const C = {
     ['Cleaning up the board', '1 h', '5 min', 92],
   ],
 
-  // 4. ON THE CALL
-  liveEyebrow: 'On the call',
-  liveH: 'A quiet hint when the client asks for "just a small extra"',
-  liveP: 'It listens to the call with you and stays silent until something matters: a new request, a date someone wants you to promise, a line that contradicts a recorded decision, an answer of yours that was off. Then a short hint and a ready phrase appear in a small window. Audio is transcribed on your Mac and never leaves it. After the call, the transcript and a wrap-up are in Notion. Needs an Apple Silicon Mac.',
-  liveMore: 'How the call co-pilot works',
-  liveHead: 'LIVE · Client status sync · 14:32',
-  liveClient: 'Client', liveYou: 'You',
-  liveL1: 'And could you also add an export to CSV? Should be quick, right?',
-  liveL2: 'Sure, I think we can squeeze it into this sprint.',
-  liveTag: 'Tip · new request', liveGist: 'New request. Do not agree now.', livePhrase: '"Good idea. I will write it down. We will check it and come back to you."',
-
   // 5. ASK
   skillsEyebrow: 'The skills',
   skillsH: 'Ask the way you would ask a colleague',
-  skillsP: 'In English or Ukrainian. There are 22 skills. Start with 4, and add the next when a routine starts to hurt.',
+  skillsP: 'In English or Ukrainian. There are 20+ skills. Start with 4, and add the next when a routine starts to hurt.',
   say: 'Say',
   says: [
     ['daily-team-prep', 'Board movement, blockers and new errors since the last prep, saved to Reports.'],
@@ -80,7 +69,7 @@ const C = {
     ['change-request', 'The ask sorted into A, B or C before you agree, with a draft change request.'],
     ['client-report', 'A client report in English, ready for you to proofread.'],
   ],
-  skillsBtn: 'All 22 skills',
+  skillsBtn: 'All skills',
   howQ: 'Curious how a message becomes a draft?',
   howLink: 'How it works',
 
@@ -115,9 +104,9 @@ const C = {
     ['It is not plug and play', 'The basics take an evening, about 4-5 hours. If your project has code, add a few hours in week 1. Then 2-4 weeks of about 15 minutes a day, mostly small edits to the project file.'],
     ['It is beta', 'The author uses it every day. Nobody else has installed it yet. Expect rough edges, and please report them.'],
     ['No budgets or contracts', 'Budget burn, margin and contract milestones are not covered. Its strength is the flow of messages, meetings and reports.'],
-    ['Your accounts, your data', 'Claude, in Anthropic\'s cloud, reads the chats, mail and meeting notes you connect, to write drafts and reports. Results go into your own Notion. Call audio is transcribed on your Mac, and only the text is used. Check that your client contract allows AI tools before you connect a client channel.', PRIVACY_URL, 'Anthropic\'s privacy policy'],
+    ['Your accounts, your data', 'Claude, in Anthropic\'s cloud, reads the chats, mail and meeting notes you connect, to write drafts and reports. Results go into your own Notion. Check that your client contract allows AI tools before you connect a client channel.', PRIVACY_URL, 'Anthropic\'s privacy policy'],
     ['What it costs', 'The template and the plugin are free (MIT). The author pays about $150 a month for Claude Max plus Notion with Notion AI, because he experiments a lot: 20+ background tasks and new skills in testing. A start with 3-4 skills is about $30-50 a month: Claude Pro plus Notion AI, which gives you meeting transcripts. Pro has not been tested yet, but it may well be enough.', PRICE_URL, 'Current Claude plans and prices'],
-    ['Windows?', 'Built and tested on macOS. Cowork also runs on Windows. 2 skills need a Mac (mail and the call co-pilot), a few need your computer on any OS, the rest run in the cloud. Windows itself is not tested yet.', '/skills/#where', 'Where each skill runs'],
+    ['Windows?', 'Built and tested on macOS. Cowork also runs on Windows. Mail needs a Mac, a few skills need your computer on any OS, the rest run in the cloud. Windows itself is not tested yet.', '/skills/#where', 'Where each skill runs'],
     ['When it breaks, you see it', 'If the Mac was asleep or the app was closed, the scheduled reports are simply missing in the morning: press Run now. A report saved only in part says "saved with warnings".'],
   ],
 
@@ -136,7 +125,7 @@ const C = {
   floors: [
     ['Floor 1 · 10 min', 'Just the Notion template', 'Duplicate it and use it by hand. No AI at all.'],
     ['Floor 2 · an evening · the core', 'Claude plus Notion', 'Claude learns your first project and preps your syncs when you ask. Tested on a Mac with Claude Max. Claude Pro may be enough to start.'],
-    ['Floor 3 · when you miss it', 'Add-ons, one at a time', 'Slack, mail, Jira, the schedule, the call co-pilot.'],
+    ['Floor 3 · when you miss it', 'Add-ons, one at a time', 'Slack, mail, Jira, the schedule.'],
   ],
 },
   uk: {
@@ -182,21 +171,10 @@ const C = {
     ['Навести лад на борді', '1 год', '5 хв', 92],
   ],
 
-  // 4. НА ДЗВІНКУ
-  liveEyebrow: 'На дзвінку',
-  liveH: 'Тиха підказка, коли клієнт просить "ще дрібничку"',
-  liveP: 'Він слухає дзвінок разом з вами і мовчить, доки не трапиться щось важливе: нова вимога, дата, яку від вас хочуть почути, суперечність записаному рішенню, ваша неточна відповідь. Тоді в маленькому вікні зʼявляється коротка підказка і готова фраза. Звук розпізнається на вашому Маку і нікуди не йде. Після дзвінка в Notion уже лежать транскрипт і підсумок. Потрібен Мак на Apple Silicon.',
-  liveMore: 'Як працюють підказки на дзвінку',
-  liveHead: 'LIVE · Статус-синк з клієнтом · 14:32',
-  liveClient: 'Клієнт', liveYou: 'Ви',
-  liveL1: 'And could you also add an export to CSV? Should be quick, right?',
-  liveL2: 'Sure, I think we can squeeze it into this sprint.',
-  liveTag: 'Підказка · нова вимога', liveGist: 'Нова вимога. Не погоджуйте зараз.', livePhrase: '"Good idea. I will write it down. We will check it and come back to you."',
-
   // 5. ПРОСІТЬ
   skillsEyebrow: 'Скіли',
   skillsH: 'Просіть так, як попросили б колегу',
-  skillsP: 'Українською чи англійською. Скілів 22. Почніть з 4, а наступний додавайте, коли якась рутина почне муляти.',
+  skillsP: 'Українською чи англійською. Скілів 20+. Почніть з 4, а наступний додавайте, коли якась рутина почне муляти.',
   say: 'Скажіть',
   says: [
     ['daily-team-prep', 'Рух на борді, блокери і нові помилки з минулої підготовки, збережені в Reports.'],
@@ -204,7 +182,7 @@ const C = {
     ['change-request', 'Прохання розкладене на A, B чи C ще до вашого "так", з драфтом change request.'],
     ['client-report', 'Звіт клієнту англійською, готовий до вичитки.'],
   ],
-  skillsBtn: 'Усі 22 скіли',
+  skillsBtn: 'Усі скіли',
   howQ: 'Цікаво, як повідомлення стає драфтом?',
   howLink: 'Як це працює',
 
@@ -239,9 +217,9 @@ const C = {
     ['Не запрацює з коробки', 'Основа займає вечір, це 4-5 годин. Якщо в проєкті є код, додайте кілька годин на 1-му тижні. Далі 2-4 тижні десь по 15 хвилин на день, здебільшого дрібні правки у файлі проєкту.'],
     ['Це бета', 'Автор користується щодня. Більше ніхто ще не встановлював. Шорсткості будуть, і про них варто написати.'],
     ['Не про бюджет і контракти', 'Спалювання бюджету, маржа і контрактні віхи не покриті. Його сильна сторона це потік повідомлень, мітингів і звітів.'],
-    ['Ваші акаунти, ваші дані', 'Claude у хмарі Anthropic читає чати, пошту й нотатки мітингів, які ви підключили, щоб писати драфти і звіти. Результати лягають у ваш власний Notion. Звук дзвінків розпізнається на вашому Маку, і використовується лише текст. Перш ніж підключати клієнтський канал, перевірте, чи контракт з клієнтом дозволяє AI-інструменти.', PRIVACY_URL, 'Політика приватності Anthropic'],
+    ['Ваші акаунти, ваші дані', 'Claude у хмарі Anthropic читає чати, пошту й нотатки мітингів, які ви підключили, щоб писати драфти і звіти. Результати лягають у ваш власний Notion. Перш ніж підключати клієнтський канал, перевірте, чи контракт з клієнтом дозволяє AI-інструменти.', PRIVACY_URL, 'Політика приватності Anthropic'],
     ['Скільки коштує', 'Шаблон і плагін безкоштовні (MIT). Автору це обходиться приблизно в $150 на місяць за Claude Max і Notion з Notion AI, бо він багато експериментує: 20+ фонових задач і нові скіли на тестуванні. Старт з 3-4 скілами це десь $30-50 на місяць: Claude Pro плюс Notion AI, який дає транскрипти мітингів. На Pro ще не тестувалось, але цілком може вистачити.', PRICE_URL, 'Актуальні плани й ціни Claude'],
-    ['Windows?', 'Зроблено й перевірено на macOS. Cowork працює і на Windows. 2 скіли потребують Мака (пошта і підказки на дзвінку), кілька потребують вашого компʼютера на будь-якій ОС, решта працює в хмарі. Саму Windows ще не тестували.', '/uk/skills/#where', 'Де працює кожен скіл'],
+    ['Windows?', 'Зроблено й перевірено на macOS. Cowork працює і на Windows. Пошта потребує Мака, кілька скілів потребують вашого компʼютера на будь-якій ОС, решта працює в хмарі. Саму Windows ще не тестували.', '/uk/skills/#where', 'Де працює кожен скіл'],
     ['Коли ламається, це видно', 'Якщо Мак спав або застосунок був закритий, зранку запланованих звітів просто немає: натисніть Run now. Звіт, збережений лише частково, позначено "saved with warnings".'],
   ],
 
@@ -260,7 +238,7 @@ const C = {
   floors: [
     ['Поверх 1 · 10 хв', 'Лише шаблон Notion', 'Дублюєте і користуєтесь руками. Жодного AI.'],
     ['Поверх 2 · вечір · основа', 'Claude плюс Notion', 'Claude вивчає ваш перший проєкт і готує до синків, коли попросите. Перевірено на Маку з Claude Max. Для старту може вистачити Claude Pro.'],
-    ['Поверх 3 · коли забракне', 'Доповнення по одному', 'Slack, пошта, Jira, розклад, підказки на дзвінку.'],
+    ['Поверх 3 · коли забракне', 'Доповнення по одному', 'Slack, пошта, Jira, розклад.'],
   ],
 },
 }[lang];
@@ -331,30 +309,6 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
           ))}
         </tbody>
       </table>
-    </div>
-  </section>
-
-  <!-- 4. ON THE CALL -->
-  <section class="band" aria-labelledby="live-h">
-    <div class="wrap section split">
-      <div class="card" style="padding: 0; gap: 0;">
-        <div class="label" style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line-strong); letter-spacing: 0.06em;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent);" aria-hidden="true"></span>{C.liveHead}</div>
-        <div style="padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; line-height: 1.55;" class="muted">
-          <p style="margin: 0;"><b style="color: var(--text); font-weight: 500;">{C.liveClient}:</b> <span lang="en">{C.liveL1}</span></p>
-          <p style="margin: 0;"><b style="color: var(--text); font-weight: 500;">{C.liveYou}:</b> <span lang="en">{C.liveL2}</span></p>
-        </div>
-        <div class="tip" style="margin: 0 20px 22px;">
-          <span class="card__tag" style="font-size: 11px;">{C.liveTag}</span>
-          <b>{C.liveGist}</b>
-          <span lang="en">{C.livePhrase}</span>
-        </div>
-      </div>
-      <div class="stack">
-        <p class="eyebrow">{C.liveEyebrow}</p>
-        <h2 id="live-h" class="h2">{C.liveH}</h2>
-        <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.liveP}</p>
-        <a class="more" href={path(lang, 'live-tips')}>{C.liveMore} <Arrow /></a>
-      </div>
     </div>
   </section>
 

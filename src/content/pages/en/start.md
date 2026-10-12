@@ -18,7 +18,7 @@ Think of it as 3 floors. You can stop on any of them and it still works.
 <div class="levels">
 <div class="level"><span class="level__n">Floor 1 · 10 min</span><h3 class="card__title">Just the Notion template</h3><p class="card__text">Duplicate it and use it by hand. Inbox, tasks, meetings, threads, risks, decisions. No AI at all. You can stay here as long as you like.</p></div>
 <div class="level level--must"><span class="level__n">Floor 2 · an evening · the core</span><h3 class="card__title">Claude plus Notion</h3><p class="card__text">Claude reads and writes your Notion, knows your first project and prepares your syncs. This page walks you through it, click by click.</p></div>
-<div class="level"><span class="level__n">Floor 3 · when you need it</span><h3 class="card__title">Add-ons</h3><p class="card__text">Slack, mail, Jira, a schedule, the call co-pilot. Each one is separate. Add one, live with it for a week, then the next.</p></div>
+<div class="level"><span class="level__n">Floor 3 · when you need it</span><h3 class="card__title">Add-ons</h3><p class="card__text">Slack, mail, Jira, a schedule. Each one is separate. Add one, live with it for a week, then the next.</p></div>
 </div>
 
 <div class="btns" style="margin-top: 24px;">
@@ -31,7 +31,7 @@ Think of it as 3 floors. You can stop on any of them and it still works.
 You need these for floor 2. Nothing here asks you to open Terminal.
 
 <ul class="checklist">
-<li><b>A Mac, ideally.</b> The framework is built and tested on macOS. Cowork also runs on Windows: 2 skills need a Mac (mail and the call co-pilot), the rest should work, but Windows is not tested yet. <a href="/skills/#where">Where each skill runs</a>.</li>
+<li><b>A Mac, ideally.</b> The framework is built and tested on macOS. Cowork also runs on Windows: mail collection needs a Mac, the rest should work, but Windows is not tested yet. <a href="/skills/#where">Where each skill runs</a>.</li>
 <li><b>A paid Claude plan.</b> Tested on Max. Pro has not been tested yet, but for a start with 3-4 skills it may be enough. See <a href="#what-it-costs">what it costs</a>.</li>
 <li><b>The Claude desktop app.</b> Download it from <a href="https://claude.ai/download">claude.ai/download</a> and sign in. Cowork is inside it.</li>
 <li><b>A Notion account.</b> Any plan is enough for the template. Meeting transcripts need Notion's paid AI Meeting Notes, but that is an add-on.</li>
@@ -178,11 +178,10 @@ Some add-ons need small programs on your Mac. **Skip this until an add-on asks f
 
 | Tool | What it is | Needed for | Install |
 |---|---|---|---|
-| Xcode Command Line Tools | Apple's basic developer tools, includes `git` | call co-pilot, cloning repositories | `xcode-select --install` |
+| Xcode Command Line Tools | Apple's basic developer tools, includes `git` | cloning repositories | `xcode-select --install` |
 | Homebrew | an app store for the command line | everything below | see the line under this table |
 | Node.js | runs JavaScript servers | a self-hosted Jira or Bitbucket | `brew install node` |
 | uv | runs Python tools | Confluence | `brew install uv` |
-| Python 3.12 | runs the speech model | call co-pilot | `brew install python@3.12` |
 
 Homebrew, the official one-liner from [brew.sh](https://brew.sh):
 
@@ -251,11 +250,6 @@ put daily-team-prep for <project> on a schedule, about 55 minutes before our int
 ```
 Start with a single task. Add the next after a week.
 
-### Call co-pilot
-**Gives you** quiet hints during the call when something matters.
-
-**Needs** an Apple Silicon Mac, Python and 2 macOS permissions. Everything, including the microphone and system audio setup, is on [the call co-pilot page](/live-tips/#install-about-15-minutes).
-
 ## If something goes wrong
 
 | What you see | What it usually means |
@@ -279,7 +273,7 @@ Claude does everything else. These few clicks are yours because they need your a
 | Paste tokens into the secrets file | Secrets never pass through Claude |
 | Restart the Claude app | Local servers read secrets only at start |
 | Paste the global instructions | Claude has no access to account settings |
-| Allow macOS permissions (Mail, microphone, system audio) | macOS gives them only to the person at the Mac |
+| Allow the macOS permission for Mail | macOS gives them only to the person at the Mac |
 
 ## Honest expectations
 

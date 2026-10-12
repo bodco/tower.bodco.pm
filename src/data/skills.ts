@@ -5,7 +5,7 @@ type L = Record<Lang, string>;
 export const GROUPS: Record<string, L> = {
   found: { en: 'Foundation', uk: 'Основа' },
   collect: { en: 'Catch every message', uk: 'Зібрати все' },
-  prep: { en: 'Before and during calls', uk: 'Перед дзвінком і під час нього' },
+  prep: { en: 'Before calls', uk: 'Перед дзвінком' },
   report: { en: 'Reports', uk: 'Звіти' },
   scope: { en: 'Scope and risks', uk: 'Скоуп і ризики' },
   tracker: { en: 'Board and stability', uk: 'Борда і стабільність' },
@@ -17,7 +17,7 @@ export type Run = 'mac' | 'local' | 'either' | 'cloud';
 export const RUNS: Record<Run, { label: L; hint: L }> = {
   mac: {
     label: { en: 'Mac only', uk: 'Тільки Mac' },
-    hint: { en: 'Needs a Mac: reads Mail.app or captures call audio on the machine.', uk: 'Потрібен Мак: читає Mail.app або захоплює звук дзвінка на машині.' },
+    hint: { en: 'Needs a Mac: reads Mail.app on the machine.', uk: 'Потрібен Мак: читає Mail.app на машині.' },
   },
   local: {
     label: { en: 'Your computer, any OS', uk: 'Ваш компʼютер, будь-яка ОС' },
@@ -97,14 +97,6 @@ export const SKILLS: Skill[] = [
       uk: 'Статус і тези до кожного клієнтського мітингу, з урахуванням того, хто буде і що це за мітинг.',
     },
     say: { en: 'prep the client call', uk: 'підготуй клієнтський дзвінок' },
-  },
-  {
-    name: 'live-tips', run: 'mac', group: 'prep', when: { en: 'during the call', uk: 'під час дзвінка' }, out: 'Meetings',
-    what: {
-      en: 'Short hints in a small window under the camera when something matters, and a transcript with a wrap-up afterwards. Audio stays on your Mac.',
-      uk: 'Короткі підказки в маленькому вікні під камерою, коли трапляється щось важливе, а після дзвінка транскрипт і підсумок. Звук лишається на вашому Маку.',
-    },
-    say: { en: 'live tips', uk: 'live tips' },
   },
   {
     name: 'notion-meeting-topics', group: 'prep', when: { en: 'after meeting', uk: 'після мітингу' }, out: 'Meetings',
