@@ -47,7 +47,7 @@ Tips appear in their own small window, not in a chat you have to keep open. It o
 <div class="card"><h3 class="card__title">An ordinary window</h3><p class="card__text">Drag it, resize it, minimise it, close it. It remembers where you put it. Closing it does not stop the recording.</p></div>
 </div>
 
-The newest tip is on top in a large font, older ones fade below. Font size and transparency are one click away. Closed it by accident? Ask in the chat to open it again, and it comes back with every tip since the start of the call. Prefer the chat? One setting sends tips to the window, the chat or both. Other meeting apps (Zoom, Teams) are not verified yet: if in doubt, share a window or a tab instead of the entire screen.
+The newest tip is on top in a large font, older ones fade below. The 🎙 button is the mic mute: the recorder cannot see the mute button of Meet or Zoom, so when you are muted in a cafe or near other people, press it too and the room is no longer written down as your words. The 💬 button sets the minimum pause between two "you can add" hints: 45s means at most one such hint per 45 seconds, 20s gives more, 90s fewer, off turns them off (urgent tips ignore it). Font size and transparency are one click away. When you start, the skill asks once for the project, the call language and the microphone (the Mac's default input or the Mac's own microphone), because these cannot change during a call. Closed the window by accident? Ask in the chat to open it again, and it comes back with every tip since the start of the call. Prefer the chat? One setting sends tips to the window, the chat or both. Other meeting apps (Zoom, Teams) are not verified yet: if in doubt, share a window or a tab instead of the entire screen.
 
 ## A call, step by step
 
