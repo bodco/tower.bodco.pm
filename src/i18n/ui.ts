@@ -24,6 +24,7 @@ export const PAGES = [
   { slug: 'how-it-works', nav: true },
   { slug: 'autopilot', nav: false },
   { slug: 'principles', nav: false },
+  { slug: 'open-source', nav: false },
   { slug: 'start', nav: true },
   { slug: 'changelog', nav: false },
 ] as const;
@@ -48,6 +49,7 @@ export const ui = {
     'nav.notion': 'Notion template',
     'nav.autopilot': 'Autopilot',
     'nav.live-tips': 'Call co-pilot',
+    'nav.open-source': 'Open source and beta',
     'nav.day': 'A day with it',
     'nav.principles': 'Principles',
     'nav.start': 'Set it up',
@@ -92,6 +94,7 @@ export const ui = {
     'nav.notion': 'Шаблон Notion',
     'nav.autopilot': 'Автопілот',
     'nav.live-tips': 'Підказки на дзвінку',
+    'nav.open-source': 'Відкритий код і бета',
     'nav.day': 'День з ним',
     'nav.principles': 'Принципи',
     'nav.start': 'Як розгорнути',

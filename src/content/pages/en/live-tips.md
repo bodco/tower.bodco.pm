@@ -8,9 +8,12 @@ facts:
   - { k: Skill, v: "<code>live-tips</code>" }
   - { k: Tips in, v: "A window under the camera" }
   - { k: Writes to, v: "Meetings DB" }
+  - { k: Status, v: "beta" }
 ---
 
 You stop agreeing to scope in the moment and regretting it later. When the client asks "how long will the export take?", the number from your own prep is already under the camera. When they slip in "just a small extra", a short hint and a ready phrase appear before you answer. After the call, the action items, your promises and the transcript are on a Meetings page, and you did not write any of it.
+
+This is a **beta**: built and tested by one person on real calls, and built on other people's open-source models (see [open source inside](/open-source/)).
 
 ## Facts or silence
 
@@ -96,6 +99,17 @@ With [Ollama](https://ollama.com) and a small multilingual embedding model (`bge
 ## After the call: notes you did not have to write
 
 A wrap-up in the chat: action items with owners and dates, new requests, your commitments, open questions, and answers worth coming back to. It goes into the meeting's existing Notion page (for example the one Notion AI Meeting Notes created), and a new page appears only when there is none. Your notes from the call become lessons for the next one. Next steps (a report, a change request, a risk) are offered, never run without your command.
+
+## Open source inside, beta outside
+
+The heavy parts are other people's open-source work: speech recognition, voice and text embeddings. What is built here is the glue around them: the audio capture and its watchdogs, the filters around Whisper, the tips window, the protocol between the recorder and Claude, instant cards, speaker naming, the local index and the skill itself. Claude writes the tips.
+
+- **Whisper** (OpenAI, MIT) on **MLX** (Apple, MIT): speech recognition.
+- **WebRTC VAD** (BSD) via py-webrtcvad (MIT): speech or silence.
+- **sherpa-onnx** (Apache-2.0) with the **WeSpeaker** voice model (trained on VoxCeleb, CC BY 4.0): who is speaking.
+- **Ollama** (MIT) with **bge-m3** (BAAI, MIT): local search by meaning.
+
+It is a beta: tested by one person on one Mac since October 2026, thresholds are still tuned, Zoom and Teams are not fully verified. The full list with licences, links and what exactly is built here is on the [open source page](/open-source/). Found a problem? [Open an issue](https://github.com/bodco/pm-control-tower/issues).
 
 ## Why it is built this way
 
