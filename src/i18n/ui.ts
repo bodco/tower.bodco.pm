@@ -13,11 +13,12 @@ export const LINKS = {
   github: 'https://github.com/bodco',
 };
 
-export const VERSION = '1.6.3';
+export const VERSION = '1.8.0';
 
 /** Page order drives the header, the footer and the prev/next pager. */
 export const PAGES = [
   { slug: 'day', nav: true },
+  { slug: 'live-tips', nav: true },
   { slug: 'notion', nav: true },
   { slug: 'skills', nav: true },
   { slug: 'how-it-works', nav: true },
@@ -46,6 +47,7 @@ export const ui = {
     'nav.skills': 'Skills',
     'nav.notion': 'Notion template',
     'nav.autopilot': 'Autopilot',
+    'nav.live-tips': 'Call co-pilot',
     'nav.day': 'A day with it',
     'nav.principles': 'Principles',
     'nav.start': 'Set it up',
@@ -89,6 +91,7 @@ export const ui = {
     'nav.skills': 'Скіли',
     'nav.notion': 'Шаблон Notion',
     'nav.autopilot': 'Автопілот',
+    'nav.live-tips': 'Підказки на дзвінку',
     'nav.day': 'День з ним',
     'nav.principles': 'Принципи',
     'nav.start': 'Як розгорнути',

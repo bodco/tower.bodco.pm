@@ -2,7 +2,7 @@
 title: "Changelog: what changed in each version"
 lead: What changed in each version of the plugin, the Notion template and the documentation.
 facts:
-  - { k: Current, v: "v1.6.3" }
+  - { k: Current, v: "v1.8.0" }
   - { k: First public, v: "2026-09-11" }
   - { k: Licence, v: "MIT" }
   - { k: Status, v: "beta" }
@@ -12,10 +12,12 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
-| 1.6.3 | 2026-10-12 | Fixes and improvements in the Mac add-ons. |
-| 1.6.2 | 2026-10-11 | Fixes and improvements in the Mac add-ons. |
+| 1.8.0 | 2026-10-21 | **Call co-pilot, rebuilt for real calls.** Facts or silence: tips answer a question to you, your turn, a new request, a promised date, a decision without an owner; proactive hints are off by default and the tips follow the live topic, not the plan. **The tips window:** 🆘 help now (the best facts at once, then the next sentence to say), ⏸ / ▶ pause, one field that searches your facts and asks Claude, one gear menu, one warning at a time with a fixing button, pinned cards, a question marker, English or Ukrainian interface, stealth on by default and off for demos. **It reads the meeting by itself:** audience (team, client, your manager as the client) and mode (discussion or your talk); Presentation and Interview (Observer, Interviewer, Coach) as the two types that need their own prep; a culture lens for client calls. **Who is speaking:** optional local voice model, a "Who is speaking?" card, names applied to the whole call, never auto-named. **Reliability:** a frozen microphone is restarted and switched to the Mac's own one, the prep is checked before the call. **Optional local search with Ollama:** facts by meaning and a per-project index of your files and Notion copy. The skill is now a small core with modules, and a helper command does the routine steps. |
+| 1.7.0 | 2026-10-14 | **Instant cards:** trigger phrases with ready tips prepared before the call, shown within 1-2 s with no model in the loop. The tips window gets a setup row (meeting type, language, microphone), an agenda strip, quick asks, ✓ / ✕ ratings and a delay badge on every tip. Fast start: recording begins at once. Meeting types and interview roles, prep ahead, a red warning when the loop stops, the wrap-up goes into the meeting's existing Notion page instead of a duplicate. |
+| 1.6.3 | 2026-10-12 | **Cleaner live transcript.** The microphone no longer loses audio to a restart loop, line times follow the clock, Whisper artefacts (subtitle credits, repetition loops, the prompt names repeated) are dropped, the main language comes first and Russian is out of the default sets. **Comment moments:** when others finish a thought and expect a reaction, the tips window suggests what you can add, without waiting for a direct question. New window buttons: **🎙 mute** stops transcribing your mic while you are muted, **💬** sets how often comment hints come. Choice of microphone: default input (AirPods, Jabra) or always the Mac's own microphone. |
+| 1.6.2 | 2026-10-11 | **The tips window** for the call co-pilot: a small window under the camera, always on top, with a field for questions. Movable, minimisable, closable, hidden from screen sharing (verified with Google Meet). Plus a "your turn" update when someone calls you by name |
 | 1.6.1 | 2026-10-11 | Notion template and documentation aligned: relation names, historical decisions, an AI review queue in Topics and Risks, a fix to the follow-up check, a sync runbook |
-| 1.6.0 | 2026-10-11 | Improvements in the Mac add-ons and the documentation. |
+| 1.6.0 | 2026-10-11 | **Call co-pilot** (the `live-tips` skill): hints during the call. Local transcription, tips on triggers, a Meetings page after the call, an interview mode, switching language mid-call. A local recorder in `tools/live-transcriber/` and document 17 |
 | 1.5.2 | 2026-10-10 | The **Focus desk** at the top of the Notion template. Restricted internal sources: candid internal channels are context only and never reach the client |
 | 1.5.1 | 2026-10-05 | Fix: the meanings of *Awaiting Reply* and *Need Follow-up* restored |
 | 1.5.0 | 2026-10-03 | Optional Bitbucket Server connector |

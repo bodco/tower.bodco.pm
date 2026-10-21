@@ -1,0 +1,216 @@
+---
+title: A quiet co-pilot on your calls
+lead: "It listens with you and speaks up only when a fact or a phrase is needed: a direct question, a new request, a date you are about to promise, a decision without an owner. Audio is transcribed on your Mac and never leaves it."
+doc: 17-live-tips.md
+facts:
+  - { k: Runs on, v: "Apple Silicon Mac" }
+  - { k: Speech model, v: "Whisper, local" }
+  - { k: Skill, v: "<code>live-tips</code>" }
+  - { k: Tips in, v: "A window under the camera" }
+  - { k: Writes to, v: "Meetings DB" }
+---
+
+You stop agreeing to scope in the moment and regretting it later. When the client asks "how long will the export take?", the number from your own prep is already under the camera. When they slip in "just a small extra", a short hint and a ready phrase appear before you answer. After the call, the action items, your promises and the transcript are on a Meetings page, and you did not write any of it.
+
+## Facts or silence
+
+Silence is the default. A tip carries a number, a date, a name, a status or a ready phrase, or it is not shown. A tip appears when one of these fires:
+
+<div class="grid" style="--min: 240px;">
+<div class="card"><h3 class="card__title">A question to you</h3><p class="card__text">The answer as a ready sentence, with the fact and its source.</p></div>
+<div class="card"><h3 class="card__title">Your turn</h3><p class="card__text">Someone calls you by name: your update, ready to read.</p></div>
+<div class="card"><h3 class="card__title">A new request</h3><p class="card__text">An ask that looks like a change request: "do not agree now" and a phrase that buys time.</p></div>
+<div class="card"><h3 class="card__title">A promised date or estimate</h3><p class="card__text">It never suggests hours. The assignee gives the estimate.</p></div>
+<div class="card"><h3 class="card__title">Fix the owner and date</h3><p class="card__text">A decision was discussed but nobody owns it yet.</p></div>
+<div class="card"><h3 class="card__title">A contradiction</h3><p class="card__text">Something said against a recorded decision.</p></div>
+</div>
+
+It follows the live topic, not the plan: when the talk leaves your agenda, it looks for facts about what is being discussed or stays quiet. Proactive hints ("you can add...") are off by default and one switch away.
+
+## Instant before smart
+
+A model needs seconds to think, and the conversation does not wait. So before the call the skill prepares a small fact book and instant cards from your project: tickets with estimates, decisions, dates, open questions. During the call the recorder on your Mac matches every phrase against them and shows the fact within 1 or 2 seconds, with no model in the loop. Claude adds what the cards could not know. With the optional local search (below), the match works by meaning, not only by the exact words.
+
+## What a tip looks like
+
+Built for a small window right under the camera, so your eyes do not wander. 2 to 5 short lines: the gist first, then a ready phrase in the language of the call. Simple sentences, everyday words, no abbreviations.
+
+<div class="grid" style="--min: 280px;">
+<div class="tip"><span class="card__tag">New request</span><b>New request. Do not agree now.</b><span>"Good idea. I will write it down. We will check it and come back to you."</span></div>
+<div class="tip"><span class="card__tag">Inaccurate</span><b>Release is 15.10, not 10.10</b><span>"Sorry, a small correction. The release date is October 15."</span><span><i>decision of 30.09</i></span></div>
+</div>
+
+A tip marked as internal relies on an internal source and is never meant to be repeated to the client.
+
+## The tips window
+
+Tips appear in their own small window, not in a chat you have to keep open. It opens by itself when the recording starts, at the top centre of the screen, right under the camera.
+
+<div class="grid" style="--min: 240px;">
+<div class="card"><h3 class="card__title">🆘 Help now</h3><p class="card__text">You are talking and cannot type. One click: the best facts for what is being said appear at once, then the next sentence you can say.</p></div>
+<div class="card"><h3 class="card__title">⏸ Pause, ▶ resume</h3><p class="card__text">The talk went aside? Pause the tips. It keeps listening and recording, and comes back to the live topic when you press play.</p></div>
+<div class="card"><h3 class="card__title">One field</h3><p class="card__text">Typing searches your fact book on the spot. Enter sends the question to Claude, and the answer arrives in the same window.</p></div>
+<div class="card"><h3 class="card__title">One menu</h3><p class="card__text">Meeting type, audience, language, microphone, text size, transparency and help live behind one gear. The top bar stays clean.</p></div>
+<div class="card"><h3 class="card__title">One warning at a time</h3><p class="card__text">Your microphone stopped recording? One alert with a button that fixes it, such as switching to the Mac's own microphone.</p></div>
+<div class="card"><h3 class="card__title">Stealth or demo</h3><p class="card__text">Hidden from screen sharing and screenshots by default. Switch stealth off to show the window to colleagues.</p></div>
+</div>
+
+Pin any card, including your speech, so it stays on top; unpin it and it returns to its place. A ❓ line shows a question to you the moment it is heard, before the tip arrives. The interface speaks English or Ukrainian; the tips follow the language of the call. The 🎙 button is the mic mute: the recorder cannot see the mute button of Meet or Zoom, so when you are muted in a cafe, press it too. Closed the window by accident? Ask in the chat to open it again, and it comes back with every tip since the start of the call.
+
+## It reads the meeting by itself
+
+You do not pick a meeting type before every call. Two things are worked out from the schedule, the project and what is being said, and you can correct them in the gear menu:
+
+- **Who is on the other side.** Your team (candid, your language), a client (their language, internal facts stay internal, wording tuned to their culture) or your own manager playing the client on an internal project.
+- **What is happening.** A discussion, or you presenting: then it stops interrupting and keeps your outline (Now and Next) in view.
+
+Two meeting types need a choice because they need their own preparation: **Presentation** (your talk as an outline that follows you) and **Interview**, with three roles:
+
+- **Observer.** Someone else asks and answers; you get a reference answer to compare with what you hear, and an analysis after the call.
+- **Interviewer.** You ask; it tracks your planned questions and suggests a follow-up when an answer is vague.
+- **Coach.** You are the one being asked. Like call coaching in sales tools, where a manager listens in and whispers advice that only the rep hears, except that the coach is local and quiet. It keeps your own prepared stories, numbers and results within reach, reminds you of the part of a question you have not answered yet, and helps you structure the answer. It uses only the facts you prepared and never invents experience. Good for rehearsals, pitch practice and client Q&A.
+
+For client calls, an optional culture lens from your project notes adjusts the wording and reads the signals: in many cultures "a bit concerning" means a real problem.
+
+## Who is speaking
+
+Everyone on the other side arrives in one audio stream. An optional local voice model tells the voices apart. When a new voice has spoken for a few seconds, the window asks "Who is speaking?" with a quote, so you know whom it means, and buttons with the names from your project and from earlier calls. Nothing is named without you. One click fixes a wrong line or merges two voices; the names apply to the whole call. Identifying voices never delays a tip.
+
+## Built for real calls
+
+- **The microphone does not go silent unnoticed.** If the stream freezes (it happens after unmuting in some meeting apps), the recorder restarts it, switches to the Mac's own microphone if needed, and tells you once.
+- **The loop does not stop by itself.** A red warning appears if Claude stops listening, and one word in the chat brings it back.
+- **The prep is checked.** The call does not start on an empty fact book: the skill checks that the cards and facts were written.
+
+## Optional: local search with Ollama
+
+With [Ollama](https://ollama.com) and a small multilingual embedding model (`bge-m3`), the recorder understands meaning, not only words. Facts appear when a question is phrased differently from your notes, 🆘 finds the right one, and the text files of each project, including a local copy of your Notion, become searchable during the call. Each project gets its own index, so projects never mix. Logs show whether it helped on your calls, and one switch turns it off.
+
+## A call, step by step
+
+1. **Prep in the same session.** Meeting prep, the Notion pages or folder to focus on. The brief, the fact book and the cards start from it.
+2. **Say "live tips" right before the call.** Recording starts at once (your microphone and the other side as 2 channels), the tips window opens under the camera and shows your speech.
+3. **Use the window, not the keyboard.** 🆘 when you need help now, ⏸ when the talk goes aside, a question in the field when you have a second.
+4. **Stop it explicitly.** Type "stop" in the window or the chat, close the Terminal window, or let the idle timer ask. Closing Zoom or Meet does not stop the recording.
+
+## After the call: notes you did not have to write
+
+A wrap-up in the chat: action items with owners and dates, new requests, your commitments, open questions, and answers worth coming back to. It goes into the meeting's existing Notion page (for example the one Notion AI Meeting Notes created), and a new page appears only when there is none. Your notes from the call become lessons for the next one. Next steps (a report, a change request, a risk) are offered, never run without your command.
+
+## Why it is built this way
+
+- **Local Whisper.** Client conversations do not go to a third-party transcription service. The model runs on Apple Silicon. The network is needed once, to download it.
+- **2 channels, not 1.** Microphone and system audio are captured separately, so the transcript knows when you speak.
+- **Your languages are fixed in advance.** Your microphone is recognised only among your own languages. Better than auto-detect.
+- **Files as the interface.** The skill (the written instructions Claude follows) and the recorder talk only through a few files and one small command line helper.
+
+## Privacy and etiquette
+
+- Audio is not stored. Recognised phrases go straight to a text file, audio buffers live only in memory.
+- Voice prints, if you turn speakers on, stay on your Mac. A voice print is biometric data in many countries: tell people, and delete the ones you do not need.
+- Transcripts stay in your project folder. Keep them out of public repositories.
+- The Meetings page is internal. The skill never sends anything to the client.
+- Tell participants you keep a transcript and use an assistant, as with any note taker. Consent rules differ by country, by contract and by the meeting itself.
+
+## What you need
+
+| | |
+|---|---|
+| Mac | Apple Silicon (M1 or newer, 16 GB of memory is enough), macOS 14.2 or newer |
+| Tools | Xcode Command Line Tools, Python 3.10+ |
+| Disk | About 2.5 GB for the model and the environment, plus about 1.3 GB for the optional extras |
+| Claude | Claude desktop (Cowork) with a connected folder, the plugin and a project config (the short file about your project) |
+| Notion | Optional but recommended: the brief and the page after the call need it |
+| Optional | Ollama with `bge-m3` for local search; the voice model for "who is speaking" |
+
+A model tip: a faster model for everyday calls, the strongest one for interviews and high-stakes calls.
+
+## Install, about 15 minutes
+
+Most of the time is the model download. Do it once, after [floor 2](/start/) works.
+
+### 1. The tools it needs
+
+If you do not have them yet, paste these into Terminal one at a time (<kbd>Cmd</kbd>+<kbd>Space</kbd>, "Terminal"). Homebrew itself is on [the setup page](/start/#programs-some-add-ons-need).
+
+```
+xcode-select --install
+brew install python@3.12
+```
+
+The first one opens a window. Press **Install** and wait until it finishes.
+
+### 2. Put the recorder on your Mac
+
+The recorder lives in the repository you downloaded, not inside the plugin. Ask Claude in a task with the `work` folder:
+
+```
+copy tools/live-transcriber from ~/work/pm-control-tower to ~/work/Tools/live-transcriber
+```
+
+### 3. Run the installer
+
+This one you run yourself in Terminal, because macOS gives sound permissions only to the person at the Mac:
+
+```
+bash ~/work/Tools/live-transcriber/install.sh
+```
+
+It builds a small audio program, installs the speech model (about 1.6 GB) and then tests your sound.
+
+### 4. Allow the microphone and system audio
+
+During the test macOS asks 2 questions. Answer **Allow** to both:
+
+- **Terminal would like to access the microphone.** This is your side of the call.
+- **Terminal would like to record system audio.** This is everyone else on the call.
+
+When the script asks, play any sound (a YouTube video) for 5 seconds.
+
+Missed the pop-ups? Open **System Settings**, **Privacy & Security**:
+
+- **Microphone**: switch on **Terminal**.
+- **Screen & System Audio Recording**: add **Terminal** under system audio recording.
+
+### 5. Optional extras
+
+Who is speaking (a local voice model, about 30 MB):
+
+```
+bash ~/work/Tools/live-transcriber/bin/install-voices.sh
+```
+
+Local search by meaning: install [Ollama](https://ollama.com), then index each project once before its calls (later runs only add changed files):
+
+```
+ollama pull bge-m3
+~/work/Tools/live-transcriber/bin/lt index "$HOME/work/Acme Portal"
+```
+
+### 6. Check it
+
+Ask Claude:
+
+```
+check ~/work/Tools/live-transcriber/logs/install.log and tell me if the install is OK
+```
+
+**Done when** the log ends with `install OK` and both the `mic` and `sys` peaks are above zero. If `sys` is zero, most likely nothing was playing during the test. Play a video and ask Claude to run the system audio check from `docs/en/17-live-tips.md`.
+
+### 7. Try the tips window
+
+```
+python3 ~/work/Tools/live-transcriber/bin/demo_prompter.py
+```
+
+A scripted call of about 2 minutes plays in the real window: a speech, tips, a question marker, a "Who is speaking?" card, a microphone warning. Press 🆘 and ⏸ to see what they do. To check stealth, start a meeting in Google Meet, share your entire screen and look at what Meet shows you are presenting. **Done when** the window is not in that picture.
+
+### 8. Try it on a fake call
+
+In a Cowork task with the `work` folder and Notion on:
+
+```
+live tips <your project>
+```
+
+A "Live transcriber" Terminal window and the tips window open by themselves. Talk for a minute, then write `stop` in the chat. **Done when** you get a wrap-up in the chat and the meeting's page in your Meetings database.
