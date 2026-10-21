@@ -71,7 +71,7 @@ Two meeting types need a choice because they need their own preparation: **Prese
 
 - **Observer.** Someone else asks and answers; you get a reference answer to compare with what you hear, and an analysis after the call.
 - **Interviewer.** You ask; it tracks your planned questions and suggests a follow-up when an answer is vague.
-- **Coach.** You are the one being asked. Like call coaching in sales tools, where a manager listens in and whispers advice that only the rep hears, except that the coach is local and quiet. It keeps your own prepared stories, numbers and results within reach, reminds you of the part of a question you have not answered yet, and helps you structure the answer. It uses only the facts you prepared and never invents experience. Good for rehearsals, pitch practice and client Q&A.
+- **Coach.** You are the one being asked: a steering committee, questions after a demo, a quarterly review, an audit, or a rehearsal before any of these. Like a coach at the edge of the field: short cues during the game, while you play it yourself. It keeps your prepared talking points, numbers and results within reach, reminds you of the part of a question you have not answered yet, and helps you keep the answer short and structured. It uses only what you prepared and never invents facts.
 
 For client calls, an optional culture lens from your project notes adjusts the wording and reads the signals: in many cultures "a bit concerning" means a real problem.
 
