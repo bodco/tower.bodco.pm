@@ -123,7 +123,7 @@ facts:
 Той самий цикл live tips як нативний застосунок macOS у рядку меню, без чату Cowork, що мусить працювати весь дзвінок. Він записує дзвінок на вашому Маку, там же розпізнає його через Whisper на MLX і звертається до Claude API напряму з вашим власним API-ключем, що зберігається в Keychain macOS.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.4.3/LiveTips-0.4.3-beta.dmg" download>Завантажити Live Tips 0.4.3 beta (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.0/LiveTips-0.5.0-beta.dmg" download>Завантажити Live Tips 0.5.0 beta (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">
@@ -133,6 +133,8 @@ facts:
 <div class="card"><h3 class="card__title">Готовий до дзвінка</h3><p class="card__text">Старт з очікуванням, вибір мікрофона, який не зіскакує, розділений вигляд для презентацій і те саме вікно-суфлер.</p></div>
 <div class="card"><h3 class="card__title">Нотатки в Notion</h3><p class="card__text">Після дзвінка підсумок і транскрипт потрапляють на сторінку зустрічі в Notion: дописуються в наявну або створюється нова, якщо її немає.</p></div>
 <div class="card"><h3 class="card__title">Знає, хто говорить</h3><p class="card__text">Як у скілі: назвіть новий голос один раз зі списку людей проєкту, і підказки та підсумок вживають імʼя. Відбитки голосів лишаються на Маку.</p></div>
+<div class="card"><h3 class="card__title">Співбесіди з обох боків</h3><p class="card__text">Оберіть роль у Start call: спостерігаєте, питаєте або співбесіду проходите ви. Підказки йдуть за роллю.</p></div>
+<div class="card"><h3 class="card__title">Швидко в години пік</h3><p class="card__text">Коли Claude довго не починає відповідати, той самий запит іде ще раз, перемагає перша добра відповідь.</p></div>
 </div>
 
 **Це бета, тож будуть шорсткості:**

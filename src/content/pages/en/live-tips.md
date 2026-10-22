@@ -123,7 +123,7 @@ A wrap-up in the chat: action items with owners and dates, new requests, your co
 The same live-tips loop as a native macOS app in the menu bar, without a Cowork chat running during the call. It records the call on your Mac, transcribes it there with Whisper on MLX and calls the Claude API directly with your own API key, kept in the macOS Keychain.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.4.3/LiveTips-0.4.3-beta.dmg" download>Download Live Tips 0.4.3 beta (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.0/LiveTips-0.5.0-beta.dmg" download>Download Live Tips 0.5.0 beta (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">
@@ -133,6 +133,8 @@ The same live-tips loop as a native macOS app in the menu bar, without a Cowork 
 <div class="card"><h3 class="card__title">Ready for the call</h3><p class="card__text">Standby start, a choice of microphone that stays put, the split view for presentations and the same tips window.</p></div>
 <div class="card"><h3 class="card__title">Notes in Notion</h3><p class="card__text">After the call the wrap-up and the transcript land on the meeting's Notion page: added to the existing one, or a new page when there is none.</p></div>
 <div class="card"><h3 class="card__title">Knows who is speaking</h3><p class="card__text">As in the skill: name a new voice once from the project's people, and the tips and the summary use the name. Voice prints stay on your Mac.</p></div>
+<div class="card"><h3 class="card__title">Interviews, both sides</h3><p class="card__text">Pick your role in Start call: you watch, you ask, or you are the one being interviewed. Tips follow the role.</p></div>
+<div class="card"><h3 class="card__title">Fast on busy hours</h3><p class="card__text">When Claude is slow to start, the same request goes again and the first good answer wins.</p></div>
 </div>
 
 **It is a beta, so expect rough edges:**
