@@ -123,7 +123,7 @@ A wrap-up in the chat: action items with owners and dates, new requests, your co
 The same live-tips loop as a native macOS app in the menu bar, without a Cowork chat running during the call. It records the call on your Mac, transcribes it there with Whisper on MLX and calls the Claude API directly with your own API key, kept in the macOS Keychain.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.0/LiveTips-0.5.0-beta.dmg" download>Download Live Tips 0.5.0 beta (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.1/LiveTips-0.5.1-beta.dmg" download>Download Live Tips 0.5.1 beta (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">
