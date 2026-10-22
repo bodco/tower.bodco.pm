@@ -8,12 +8,15 @@ facts:
   - { k: Skill, v: "<code>live-tips</code>" }
   - { k: Tips in, v: "A window under the camera" }
   - { k: Writes to, v: "Meetings DB" }
+  - { k: Also as, v: "macOS app (beta)" }
   - { k: Status, v: "beta" }
 ---
 
 You stop agreeing to scope in the moment and regretting it later. When the client asks "how long will the export take?", the number from your own prep is already under the camera. When they slip in "just a small extra", a short hint and a ready phrase appear before you answer. After the call, the action items, your promises and the transcript are on a Meetings page, and you did not write any of it.
 
 This is a **beta**: built and tested by one person on real calls, and built on other people's open-source models (see [open source inside](/open-source/)).
+
+New: the [Live Tips app](#live-tips-app-beta), a native macOS app in beta that runs the same tips without a Cowork chat, with your own Claude API key.
 
 ## Facts or silence
 
@@ -75,6 +78,19 @@ Two meeting types need a choice because they need their own preparation: **Prese
 
 For client calls, an optional culture lens from your project notes adjusts the wording and reads the signals: in many cultures "a bit concerning" means a real problem.
 
+## Presentation mode: slides and tips side by side
+
+When the meeting type is **Presentation** and the prep has slides (a `<name>.slides.json` file next to the brief), the tips window splits into 2 halves: slide cards with the full text of your speech, and the usual tips stream. It works the same in the Cowork skill and in the app.
+
+<div class="grid" style="--min: 240px;">
+<div class="card"><h3 class="card__title">One slide at a time</h3><p class="card__text">Cards snap into place one by one. Move with the arrows, the buttons or the mouse wheel.</p></div>
+<div class="card"><h3 class="card__title">A timer with a limit</h3><p class="card__text">Set the minutes you have, and the time of each slide scales to fit. The pace shows your words per minute.</p></div>
+<div class="card"><h3 class="card__title">Auto</h3><p class="card__text">Slides turn by the schedule with a short signal, and a warning comes 10 seconds before a slide's time is up.</p></div>
+<div class="card"><h3 class="card__title">Trim</h3><p class="card__text">Running late? Hide the paragraphs marked as safe to skip and keep only what must be said.</p></div>
+</div>
+
+Each paragraph on a card has a kind: **read aloud**, **may skip**, a **hint** for you (not to be read), or a **colleague's line** that comes right before your part. **My slides / All slides** switches between your part and the whole deck when several people present. At the end a table compares the plan with the actual time of every slide. 📑 hides or shows the cards, ⇄ swaps the 2 sides (the choice is remembered). The window grows towards the cards, so the tips stream stays where you put it.
+
 ## Who is speaking
 
 Everyone on the other side arrives in one audio stream. An optional local voice model tells the voices apart. When a new voice has spoken for a few seconds, the window asks "Who is speaking?" with a quote, so you know whom it means, and buttons with the names from your project and from earlier calls. Nothing is named without you. One click fixes a wrong line or merges two voices; the names apply to the whole call. Identifying voices never delays a tip.
@@ -96,9 +112,42 @@ With [Ollama](https://ollama.com) and a small multilingual embedding model (`bge
 3. **Use the window, not the keyboard.** 🆘 when you need help now, ⏸ when the talk goes aside, a question in the field when you have a second.
 4. **Stop it explicitly.** Type "stop" in the window or the chat, close the Terminal window, or let the idle timer ask. Closing Zoom or Meet does not stop the recording.
 
+**Open it before the call (standby).** You can start a few minutes early: the window opens, but nothing is recorded and no microphone warnings appear while you wait. Recording starts by itself when the other side has been speaking for about 5 seconds, or at once when you press the green **Start**. This works in the skill and in the app.
+
 ## After the call: notes you did not have to write
 
 A wrap-up in the chat: action items with owners and dates, new requests, your commitments, open questions, and answers worth coming back to. It goes into the meeting's existing Notion page (for example the one Notion AI Meeting Notes created), and a new page appears only when there is none. Your notes from the call become lessons for the next one. Next steps (a report, a change request, a risk) are offered, never run without your command.
+
+## Live Tips app (beta)
+
+The same live-tips loop as a native macOS app in the menu bar, without a Cowork chat running during the call. It records the call on your Mac, transcribes it there with Whisper on MLX and calls the Claude API directly with your own API key, kept in the macOS Keychain.
+
+<div class="btns" style="margin: 8px 0 24px;">
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.4.0/LiveTips-0.4.0-beta.dmg" download>Download Live Tips 0.4.0 beta (.dmg)</a>
+</div>
+
+<div class="grid" style="--min: 240px;">
+<div class="card"><h3 class="card__title">No chat to keep alive</h3><p class="card__text">The app asks the model on events (a question, your name, a new request) instead of a chat loop that can fall silent.</p></div>
+<div class="card"><h3 class="card__title">Spending limits</h3><p class="card__text">A soft and a hard limit per call and a monthly cap. The menu shows this call and this month. At the hard limit only the local layer keeps working.</p></div>
+<div class="card"><h3 class="card__title">Local AI built in</h3><p class="card__text">A small model on the Mac (bge-m3) matches facts and cards by meaning and powers 🆘 and project search. No Ollama needed.</p></div>
+<div class="card"><h3 class="card__title">Ready for the call</h3><p class="card__text">Standby start, a choice of microphone that stays put, the split view for presentations and the same tips window.</p></div>
+</div>
+
+**It is a beta, so expect rough edges:**
+
+- **Not notarized yet.** The first time, right-click the app and choose **Open**, then confirm. After that it opens normally.
+- **macOS 14.4 or newer on Apple silicon** (M1 or newer).
+- **Python 3.10 or newer.** The Setup window checks it and installs the rest (Python modules and models, about 2.5 GB in total) with a tick next to each step. Nothing needs an administrator password.
+- **An Anthropic API key.** Billed by Anthropic per use, separately from your Claude plan. Usually $0.10 to $1.20 per hour of a call, and the limits keep it in check.
+
+### App or skill?
+
+Both do roughly the same job: the same rules, the same "facts or silence", the same tips window. Pick the one that fits how you work.
+
+- **Skill in Cowork:** no API key, it runs on your Claude plan, and it can look things up in Notion and the tracker during the call. It needs the Cowork chat to stay busy for the whole call.
+- **App:** one click from the menu bar, no chat to watch, your own key and limits.
+
+They work best together. Make the prep in Cowork (the brief, fact cards, an outline and slides for a presentation): the app picks it up by itself when the prep title matches the call title, so keep the same title for both. Without a prep the app still works: it uses the call context you type in **Start call** and a local search over the project folder.
 
 ## Open source inside, beta outside
 
@@ -136,6 +185,8 @@ It is a beta: tested by one person on one Mac since October 2026, thresholds are
 | Claude | Claude desktop (Cowork) with a connected folder, the plugin and a project config (the short file about your project) |
 | Notion | Optional but recommended: the brief and the page after the call need it |
 | Optional | Ollama with `bge-m3` for local search; the voice model for "who is speaking" |
+
+The Live Tips app needs less: macOS 14.4 or newer and Python 3.10 or newer, the rest comes from its Setup window. See [the app section](#live-tips-app-beta).
 
 A model tip: a faster model for everyday calls, the strongest one for interviews and high-stakes calls.
 
