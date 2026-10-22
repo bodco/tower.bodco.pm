@@ -131,6 +131,7 @@ The same live-tips loop as a native macOS app in the menu bar, without a Cowork 
 <div class="card"><h3 class="card__title">Spending limits</h3><p class="card__text">A soft and a hard limit per call and a monthly cap. The menu shows this call and this month. At the hard limit only the local layer keeps working.</p></div>
 <div class="card"><h3 class="card__title">Local AI built in</h3><p class="card__text">A small model on the Mac (bge-m3) matches facts and cards by meaning and powers 🆘 and project search. No Ollama needed.</p></div>
 <div class="card"><h3 class="card__title">Ready for the call</h3><p class="card__text">Standby start, a choice of microphone that stays put, the split view for presentations and the same tips window.</p></div>
+<div class="card"><h3 class="card__title">Notes in Notion</h3><p class="card__text">After the call the wrap-up and the transcript land on the meeting's Notion page: added to the existing one, or a new page when there is none.</p></div>
 </div>
 
 **It is a beta, so expect rough edges:**
@@ -139,6 +140,12 @@ The same live-tips loop as a native macOS app in the menu bar, without a Cowork 
 - **macOS 14.4 or newer on Apple silicon** (M1 or newer).
 - **Python 3.10 or newer.** The Setup window checks it and installs the rest (Python modules and models, about 2.5 GB in total) with a tick next to each step. Nothing needs an administrator password.
 - **An Anthropic API key.** Billed by Anthropic per use, separately from your Claude plan. Usually $0.10 to $1.20 per hour of a call, and the limits keep it in check.
+
+### After the call: the meeting page in Notion
+
+Turn on **Write the call summary to Notion** in Settings and add a Notion token in Keys. When you end the call, one Claude call writes the wrap-up: action items with owners and dates, decisions, your commitments, new requests, open questions and risks. The app finds this meeting's page in your Meetings database (its date within 20 minutes of the call start, so a Notion AI Meeting Notes page counts) and appends a **Live Tips** section with the transcript attached. No page yet: it creates one, with a real date in the title. Missed it? **Send last call to Notion** in the menu bar does it later. Only text goes to Claude and Notion; audio stays on your Mac.
+
+**Shortcuts.** Control-Option-H is HELP NOW and Control-Option-P pauses tips, even while the meeting app has the focus. The app and the skill can also record the same call side by side, each with its own files, if you want to compare them.
 
 ### App or skill?
 
