@@ -123,7 +123,7 @@ facts:
 Той самий цикл live tips як нативний застосунок macOS у рядку меню, без чату Cowork, що мусить працювати весь дзвінок. Він записує дзвінок на вашому Маку, там же розпізнає його через Whisper на MLX і звертається до Claude API напряму з вашим власним API-ключем, що зберігається в Keychain macOS.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.4/LiveTips-0.5.4-beta.dmg" download>Завантажити Live Tips 0.5.4 beta (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.5/LiveTips-0.5.5-beta.dmg" download>Завантажити Live Tips 0.5.5 beta (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">
