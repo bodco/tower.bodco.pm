@@ -466,3 +466,13 @@ html[data-theme='dark'] .theme-btn .i-moon { display: none; }
   background-size: var(--grid) var(--grid);
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%); mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
 }
+
+/* 2026-10-27 (owner): Live Tips on the home hero as one quiet line under the buttons, monochrome icon like the others. */
+.split--top { align-items: flex-start; }
+.newlink { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; align-self: flex-start;
+  padding: 10px 14px; border: 1px solid var(--line-strong); color: var(--text); text-decoration: none; font-size: 15px; line-height: 1.35; }
+.newlink:hover { border-color: var(--accent); }
+.newlink .logo { width: 20px; height: 20px; flex: none; }
+.newlink__tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.newlink__txt { color: var(--text-2); }
+@media (min-width: 1024px) { .split--top > div:last-child { margin-top: 44px; } }

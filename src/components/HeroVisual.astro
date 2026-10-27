@@ -28,6 +28,9 @@ const T = {
     youLabel: 'From 09:00 · You',
     youNote: 'What stays human',
     you: ['Pick the top 3 for today', 'Negotiate scope with the client', 'Decide whether to take a risk or push a deadline', 'Read between the lines, protect the team'],
+    callLabel: 'On the call · Live Tips',
+    callNote: 'A quiet co-pilot',
+    call: [['The answer when you are asked', 'facts or silence'], ['The next sentence to say', 'HELP NOW'], ['Notes into Notion after the call', 'wrap-up']],
   },
   uk: {
     title: 'Передача зміни: ранок ПМа',
@@ -46,6 +49,9 @@ const T = {
     youLabel: 'З 09:00 · Ви',
     youNote: 'Що лишається людині',
     you: ['Вибрати 3 головні справи на сьогодні', 'Домовлятися з клієнтом про скоуп', 'Вирішити, чи брати ризик і чи тиснути на дедлайн', 'Читати між рядків і захищати команду'],
+    callLabel: 'На дзвінку · Live Tips',
+    callNote: 'Тихий співпілот',
+    call: [['Відповідь, коли вас питають', 'факт або тиша'], ['Наступне речення, яке сказати', 'HELP NOW'], ['Нотатки в Notion після дзвінка', 'підсумок']],
   },
 }[lang];
 const id = `hv-${lang}`;
@@ -80,6 +86,13 @@ const id = `hv-${lang}`;
       {T.you.map((task) => <li class="hv__item hv__item--you">{task}</li>)}
     </ul>
   </div>
+
+  <a class="hv__shift hv__shift--call" href={lang === 'uk' ? '/uk/live-tips/' : '/live-tips/'}>
+    <p class="hv__label">{T.callLabel}<span class="hv__note">{T.callNote}</span></p>
+    <ul class="hv__list">
+      {T.call.map(([what, how]) => <li class="hv__item hv__item--call"><span>{what}</span><span class="hv__skill">{how}</span></li>)}
+    </ul>
+  </a>
 
 </figure>
 
@@ -144,6 +157,11 @@ const id = `hv-${lang}`;
   .hv__skill { font-family: var(--mono); font-size: 12px; color: var(--text-3); white-space: nowrap; }
   .hv__item--you { font-weight: 600; font-size: 16px; }
   .hv__item--you::before { background: var(--text); border-color: var(--text); }
+
+  .hv__shift--call { display: block; color: inherit; text-decoration: none; border-top: 1px solid var(--line-strong); }
+  .hv__shift--call::before { border-left: 2px dotted var(--text-3); }
+  .hv__shift--call:hover .hv__label { color: var(--accent); }
+  .hv__item--call::before { background: var(--surface); border-color: var(--text-3); border-radius: 50%; }
 
   .hv__handoff {
     display: flex; align-items: center; gap: 16px; padding: 14px 22px;

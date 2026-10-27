@@ -3,6 +3,7 @@ import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
 import NotionLogo from '../components/NotionLogo.astro';
 import GithubLogo from '../components/GithubLogo.astro';
+import LiveTipsLogo from '../components/LiveTipsLogo.astro';
 import HeroVisual from '../components/HeroVisual.astro';
 import FocusVisual from '../components/FocusVisual.astro';
 import { LINKS, path, t, type Lang } from '../i18n/ui';
@@ -270,7 +271,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
 <Base>
   <!-- 1. HERO: what changes for you -->
   <section class="wrap hero">
-    <div class="split">
+    <div class="split split--top">
       <div class="stack" style="gap: 28px; flex-basis: 520px;">
         <p class="eyebrow eyebrow--muted">{C.eyebrow}</p>
         <h1 class="h1 h1--hero">{C.h1}</h1>
@@ -280,8 +281,8 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
             <a class="btn btn--primary" href={path(lang, 'start')}>{t(lang, 'cta.setup')} <Arrow /></a>
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
-            <a class="btn btn--ink" href={path(lang, 'live-tips')}><img src="/live-tips-icon.png" alt="" width="20" height="20" style="border-radius: 5px;" /> {t(lang, 'cta.live.hero')}</a>
           </div>
+          <a class="newlink" href={path(lang, 'live-tips')}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><LiveTipsLogo /><b>Live Tips</b><span class="newlink__txt">{lang === 'uk' ? 'тихий співпілот на ваших дзвінках, застосунок для Мака' : 'a quiet co-pilot on your calls, an app for Mac'}</span><Arrow /></a>
           <p class="reality">{C.reality}</p>
           <p class="smallprint" id="fn-schedule">{C.fn} <a href={path(lang, 'autopilot')}>{C.fnLink}</a></p>
         </div>
