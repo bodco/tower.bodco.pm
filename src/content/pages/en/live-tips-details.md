@@ -147,7 +147,7 @@ The same live-tips loop as a native macOS app in the menu bar, without a Cowork 
 
 ### After the call: the meeting page in Notion
 
-Turn on **Write the call summary to Notion** in Settings and add a Notion token in Keys. When you end the call, one Claude call writes the wrap-up: action items with owners and dates, decisions, your commitments, new requests, open questions and risks. The app finds this meeting's page in your Meetings database (its date within 20 minutes of the call start, so a Notion AI Meeting Notes page counts) and appends a **Live Tips** section with the transcript attached. No page yet: it creates one, with a real date in the title. Missed it? **Send last call to Notion** in the menu bar does it later. Only text goes to Claude and Notion; audio stays on your Mac.
+Turn on **Write the call summary to Notion** in Settings and add a Notion token in Keys. When you end the call, one Claude call writes the wrap-up: action items with owners and dates, decisions, your commitments, new requests, open questions and risks. The app finds this meeting's page in your Meetings database (its date within 20 minutes of the call start, so a Notion AI Meeting Notes page counts) and appends a **Live Tips** section with the transcript as a sub-page. No page yet: it creates one, with a real date in the title. Missed it? **Send last call to Notion** in the menu bar does it later. Only text goes to Claude and Notion; audio stays on your Mac.
 
 **Shortcuts.** Control-Option-H is HELP NOW and Control-Option-P pauses the transcript and the tips, even while the meeting app has the focus; change them in Settings > General > Shortcuts. The app and the skill can also record the same call side by side, each with its own files, if you want to compare them.
 

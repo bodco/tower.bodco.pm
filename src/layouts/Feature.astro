@@ -3,6 +3,7 @@ import Base from './Base.astro';
 import Arrow from '../components/Arrow.astro';
 import GithubLogo from '../components/GithubLogo.astro';
 import LiveTipsVisual from '../components/LiveTipsVisual.astro';
+import Shot from '../components/Shot.astro';
 import { t, path, neighbours, LINKS, type Lang } from '../i18n/ui';
 
 interface Props {
@@ -42,7 +43,7 @@ const P = lang === 'uk'
         </div>
         <p class="smallprint">{P.note}</p>
       </div>
-      <div class="product-hero__vis"><LiveTipsVisual lang={lang} /></div>
+      <div class="product-hero__vis"><Shot name="tips" eager alt={lang === 'uk' ? 'Вікно Live Tips на дзвінку' : 'The Live Tips window on a call'} /></div>
     </div>
   </section>
   ) : (

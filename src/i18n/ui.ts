@@ -62,7 +62,7 @@ export const ui = {
     'cta.notion.short': 'Duplicate the template',
     'cta.repo': 'Open the GitHub repo',
     'footer.about':
-      'I am a delivery PM with 7+ years in software outsourcing, and I use this every day. Beta. MIT licence: use it, change it, share it.',
+      'Beta. MIT licence: use it, change it, share it.',
     'footer.get': 'Get it',
     'footer.learn': 'Learn',
     'footer.more': 'More',
@@ -110,7 +110,7 @@ export const ui = {
     'cta.notion.short': 'Дублювати шаблон',
     'cta.repo': 'Відкрити репо на GitHub',
     'footer.about':
-      'Я delivery-ПМ з 7+ роками в аутсорс-розробці і користуюсь цим щодня. Бета. Ліцензія MIT: беріть, змінюйте, діліться.',
+      'Бета. Ліцензія MIT: беріть, змінюйте, діліться.',
     'footer.get': 'Взяти',
     'footer.learn': 'Розібратись',
     'footer.more': 'Ще',

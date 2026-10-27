@@ -4,6 +4,7 @@ import Arrow from '../components/Arrow.astro';
 import NotionLogo from '../components/NotionLogo.astro';
 import GithubLogo from '../components/GithubLogo.astro';
 import LiveTipsLogo from '../components/LiveTipsLogo.astro';
+import Shot from '../components/Shot.astro';
 import HeroVisual from '../components/HeroVisual.astro';
 import FocusVisual from '../components/FocusVisual.astro';
 import { LINKS, path, t, type Lang } from '../i18n/ui';
@@ -277,12 +278,14 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
         <h1 class="h1 h1--hero">{C.h1}</h1>
         <p class="lead" style="font-size: 19px; max-width: 580px;" set:html={C.lead.replace('<sup>*</sup>', '<a class="fn" href="#fn-schedule" aria-label="footnote">*</a>')}></p>
         <div class="stack" style="gap: 14px;">
+          <div class="hero-ctas">
           <div class="btns">
             <a class="btn btn--primary" href={path(lang, 'start')}>{t(lang, 'cta.setup')} <Arrow /></a>
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
           </div>
           <a class="newlink" href={path(lang, 'live-tips')}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><LiveTipsLogo /><b>Live Tips</b><span class="newlink__txt">{lang === 'uk' ? 'тихий співпілот на ваших дзвінках, застосунок для Мака' : 'a quiet co-pilot on your calls, an app for Mac'}</span><Arrow /></a>
+          </div>
           <p class="reality">{C.reality}</p>
           <p class="smallprint" id="fn-schedule">{C.fn} <a href={path(lang, 'autopilot')}>{C.fnLink}</a></p>
         </div>
@@ -336,28 +339,20 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
     </div>
   </section>
 
-  <!-- 4. ON THE CALL -->
+  <!-- 4. ON THE CALL: Live Tips -->
   <section class="band" aria-labelledby="live-h">
     <div class="wrap section split">
-      <div class="card" style="padding: 0; gap: 0;">
-        <div class="label" style="display: flex; align-items: center; gap: 10px; padding: 14px 18px; border-bottom: 1px solid var(--line-strong); letter-spacing: 0.06em;"><span style="width: 8px; height: 8px; border-radius: 50%; background: var(--accent);" aria-hidden="true"></span>{C.liveHead}</div>
-        <div style="padding: 22px 20px; display: flex; flex-direction: column; gap: 12px; font-size: 14.5px; line-height: 1.55;" class="muted">
-          <p style="margin: 0;"><b style="color: var(--text); font-weight: 500;">{C.liveClient}:</b> <span lang="en">{C.liveL1}</span></p>
-          <p style="margin: 0;"><b style="color: var(--text); font-weight: 500;">{C.liveYou}:</b> <span lang="en">{C.liveL2}</span></p>
-        </div>
-        <div class="tip" style="margin: 0 20px 22px;">
-          <span class="card__tag" style="font-size: 11px;">{C.liveTag}</span>
-          <b>{C.liveGist}</b>
-          <span lang="en">{C.livePhrase}</span>
-        </div>
-      </div>
+      <Shot name="tips" alt={lang === 'uk' ? 'Вікно Live Tips на дзвінку: транскрипт зі спікерами, На мені, підказки' : 'The Live Tips window on a call: transcript with speakers, On me, tips'} />
       <div class="stack">
         <p class="eyebrow">{C.liveEyebrow}</p>
-        <h2 id="live-h" class="h2">{C.liveH}</h2>
+        <h2 id="live-h" class="h2">Live Tips</h2>
+        <p class="lead" style="margin: 0; font-weight: 600; color: var(--text);">{C.liveH}</p>
         <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.liveP}</p>
-        <div class="btns">
-          <a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>{lang === 'uk' ? 'Завантажити для Мака' : 'Download for Mac'}</a>
-          <a class="more" href={path(lang, 'live-tips')}>{C.liveMore} <Arrow /></a>
+        <div class="btns btns--grid">
+          <a class="btn btn--primary" href={path(lang, 'live-tips')}>Live Tips <Arrow /></a>
+          <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>{lang === 'uk' ? 'Завантажити для Мака' : 'Download for Mac'}</a>
+          <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{lang === 'uk' ? 'Скіл для Cowork' : 'Skill for Cowork'}</a>
+          <a class="btn btn--ink" href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>
         </div>
       </div>
     </div>

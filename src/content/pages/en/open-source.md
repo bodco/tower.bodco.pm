@@ -50,4 +50,4 @@ Licences change; the links above are the authority, this table is a snapshot of 
 
 ## Coming next
 
-A native Mac app for the call co-pilot is in the works. When it ships, its own components appear on this page in the same way.
+The call co-pilot is now its own product, [Live Tips](/live-tips/): a Mac app and a Cowork skill. Its components and their licences are listed in its repository, [github.com/bodco/live-tips](https://github.com/bodco/live-tips).

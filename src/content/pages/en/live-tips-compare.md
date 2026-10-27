@@ -58,7 +58,7 @@ An honest comparison, written by the person who builds Live Tips. The other thre
 
 | | Live Tips | Fireflies | Fathom | Notion AI Meeting Notes |
 |---|---|---|---|---|
-| Summary | A Notion page in the call's language: summary, decisions, our commitments, new requests, open questions, risks, action items, transcript attached | Summary, action items, topics, analytics | Summary, action items, follow-up email; templates on paid plans | Summary and action items in the page, linked to transcript lines |
+| Summary | A Notion page in the call's language: summary, decisions, our commitments, new requests, open questions, risks, action items, the transcript as a sub-page | Summary, action items, topics, analytics | Summary, action items, follow-up email; templates on paid plans | Summary and action items in the page, linked to transcript lines |
 | Without Notion | Transcript and tips stay as files in the project folder; no summary document yet | In Fireflies | In Fathom | Notion only |
 | Search across calls | Files on your Mac and the project's search index | Yes, AskFred over meetings | Yes, Ask Fathom | Notion search and AI |
 | Team sharing | No, it is a personal tool | Yes | Yes | Yes, in the workspace |
