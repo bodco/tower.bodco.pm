@@ -9,6 +9,7 @@ const pages = defineCollection({
     description: z.string().optional(),
     facts: z.array(z.object({ k: z.string(), v: z.coerce.string() })).default([]),
     doc: z.string().optional(),
+    parent: z.string().optional(),
   }),
 });
 

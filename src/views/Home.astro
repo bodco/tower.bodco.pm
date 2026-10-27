@@ -72,7 +72,7 @@ const C = {
   // 5. ASK
   skillsEyebrow: 'The skills',
   skillsH: 'Ask the way you would ask a colleague',
-  skillsP: 'In English or Ukrainian. There are 22 skills. Start with 4, and add the next when a routine starts to hurt.',
+  skillsP: 'In English or Ukrainian. There are 21 skills. Start with 4, and add the next when a routine starts to hurt.',
   say: 'Say',
   says: [
     ['daily-team-prep', 'Board movement, blockers and new errors since the last prep, saved to Reports.'],
@@ -80,7 +80,7 @@ const C = {
     ['change-request', 'The ask sorted into A, B or C before you agree, with a draft change request.'],
     ['client-report', 'A client report in English, ready for you to proofread.'],
   ],
-  skillsBtn: 'All 22 skills',
+  skillsBtn: 'All 21 skills',
   howQ: 'Curious how a message becomes a draft?',
   howLink: 'How it works',
 
@@ -196,7 +196,7 @@ const C = {
   // 5. ПРОСІТЬ
   skillsEyebrow: 'Скіли',
   skillsH: 'Просіть так, як попросили б колегу',
-  skillsP: 'Українською чи англійською. Скілів 22. Почніть з 4, а наступний додавайте, коли якась рутина почне муляти.',
+  skillsP: 'Українською чи англійською. Скілів 21. Почніть з 4, а наступний додавайте, коли якась рутина почне муляти.',
   say: 'Скажіть',
   says: [
     ['daily-team-prep', 'Рух на борді, блокери і нові помилки з минулої підготовки, збережені в Reports.'],
@@ -204,7 +204,7 @@ const C = {
     ['change-request', 'Прохання розкладене на A, B чи C ще до вашого "так", з драфтом change request.'],
     ['client-report', 'Звіт клієнту англійською, готовий до вичитки.'],
   ],
-  skillsBtn: 'Усі 22 скіли',
+  skillsBtn: 'Усі 21 скіл',
   howQ: 'Цікаво, як повідомлення стає драфтом?',
   howLink: 'Як це працює',
 
@@ -280,6 +280,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
             <a class="btn btn--primary" href={path(lang, 'start')}>{t(lang, 'cta.setup')} <Arrow /></a>
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
+            <a class="btn btn--ink" href={path(lang, 'live-tips')}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg> {t(lang, 'cta.live.hero')}</a>
           </div>
           <p class="reality">{C.reality}</p>
           <p class="smallprint" id="fn-schedule">{C.fn} <a href={path(lang, 'autopilot')}>{C.fnLink}</a></p>
@@ -353,7 +354,10 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
         <p class="eyebrow">{C.liveEyebrow}</p>
         <h2 id="live-h" class="h2">{C.liveH}</h2>
         <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.liveP}</p>
-        <a class="more" href={path(lang, 'live-tips')}>{C.liveMore} <Arrow /></a>
+        <div class="btns">
+          <a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>{lang === 'uk' ? 'Завантажити для Мака' : 'Download for Mac'}</a>
+          <a class="more" href={path(lang, 'live-tips')}>{C.liveMore} <Arrow /></a>
+        </div>
       </div>
     </div>
   </section>

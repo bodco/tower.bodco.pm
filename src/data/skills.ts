@@ -99,14 +99,6 @@ export const SKILLS: Skill[] = [
     say: { en: 'prep the client call', uk: 'підготуй клієнтський дзвінок' },
   },
   {
-    name: 'live-tips', run: 'mac', group: 'prep', when: { en: 'during the call', uk: 'під час дзвінка' }, out: 'Meetings',
-    what: {
-      en: 'Facts and ready phrases in a small window under the camera when you need them, a HELP NOW button, and a transcript with a wrap-up afterwards. Audio stays on your Mac.',
-      uk: 'Факти і готові фрази в маленькому вікні під камерою, коли вони потрібні, кнопка допомоги на ходу, а після дзвінка транскрипт і підсумок. Звук лишається на вашому Маку.',
-    },
-    say: { en: 'live tips', uk: 'live tips' },
-  },
-  {
     name: 'notion-meeting-topics', group: 'prep', when: { en: 'after meeting', uk: 'після мітингу' }, out: 'Meetings',
     what: {
       en: 'Drop a meeting link and get a detailed bilingual report with decisions and action items, on the same page.',

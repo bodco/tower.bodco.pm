@@ -1,7 +1,7 @@
 ---
 title: Open source inside, beta outside
 lead: "The heavy lifting (speech recognition, voice and text embeddings, the model that writes the tips) is other people's work, mostly open source. What is built here is the tool around it. Here is the honest list."
-doc: 17-live-tips.md
+doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 facts:
   - { k: Status, v: "beta" }
   - { k: Covers, v: "Call co-pilot, Mac app (coming)" }

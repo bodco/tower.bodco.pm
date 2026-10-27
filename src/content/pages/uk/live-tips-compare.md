@@ -1,7 +1,8 @@
 ---
 title: Live Tips поруч з Fireflies, Fathom і Notion
 lead: "Чотири інструменти, що записують твої дзвінки, порівняні за тим, що важить для проєктного менеджера: транскрипт, допомога під час дзвінка і підсумок після нього. Ціни й можливості такі, як їх публікують самі сервіси на 27 жовтня 2026. Диктування свідомо не порівнюємо."
-doc: 17-live-tips.md
+doc: https://github.com/bodco/live-tips/blob/main/docs/uk/live-tips.md
+parent: live-tips
 facts:
   - { k: Перевірено, v: "27 жовтня 2026" }
   - { k: Порівнюємо, v: "Транскрипт, підказки, підсумок" }
@@ -88,4 +89,4 @@ facts:
 - Fireflies: [плани і ціни](https://guide.fireflies.ai/articles/3734844560-learn-about-the-fireflies-pricing-plans), [можливості планів (липень 2026)](https://fireflies.ai/blog/fireflies-pricing-which-plan-is-right-for-you), [Live Assist](https://guide.fireflies.ai/articles/2679406774-live-assist-sales-assist-fireflies-desktop-app-real-time-notes-answers-suggestions), [мови](https://guide.fireflies.ai/articles/2973706448-learn-about-fireflies-supported-languages), [режими мови](https://guide.fireflies.ai/articles/5788629108-learn-about-fireflies-auto-language-detection)
 - Fathom: [ціни](https://www.fathom.ai/pricing), [мови](https://help.fathom.video/en/articles/296192), [обмеження безкоштовного плану (сторонній огляд, жовтень 2026)](https://www.getvoibe.com/resources/fathom-pricing/)
 - Notion: [ціни](https://www.notion.com/pricing), [довідка AI Meeting Notes](https://www.notion.com/help/ai-meeting-notes), [огляд з цінами (сторонній, жовтень 2026)](https://scribbl.co/post/notion-ai-meeting-notes)
-- Live Tips: вартість виміряна на дзвінках автора; див. [співпілот на дзвінку](/uk/live-tips/) і [документацію](https://github.com/bodco/pm-control-tower/blob/main/docs/uk/17-live-tips.md).
+- Live Tips: вартість виміряна на дзвінках автора; див. [співпілот на дзвінку](/uk/live-tips/) і [документацію](https://github.com/bodco/live-tips/blob/main/docs/uk/live-tips.md).

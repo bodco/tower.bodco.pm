@@ -1,7 +1,8 @@
 ---
 title: Live Tips next to Fireflies, Fathom and Notion
 lead: "Four tools that write down your calls, compared on what matters for a project manager: the transcript, help during the call, and the summary after it. Prices and features as the vendors publish them on 27 October 2026. Dictation is left out on purpose."
-doc: 17-live-tips.md
+doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
+parent: live-tips
 facts:
   - { k: Checked, v: "27 October 2026" }
   - { k: Compared, v: "Transcript, live help, summary" }
@@ -88,4 +89,4 @@ Checked on 27 October 2026.
 - Fireflies: [pricing plans](https://guide.fireflies.ai/articles/3734844560-learn-about-the-fireflies-pricing-plans), [pricing by plan (July 2026)](https://fireflies.ai/blog/fireflies-pricing-which-plan-is-right-for-you), [Live Assist](https://guide.fireflies.ai/articles/2679406774-live-assist-sales-assist-fireflies-desktop-app-real-time-notes-answers-suggestions), [languages](https://guide.fireflies.ai/articles/2973706448-learn-about-fireflies-supported-languages), [language modes](https://guide.fireflies.ai/articles/5788629108-learn-about-fireflies-auto-language-detection)
 - Fathom: [pricing](https://www.fathom.ai/pricing), [languages](https://help.fathom.video/en/articles/296192), [free plan limits (third party, October 2026)](https://www.getvoibe.com/resources/fathom-pricing/)
 - Notion: [pricing](https://www.notion.com/pricing), [AI Meeting Notes help](https://www.notion.com/help/ai-meeting-notes), [review with prices (third party, October 2026)](https://scribbl.co/post/notion-ai-meeting-notes)
-- Live Tips: costs measured on the author's calls; see [the call co-pilot](/live-tips/) and the [documentation](https://github.com/bodco/pm-control-tower/blob/main/docs/en/17-live-tips.md).
+- Live Tips: costs measured on the author's calls; see [the call co-pilot](/live-tips/) and the [documentation](https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md).

@@ -11,9 +11,12 @@ interface Props {
   description?: string;
   facts?: { k: string; v: string }[];
   doc?: string;
+  parent?: string;
   headings?: { depth: number; slug: string; text: string }[];
 }
-const { lang, slug, title, lead, description, facts = [], doc, headings = [] } = Astro.props;
+const { lang, slug, title, lead, description, facts = [], doc, parent, headings = [] } = Astro.props;
+const docHref = doc ? (doc.startsWith('http') ? doc : LINKS.docs(lang, doc)) : '';
+const docName = doc ? (doc.startsWith('http') ? doc.replace(/^https:\/\/github\.com\/bodco\//, '').replace('/blob/main/', '/') : `docs/${lang}/${doc}`) : '';
 const toc = headings.filter((h) => h.depth === 2);
 const { prev, next } = neighbours(slug);
 ---
@@ -21,7 +24,7 @@ const { prev, next } = neighbours(slug);
   <section class="page-hero">
     <div class="page-hero__in wrap">
       <div class="page-hero__text">
-        <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {t(lang, `nav.${slug}` as any)}</p>
+        <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {parent && <><a href={path(lang, parent as any)}>{t(lang, `nav.${parent}` as any)}</a> / </>}{t(lang, `nav.${slug}` as any)}</p>
         <h1 class="h1 h1--page">{title}</h1>
         <p class="lead">{lead}</p>
       </div>
@@ -54,7 +57,7 @@ const { prev, next } = neighbours(slug);
       {doc && (
         <aside class="docs-cta">
           <div><b>{t(lang, 'page.docs.title')}</b><span class="muted">{t(lang, 'page.docs.text')}</span></div>
-          <a class="btn" href={LINKS.docs(lang, doc)}>{t(lang, 'page.docs.btn')} <code>docs/{lang}/{doc}</code></a>
+          <a class="btn" href={docHref}>{t(lang, 'page.docs.btn')} <code>{docName}</code></a>
         </aside>
       )}
 

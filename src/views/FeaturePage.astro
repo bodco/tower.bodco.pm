@@ -10,6 +10,6 @@ if (!entry) throw new Error(`Missing content: ${lang}/${slug}`);
 const { Content, headings } = await render(entry);
 const d = entry.data;
 ---
-<Feature lang={lang} slug={slug} title={d.title} lead={d.lead} description={d.description} facts={d.facts} doc={d.doc} headings={headings}>
+<Feature lang={lang} slug={slug} title={d.title} lead={d.lead} description={d.description} facts={d.facts} doc={d.doc} parent={d.parent} headings={headings}>
   <Content />
 </Feature>

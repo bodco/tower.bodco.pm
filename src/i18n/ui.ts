@@ -11,15 +11,15 @@ export const LINKS = {
   release: 'https://github.com/bodco/pm-control-tower/tree/main/dist',
   author: (lang: Lang) => (lang === 'uk' ? 'https://bodco.pm/uk/' : 'https://bodco.pm/'),
   github: 'https://github.com/bodco',
+  liveTips: 'https://github.com/bodco/live-tips',
 };
 
-export const VERSION = '1.8.0';
+export const VERSION = '1.9.0';
 
 /** Page order drives the header, the footer and the prev/next pager. */
 export const PAGES = [
   { slug: 'day', nav: true },
   { slug: 'live-tips', nav: true },
-  { slug: 'compare', nav: false },
   { slug: 'notion', nav: true },
   { slug: 'skills', nav: true },
   { slug: 'how-it-works', nav: true },
@@ -49,8 +49,10 @@ export const ui = {
     'nav.skills': 'Skills',
     'nav.notion': 'Notion template',
     'nav.autopilot': 'Autopilot',
-    'nav.live-tips': 'Call co-pilot',
-    'nav.compare': 'Compared with others',
+    'nav.live-tips': 'Live Tips',
+    'nav.live-tips-compare': 'Compared with others',
+    'nav.live-tips-details': 'How it works',
+    'cta.live.hero': 'Live Tips for Mac',
     'nav.open-source': 'Open source and beta',
     'nav.day': 'A day with it',
     'nav.principles': 'Principles',
@@ -95,8 +97,10 @@ export const ui = {
     'nav.skills': 'Скіли',
     'nav.notion': 'Шаблон Notion',
     'nav.autopilot': 'Автопілот',
-    'nav.live-tips': 'Підказки на дзвінку',
-    'nav.compare': 'Порівняння з іншими',
+    'nav.live-tips': 'Live Tips',
+    'nav.live-tips-compare': 'Порівняння з іншими',
+    'nav.live-tips-details': 'Як працює',
+    'cta.live.hero': 'Live Tips для Мака',
     'nav.open-source': 'Відкритий код і бета',
     'nav.day': 'День з ним',
     'nav.principles': 'Принципи',

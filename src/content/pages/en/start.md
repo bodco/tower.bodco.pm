@@ -90,7 +90,7 @@ Find my PM Control Tower page in Notion and list its databases.
 
 **You do.** Drag `work/pm-control-tower/dist/pm-control-tower.plugin` from Finder into the chat. A card appears. Press **Install**.
 
-**You see** 22 skills (written instructions for PM routine) added to Claude. They do nothing yet: they do not know your Notion or your projects.
+**You see** 21 skills (written instructions for PM routine) added to Claude. They do nothing yet: they do not know your Notion or your projects.
 
 ### 6. Tell the plugin about your Notion
 
@@ -251,10 +251,8 @@ put daily-team-prep for <project> on a schedule, about 55 minutes before our int
 ```
 Start with a single task. Add the next after a week.
 
-### Call co-pilot
-**Gives you** quiet hints during the call when something matters.
-
-**Needs** an Apple Silicon Mac, Python and 2 macOS permissions. Everything, including the microphone and system audio setup, is on [the call co-pilot page](/live-tips/#install-about-15-minutes).
+### Live Tips (a separate product)
+**Gives you** quiet hints during the call when something matters. It is not part of the plugin: the app or its own Cowork skill, downloads and setup are on [the Live Tips page](/live-tips/).
 
 ## If something goes wrong
 
