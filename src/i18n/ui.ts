@@ -19,6 +19,7 @@ export const VERSION = '1.8.0';
 export const PAGES = [
   { slug: 'day', nav: true },
   { slug: 'live-tips', nav: true },
+  { slug: 'compare', nav: false },
   { slug: 'notion', nav: true },
   { slug: 'skills', nav: true },
   { slug: 'how-it-works', nav: true },
@@ -49,6 +50,7 @@ export const ui = {
     'nav.notion': 'Notion template',
     'nav.autopilot': 'Autopilot',
     'nav.live-tips': 'Call co-pilot',
+    'nav.compare': 'Compared with others',
     'nav.open-source': 'Open source and beta',
     'nav.day': 'A day with it',
     'nav.principles': 'Principles',
@@ -94,6 +96,7 @@ export const ui = {
     'nav.notion': 'Шаблон Notion',
     'nav.autopilot': 'Автопілот',
     'nav.live-tips': 'Підказки на дзвінку',
+    'nav.compare': 'Порівняння з іншими',
     'nav.open-source': 'Відкритий код і бета',
     'nav.day': 'День з ним',
     'nav.principles': 'Принципи',

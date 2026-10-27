@@ -18,6 +18,8 @@ facts:
 
 Нове: [застосунок Live Tips](#застосунок-live-tips-бета), нативний застосунок macOS у беті, що дає ті самі підказки без чату Cowork, з вашим власним API-ключем Claude.
 
+**Будь-яка мова на вході, одна мова в транскрипті.** Задай дзвінку одну мову, і весь транскрипт буде нею: українська мова на англійському дзвінку записується англійською, російська на українському дзвінку записується українською. На дзвінках автора Fireflies з англійською писав українську мову латиницею. Хочеш кожну мову як звучить? Вибери дві (наприклад, Ukrainian + English). Як Live Tips виглядає поруч з Fireflies, Fathom і Notion: [порівняння](/uk/compare/).
+
 ## Факт або тиша
 
 За замовчуванням тиша. Підказка містить число, дату, імʼя, статус або готову фразу, інакше її немає. Вона зʼявляється, коли спрацьовує одне з:
@@ -123,7 +125,7 @@ facts:
 Той самий цикл live tips як нативний застосунок macOS у рядку меню, без чату Cowork, що мусить працювати весь дзвінок. Він записує дзвінок на вашому Маку, там же розпізнає його через Whisper на MLX і звертається до Claude API напряму з вашим власним API-ключем, що зберігається в Keychain macOS.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.7/LiveTips-0.5.7-beta.dmg" download>Завантажити Live Tips 0.5.7 beta (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.8/LiveTips-0.5.8-beta.dmg" download>Завантажити Live Tips 0.5.8 beta (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">

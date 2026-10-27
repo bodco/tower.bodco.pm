@@ -18,6 +18,8 @@ This is a **beta**: built and tested by one person on real calls, and built on o
 
 New: the [Live Tips app](#live-tips-app-beta), a native macOS app in beta that runs the same tips without a Cowork chat, with your own Claude API key.
 
+**Any language in, one language out.** Set the call to one language and the whole transcript comes in it: Ukrainian speech on an English call is written in English, Russian on a Ukrainian call in Ukrainian. In the author's calls, Fireflies set to English wrote Ukrainian speech in Latin letters instead. Want each language as spoken? Pick two (for example Ukrainian + English). How Live Tips stands next to Fireflies, Fathom and Notion: [the comparison](/compare/).
+
 ## Facts or silence
 
 Silence is the default. A tip carries a number, a date, a name, a status or a ready phrase, or it is not shown. A tip appears when one of these fires:
@@ -123,7 +125,7 @@ A wrap-up in the chat: action items with owners and dates, new requests, your co
 The same live-tips loop as a native macOS app in the menu bar, without a Cowork chat running during the call. It records the call on your Mac, transcribes it there with Whisper on MLX and calls the Claude API directly with your own API key, kept in the macOS Keychain.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.7/LiveTips-0.5.7-beta.dmg" download>Download Live Tips 0.5.7 beta (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/pm-control-tower/releases/download/live-tips-app-v0.5.8/LiveTips-0.5.8-beta.dmg" download>Download Live Tips 0.5.8 beta (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">
