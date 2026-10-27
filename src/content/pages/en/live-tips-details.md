@@ -113,6 +113,8 @@ With [Ollama](https://ollama.com) and a small multilingual embedding model (`bge
 
 **Open it before the call (standby).** You can start a few minutes early: the window opens, but nothing is recorded and no microphone warnings appear while you wait. Recording starts by itself when the other side has been speaking for about 5 seconds, or at once when you press the green **Start**. This works in the skill and in the app.
 
+**No time to prepare? Start anyway.** A preparation makes tips richer, it is not required. Without it you still get the red tips when you are addressed (a question to you, your turn, a new request, a date being promised), HELP NOW, answers to questions you type, a search over the project folder, On me and the meeting page after the call. Missing until a preparation arrives: the speech card and the instant fact cards. A preparation that finishes after the start joins the call by itself, so a late one costs you a quieter first few minutes, not the call. Two lines in Call context (the goal, what to look for) already help.
+
 ## After the call: notes you did not have to write
 
 A wrap-up in the chat: action items with owners and dates, new requests, your commitments, open questions, and answers worth coming back to. It goes into the meeting's existing Notion page (for example the one Notion AI Meeting Notes created), and a new page appears only when there is none. Your notes from the call become lessons for the next one. Next steps (a report, a change request, a risk) are offered, never run without your command.
