@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Stays on your Mac" }
   - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.6.6" }
+  - { k: Status, v: "beta 0.6.7" }
 ---
 
 <div class="aimix">
