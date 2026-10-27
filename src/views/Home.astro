@@ -453,7 +453,9 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
         <h2 id="author-h" class="h2 h2--sm">{C.authorH}</h2>
         <p class="muted" style="margin: 0; font-size: 18px; line-height: 1.65;">{C.authorP}</p>
         <div class="author-links">
+          {/* 2026-10-27 (owner): hidden for a while, not removed.
           <a class="more" href={LINKS.author(lang)}>{C.authorCv} <Arrow /></a>
+          */}
           <a class="more" href={LINKS.github}><GithubLogo /> {C.authorLink} <Arrow /></a>
         </div>
       </div>
