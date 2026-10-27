@@ -27,7 +27,21 @@ const learn = PAGES.filter((p) => !['start', 'changelog'].includes(p.slug));
         <a href={LINKS.docs(lang)}>{t(lang, 'footer.docs')}</a>
         <a href={LINKS.site}>{t(lang, 'footer.source')}</a>
         <a href={LINKS.author(lang)}>{t(lang, 'footer.author')}</a>
+        <a href={path(lang, 'privacy')}>{t(lang, 'nav.privacy')}</a>
+        <a href={path(lang, 'terms')}>{t(lang, 'nav.terms')}</a>
+        <a href={path(lang, 'live-tips/privacy')}>Live Tips: {t(lang, 'nav.live-tips-privacy').toLowerCase()}</a>
+        <button type="button" class="footer__consent" id="consent-reset">{t(lang, 'footer.consent')}</button>
       </div>
     </div>
   </div>
 </footer>
+<script is:inline>
+  // 2026-10-27: forget the analytics choice and show the consent banner again.
+  (function () {
+    var b = document.getElementById('consent-reset');
+    if (b) b.addEventListener('click', function () {
+      try { localStorage.removeItem('analytics-consent'); } catch (e) {}
+      location.reload();
+    });
+  })();
+</script>

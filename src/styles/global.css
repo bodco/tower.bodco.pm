@@ -228,6 +228,8 @@ a.card:hover { border-color: var(--accent); color: var(--text); }
 .footer__col a { padding: 12px 0; }
 .footer__col .label { padding-bottom: 6px; }
 .footer__col a { color: var(--text-2); }
+.footer__consent { font: inherit; text-align: left; padding: 12px 0; color: var(--text-2); background: none; border: 0; cursor: pointer; }
+.footer__consent:hover { color: var(--accent-hover); }
 
 /* Feature page */
 .page-hero { border-bottom: 1px solid var(--line); }

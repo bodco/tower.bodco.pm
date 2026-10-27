@@ -185,6 +185,7 @@ It is a beta: tested by one person on one Mac since October 2026, thresholds are
 - Transcripts stay in your project folder. Keep them out of public repositories.
 - The Meetings page is internal. The skill never sends anything to the client.
 - Tell participants you keep a transcript and use an assistant, as with any note taker. Consent rules differ by country, by contract and by the meeting itself.
+- The full text: [Live Tips privacy policy](/live-tips/privacy/) and [terms of use](/live-tips/terms/).
 
 ## What you need
 

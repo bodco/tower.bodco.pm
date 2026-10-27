@@ -21,10 +21,15 @@ const text = lang === 'uk'
   if (saved === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' });
   gtag('js', new Date());
   gtag('config', id, { allow_google_signals: false, allow_ad_personalization_signals: false });
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
-  document.head.appendChild(s);
+  // 2026-10-27: strict opt-in. Google's script is loaded only after the visitor allows analytics
+  // (now or on an earlier visit); without consent nothing is sent to Google at all.
+  window.ltLoadGa = function () {
+    if (window.ltGaLoaded) return; window.ltGaLoaded = true;
+    var s = document.createElement('script'); s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+  };
+  if (saved === 'granted') window.ltLoadGa();
 </script>
 <div class="consent" id="consent" role="region" aria-label="Analytics consent" hidden>
   <p>{text.msg}</p>
@@ -43,7 +48,7 @@ const text = lang === 'uk'
       var v = e.target && e.target.getAttribute && e.target.getAttribute('data-consent');
       if (!v) return;
       try { localStorage.setItem('analytics-consent', v); } catch (err) {}
-      if (v === 'granted') window.gtag('consent', 'update', { analytics_storage: 'granted' });
+      if (v === 'granted') { window.gtag('consent', 'update', { analytics_storage: 'granted' }); if (window.ltLoadGa) window.ltLoadGa(); }
       box.hidden = true;
     });
   })();

@@ -74,3 +74,5 @@ Those are mature note takers with team workspaces, video and many integrations. 
 </div>
 
 Not there yet: a calendar link, a prompt to start recording when a call begins, the summary in Google Docs. Planned; today each call starts from the menu bar.
+
+<p class="smallprint">Your calls and your data: <a href="/live-tips/privacy/">privacy policy</a> and <a href="/live-tips/terms/">terms of use</a>.</p>
