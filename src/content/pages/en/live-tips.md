@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Stays on your Mac" }
   - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.6.7" }
+  - { k: Status, v: "beta 0.6.8" }
 ---
 
 <div class="aimix">
@@ -74,7 +74,7 @@ Real screenshots of the app on demo data. The pictures follow the site's light o
 
 ## Home and your calendars
 
-**Home** is the app's main window: the call that is live, the calls ahead from your calendars and Up next with their preparation, and the calls already held with their Notion page, transcript and folder (remove one from the list with ×; the files stay). At the bottom: the Claude key, this month's spend against your limit, the Notion copy, local AI and the calendars.
+**Home** is the app's main window: this week at a glance (calls, time on calls, Claude spend, how many were prepared, minutes per day by project), the call that is live, the calls ahead from your calendars and Up next with their preparation, and the calls already held with their Notion page, transcript and folder (remove one from the list with ×; the files stay). At the bottom: the Claude key, this month's spend against your limit, the Notion copy, local AI and the calendars.
 
 **Calendars through macOS, several accounts at once.** Add your Google and Microsoft accounts in System Settings > Internet Accounts, then Settings > Calendars in Live Tips: tick the calendars that have your calls. Nothing to install and no extra sign-in; Live Tips only reads. Two or three meetings at the same time are normal: Home marks them, and you prepare and start the one you actually go to. A regular meeting starts from the settings and the "what matters" text of its last call, so you only correct them.
 
