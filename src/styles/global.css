@@ -52,10 +52,6 @@ html { scroll-behavior: smooth; scroll-padding-top: 88px; }
 body {
   margin: 0;
   background-color: var(--bg);
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: var(--grid) var(--grid);
   color: var(--text);
   font-family: var(--sans);
   font-size: 16px;
@@ -275,9 +271,11 @@ a.card:hover { border-color: var(--accent); color: var(--text); }
 .prose pre code { background: none; border: 0; padding: 0; font-size: inherit; }
 @media (max-width: 700px) { .prose pre:not(.pre--nowrap) { white-space: pre-wrap; overflow-wrap: anywhere; } .prose .codefig pre { white-space: pre; overflow-wrap: normal; } }
 .prose .codefig pre { border: 0; margin: 0; }
-.prose table { width: 100%; border-collapse: collapse; font-size: 15px; display: block; overflow-x: auto; }
-.prose th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-3); text-align: left; font-weight: 500; padding: 0 16px 12px 0; white-space: nowrap; }
-.prose td { padding: 12px 16px 12px 0; border-top: 1px solid var(--line); vertical-align: top; }
+.prose table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 15px; display: block; overflow-x: auto; background: var(--band); border: 1px solid var(--line-strong); border-radius: 12px; }
+.prose th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-2); text-align: left; font-weight: 500; padding: 14px 16px; white-space: nowrap; background: var(--bg); border-bottom: 1px solid var(--line-strong); }
+.prose td { padding: 14px 16px; border-top: 1px solid var(--line); vertical-align: top; }
+.prose tr:first-child td { border-top: 0; }
+.prose td + td, .prose th + th { border-left: 1px solid var(--line); }
 .prose td:first-child { color: var(--text); }
 .prose blockquote { margin-left: 0; padding: 16px 20px; border: 1px solid var(--accent); background: var(--surface-warm); color: var(--text); }
 .prose blockquote p { margin: 0; }
@@ -458,3 +456,13 @@ html[data-theme='dark'] .theme-btn .i-moon { display: none; }
 .author-link .mark { width: 18px; height: 18px; flex: none; display: block; }
 @media (max-width: 480px) { .gh.author-link { display: inline-flex; padding: 11px 12px; } }
 @media (max-width: 360px) { .gh.author-link { display: none; } }
+
+/* 2026-10-27 (owner): the squared background made text hard to read. It stays only as a faint
+   decoration in the top blocks (hero), fading out, never behind body text. */
+.hero, .page-hero { position: relative; isolation: isolate; }
+.hero::before, .page-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: var(--grid) var(--grid);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%); mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
+}

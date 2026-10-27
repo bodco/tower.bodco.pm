@@ -28,16 +28,16 @@ An honest comparison, written by the person who builds Live Tips. The other thre
 | Free | The app is free (MIT). You pay the Claude API: about $0.2-0.8 for a 30-minute call with tips, a few cents for the Notion summary | Free plan: unlimited transcription, limited storage (400 min per team) and AI credits, no video | Free plan: unlimited recordings and transcripts; advanced summaries for the first 5 calls a month | Limited trial on Free and Plus |
 | Paid, per seat a month (yearly / monthly billing) | No seats; a monthly spending limit you set | Pro $10 / $18, Business $19 / $29, Enterprise $39 (yearly) | Premium $16 / $20, Team $15 / $19 (2 seats min), Business $25 / $34, Enterprise on request | Business $20 / $24, Enterprise on request |
 | Who pays | Only the person who uses it | Each recorded seat | Each seat | Every member of the workspace, also those who never record |
-| 20 calls of 30 min a month, one PM | about $5-15 of API usage | $10-18 | $0 if 5 advanced summaries are enough, else $16-20 | $20-24 for you, plus every other member |
+| 10 calls of 30 min a month, one PM | about $2-8 of Claude, or $0 without a Claude key (recording, transcript and prepared facts, no live tips) | $10-18 | $0 (5 advanced summaries a month are free), more calls $16-20 | $20-24 for you, plus every other member |
 
 ## The transcript
 
 | | Live Tips | Fireflies | Fathom | Notion AI Meeting Notes |
 |---|---|---|---|---|
 | How it records | Mac app, no bot: your microphone and the call's system audio | A bot that joins from your calendar, or the desktop app / Chrome extension without a bot | A bot by default; bot-free on Mac in beta | Notion desktop app, no bot; in a browser only your microphone |
-| Where audio goes | Stays on your Mac (Whisper runs locally); only text goes to Claude | Fireflies cloud | Fathom cloud | Notion |
+| Where audio goes | Stays on your Mac (Whisper runs locally); only text goes to Claude | Fireflies cloud | Fathom cloud | Sent from the desktop app to transcription providers (not stored there, Notion says); text is kept in Notion |
 | Languages | Whisper's ~99 languages; you set the call's languages | 100+, Multi-Language Mode (beta) for mixed calls | 38, Ukrainian and Russian included | 16, no Ukrainian; speaker labels English only |
-| A call in mixed languages | **One-language transcript:** on an English call, Ukrainian speech is written in English; on a Ukrainian call, Russian speech is written in Ukrainian | Each language as spoken (multi-language mode), or one set language | As spoken | As spoken, within the 16 languages |
+| A call in mixed languages | **One-language transcript:** on an English call, Spanish speech is written in English | Each language as spoken (multi-language mode), or one set language | As spoken | As spoken, within the 16 languages |
 | Speakers | Named by you once, remembered by voice per project, on your Mac | Speaker labels | Speaker labels | Labels, English only |
 | Video | No | Pro and up | Yes | No |
 
@@ -71,13 +71,12 @@ Planned, not built. Today you start each call by hand from the menu bar.
 - **Calendar.** Pick up the meeting title, time and people from Google Calendar.
 - **Start prompt.** Notice that a call has started (Zoom, Meet or Teams takes the microphone) and offer to start recording, like Fireflies, Notion and Fathom.
 - **Summary without Notion.** Save the summary to Google Docs or Drive, or a document in the project folder.
-- **Windows, team sharing, video.** Not planned for the beta.
 
 ## Which one when
 
 - **You want help while you talk, in your own words and numbers, and the audio must stay on your Mac:** Live Tips.
-- **You want the widest note taker with a team workspace and many integrations:** Fireflies.
-- **You want a free recorder with good summaries and CRM sync:** Fathom.
+- **You want recordings the whole team opens and searches in one place, video, and ready links to CRMs, Slack or Zapier:** Fireflies. (With Live Tips the team shares the meeting pages in your Notion, but not the recordings, and there are no CRM links.)
+- **You sell and want the call notes in your CRM, with video clips:** Fathom. (Recording and summaries are free in Live Tips too; the CRM sync and clips are not there.)
 - **Your team already lives in Notion and pays for Business:** Notion AI Meeting Notes.
 
 They do not exclude each other: Live Tips is about the minutes while you are on the call; the others are better archives after it.

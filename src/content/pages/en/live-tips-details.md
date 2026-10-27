@@ -138,7 +138,7 @@ The same live-tips loop as a native macOS app in the menu bar, without a Cowork 
 
 **It is a beta, so expect rough edges:**
 
-- **Not notarized yet.** The first time, right-click the app and choose **Open**, then confirm. After that it opens normally.
+- **Not notarized yet.** On the first launch macOS refuses to open it: open **System Settings > Privacy & Security**, press **Open Anyway** next to Live Tips and confirm (on macOS 14 a right-click > **Open** also works). After that it opens normally. Before that, you can check the download against the [SHA-256 checksums](https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt) published with every release: `shasum -a 256 ~/Downloads/LiveTips.dmg`.
 - **macOS 14.4 or newer on Apple silicon** (M1 or newer).
 - **Python 3.10 or newer.** The Setup window checks it and installs the rest (Python modules and models, about 2.5 GB in total) with a tick next to each step. Nothing needs an administrator password.
 - **An Anthropic API key.** Billed by Anthropic per use, separately from your Claude plan. Usually $0.10 to $1.20 per hour of a call, and the limits keep it in check.

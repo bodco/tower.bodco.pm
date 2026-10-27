@@ -21,7 +21,7 @@ const C = {
   h1: 'Your meeting prep and reply drafts, ready before the day starts',
   lead: 'Before you start work, Claude reads your chats, mail and tracker. At 09:00 you open Notion and find a reply draft for each message that waits on you.<sup>*</sup> Each meeting prep lands about 55 minutes before the call. You check, fix and press send yourself.',
   reality: 'That is the full setup, built up over a few weeks. On the first evening you get the Notion template and meeting preps on request.',
-  fn: '* No magic button: the collectors and inbox-responder run on a morning scheduled task in Cowork, and daily-team-prep and client-meeting-prep are scheduled before each meeting. The computer has to be awake.',
+  fn: '* No magic button: the morning work runs as a scheduled task in Claude Cowork, and each meeting prep is scheduled shortly before the meeting. Your computer has to be awake.',
   fnLink: 'How the schedule works',
   chips: ['Free Notion template', 'Built and tested on macOS', 'Beta, used daily by its author', 'Free and open source'],
 
@@ -145,7 +145,7 @@ const C = {
   h1: 'Підготовка до мітингів і драфти відповідей готові ще до початку дня',
   lead: 'Поки ви ще не сіли за роботу, Claude читає ваші чати, пошту і трекер. О 09:00 ви відкриваєте Notion, а там драфт на кожне повідомлення, яке чекає на вашу відповідь.<sup>*</sup> Підготовка до мітингу зʼявляється десь за 55 хвилин до дзвінка. Перевіряєте, правите і надсилаєте ви самі.',
   reality: 'Так виглядає повне налаштування, яке складається за кілька тижнів. За перший вечір ви отримуєте шаблон Notion і підготовки до мітингів на прохання.',
-  fn: '* Без чарівної кнопки: колектори й inbox-responder запускає ранкова запланована задача в Cowork, а daily-team-prep і client-meeting-prep заплановані перед кожним мітингом. Компʼютер має бути увімкнений.',
+  fn: '* Без чарівної кнопки: ранкова робота запускається запланованою задачею в Claude Cowork, а підготовка до кожного мітингу запланована незадовго до нього. Компʼютер має бути увімкнений.',
   fnLink: 'Як працює розклад',
   chips: ['Безкоштовний шаблон Notion', 'Зроблено й перевірено на macOS', 'Бета, автор користується щодня', 'Безкоштовно, відкритий код'],
 
@@ -280,7 +280,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
             <a class="btn btn--primary" href={path(lang, 'start')}>{t(lang, 'cta.setup')} <Arrow /></a>
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
-            <a class="btn btn--ink" href={path(lang, 'live-tips')}><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg> {t(lang, 'cta.live.hero')}</a>
+            <a class="btn btn--ink" href={path(lang, 'live-tips')}><img src="/live-tips-icon.png" alt="" width="20" height="20" style="border-radius: 5px;" /> {t(lang, 'cta.live.hero')}</a>
           </div>
           <p class="reality">{C.reality}</p>
           <p class="smallprint" id="fn-schedule">{C.fn} <a href={path(lang, 'autopilot')}>{C.fnLink}</a></p>

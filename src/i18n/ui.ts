@@ -14,7 +14,7 @@ export const LINKS = {
   liveTips: 'https://github.com/bodco/live-tips',
 };
 
-export const VERSION = '1.9.0';
+export const VERSION = '1.9.1';
 
 /** Page order drives the header, the footer and the prev/next pager. */
 export const PAGES = [
@@ -43,7 +43,7 @@ export const ui = {
     'author.title': 'About the author: bodco.pm',
     'cta.setup': 'Set it up',
     'cta.notion.hero': 'Notion template',
-    'cta.repo.hero': 'GitHub repo',
+    'cta.repo.hero': 'GitHub',
     'home': 'Home',
     'nav.how-it-works': 'How it works',
     'nav.skills': 'Skills',
@@ -52,7 +52,7 @@ export const ui = {
     'nav.live-tips': 'Live Tips',
     'nav.live-tips-compare': 'Compared with others',
     'nav.live-tips-details': 'How it works',
-    'cta.live.hero': 'Live Tips for Mac',
+    'cta.live.hero': 'Live Tips',
     'nav.open-source': 'Open source and beta',
     'nav.day': 'A day with it',
     'nav.principles': 'Principles',
@@ -91,7 +91,7 @@ export const ui = {
     'author.title': 'Про автора: bodco.pm',
     'cta.setup': 'Як розгорнути',
     'cta.notion.hero': 'Шаблон Notion',
-    'cta.repo.hero': 'Репо GitHub',
+    'cta.repo.hero': 'GitHub',
     'home': 'Головна',
     'nav.how-it-works': 'Як це працює',
     'nav.skills': 'Скіли',
@@ -100,7 +100,7 @@ export const ui = {
     'nav.live-tips': 'Live Tips',
     'nav.live-tips-compare': 'Порівняння з іншими',
     'nav.live-tips-details': 'Як працює',
-    'cta.live.hero': 'Live Tips для Мака',
+    'cta.live.hero': 'Live Tips',
     'nav.open-source': 'Відкритий код і бета',
     'nav.day': 'День з ним',
     'nav.principles': 'Принципи',

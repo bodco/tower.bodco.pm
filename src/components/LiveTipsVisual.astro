@@ -1,0 +1,45 @@
+---
+// A static picture of the tips window during a call, for the Live Tips product hero.
+interface Props { lang: 'en' | 'uk' }
+const { lang } = Astro.props;
+const T = lang === 'uk'
+  ? { head: 'Live Tips · Статус-синк · 14:32', client: 'Клієнт', you: 'Ви', tag: 'Нова вимога', gist: 'Не погоджуйте зараз', topic: 'Тема: експорт · твоя', onme: 'На мені', item: 'Надіслати оцінку експорту до пʼятниці' }
+  : { head: 'Live Tips · Status sync · 14:32', client: 'Client', you: 'You', tag: 'New request', gist: 'Do not agree now', topic: 'Topic: export · yours', onme: 'On me', item: 'Send the export estimate by Friday' };
+---
+<div class="ltv" aria-hidden="true">
+  <div class="ltv__bar"><span class="ltv__dot"></span>{T.head}<span class="ltv__sp"></span><span class="ltv__btn">||</span><span class="ltv__btn ltv__btn--end">End call</span></div>
+  <div class="ltv__sit">{T.topic}</div>
+  <div class="ltv__lines">
+    <p><b>{T.client}:</b> <span lang="en">Could you also add an export to CSV? Should be quick, right?</span></p>
+  </div>
+  <div class="ltv__tip">
+    <span class="ltv__tag">{T.tag}</span>
+    <b>{T.gist}</b>
+    <span lang="en">"Good idea. Let me write it down, we will check it and come back to you."</span>
+  </div>
+  <div class="ltv__onme"><b>{T.onme}</b><span>☐ {T.item}</span></div>
+  <div class="ltv__ask"><span class="ltv__field">Fact or question</span><span class="ltv__help">Help</span></div>
+</div>
+
+<style>
+  .ltv { border: 1px solid var(--line-strong); background: var(--bg-2, #15171f); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; gap: 12px; padding-bottom: 14px; box-shadow: 0 24px 60px rgba(0,0,0,.35); max-width: 460px; margin-left: auto; }
+  .ltv__bar { display: flex; align-items: center; gap: 8px; padding: 10px 14px; font-size: 12.5px; color: var(--text-2); border-bottom: 1px solid var(--line); }
+  .ltv__dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .ltv__sp { flex: 1; }
+  .ltv__btn { font-size: 11px; padding: 3px 9px; border-radius: 8px; background: rgba(91,155,255,.16); color: #6ea3ff; }
+  .ltv__btn--end { background: rgba(255,107,107,.16); color: #ff7b7b; }
+  .ltv__sit { margin: 0 14px; font-size: 12.5px; color: var(--text-3); }
+  .ltv__lines { margin: 0 14px; font-size: 14px; line-height: 1.5; color: var(--text-2); }
+  .ltv__lines p { margin: 0; }
+  .ltv__lines b { color: var(--text); font-weight: 500; }
+  .ltv__tip { margin: 0 14px; padding: 12px 14px; border-radius: 10px; background: var(--tip, rgba(255,90,60,.08)); border-left: 4px solid var(--accent); display: flex; flex-direction: column; gap: 6px; }
+  .ltv__tip b { font-size: 16px; }
+  .ltv__tip span { font-size: 14px; color: var(--text-2); line-height: 1.5; }
+  .ltv__tag { font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent) !important; }
+  .ltv__onme { margin: 0 14px; padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); font-size: 13px; display: flex; flex-direction: column; gap: 4px; color: var(--text-2); }
+  .ltv__onme b { color: var(--text); font-size: 13px; }
+  .ltv__ask { margin: 0 14px; display: flex; gap: 8px; }
+  .ltv__field { flex: 1; border-radius: 10px; border: 1px solid var(--line); padding: 8px 12px; font-size: 13px; color: var(--text-3); }
+  .ltv__help { border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 600; background: rgba(255,107,107,.16); color: #ff7b7b; }
+  @media (max-width: 860px) { .ltv { margin: 0 auto; } }
+</style>

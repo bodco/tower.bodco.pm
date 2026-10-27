@@ -1,6 +1,6 @@
 ---
 title: Live Tips
-lead: "A quiet co-pilot on your calls. It listens on your Mac and speaks up only when a fact or a phrase is needed: a question to you, your turn, a new request, a date you are about to promise."
+lead: "It listens on your Mac and speaks up only when a fact or a phrase is needed: a question to you, your turn, a new request, a date you are about to promise."
 doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 facts:
   - { k: Runs on, v: "Mac, Apple Silicon" }
@@ -10,13 +10,15 @@ facts:
   - { k: Status, v: "beta 0.6.0" }
 ---
 
+## Two ways to run it
+
 <div class="grid" style="--min: 280px; margin: 8px 0 12px;">
 <div class="card">
 <p class="card__tag">For most people</p>
 <h3 class="card__title">Live Tips for Mac</h3>
 <p class="card__text">A menu bar app. Your own Claude API key, no chat to keep open during the call. Setup installs the speech model by itself.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>Download for Mac (.dmg)</a></div>
-<p class="smallprint">macOS 14.4+, Apple Silicon. About 2.5 GB of local models on the first run. Beta, not notarized: the first time, right-click > Open.</p>
+<p class="smallprint">macOS 14.4+, Apple Silicon. About 2.5 GB of local models on the first run. Beta, not notarized: on the first launch open System Settings > Privacy & Security and press Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
 </div>
 <div class="card">
 <p class="card__tag">For Claude Cowork users</p>
@@ -34,7 +36,7 @@ Both run the same rules and the same recorder, so the tips behave the same way. 
 <div class="grid" style="--min: 300px;">
 <div class="card"><h3 class="card__title">Before the call</h3><p class="card__text">Prepare now writes a short brief and fact cards from your project folders and the documents you name. A few minutes, while you do something else.</p></div>
 <div class="card"><h3 class="card__title">During the call</h3><p class="card__text">A small window under your camera: the answer when you are asked, your update when it is your turn, a warning on a new request. HELP NOW gives the next sentence to say.</p></div>
-<div class="card"><h3 class="card__title">Any language in, one language out</h3><p class="card__text">Set the call to one language and every speaker is written in it: Ukrainian on an English call comes out in English. Or keep each language as spoken.</p></div>
+<div class="card"><h3 class="card__title">Any language in, one language out</h3><p class="card__text">Set the call to one language and every speaker is written in it: Spanish on an English call comes out in English. Or keep each language as spoken.</p></div>
 <div class="card"><h3 class="card__title">After the call</h3><p class="card__text">A Notion page in the call's language: summary, decisions, your commitments, new requests, open questions, risks, action items, the transcript attached.</p></div>
 </div>
 

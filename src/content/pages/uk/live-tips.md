@@ -1,6 +1,6 @@
 ---
 title: Live Tips
-lead: "Тихий співпілот на ваших дзвінках. Він слухає на вашому Маку і озивається лише тоді, коли потрібен факт чи фраза: питання до вас, ваша черга, нова вимога, дата, яку ви от-от пообіцяєте."
+lead: "Він слухає на вашому Маку і озивається лише тоді, коли потрібен факт чи фраза: питання до вас, ваша черга, нова вимога, дата, яку ви от-от пообіцяєте."
 doc: https://github.com/bodco/live-tips/blob/main/docs/uk/live-tips.md
 facts:
   - { k: Працює на, v: "Мак з Apple Silicon" }
@@ -10,13 +10,15 @@ facts:
   - { k: Статус, v: "бета 0.6.0" }
 ---
 
+## Два способи запуску
+
 <div class="grid" style="--min: 280px; margin: 8px 0 12px;">
 <div class="card">
 <p class="card__tag">Для більшості</p>
 <h3 class="card__title">Live Tips для Мака</h3>
 <p class="card__text">Застосунок у рядку меню. Власний API-ключ Claude, жодного чату, який треба тримати відкритим під час дзвінка. Setup сам ставить модель розпізнавання.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>Завантажити для Мака (.dmg)</a></div>
-<p class="smallprint">macOS 14.4+, Apple Silicon. Близько 2.5 ГБ локальних моделей при першому запуску. Бета без нотаризації: першого разу правий клік > Open.</p>
+<p class="smallprint">macOS 14.4+, Apple Silicon. Близько 2.5 ГБ локальних моделей при першому запуску. Бета без нотаризації: при першому запуску відкрийте System Settings > Privacy & Security і натисніть Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">Контрольні суми SHA-256</a>.</p>
 </div>
 <div class="card">
 <p class="card__tag">Для тих, хто в Claude Cowork</p>
@@ -34,7 +36,7 @@ facts:
 <div class="grid" style="--min: 300px;">
 <div class="card"><h3 class="card__title">До дзвінка</h3><p class="card__text">Prepare now пише короткий бриф і картки фактів з папок проєкту і документів, які ви назвали. Кілька хвилин, поки ви робите інше.</p></div>
 <div class="card"><h3 class="card__title">Під час дзвінка</h3><p class="card__text">Маленьке вікно під камерою: відповідь, коли вас питають, ваш апдейт, коли ваша черга, попередження про нову вимогу. HELP NOW дає наступне речення.</p></div>
-<div class="card"><h3 class="card__title">Будь-яка мова на вході, одна в транскрипті</h3><p class="card__text">Задайте дзвінку одну мову, і кожного спікера буде записано нею: українська на англійському дзвінку виходить англійською. Або лишайте кожну мову як звучить.</p></div>
+<div class="card"><h3 class="card__title">Будь-яка мова на вході, одна в транскрипті</h3><p class="card__text">Задайте дзвінку одну мову, і кожного спікера буде записано нею: іспанська на англійському дзвінку виходить англійською. Або лишайте кожну мову як звучить.</p></div>
 <div class="card"><h3 class="card__title">Після дзвінка</h3><p class="card__text">Сторінка в Notion мовою дзвінка: підсумок, рішення, ваші зобовʼязання, нові вимоги, відкриті питання, ризики, action items, транскрипт у вкладенні.</p></div>
 </div>
 
