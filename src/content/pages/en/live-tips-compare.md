@@ -66,9 +66,8 @@ An honest comparison, written by the person who builds Live Tips. The other thre
 
 ## Not there yet in Live Tips
 
-Planned, not built. Today you start each call by hand from the menu bar.
+Planned, not built. Since 0.6.6 the calendars are in (Google, Microsoft and iCloud through macOS, several accounts): you pick the call in Home or Start call and press Start.
 
-- **Calendar.** Pick up the meeting title, time and people from Google Calendar.
 - **Start prompt.** Notice that a call has started (Zoom, Meet or Teams takes the microphone) and offer to start recording, like Fireflies, Notion and Fathom.
 - **Summary without Notion.** Save the summary to Google Docs or Drive, or a document in the project folder.
 

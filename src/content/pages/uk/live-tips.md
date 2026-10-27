@@ -7,8 +7,24 @@ facts:
   - { k: Звук, v: "Лишається на вашому Маку" }
   - { k: Вартість, v: "Застосунок безкоштовний, Claude близько $0.2-0.8 за дзвінок" }
   - { k: Нотатки йдуть у, v: "Notion і папку проєкту" }
-  - { k: Статус, v: "бета 0.6.0" }
+  - { k: Статус, v: "бета 0.6.6" }
 ---
+
+<div class="aimix">
+<h3 class="aimix__title">Claude і локальний AI, кожен для своєї роботи</h3>
+<p class="aimix__lead">Те, що має бути миттєвим і приватним, працює на вашому Маку. Те, що потребує думання, йде до Claude, лише текстом.</p>
+<div class="aimix__cols">
+<div class="aimix__col"><h4>На Маку (локальні моделі, безкоштовно)</h4><ul>
+<li><b>Whisper</b> перетворює мову на текст; аудіо не покидає Мак.</li>
+<li><b>Local AI</b> (невелика модель пошуку, вбудована або Ollama) за долю секунди знаходить факти й картки за змістом і шукає по файлах проєкту.</li>
+<li><b>Голосова модель</b> розрізняє спікерів.</li></ul></div>
+<div class="aimix__col"><h4>Claude (хмара, ваш ключ або план)</h4><ul>
+<li>Підказки і готова фраза, коли питають вас, HELP NOW, відповіді на ваші питання.</li>
+<li>Картина дзвінка: тема, що на вас, рішення.</li>
+<li>Prepare now і глибокий пошук (Claude Code, лише читання), підсумок у Notion.</li></ul></div>
+</div>
+<p class="aimix__note">Claude вимкнено для проєкту? Тоді працює лише частина на Маку: транскрипт, миттєві факти і пошук.</p>
+</div>
 
 ## Два способи запуску
 
@@ -45,6 +61,7 @@ facts:
 Справжні знімки застосунку на демо-даних. Картинки йдуть за світлою чи темною темою сайту.
 
 <div class="gallery">
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Дзвінки попереду з календарів і Далі (накладки позначено), проведені дзвінки з Notion, транскриптом і папкою, і стан усього, що потрібно для дзвінка.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/tips-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/tips-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Транскрипт з іменами спікерів (Команда чи Клієнт), що на вас, підсумок дзвінка, відповіді на ваші питання і кнопка Help.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/start-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/start-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Start call.</b> Проєкт, назва і час дзвінка, аудиторія, тип і мови, що важливо на цьому дзвінку і які папки прочитати, Prepare now.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/plan-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/plan-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Далі.</b> Під час дзвінка плануйте наступний: налаштуйте і підготуйте зараз, перейдіть на нього, коли цей закінчиться.</figcaption></figure>
@@ -54,6 +71,12 @@ facts:
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/settings-notion-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/settings-notion-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Налаштування: Notion.</b> Сторінка зустрічі після кожного дзвінка, куди вона йде, і необовʼязкова локальна копія Notion.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/settings-projects-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/settings-projects-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Налаштування: Projects.</b> Воркспейси і проєкти з вашої робочої папки; позначені зʼявляються в Start call.</figcaption></figure>
 </div>
+
+## Home і ваші календарі
+
+**Home** це головне вікно аппки: дзвінок, що йде зараз, дзвінки попереду з календарів і зі списку Далі з їхньою підготовкою, і проведені дзвінки зі сторінкою в Notion, транскриптом і папкою (прибрати зі списку можна ×; файли лишаються). Внизу: ключ Claude, витрати за місяць проти ліміту, копія Notion, локальний AI і календарі.
+
+**Календарі через macOS, кілька акаунтів одразу.** Додайте акаунти Google і Microsoft у System Settings > Internet Accounts, потім у Live Tips Settings > Calendars позначте календарі, де ваші дзвінки. Нічого не треба встановлювати і ніде окремо входити; Live Tips лише читає. Дві-три зустрічі на один час це нормально: Home їх позначає, а ви готуєте і запускаєте ту, на яку реально йдете. Регулярна зустріч стартує з налаштувань і тексту "що важливо" її останнього дзвінка, тож ви лише коригуєте.
 
 ## Дзвінки один за одним: Далі
 
@@ -80,6 +103,6 @@ facts:
 <div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Код і релізи</a></h3><p class="card__text">Застосунок, скіл, записувач і повний посібник на GitHub. Що змінилося: <a href="/uk/changelog/">версії</a>.</p></div>
 </div>
 
-Ще немає: звʼязку з календарем, пропозиції почати запис, коли починається дзвінок, підсумку в Google Docs. У планах; поки кожен дзвінок починається з рядка меню.
+Ще немає: підсумку в Google Docs чи Word у вашому Drive або OneDrive. У планах.
 
 <p class="smallprint">Ваші дзвінки і ваші дані: <a href="/uk/live-tips/privacy/">політика конфіденційності</a> і <a href="/uk/live-tips/terms/">умови використання</a>.</p>

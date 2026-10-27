@@ -7,8 +7,24 @@ facts:
   - { k: Audio, v: "Stays on your Mac" }
   - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.6.0" }
+  - { k: Status, v: "beta 0.6.6" }
 ---
+
+<div class="aimix">
+<h3 class="aimix__title">Claude and local AI, each for its job</h3>
+<p class="aimix__lead">What must be instant and private runs on your Mac. What needs real thinking goes to Claude, as text only.</p>
+<div class="aimix__cols">
+<div class="aimix__col"><h4>On your Mac (local models, free)</h4><ul>
+<li><b>Whisper</b> turns speech into text; audio never leaves the Mac.</li>
+<li><b>Local AI</b> (a small search model, built in or Ollama) finds facts and cards by meaning in under a second and searches your project files.</li>
+<li><b>A voice model</b> tells speakers apart.</li></ul></div>
+<div class="aimix__col"><h4>Claude (cloud, your key or plan)</h4><ul>
+<li>Tips and the ready phrase when you are asked, HELP NOW, answers to your questions.</li>
+<li>The picture of the call: topic, what is on you, decisions.</li>
+<li>Prepare now and deep search (Claude Code, read-only), the Notion summary.</li></ul></div>
+</div>
+<p class="aimix__note">Claude off for a project? It runs on the Mac part only: transcript, instant facts and search.</p>
+</div>
 
 ## Two ways to run it
 
@@ -45,6 +61,7 @@ Both run the same rules and the same recorder, so the tips behave the same way. 
 Real screenshots of the app on demo data. The pictures follow the site's light or dark theme.
 
 <div class="gallery">
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The calls ahead from your calendars and Up next (overlaps marked), the calls already held with Notion, transcript and folder, and what a call needs.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/tips-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/tips-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> The transcript with named speakers (Team or Client), what is on you, the call summary, answers to your questions and the Help button.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/start-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/start-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Start call.</b> The project, the call's name and time, audience, type and languages, what matters on this call and the folders to read, Prepare now.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/plan-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/plan-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Up next.</b> During a call, plan the next one: set it up and prepare it now, switch to it when this call ends.</figcaption></figure>
@@ -54,6 +71,12 @@ Real screenshots of the app on demo data. The pictures follow the site's light o
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/settings-notion-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/settings-notion-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Settings: Notion.</b> The meeting page after each call, where it goes, and the optional local copy of Notion.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/settings-projects-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/settings-projects-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Settings: Projects.</b> Workspaces and projects found in your work folder; ticked ones show up in Start call.</figcaption></figure>
 </div>
+
+## Home and your calendars
+
+**Home** is the app's main window: the call that is live, the calls ahead from your calendars and Up next with their preparation, and the calls already held with their Notion page, transcript and folder (remove one from the list with ×; the files stay). At the bottom: the Claude key, this month's spend against your limit, the Notion copy, local AI and the calendars.
+
+**Calendars through macOS, several accounts at once.** Add your Google and Microsoft accounts in System Settings > Internet Accounts, then Settings > Calendars in Live Tips: tick the calendars that have your calls. Nothing to install and no extra sign-in; Live Tips only reads. Two or three meetings at the same time are normal: Home marks them, and you prepare and start the one you actually go to. A regular meeting starts from the settings and the "what matters" text of its last call, so you only correct them.
 
 ## Back-to-back calls: Up next
 
@@ -80,6 +103,6 @@ Those are mature note takers with team workspaces, video and many integrations. 
 <div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Code and releases</a></h3><p class="card__text">The app, the skill, the recorder and the full guide on GitHub. What changed: the <a href="/changelog/">changelog</a>.</p></div>
 </div>
 
-Not there yet: a calendar link, a prompt to start recording when a call begins, the summary in Google Docs. Planned; today each call starts from the menu bar.
+Not there yet: the summary in Google Docs or Word in your Drive or OneDrive. Planned.
 
 <p class="smallprint">Your calls and your data: <a href="/live-tips/privacy/">privacy policy</a> and <a href="/live-tips/terms/">terms of use</a>.</p>
