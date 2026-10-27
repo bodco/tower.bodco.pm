@@ -7,7 +7,7 @@ facts:
   - { k: Звук, v: "Лишається на вашому Маку" }
   - { k: Вартість, v: "Застосунок безкоштовний, Claude близько $0.2-0.8 за дзвінок" }
   - { k: Нотатки йдуть у, v: "Notion і папку проєкту" }
-  - { k: Статус, v: "бета 0.6.8" }
+  - { k: Статус, v: "бета 0.6.9" }
 ---
 
 <div class="aimix">
@@ -50,7 +50,7 @@ facts:
 ## Що він робить
 
 <div class="grid" style="--min: 300px;">
-<div class="card"><h3 class="card__title">До дзвінка</h3><p class="card__text">Prepare now пише короткий бриф і картки фактів з папок проєкту і документів, які ви назвали. Кілька хвилин, поки ви робите інше. Не встигли? Починайте все одно: підказки, коли вас питають, HELP NOW і відповіді працюють і без неї, а запізніла підготовка підключиться до дзвінка.</p></div>
+<div class="card"><h3 class="card__title">До дзвінка</h3><p class="card__text">Home показує ваші дзвінки з календарів Google і Microsoft; оберіть той, на який ідете, напишіть, що важливо, і Prepare пише короткий бриф і картки фактів з папок проєкту і документів, які ви назвали. Кілька хвилин, поки ви робите інше. Не встигли? Починайте все одно: підказки, коли вас питають, HELP NOW і відповіді працюють і без неї, а запізніла підготовка підключиться до дзвінка.</p></div>
 <div class="card"><h3 class="card__title">Під час дзвінка</h3><p class="card__text">Маленьке вікно під камерою: відповідь, коли вас питають, ваш апдейт, коли ваша черга, попередження про нову вимогу. HELP NOW дає наступне речення.</p></div>
 <div class="card"><h3 class="card__title">Будь-яка мова на вході, одна в транскрипті</h3><p class="card__text">Задайте дзвінку одну мову, і кожного спікера буде записано нею: іспанська на англійському дзвінку виходить англійською. Або лишайте кожну мову як звучить.</p></div>
 <div class="card"><h3 class="card__title">Після дзвінка</h3><p class="card__text">Сторінка в Notion мовою дзвінка: підсумок, рішення, ваші зобовʼязання, нові вимоги, відкриті питання, ризики, action items, транскрипт дочірньою сторінкою.</p></div>
@@ -61,10 +61,11 @@ facts:
 Справжні знімки застосунку на демо-даних. Картинки йдуть за світлою чи темною темою сайту.
 
 <div class="gallery">
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Дзвінки попереду з календарів і Далі (накладки позначено), проведені дзвінки з Notion, транскриптом і папкою, і стан усього, що потрібно для дзвінка.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Дзвінки попереду з календарів і Далі (накладки позначено), цей тиждень (дзвінки, час, витрати на Claude, підготовлені дзвінки, хвилини по днях за проєктами) і проведені дзвінки з Notion, транскриптом і папкою.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/tips-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/tips-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Транскрипт з іменами спікерів (Команда чи Клієнт), що на вас, підсумок дзвінка, відповіді на ваші питання і кнопка Help.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/start-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/start-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Start call.</b> Проєкт, назва і час дзвінка, аудиторія, тип і мови, що важливо на цьому дзвінку і які папки прочитати, Prepare now.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/plan-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/plan-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Далі.</b> Під час дзвінка плануйте наступний: налаштуйте і підготуйте зараз, перейдіть на нього, коли цей закінчиться.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/prepare-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/prepare-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Prepare.</b> Перед підготовкою: проєкт чи воркспейс і що важливо на дзвінку, для регулярної зустрічі заповнені з її останнього дзвінка.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/tips-presentation-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/tips-presentation-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Режим презентації.</b> Ваші слайди з текстом виступу, таймер на кожен слайд і підказки поруч.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/settings-general-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/settings-general-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Налаштування: General.</b> Чекліст до першого дзвінка, робоча папка, ваше імʼя на дзвінках, мова інтерфейсу, приховування вікна від показу екрана.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/settings-ai-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/settings-ai-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Налаштування: AI.</b> Як працює Prepare now, моделі, ліміти витрат, локальний AI і бібліотека голосів.</figcaption></figure>
@@ -74,7 +75,7 @@ facts:
 
 ## Home і ваші календарі
 
-**Home** це головне вікно аппки: тиждень одним поглядом (дзвінки, час на дзвінках, витрати на Claude, скільки підготовлено, хвилини по днях за проєктами), дзвінок, що йде зараз, дзвінки попереду з календарів і зі списку Далі з їхньою підготовкою, і проведені дзвінки зі сторінкою в Notion, транскриптом і папкою (прибрати зі списку можна ×; файли лишаються). Внизу: ключ Claude, витрати за місяць проти ліміту, копія Notion, локальний AI і календарі.
+**Home** це головне вікно аппки: тиждень одним поглядом (дзвінки, час на дзвінках, витрати на Claude, скільки підготовлено, хвилини по днях за проєктами), дзвінок, що йде зараз, дзвінки попереду з календарів і зі списку Далі з їхньою підготовкою, і проведені дзвінки зі сторінкою в Notion, транскриптом і папкою (прибрати зі списку можна ×; файли лишаються). Внизу: ключ Claude, витрати за місяць проти ліміту, копія Notion, локальний AI і календарі. Показуєте Home колегам? Settings > General ховає ваші цифри.
 
 **Календарі через macOS, кілька акаунтів одразу.** Додайте акаунти Google і Microsoft у System Settings > Internet Accounts, потім у Live Tips Settings > Calendars позначте календарі, де ваші дзвінки. Нічого не треба встановлювати і ніде окремо входити; Live Tips лише читає. Дві-три зустрічі на один час це нормально: Home їх позначає, а ви готуєте і запускаєте ту, на яку реально йдете. Регулярна зустріч стартує з налаштувань і тексту "що важливо" її останнього дзвінка, тож ви лише коригуєте.
 

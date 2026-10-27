@@ -63,7 +63,7 @@ const C = {
   // 4. ON THE CALL
   liveEyebrow: 'On the call',
   liveH: 'A quiet hint when the client asks for "just a small extra"',
-  liveP: 'It listens to the call with you and stays silent until a fact or a phrase is needed: a question to you, a new request, a date someone wants you to promise, a decision nobody owns yet. Then a short hint and a ready phrase appear in a small window. Audio is transcribed on your Mac and never leaves it. After the call, the transcript and a wrap-up are in Notion. Needs an Apple Silicon Mac.',
+  liveP: 'It listens to the call with you and stays silent until a fact or a phrase is needed: a question to you, a new request, a date someone wants you to promise, a decision nobody owns yet. Then a short hint and a ready phrase appear in a small window. Audio is transcribed on your Mac and never leaves it. After the call, the transcript and a wrap-up are in Notion. Home shows the calls ahead from your Google and Microsoft calendars, lets you prepare the next ones while a call runs, and keeps your week in numbers. Needs an Apple Silicon Mac.',
   liveMore: 'How the call co-pilot works',
   liveHead: 'LIVE · Client status sync · 14:32',
   liveClient: 'Client', liveYou: 'You',
@@ -187,7 +187,7 @@ const C = {
   // 4. НА ДЗВІНКУ
   liveEyebrow: 'На дзвінку',
   liveH: 'Тиха підказка, коли клієнт просить "ще дрібничку"',
-  liveP: 'Він слухає дзвінок разом з вами і мовчить, доки не знадобиться факт чи фраза: питання до вас, нова вимога, дата, яку від вас хочуть почути, рішення, за яке ще ніхто не відповідає. Тоді в маленькому вікні зʼявляється коротка підказка і готова фраза. Звук розпізнається на вашому Маку і нікуди не йде. Після дзвінка в Notion уже лежать транскрипт і підсумок. Потрібен Мак на Apple Silicon.',
+  liveP: 'Він слухає дзвінок разом з вами і мовчить, доки не знадобиться факт чи фраза: питання до вас, нова вимога, дата, яку від вас хочуть почути, рішення, за яке ще ніхто не відповідає. Тоді в маленькому вікні зʼявляється коротка підказка і готова фраза. Звук розпізнається на вашому Маку і нікуди не йде. Після дзвінка в Notion уже лежать транскрипт і підсумок. Home показує дзвінки попереду з ваших календарів Google і Microsoft, дає підготувати наступні, поки йде дзвінок, і рахує ваш тиждень. Потрібен Мак на Apple Silicon.',
   liveMore: 'Як працюють підказки на дзвінку',
   liveHead: 'LIVE · Статус-синк з клієнтом · 14:32',
   liveClient: 'Клієнт', liveYou: 'Ви',
@@ -342,7 +342,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
   <!-- 4. ON THE CALL: Live Tips -->
   <section class="band" aria-labelledby="live-h">
     <div class="wrap section split">
-      <Shot name="tips" alt={lang === 'uk' ? 'Вікно Live Tips на дзвінку: транскрипт зі спікерами, На мені, підказки' : 'The Live Tips window on a call: transcript with speakers, On me, tips'} />
+      <Shot name="home-wide" alt={lang === 'uk' ? 'Home у Live Tips: дзвінки попереду з календарів, цей тиждень, недавні дзвінки' : 'Live Tips Home: the calls ahead from your calendars, this week, recent calls'} />
       <div class="stack">
         <p class="eyebrow">{C.liveEyebrow}</p>
         <h2 id="live-h" class="h2">Live Tips</h2>
