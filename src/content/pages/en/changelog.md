@@ -12,6 +12,7 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
+| Live Tips 0.7.0 beta | 2026-10-28 | **Interactive insights on Home:** choose the period (today, this or last week, this month, 30 days, your dates) and a project or workspace, click a day in the chart to see it, open the calls of the selection. **Deeper preparation:** the last 3 calls of the same meeting are read in full, and the brief gets a Previous meetings section (what was discussed, questions and whether they were answered, open items, action items with owners and status). A narrow Home shows insights on top, lower; a wide one next to the calls; recent calls show 8 with Show all. |
 | Live Tips 0.6.9 beta | 2026-10-27 | **Home first.** The site and the app open on Home; a wide Home puts this week next to the calls. **Numbers off for a demo:** Settings > General hides this week's numbers, the chart and the monthly spend. New screenshots: Home, Prepare. |
 | Live Tips 0.6.8 beta | 2026-10-27 | **Prepare asks first:** the project or workspace and what matters on the call, so it is clear what the preparation is based on (a new meeting has no default project). **This week on Home:** calls, time on calls, Claude spend, prepared calls, minutes per day by project, the longest call and the busiest day. |
 | Live Tips 0.6.7 beta | 2026-10-27 | **One interface language everywhere.** With English chosen, tip headings, the call picture, service lines and the header of the transcript are English too; the window switch and Settings are one setting. The ready phrase stays in the call's language. |

@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Stays on your Mac" }
   - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.6.9" }
+  - { k: Status, v: "beta 0.7.0" }
 ---
 
 <div class="aimix">
@@ -61,7 +61,7 @@ Both run the same rules and the same recorder, so the tips behave the same way. 
 Real screenshots of the app on demo data. The pictures follow the site's light or dark theme.
 
 <div class="gallery">
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The calls ahead from your calendars and Up next (overlaps marked), this week (calls, time, Claude spend, prepared calls, minutes per day by project) and the calls already held with Notion, transcript and folder.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The calls ahead from your calendars and Up next (overlaps marked), insights for a period, project or workspace (calls, time, Claude spend, prepared calls, minutes per day) and the calls already held with Notion, transcript and folder.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/tips-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/tips-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> The transcript with named speakers (Team or Client), what is on you, the call summary, answers to your questions and the Help button.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/start-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/start-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Start call.</b> The project, the call's name and time, audience, type and languages, what matters on this call and the folders to read, Prepare now.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/plan-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/plan-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Up next.</b> During a call, plan the next one: set it up and prepare it now, switch to it when this call ends.</figcaption></figure>
@@ -75,7 +75,7 @@ Real screenshots of the app on demo data. The pictures follow the site's light o
 
 ## Home and your calendars
 
-**Home** is the app's main window: this week at a glance (calls, time on calls, Claude spend, how many were prepared, minutes per day by project), the call that is live, the calls ahead from your calendars and Up next with their preparation, and the calls already held with their Notion page, transcript and folder (remove one from the list with ×; the files stay). At the bottom: the Claude key, this month's spend against your limit, the Notion copy, local AI and the calendars. Showing Home to colleagues? Settings > General hides your numbers.
+**Home** is the app's main window: insights for any period, project or workspace (calls, time on calls, Claude spend, how many were prepared, minutes per day by project; click a day to see it), the call that is live, the calls ahead from your calendars and Up next with their preparation, and the calls already held with their Notion page, transcript and folder (remove one from the list with ×; the files stay). At the bottom: the Claude key, this month's spend against your limit, the Notion copy, local AI and the calendars. Showing Home to colleagues? Settings > General hides your numbers.
 
 **Calendars through macOS, several accounts at once.** Add your Google and Microsoft accounts in System Settings > Internet Accounts, then Settings > Calendars in Live Tips: tick the calendars that have your calls. Nothing to install and no extra sign-in; Live Tips only reads. Two or three meetings at the same time are normal: Home marks them, and you prepare and start the one you actually go to. A regular meeting starts from the settings and the "what matters" text of its last call, so you only correct them.
 

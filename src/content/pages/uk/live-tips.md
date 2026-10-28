@@ -7,7 +7,7 @@ facts:
   - { k: Звук, v: "Лишається на вашому Маку" }
   - { k: Вартість, v: "Застосунок безкоштовний, Claude близько $0.2-0.8 за дзвінок" }
   - { k: Нотатки йдуть у, v: "Notion і папку проєкту" }
-  - { k: Статус, v: "бета 0.6.9" }
+  - { k: Статус, v: "бета 0.7.0" }
 ---
 
 <div class="aimix">
@@ -61,7 +61,7 @@ facts:
 Справжні знімки застосунку на демо-даних. Картинки йдуть за світлою чи темною темою сайту.
 
 <div class="gallery">
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Дзвінки попереду з календарів і Далі (накладки позначено), цей тиждень (дзвінки, час, витрати на Claude, підготовлені дзвінки, хвилини по днях за проєктами) і проведені дзвінки з Notion, транскриптом і папкою.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/home-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/home-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Дзвінки попереду з календарів і Далі (накладки позначено), Insights за період, проєкт чи воркспейс (дзвінки, час, витрати на Claude, підготовлені дзвінки, хвилини по днях) і проведені дзвінки з Notion, транскриптом і папкою.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/tips-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/tips-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Транскрипт з іменами спікерів (Команда чи Клієнт), що на вас, підсумок дзвінка, відповіді на ваші питання і кнопка Help.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/start-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/start-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Start call.</b> Проєкт, назва і час дзвінка, аудиторія, тип і мови, що важливо на цьому дзвінку і які папки прочитати, Prepare now.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/live-tips/shots/plan-call-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/live-tips/shots/plan-call-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>Далі.</b> Під час дзвінка плануйте наступний: налаштуйте і підготуйте зараз, перейдіть на нього, коли цей закінчиться.</figcaption></figure>
@@ -75,7 +75,7 @@ facts:
 
 ## Home і ваші календарі
 
-**Home** це головне вікно аппки: тиждень одним поглядом (дзвінки, час на дзвінках, витрати на Claude, скільки підготовлено, хвилини по днях за проєктами), дзвінок, що йде зараз, дзвінки попереду з календарів і зі списку Далі з їхньою підготовкою, і проведені дзвінки зі сторінкою в Notion, транскриптом і папкою (прибрати зі списку можна ×; файли лишаються). Внизу: ключ Claude, витрати за місяць проти ліміту, копія Notion, локальний AI і календарі. Показуєте Home колегам? Settings > General ховає ваші цифри.
+**Home** це головне вікно аппки: Insights за будь-який період, проєкт чи воркспейс (дзвінки, час на дзвінках, витрати на Claude, скільки підготовлено, хвилини по днях за проєктами; клік по дню показує цей день), дзвінок, що йде зараз, дзвінки попереду з календарів і зі списку Далі з їхньою підготовкою, і проведені дзвінки зі сторінкою в Notion, транскриптом і папкою (прибрати зі списку можна ×; файли лишаються). Внизу: ключ Claude, витрати за місяць проти ліміту, копія Notion, локальний AI і календарі. Показуєте Home колегам? Settings > General ховає ваші цифри.
 
 **Календарі через macOS, кілька акаунтів одразу.** Додайте акаунти Google і Microsoft у System Settings > Internet Accounts, потім у Live Tips Settings > Calendars позначте календарі, де ваші дзвінки. Нічого не треба встановлювати і ніде окремо входити; Live Tips лише читає. Дві-три зустрічі на один час це нормально: Home їх позначає, а ви готуєте і запускаєте ту, на яку реально йдете. Регулярна зустріч стартує з налаштувань і тексту "що важливо" її останнього дзвінка, тож ви лише коригуєте.
 
