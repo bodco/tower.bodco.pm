@@ -13,6 +13,7 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
+| Pacenote 0.8.4 beta | 2026-10-29 | **Engine quality:** the tips engine, the after-call jobs and the Notion mirror are split into small tested parts; nothing changes on screen. **Fixes:** one malformed correction line no longer stops the after-call summary. |
 | Pacenote 0.8.3 beta | 2026-10-28 | **Cheaper tips:** the earlier minutes of the call are read from Claude's prompt cache (about 8% less per call on the API key). **Fix:** the tips engine follows the app after the rename. |
 | Pacenote 0.8.2 beta | 2026-10-28 | **One place for Claude:** Settings > AI holds the access (your Claude account through Claude Code, the API key) and, for each job, the way and the models. Preparation and the summary run on your Claude plan by default, tips on the key. **Automatic switch:** when the API credit or the plan limit runs out, the job goes the other way and comes back when the chosen way answers. |
 | Pacenote 0.8.1 beta | 2026-10-28 | **Tips window:** microphone, pause and proactive tips as three icons in the top bar, each with its state visible at a glance and its shortcut in the tooltip. **New shortcut** Control-Option-L for proactive tips. |

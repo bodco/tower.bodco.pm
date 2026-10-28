@@ -5,3 +5,6 @@ dist/
 *.log
 .private-words
 dist-pacenote/
+
+# quality gates (ub-mode)
+.metrics/
