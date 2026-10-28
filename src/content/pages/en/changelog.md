@@ -12,6 +12,7 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
+| Live Tips 0.7.3 beta | 2026-10-28 | **Fix:** Start call from a new calendar meeting had no project and a disabled button. Now the button opens the project list and says why, and a meeting gets the project last used with its calendar. |
 | Live Tips 0.7.2 beta | 2026-10-28 | **Add folder or file:** Start call and the Prepare form take whole folders or single files (one document from Downloads, not the whole folder); the Prepare form now has the button too. |
 | Live Tips 0.7.1 beta | 2026-10-28 | **Correct cards in place:** edit a card's heading, phrase and points, remove points or the card; On me: remove, correct, add. Corrections stay for the call and go to the Notion summary as true. **The preparation as a document:** a Preparation pane next to the tips and Read prep before the call, both editable; the tips reload a corrected preparation at once. Fewer, surer cards from previous meetings (skill v55). |
 | Live Tips 0.7.0 beta | 2026-10-28 | **Interactive insights on Home:** choose the period (today, this or last week, this month, 30 days, your dates) and a project or workspace, click a day in the chart to see it, open the calls of the selection. **Deeper preparation:** the last 3 calls of the same meeting are read in full, and the brief gets a Previous meetings section (what was discussed, questions and whether they were answered, open items, action items with owners and status). A narrow Home shows insights on top, lower; a wide one next to the calls; recent calls show 8 with Show all. |
