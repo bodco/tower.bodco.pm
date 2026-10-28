@@ -1,0 +1,5 @@
+{
+  "live": false,
+  "origin": "https://pacenote.bodco.pm",
+  "note": "2026-10-28 (owner): Pacenote moves to its own subdomain. While live is false the pages stay at /pacenote/ here. When pacenote.bodco.pm answers over HTTPS, live becomes true: links point there and /pacenote/ pages become redirects."
+}

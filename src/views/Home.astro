@@ -7,7 +7,7 @@ import PacenoteLogo from '../components/PacenoteLogo.astro';
 import Shot from '../components/Shot.astro';
 import HeroVisual from '../components/HeroVisual.astro';
 import FocusVisual from '../components/FocusVisual.astro';
-import { LINKS, path, t, type Lang } from '../i18n/ui';
+import { LINKS, path, t, type Lang, pnHref } from '../i18n/ui';
 import { SKILLS } from '../data/skills';
 
 interface Props { lang: Lang }
@@ -284,7 +284,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
           </div>
-          <a class="newlink" href={path(lang, 'pacenote')}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><PacenoteLogo /><b>Pacenote</b><span class="newlink__txt">{lang === 'uk' ? 'ваш штурман на дзвінках, застосунок для Мака' : 'your co-driver on calls, an app for Mac'}</span><Arrow /></a>
+          <a class="newlink" href={pnHref(lang)}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><PacenoteLogo /><b>Pacenote</b><span class="newlink__txt">{lang === 'uk' ? 'ваш штурман на дзвінках, застосунок для Мака' : 'your co-driver on calls, an app for Mac'}</span><Arrow /></a>
           </div>
           <p class="reality">{C.reality}</p>
           <p class="smallprint" id="fn-schedule">{C.fn} <a href={path(lang, 'autopilot')}>{C.fnLink}</a></p>
@@ -349,7 +349,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
         <p class="lead" style="margin: 0; font-weight: 600; color: var(--text);">{C.liveH}</p>
         <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.liveP}</p>
         <div class="btns btns--grid">
-          <a class="btn btn--primary" href={path(lang, 'pacenote')}>Pacenote <Arrow /></a>
+          <a class="btn btn--primary" href={pnHref(lang)}>Pacenote <Arrow /></a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>{lang === 'uk' ? 'Завантажити для Мака' : 'Download for Mac'}</a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{lang === 'uk' ? 'Скіл для Cowork' : 'Skill for Cowork'}</a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>

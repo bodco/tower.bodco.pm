@@ -1,4 +1,5 @@
 ---
+import { pnHref } from '../i18n/ui';
 /**
  * HeroVisual: "Shift handover".
  * A typographic diagram of a PM morning, not a screenshot. The top shift (autopilot, in the background)
@@ -87,7 +88,7 @@ const id = `hv-${lang}`;
     </ul>
   </div>
 
-  <a class="hv__shift hv__shift--call" href={lang === 'uk' ? '/uk/pacenote/' : '/pacenote/'}>
+  <a class="hv__shift hv__shift--call" href={pnHref(lang)}>
     <p class="hv__label">{T.callLabel}<span class="hv__note">{T.callNote}</span></p>
     <ul class="hv__list">
       {T.call.map(([what, how]) => <li class="hv__item hv__item--call"><span>{what}</span><span class="hv__skill">{how}</span></li>)}

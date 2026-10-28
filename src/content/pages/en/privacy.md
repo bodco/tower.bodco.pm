@@ -1,6 +1,7 @@
 ---
 title: Privacy policy
 lead: "What this website and PM Control Tower do with your data. Short version: the framework runs in your own Claude, Notion and tool accounts and sends nothing to the author; the website counts visits with Google Analytics only if you allow it."
+description: "PM Control Tower privacy: the framework runs in your own Claude, Notion and tool accounts and sends nothing to the author; the website only counts visits."
 facts:
   - { k: Updated, v: "27 October 2026" }
   - { k: Covers, v: "tower.bodco.pm, PM Control Tower" }

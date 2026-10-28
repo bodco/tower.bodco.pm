@@ -1,5 +1,5 @@
 ---
-import { PAGES, LINKS, VERSION, t, path, getLangFromUrl } from '../i18n/ui';
+import { PAGES, LINKS, VERSION, t, path, getLangFromUrl, pnHref } from '../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
 const learn = PAGES.filter((p) => !['start', 'changelog'].includes(p.slug));
 ---
@@ -29,7 +29,7 @@ const learn = PAGES.filter((p) => !['start', 'changelog'].includes(p.slug));
         <a href={LINKS.author(lang)}>{t(lang, 'footer.author')}</a>
         <a href={path(lang, 'privacy')}>{t(lang, 'nav.privacy')}</a>
         <a href={path(lang, 'terms')}>{t(lang, 'nav.terms')}</a>
-        <a href={path(lang, 'pacenote/privacy')}>Pacenote: {t(lang, 'nav.pacenote-privacy').toLowerCase()}</a>
+        <a href={pnHref(lang, 'privacy')}>Pacenote: {t(lang, 'nav.pacenote-privacy').toLowerCase()}</a>
         <button type="button" class="footer__consent" id="consent-reset">{t(lang, 'footer.consent')}</button>
       </div>
     </div>

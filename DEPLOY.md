@@ -36,3 +36,18 @@ GitHub Pages gives one custom domain per repository. This repository serves
 another repository (`bodco/bodco.pm`) with four A records at the
 registrar, `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`,
 and `bodco.pm` as its custom domain. This subdomain is not affected.
+
+## Pacenote on its own site (pacenote.bodco.pm)
+
+Since 2026-10-28 the Pacenote pages are also published as their own site, from the same source.
+
+- `npm run build:pacenote` builds this site with the Pacenote pages kept (`PACENOTE_KEEP=1`), then
+  `scripts/pacenote-site.mjs` turns `/pacenote/*` and `/uk/pacenote/*` into a standalone site in
+  `dist-pacenote/` (`/`, `/details/`, `/compare/`, `/privacy/`, `/terms/` and `/uk/...`), points the other links
+  to tower.bodco.pm, writes its sitemap, robots.txt and CNAME, and recomputes the CSP.
+- `dist-pacenote/` is pushed to [bodco/pacenote.bodco.pm](https://github.com/bodco/pacenote.bodco.pm), served by
+  GitHub Pages from `main`.
+- DNS: a CNAME record `pacenote` -> `bodco.github.io` at the domain's DNS provider.
+- `src/data/pacenote-domain.json` `"live"`: while `false`, the pages stay here as before. When `true`, the header,
+  footer and home page link to pacenote.bodco.pm, `scripts/pacenote-redirects.mjs` turns `/pacenote/` and the old
+  `/live-tips/` addresses into redirects there, and the sitemap leaves them out.

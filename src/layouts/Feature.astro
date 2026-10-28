@@ -5,6 +5,7 @@ import GithubLogo from '../components/GithubLogo.astro';
 import LiveTipsVisual from '../components/LiveTipsVisual.astro';
 import Shot from '../components/Shot.astro';
 import { t, path, neighbours, LINKS, type Lang } from '../i18n/ui';
+import PN_VERSION from '../data/pacenote-version.json';
 
 interface Props {
   lang: Lang;
@@ -29,7 +30,28 @@ const P = lang === 'uk'
   ? { sub: 'Ваш штурман на дзвінках', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork', note: 'macOS 14.4+, Apple Silicon · безкоштовно, відкритий код · бета' }
   : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: 'macOS 14.4+, Apple Silicon · free and open source · beta' };
 ---
-<Base title={title} description={description ?? lead} brand={brand}>
+<Base title={title} description={description ?? lead} brand={brand}
+  crumbParent={parent ? { name: t(lang, `nav.${parent}` as any), href: path(lang, parent) } : undefined}
+  ld={product ? [{
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Pacenote',
+    alternateName: lang === 'uk' ? 'Pacenote: штурман на дзвінках' : 'Pacenote: your co-driver on calls',
+    applicationCategory: 'BusinessApplication',
+    applicationSubCategory: 'Meeting assistant',
+    operatingSystem: 'macOS 14.4 or later (Apple silicon)',
+    softwareVersion: PN_VERSION.version,
+    license: 'https://opensource.org/licenses/MIT',
+    isAccessibleForFree: true,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    description: description ?? lead,
+    url: new URL(path(lang, 'pacenote'), Astro.site).href,
+    downloadUrl: 'https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg',
+    screenshot: new URL(`/pacenote/shots/${lang === 'uk' ? 'uk-' : ''}tips-wide-dark.webp`, Astro.site).href,
+    sameAs: ['https://github.com/bodco/live-tips'],
+    author: { '@type': 'Person', name: 'bodco', url: 'https://github.com/bodco' },
+    inLanguage: ['en', 'uk'],
+  }] : []}>
   {product ? (
   <section class="page-hero product-hero">
     <div class="wrap product-hero__in">
@@ -45,7 +67,7 @@ const P = lang === 'uk'
         </div>
         <p class="smallprint">{P.note}</p>
       </div>
-      <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-tips-wide' : 'tips-wide'} eager alt={lang === 'uk' ? 'Вікно підказок Pacenote на дзвінку: одна відповідь великим шрифтом, раніші підказки рядками, транскрипт збоку' : 'The Pacenote tips window on a call: one answer in large type, earlier tips as single lines, the transcript on the side'} /></div>
+      <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-tips-wide' : 'tips-wide'} width={1600} height={1034} eager alt={lang === 'uk' ? 'Вікно підказок Pacenote на дзвінку: одна відповідь великим шрифтом, раніші підказки рядками, транскрипт збоку' : 'The Pacenote tips window on a call: one answer in large type, earlier tips as single lines, the transcript on the side'} /></div>
     </div>
   </section>
   ) : (

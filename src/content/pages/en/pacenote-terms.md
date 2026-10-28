@@ -1,6 +1,7 @@
 ---
 title: Pacenote terms of use
 lead: "Pacenote is free, open source and given as is. You decide which calls it listens to, you get consent from the people on them, and you check what the AI says before you rely on it."
+description: "Pacenote terms of use: a free, open-source (MIT) Mac app given as is. You choose the calls, get consent from the people on them and check what the AI says."
 parent: pacenote
 facts:
   - { k: Updated, v: "27 October 2026" }

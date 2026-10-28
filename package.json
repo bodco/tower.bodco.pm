@@ -6,7 +6,8 @@
   "description": "Landing and feature pages for PM Control Tower, served at tower.bodco.pm",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/csp.mjs",
+    "build": "astro build && node scripts/pacenote-redirects.mjs && node scripts/csp.mjs",
+    "build:pacenote": "PACENOTE_KEEP=1 astro build && node scripts/csp.mjs && node scripts/pacenote-site.mjs dist dist-pacenote",
     "preview": "astro preview",
     "check:text": "node scripts/check-text.mjs"
   },

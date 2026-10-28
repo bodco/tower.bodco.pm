@@ -2,11 +2,11 @@
 // A picture of the Pacenote app in the site's theme (dark or light), from public/pacenote/shots/<name>-dark|light.webp.
 // 2026-10-28: the 0.8 design (Claude Design mockups and the reference tips window on demo data) until 0.8 ships;
 // then real screenshots from `LiveTips --shots <folder>` replace them under the same names.
-interface Props { name: string; alt: string; class?: string; eager?: boolean }
-const { name, alt, class: cls = '', eager = false } = Astro.props;
+interface Props { name: string; alt: string; class?: string; eager?: boolean; width?: number; height?: number }
+const { name, alt, class: cls = '', eager = false, width, height } = Astro.props;
 ---
 <figure class={`ltshot ${cls}`}>
-  <img class="ltshot__img ltshot--dark" src={`/pacenote/shots/${name}-dark.webp`} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
-  <img class="ltshot__img ltshot--light" src={`/pacenote/shots/${name}-light.webp`} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <img class="ltshot__img ltshot--dark" src={`/pacenote/shots/${name}-dark.webp`} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <img class="ltshot__img ltshot--light" src={`/pacenote/shots/${name}-light.webp`} alt={alt} width={width} height={height} loading={eager ? 'eager' : 'lazy'} decoding="async" />
   <slot />
 </figure>

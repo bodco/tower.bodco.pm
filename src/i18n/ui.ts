@@ -16,6 +16,16 @@ export const LINKS = {
 
 export const VERSION = '1.9.1';
 
+import PN_DOMAIN from '../data/pacenote-domain.json';
+/** 2026-10-28 (owner): Pacenote's own site. While `live` is false its pages stay here at /pacenote/.
+ *  PACENOTE_KEEP=1 builds them here anyway (the source for the pacenote.bodco.pm build). */
+export const PACENOTE = { live: PN_DOMAIN.live && !(typeof process !== 'undefined' && process.env.PACENOTE_KEEP), origin: PN_DOMAIN.origin };
+/** A link to a Pacenote page: its own site when it is live, the page here otherwise. sub: '', 'details', 'privacy', ... */
+export function pnHref(lang: Lang, sub = ''): string {
+  if (PACENOTE.live) return PACENOTE.origin + (lang === 'uk' ? '/uk/' : '/') + (sub ? sub + '/' : '');
+  return path(lang, sub ? `pacenote/${sub}` : 'pacenote');
+}
+
 /** Page order drives the header, the footer and the prev/next pager. */
 export const PAGES = [
   { slug: 'day', nav: true },

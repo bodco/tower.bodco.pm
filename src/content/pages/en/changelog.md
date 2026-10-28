@@ -1,6 +1,7 @@
 ---
 title: "Changelog: what changed in each version"
 lead: What changed in each version of the plugin, the Notion template and the documentation.
+description: "PM Control Tower and Pacenote changelog: every version of the plugin, the Notion template, the documentation and the Pacenote Mac app, with dates."
 facts:
   - { k: Current, v: "v1.8.0" }
   - { k: First public, v: "2026-09-11" }

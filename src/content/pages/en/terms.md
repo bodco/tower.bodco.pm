@@ -1,6 +1,7 @@
 ---
 title: Terms of use
 lead: "PM Control Tower is free, open source and given as is. You decide what it does in your accounts, and you stay responsible for your work, your data and your messages."
+description: "PM Control Tower terms: free, open source (MIT) and given as is. You decide what it does in your accounts and stay responsible for your work and data."
 facts:
   - { k: Updated, v: "27 October 2026" }
   - { k: Licence, v: "MIT" }

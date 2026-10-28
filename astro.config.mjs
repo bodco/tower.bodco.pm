@@ -2,6 +2,10 @@
 import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import { readFileSync } from 'node:fs';
+
+// 2026-10-28 (owner): Pacenote on its own site; while it is not live its pages stay here.
+const PN_LIVE = JSON.parse(readFileSync(new URL('./src/data/pacenote-domain.json', import.meta.url), 'utf8')).live && !process.env.PACENOTE_KEEP;
 
 export default defineConfig({
   site: 'https://tower.bodco.pm',
@@ -21,7 +25,10 @@ export default defineConfig({
     mdx(),
     sitemap({
       i18n: { defaultLocale: 'en', locales: { en: 'en', uk: 'uk' } },
-      filter: (page) => !page.includes('/404'),
+      // SEO 2026-10-28: no redirect stubs (old addresses) in the sitemap; lastmod is the build date.
+      filter: (page) => !page.includes('/404') && !page.includes('/live-tips') && !/^https:\/\/tower\.bodco\.pm\/(uk\/)?compare\/$/.test(page)
+        && !(PN_LIVE && /\/pacenote\//.test(page)),
+      lastmod: new Date(),
     }),
   ],
   i18n: {

@@ -12,13 +12,17 @@ interface Props {
   noindex?: boolean;
   /** 2026-10-28: 'pacenote' gives the Pacenote pages their own brand layer: accent, favicon, title suffix, share image. */
   brand?: 'pacenote';
+  /** SEO 2026-10-28: the parent page for the breadcrumb (name and path) and extra structured data. */
+  crumbParent?: { name: string; href: string };
+  ld?: Record<string, unknown>[];
 }
 const lang = getLangFromUrl(Astro.url);
-const { title, description, noindex = false, brand } = Astro.props;
+const { title, description, noindex = false, brand, crumbParent, ld = [] } = Astro.props;
 const pn = brand === 'pacenote';
 const site = Astro.site!;
 const fullTitle = title
-  ? (pn ? (title === 'Pacenote' ? (lang === 'uk' ? 'Pacenote · Ваш штурман на дзвінках' : 'Pacenote · Your co-driver on calls') : title.includes('Pacenote') ? title : `${title} · Pacenote`) : `${title} · PM Control Tower`)
+  ? (pn ? (title === 'Pacenote' ? (lang === 'uk' ? 'Pacenote · Ваш штурман на дзвінках' : 'Pacenote · Your co-driver on calls') : title.includes('Pacenote') ? title : `${title} · Pacenote`)
+        : (`${title} · PM Control Tower`.length <= 60 ? `${title} · PM Control Tower` : title))   // SEO: titles over ~60 characters get cut
   : t(lang, 'meta.title');
 const rawDesc = description ?? t(lang, 'meta.description');
 // Search engines show about 160 characters: keep whole sentences that fit.
@@ -37,8 +41,21 @@ const ogImage = new URL(pn ? (lang === 'uk' ? '/pacenote/og-uk.png' : '/pacenote
 const ogAlt = pn ? (lang === 'uk' ? 'Pacenote: ваш штурман на дзвінках' : 'Pacenote: your co-driver on calls') : t(lang, 'meta.title');
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/uk/';
 
+// SEO 2026-10-28: every other page gets a breadcrumb (Home > parent > page) and whatever the page adds.
+const homeUrl = new URL(lang === 'uk' ? '/uk/' : '/', site).href;
+const crumbs = !isHome && !noindex && title
+  ? [{
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'PM Control Tower', item: homeUrl },
+        ...(crumbParent ? [{ '@type': 'ListItem', position: 2, name: crumbParent.name, item: new URL(crumbParent.href, site).href }] : []),
+        { '@type': 'ListItem', position: crumbParent ? 3 : 2, name: title, item: canonical.href },
+      ],
+    }]
+  : [];
 // Structured data: the site itself, and on the home page the software it describes.
-const jsonLd = isHome
+const homeLd = isHome
   ? [
       {
         '@context': 'https://schema.org',
@@ -65,7 +82,8 @@ const jsonLd = isHome
         inLanguage: ['en', 'uk'],
       },
     ]
-  : null;
+  : [];
+const jsonLd = [...homeLd, ...crumbs, ...ld];
 ---
 <!doctype html>
 <html lang={lang} data-theme="dark" data-brand={brand}>
@@ -117,7 +135,8 @@ const jsonLd = isHome
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={desc} />
     <meta name="twitter:image" content={ogImage} />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
+    <meta name="twitter:image:alt" content={ogAlt} />
+    {jsonLd.length > 0 && <script type="application/ld+json" set:html={JSON.stringify(jsonLd).replace(/</g, '\\u003c')} />}
   </head>
   <body>
     <a class="skip" href="#main">{t(lang, 'skip')}</a>

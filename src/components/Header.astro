@@ -1,6 +1,6 @@
 ---
 import Tower from './Tower.astro';
-import { PAGES, LINKS, languages, t, path, switchLang, getLangFromUrl, type Lang } from '../i18n/ui';
+import { PAGES, LINKS, languages, t, path, pnHref, switchLang, getLangFromUrl, type Lang } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const current = Astro.url.pathname.replace(/\/$/, '').split('/').pop();
@@ -35,7 +35,7 @@ const navPages = PAGES.filter((p) => p.nav);
     </div>
     <ul class="nav__links" id="nav-links">
       {navPages.map((p) => (
-        <li><a href={path(lang, p.slug)} aria-current={current === p.slug ? 'page' : undefined}>{t(lang, `nav.${p.slug}` as any)}</a></li>
+        <li><a href={p.slug === 'pacenote' ? pnHref(lang) : path(lang, p.slug)} aria-current={current === p.slug ? 'page' : undefined}>{t(lang, `nav.${p.slug}` as any)}</a></li>
       ))}
       <li class="nav__lang-mobile">
         <div class="lang" role="group" aria-label={t(lang, 'lang.label')}>
