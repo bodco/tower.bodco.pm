@@ -8,7 +8,7 @@ facts:
   - { k: Status, v: "beta" }
 ---
 
-These terms cover **Pacenote** (formerly Live Tips): the Mac app, the recorder and the Cowork skill, with the code at [github.com/bodco/live-tips](https://github.com/bodco/live-tips). The website and the rest of PM Control Tower have [their own terms](/terms/).
+These terms cover **Pacenote**: the Mac app, the recorder and the Cowork skill, with the code at [github.com/bodco/live-tips](https://github.com/bodco/live-tips). The website and the rest of PM Control Tower have [their own terms](/terms/).
 
 ## Licence
 

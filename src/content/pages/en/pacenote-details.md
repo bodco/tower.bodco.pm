@@ -134,7 +134,7 @@ A wrap-up in the chat: action items with owners and dates, new requests, your co
 The same tips loop as a native macOS app in the menu bar, without a Cowork chat running during the call. It records the call on your Mac, transcribes it there with Whisper on MLX and calls the Claude API directly with your own API key, kept in the macOS Keychain.
 
 <div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>Download Pacenote for Mac (.dmg)</a>
+<a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download Pacenote for Mac (.dmg)</a>
 </div>
 
 <div class="grid" style="--min: 240px;">

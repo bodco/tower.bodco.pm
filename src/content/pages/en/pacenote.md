@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Stays on your Mac" }
   - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.7.5, 0.8 in progress" }
+  - { k: Status, v: "beta 0.8.1" }
 ---
 
 <div class="aimix">
@@ -33,7 +33,7 @@ facts:
 <p class="card__tag">For most people</p>
 <h3 class="card__title">Pacenote for Mac</h3>
 <p class="card__text">A menu bar app. Your own Claude API key, no chat to keep open during the call. Setup installs the speech model by itself.</p>
-<div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>Download for Mac (.dmg)</a></div>
+<div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download for Mac (.dmg)</a></div>
 <p class="smallprint">macOS 14.4+, Apple Silicon. About 2.5 GB of local models on the first run. Beta, not notarized: on the first launch open System Settings > Privacy & Security and press Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
 </div>
 <div class="card">
@@ -58,7 +58,7 @@ Both run the same rules and the same recorder, so the tips behave the same way. 
 
 ## How it looks
 
-The Pacenote 0.8 design on demo data. The current release, 0.7.5, still looks like Live Tips; 0.8 brings this look. The pictures follow the site's light or dark theme.
+Pacenote 0.8 on demo data. The pictures follow the site's light or dark theme.
 
 <div class="gallery">
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-wide-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-wide-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> One answer at a time, in type you can read at a glance, with the phrase to say. Earlier tips fold into one line each; the agenda bar shows what is still not raised; the transcript on the side names who said what.</figcaption></figure>

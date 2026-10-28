@@ -12,7 +12,8 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
-| Pacenote (formerly Live Tips) | 2026-10-28 | **Live Tips is now Pacenote**, your co-driver on calls: a new name, logo and [page](/pacenote/) in its own brand, with the 0.8 design on demo data. Old `/live-tips/` links lead to the new pages. Release 0.7.5 still shows the old name; the downloads, the repository and the skill file keep their names. |
+| Pacenote 0.8.1 beta | 2026-10-28 | **Tips window:** microphone, pause and proactive tips as three icons in the top bar, each with its state visible at a glance and its shortcut in the tooltip. **New shortcut** Control-Option-L for proactive tips. |
+| Pacenote 0.8.0 beta | 2026-10-28 | **Pacenote**, your co-driver on calls: a new name, logo and [page](/pacenote/), a new tips window, Home, one call form, a four-step onboarding, and new features before, during and after the call. |
 | Live Tips 0.7.5 beta | 2026-10-28 | **Fix:** a regular meeting's preparation marked every occurrence as prepared; now only the one it was made for (or the next one). |
 | Live Tips 0.7.4 beta | 2026-10-28 | **Corrections log:** every correction (cards, On me, the preparation, speaker names, the call title) is logged, and each new preparation learns from the corrections of the same meeting and project (skill v56). **No duplicate meetings:** the call being recorded never shows as the next one. **Who said what:** (i) next to a voice in Speakers shows its phrases. **Always on top** is back as a pin in the title bar. Speakers of earlier meetings are offered for a regular meeting. Fixes from a QA pass. |
 | Live Tips 0.7.3 beta | 2026-10-28 | **Fix:** Start call from a new calendar meeting had no project and a disabled button. Now the button opens the project list and says why, and a meeting gets the project last used with its calendar. |

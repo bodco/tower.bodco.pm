@@ -8,7 +8,7 @@ facts:
   - { k: Статус, v: "бета" }
 ---
 
-Ці умови охоплюють **Pacenote** (раніше Live Tips): мак-аппку, рекордер і скіл Cowork, з кодом у [github.com/bodco/live-tips](https://github.com/bodco/live-tips). Сайт і решта PM Control Tower мають [власні умови](/uk/terms/).
+Ці умови охоплюють **Pacenote**: мак-аппку, рекордер і скіл Cowork, з кодом у [github.com/bodco/live-tips](https://github.com/bodco/live-tips). Сайт і решта PM Control Tower мають [власні умови](/uk/terms/).
 
 ## Ліцензія
 

@@ -23,11 +23,11 @@ const docName = doc ? (doc.startsWith('http') ? doc.replace(/^https:\/\/github\.
 const toc = headings.filter((h) => h.depth === 2);
 const { prev, next } = neighbours(slug);
 const product = slug === 'pacenote';     // 2026-10-27 (owner): a product hero (title, subtitle, buttons, a picture)
-// 2026-10-28 (owner): Live Tips is now Pacenote; its pages carry the Pacenote brand layer (blue accent, its own icon and favicon).
+// 2026-10-28 (owner): Pacenote pages carry the Pacenote brand layer (blue accent, its own icon and favicon).
 const brand = slug === 'pacenote' || slug.startsWith('pacenote-') ? 'pacenote' : undefined;
 const P = lang === 'uk'
-  ? { sub: 'Ваш штурман на дзвінках', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork', note: 'macOS 14.4+, Apple Silicon · безкоштовно, відкритий код · бета', renamed: 'Раніше Live Tips. Поточний реліз 0.7.5 ще має стару назву; 0.8 приносить новий вигляд.' }
-  : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: 'macOS 14.4+, Apple Silicon · free and open source · beta', renamed: 'Formerly Live Tips. The current release, 0.7.5, still shows the old name; 0.8 brings the new look.' };
+  ? { sub: 'Ваш штурман на дзвінках', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork', note: 'macOS 14.4+, Apple Silicon · безкоштовно, відкритий код · бета' }
+  : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: 'macOS 14.4+, Apple Silicon · free and open source · beta' };
 ---
 <Base title={title} description={description ?? lead} brand={brand}>
   {product ? (
@@ -39,12 +39,11 @@ const P = lang === 'uk'
         <p class="product-hero__sub">{P.sub}</p>
         <p class="lead">{lead}</p>
         <div class="btns">
-          <a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>{P.mac} <Arrow /></a>
+          <a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>{P.mac} <Arrow /></a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{P.skill}</a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>
         </div>
         <p class="smallprint">{P.note}</p>
-        <p class="smallprint">{P.renamed}</p>
       </div>
       <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-tips-wide' : 'tips-wide'} eager alt={lang === 'uk' ? 'Вікно підказок Pacenote на дзвінку: одна відповідь великим шрифтом, раніші підказки рядками, транскрипт збоку' : 'The Pacenote tips window on a call: one answer in large type, earlier tips as single lines, the transcript on the side'} /></div>
     </div>

@@ -7,7 +7,7 @@ facts:
   - { k: Звук, v: "Лишається на вашому Маку" }
   - { k: Вартість, v: "Застосунок безкоштовний, Claude близько $0.2-0.8 за дзвінок" }
   - { k: Нотатки йдуть у, v: "Notion і папку проєкту" }
-  - { k: Статус, v: "бета 0.7.5, 0.8 у роботі" }
+  - { k: Статус, v: "бета 0.8.1" }
 ---
 
 <div class="aimix">
@@ -33,7 +33,7 @@ facts:
 <p class="card__tag">Для більшості</p>
 <h3 class="card__title">Pacenote для Мака</h3>
 <p class="card__text">Застосунок у рядку меню. Власний API-ключ Claude, жодного чату, який треба тримати відкритим під час дзвінка. Setup сам ставить модель розпізнавання.</p>
-<div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>Завантажити для Мака (.dmg)</a></div>
+<div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Завантажити для Мака (.dmg)</a></div>
 <p class="smallprint">macOS 14.4+, Apple Silicon. Близько 2.5 ГБ локальних моделей при першому запуску. Бета без нотаризації: при першому запуску відкрийте System Settings > Privacy & Security і натисніть Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">Контрольні суми SHA-256</a>.</p>
 </div>
 <div class="card">
@@ -58,7 +58,7 @@ facts:
 
 ## Як це виглядає
 
-Дизайн Pacenote 0.8 на демо-даних. Поточний реліз 0.7.5 ще виглядає як Live Tips; 0.8 приносить цей вигляд. Картинки йдуть за світлою чи темною темою сайту.
+Pacenote 0.8 на демо-даних. Картинки йдуть за світлою чи темною темою сайту.
 
 <div class="gallery">
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-wide-dark.webp" alt="" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-wide-light.webp" alt="" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Одна відповідь за раз, шрифтом, що читається з першого погляду, з фразою, яку сказати. Раніші підказки згортаються в один рядок; смужка агенди показує, що ще не підняли; транскрипт збоку підписує, хто що сказав.</figcaption></figure>

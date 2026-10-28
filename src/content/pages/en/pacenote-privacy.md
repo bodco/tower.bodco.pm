@@ -8,7 +8,7 @@ facts:
   - { k: Telemetry, v: "none" }
 ---
 
-This policy covers **Pacenote** (formerly Live Tips): the Mac app, the recorder it runs and the Cowork skill of the same name. The website and the rest of PM Control Tower are covered by the [main privacy policy](/privacy/).
+This policy covers **Pacenote**: the Mac app, the recorder it runs and the Cowork skill of the same name. The website and the rest of PM Control Tower are covered by the [main privacy policy](/privacy/).
 
 Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me"). It is not a hosted service: there is no account with me, no server of mine and no database of mine. **You** decide which calls it listens to and where the results go, so for the people on your calls you are the one responsible for their data (in GDPR terms, usually the controller).
 
