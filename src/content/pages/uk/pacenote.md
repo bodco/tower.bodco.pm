@@ -7,7 +7,7 @@ facts:
   - { k: Звук, v: "Лишається на вашому Маку" }
   - { k: Вартість, v: "Застосунок безкоштовний, Claude близько $0.2-0.8 за дзвінок" }
   - { k: Нотатки йдуть у, v: "Notion і папку проєкту" }
-  - { k: Статус, v: "бета 0.8.1" }
+  - { k: Статус, v: "бета 0.8.2" }
 ---
 
 <div class="aimix">
@@ -32,7 +32,7 @@ facts:
 <div class="card">
 <p class="card__tag">Для більшості</p>
 <h3 class="card__title">Pacenote для Мака</h3>
-<p class="card__text">Застосунок у рядку меню. Власний API-ключ Claude, жодного чату, який треба тримати відкритим під час дзвінка. Setup сам ставить модель розпізнавання.</p>
+<p class="card__text">Застосунок у рядку меню. Ваш API-ключ Claude або ваш план Claude через Claude Code, жодного чату, який треба тримати відкритим під час дзвінка. Setup сам ставить модель розпізнавання.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Завантажити для Мака (.dmg)</a></div>
 <p class="smallprint">macOS 14.4+, Apple Silicon. Близько 2.5 ГБ локальних моделей при першому запуску. Бета без нотаризації: при першому запуску відкрийте System Settings > Privacy & Security і натисніть Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">Контрольні суми SHA-256</a>.</p>
 </div>

@@ -1,6 +1,6 @@
 ---
 title: Pacenote privacy policy
-lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short version: audio never leaves your Mac, text goes to the AI provider you set up with your own key, and nothing is sent to the author."
+lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short version: audio never leaves your Mac, text goes to the AI provider you set up with your own key or account, and nothing is sent to the author."
 parent: pacenote
 facts:
   - { k: Updated, v: "27 October 2026" }

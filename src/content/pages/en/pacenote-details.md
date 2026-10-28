@@ -153,7 +153,7 @@ The same tips loop as a native macOS app in the menu bar, without a Cowork chat 
 - **Not notarized yet.** On the first launch macOS refuses to open it: open **System Settings > Privacy & Security**, press **Open Anyway** next to Pacenote and confirm (on macOS 14 a right-click > **Open** also works). After that it opens normally. Before that, you can check the download against the [SHA-256 checksums](https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt) published with every release: `shasum -a 256 ~/Downloads/LiveTips.dmg`.
 - **macOS 14.4 or newer on Apple silicon** (M1 or newer).
 - **Python 3.10 or newer.** The Setup window checks it and installs the rest (Python modules and models, about 2.5 GB in total) with a tick next to each step. Nothing needs an administrator password.
-- **An Anthropic API key.** Billed by Anthropic per use, separately from your Claude plan. Usually $0.10 to $1.20 per hour of a call, and the limits keep it in check.
+- **Claude: an API key, your Claude plan, or both.** The key is billed by Anthropic per use (usually $0.10 to $1.20 per hour of a call, and the limits keep it in check). Your Claude plan works through Claude Code, best for the preparation and the summary. Settings > AI picks the way for each job and switches by itself when one is out.
 
 ### After the call: the meeting page in Notion
 
@@ -166,7 +166,7 @@ Turn on **Write the call summary to Notion** in Settings and add a Notion token 
 Both do roughly the same job: the same rules, the same "facts or silence", the same tips window. Pick the one that fits how you work.
 
 - **Skill in Cowork:** no API key, it runs on your Claude plan, and it can look things up in Notion and the tracker during the call. It needs the Cowork chat to stay busy for the whole call.
-- **App:** one click from the menu bar, no chat to watch, your own key and limits.
+- **App:** one click from the menu bar, no chat to watch, your own key or Claude plan, and your limits.
 
 They work best together. Make the prep in Cowork (the brief, fact cards, an outline and slides for a presentation): the app picks it up by itself when the prep title matches the call title, so keep the same title for both. Without a prep the app still works: it uses the call context you type in **Start call** and a local search over the project folder.
 
@@ -204,7 +204,7 @@ It is a beta: tested by one person on one Mac since October 2026, thresholds are
 | Mac | Apple Silicon (M1 or newer, 16 GB of memory is enough), macOS 14.2 or newer |
 | Tools | Xcode Command Line Tools, Python 3.10+ |
 | Disk | About 2.5 GB for the model and the environment, plus about 1.3 GB for the optional extras |
-| Claude | The app: a Claude API key. The skill: Claude desktop (Cowork) with a connected folder and the `live-tips` skill. A PM Control Tower project config is optional |
+| Claude | The app: a Claude API key, or a Claude plan with Claude Code. The skill: Claude desktop (Cowork) with a connected folder and the `live-tips` skill. A PM Control Tower project config is optional |
 | Notion | Optional but recommended: the brief and the page after the call need it |
 | Optional | Ollama with `bge-m3` for local search; the voice model for "who is speaking" |
 

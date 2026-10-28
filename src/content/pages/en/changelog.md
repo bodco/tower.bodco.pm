@@ -12,6 +12,7 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
+| Pacenote 0.8.2 beta | 2026-10-28 | **One place for Claude:** Settings > AI holds the access (your Claude account through Claude Code, the API key) and, for each job, the way and the models. Preparation and the summary run on your Claude plan by default, tips on the key. **Automatic switch:** when the API credit or the plan limit runs out, the job goes the other way and comes back when the chosen way answers. |
 | Pacenote 0.8.1 beta | 2026-10-28 | **Tips window:** microphone, pause and proactive tips as three icons in the top bar, each with its state visible at a glance and its shortcut in the tooltip. **New shortcut** Control-Option-L for proactive tips. |
 | Pacenote 0.8.0 beta | 2026-10-28 | **Pacenote**, your co-driver on calls: a new name, logo and [page](/pacenote/), a new tips window, Home, one call form, a four-step onboarding, and new features before, during and after the call. |
 | Live Tips 0.7.5 beta | 2026-10-28 | **Fix:** a regular meeting's preparation marked every occurrence as prepared; now only the one it was made for (or the next one). |

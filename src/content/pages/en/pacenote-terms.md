@@ -22,7 +22,7 @@ Pacenote is a beta built and used by one project manager. It is provided **as is
 
 - **Consent of the people on the call.** You are responsible for telling participants that you transcribe the call and use an AI assistant, and for getting their consent where the law, your employer or your client requires it. Do not use Pacenote where recording or transcription is not allowed.
 - **AI can be wrong.** Tips, summaries and transcripts can mishear names, numbers and terms or miss context. Check them before you say, send or decide anything on their basis.
-- **Your accounts and costs.** Pacenote uses your own Claude (or other provider) key, your Notion and your Mac. Their terms, limits and costs apply to you. Set the call and monthly budgets in Settings.
+- **Your accounts and costs.** Pacenote uses your own Claude key or Claude account (or another provider's key), your Notion and your Mac. Their terms, limits and costs apply to you. Set the call and monthly budgets in Settings.
 - **Your data and your employer's rules.** Make sure that processing work calls and project files with AI is allowed by your employer and your clients. Keep transcripts and voice prints out of public places.
 - **Nothing is sent for you.** Pacenote prepares notes and drafts; sending anything to a client is always your own action.
 

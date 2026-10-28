@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Stays on your Mac" }
   - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.8.1" }
+  - { k: Status, v: "beta 0.8.2" }
 ---
 
 <div class="aimix">
@@ -32,7 +32,7 @@ facts:
 <div class="card">
 <p class="card__tag">For most people</p>
 <h3 class="card__title">Pacenote for Mac</h3>
-<p class="card__text">A menu bar app. Your own Claude API key, no chat to keep open during the call. Setup installs the speech model by itself.</p>
+<p class="card__text">A menu bar app. Your Claude API key or your Claude plan through Claude Code, no chat to keep open during the call. Setup installs the speech model by itself.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download for Mac (.dmg)</a></div>
 <p class="smallprint">macOS 14.4+, Apple Silicon. About 2.5 GB of local models on the first run. Beta, not notarized: on the first launch open System Settings > Privacy & Security and press Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
 </div>
