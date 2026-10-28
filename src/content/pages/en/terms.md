@@ -4,10 +4,10 @@ lead: "PM Control Tower is free, open source and given as is. You decide what it
 facts:
   - { k: Updated, v: "27 October 2026" }
   - { k: Licence, v: "MIT" }
-  - { k: Live Tips, v: "its own terms" }
+  - { k: Pacenote, v: "its own terms" }
 ---
 
-These terms cover the website **tower.bodco.pm** and **PM Control Tower** (the Claude plugin, the skills, the Notion template, the documentation and the code in [github.com/bodco/pm-control-tower](https://github.com/bodco/pm-control-tower)). **Live Tips** has [its own terms](/live-tips/terms/).
+These terms cover the website **tower.bodco.pm** and **PM Control Tower** (the Claude plugin, the skills, the Notion template, the documentation and the code in [github.com/bodco/pm-control-tower](https://github.com/bodco/pm-control-tower)). **Pacenote** has [its own terms](/pacenote/terms/).
 
 ## Licence
 

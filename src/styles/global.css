@@ -469,7 +469,7 @@ html[data-theme='dark'] .theme-btn .i-moon { display: none; }
   -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 85%); mask-image: linear-gradient(to bottom, #000 0%, transparent 85%);
 }
 
-/* 2026-10-27 (owner): Live Tips on the home hero as one quiet line under the buttons, monochrome icon like the others. */
+/* 2026-10-27 (owner): Pacenote (then Live Tips) on the home hero as one quiet line under the buttons, monochrome icon like the others. */
 .split--top { align-items: flex-start; }
 .newlink { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; align-self: flex-start;
   padding: 10px 14px; border: 1px solid var(--line-strong); color: var(--text); text-decoration: none; font-size: 15px; line-height: 1.35; }
@@ -479,7 +479,7 @@ html[data-theme='dark'] .theme-btn .i-moon { display: none; }
 .newlink__txt { color: var(--text-2); }
 @media (min-width: 1024px) { .split--top > div:last-child { margin-top: 44px; } }
 
-/* Real app screenshots (components/Shot.astro, gallery on /live-tips/): one picture per theme. */
+/* Real app screenshots (components/Shot.astro, gallery on /pacenote/): one picture per theme. */
 .ltshot { margin: 0; min-width: 0; }
 .ltshot__img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line-strong); box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35); }
 .ltshot .ltshot--light { display: none; }
@@ -491,7 +491,7 @@ html[data-theme='light'] .ltshot__img { box-shadow: 0 18px 44px rgba(20, 22, 28,
 .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px 28px; margin: 24px 0 8px; align-items: start; }
 .gallery .ltshot--wide { grid-column: 1 / -1; }
 
-/* 2026-10-27 (owner): the three hero buttons and the Live Tips line under them share one width. */
+/* 2026-10-27 (owner): the three hero buttons and the Pacenote line under them share one width. */
 .hero-ctas { display: inline-flex; flex-direction: column; gap: 12px; align-self: flex-start; max-width: 100%; }
 .hero-ctas .btns { flex-wrap: nowrap; }
 .hero-ctas .btns .btn { flex: 1 1 auto; justify-content: center; }
@@ -511,7 +511,7 @@ html[data-theme='light'] .ltshot__img { box-shadow: 0 18px 44px rgba(20, 22, 28,
   .product-hero .btns { display: grid; grid-template-columns: 1fr; }
 }
 
-/* 2026-10-27 (owner): Live Tips page, near the top: which AI does what (local models on the Mac, Claude in the cloud) */
+/* 2026-10-27 (owner): Pacenote page, near the top: which AI does what (local models on the Mac, Claude in the cloud) */
 .aimix { border: 1px solid var(--line); border-left: 3px solid var(--accent); border-radius: 12px; padding: 18px 20px; margin: 4px 0 28px; background: var(--surface, transparent); }
 .aimix__title { margin: 0 0 4px; font-size: 1.15rem; }
 .aimix__lead { margin: 0 0 14px; color: var(--text-2); }
@@ -520,3 +520,30 @@ html[data-theme='light'] .ltshot__img { box-shadow: 0 18px 44px rgba(20, 22, 28,
 .aimix__col ul { margin: 0; padding-left: 18px; color: var(--text-2); font-size: 0.95rem; }
 .aimix__col li { margin: 2px 0; }
 .aimix__note { margin: 12px 0 0; font-size: 0.88rem; color: var(--text-3); }
+
+/* 2026-10-28 (owner): Live Tips is now Pacenote. Its pages (/pacenote/...) carry the Pacenote brand layer:
+   Pacenote Blue instead of the signal orange, the system font of the Mac app, its own icon and favicon.
+   Header, footer and the rest of the site stay PM Control Tower. Brand notes: github.com/bodco/live-tips, design/pacenote-0.8/BRAND.md */
+html[data-brand='pacenote'] {
+  --accent: #4d9dff;          /* Blue Light: 6.0:1 on the dark background */
+  --accent-hover: #80b9ff;
+  --on-accent: #0e1014;
+  --surface-warm: #111a27;
+  --tip: #111a27;
+  --sans: 'Apostrophe', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'IBM Plex Sans', system-ui, sans-serif;
+}
+html[data-brand='pacenote'][data-theme='light'] {
+  --accent: #0058b0;          /* Blue Deep for text: 6.4:1 on the light background */
+  --accent-hover: #003f80;
+  --on-accent: #ffffff;
+  --surface-warm: #eef5ff;
+  --tip: #eef5ff;
+}
+/* Buttons use Pacenote Blue itself: white text 4.6:1 */
+html[data-brand='pacenote'][data-theme='light'] .btn--primary { background: #0a6cff; border-color: #0a6cff; color: #fff; }
+html[data-brand='pacenote'][data-theme='light'] .btn--primary:hover { background: #0058b0; border-color: #0058b0; color: #fff; }
+.pn-theme--light { display: none !important; }
+html[data-theme='light'] .pn-theme--dark { display: none !important; }
+html[data-theme='light'] .pn-theme--light { display: block !important; }
+.pn-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.newlink svg.logo circle { fill: #0a6cff; }

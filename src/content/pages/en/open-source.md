@@ -50,4 +50,4 @@ Licences change; the links above are the authority, this table is a snapshot of 
 
 ## Coming next
 
-The call co-pilot is now its own product, [Live Tips](/live-tips/): a Mac app and a Cowork skill. Its components and their licences are listed in its repository, [github.com/bodco/live-tips](https://github.com/bodco/live-tips).
+The call co-pilot is now its own product, [Pacenote](/pacenote/): a Mac app and a Cowork skill. Its components and their licences are listed in its repository, [github.com/bodco/live-tips](https://github.com/bodco/live-tips).

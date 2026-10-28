@@ -22,6 +22,8 @@ let pages = 0, bad = 0;
 for (const file of walk(DIST)) {
   let html = readFileSync(file, 'utf8');
   if (html.includes('http-equiv="Content-Security-Policy"')) continue;
+  // 2026-10-28: Astro's redirect stubs (old /live-tips/ addresses) have no scripts and no <meta charset>.
+  if (/http-equiv="refresh"/i.test(html) && !/<script/i.test(html)) continue;
   if (/\son[a-z]+\s*=\s*["']/i.test(html.replace(/<script[\s\S]*?<\/script>/gi, ''))) {
     console.error(`${file}: inline event handler (onclick=...) would be blocked by the CSP`); bad++;
   }

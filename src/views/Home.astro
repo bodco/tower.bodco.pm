@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import Arrow from '../components/Arrow.astro';
 import NotionLogo from '../components/NotionLogo.astro';
 import GithubLogo from '../components/GithubLogo.astro';
-import LiveTipsLogo from '../components/LiveTipsLogo.astro';
+import PacenoteLogo from '../components/PacenoteLogo.astro';
 import Shot from '../components/Shot.astro';
 import HeroVisual from '../components/HeroVisual.astro';
 import FocusVisual from '../components/FocusVisual.astro';
@@ -284,7 +284,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
           </div>
-          <a class="newlink" href={path(lang, 'live-tips')}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><LiveTipsLogo /><b>Live Tips</b><span class="newlink__txt">{lang === 'uk' ? 'тихий співпілот на ваших дзвінках, застосунок для Мака' : 'a quiet co-pilot on your calls, an app for Mac'}</span><Arrow /></a>
+          <a class="newlink" href={path(lang, 'pacenote')}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><PacenoteLogo /><b>Pacenote</b><span class="newlink__txt">{lang === 'uk' ? 'ваш штурман на дзвінках, застосунок для Мака' : 'your co-driver on calls, an app for Mac'}</span><Arrow /></a>
           </div>
           <p class="reality">{C.reality}</p>
           <p class="smallprint" id="fn-schedule">{C.fn} <a href={path(lang, 'autopilot')}>{C.fnLink}</a></p>
@@ -339,17 +339,17 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
     </div>
   </section>
 
-  <!-- 4. ON THE CALL: Live Tips -->
+  <!-- 4. ON THE CALL: Pacenote -->
   <section class="band" aria-labelledby="live-h">
     <div class="wrap section split">
-      <Shot name="home-wide" alt={lang === 'uk' ? 'Home у Live Tips: дзвінки попереду з календарів, цей тиждень, недавні дзвінки' : 'Live Tips Home: the calls ahead from your calendars, this week, recent calls'} />
+      <Shot name={lang === 'uk' ? 'uk-tips-wide' : 'tips-wide'} alt={lang === 'uk' ? 'Вікно підказок Pacenote на дзвінку: одна відповідь великим шрифтом, раніші підказки рядками, транскрипт збоку' : 'The Pacenote tips window on a call: one answer in large type, earlier tips as single lines, the transcript on the side'} />
       <div class="stack">
         <p class="eyebrow">{C.liveEyebrow}</p>
-        <h2 id="live-h" class="h2">Live Tips</h2>
+        <h2 id="live-h" class="h2">Pacenote</h2>
         <p class="lead" style="margin: 0; font-weight: 600; color: var(--text);">{C.liveH}</p>
         <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.65;">{C.liveP}</p>
         <div class="btns btns--grid">
-          <a class="btn btn--primary" href={path(lang, 'live-tips')}>Live Tips <Arrow /></a>
+          <a class="btn btn--primary" href={path(lang, 'pacenote')}>Pacenote <Arrow /></a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/LiveTips.dmg" download>{lang === 'uk' ? 'Завантажити для Мака' : 'Download for Mac'}</a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{lang === 'uk' ? 'Скіл для Cowork' : 'Skill for Cowork'}</a>
           <a class="btn btn--ink" href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>

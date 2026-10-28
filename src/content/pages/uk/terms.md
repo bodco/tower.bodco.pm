@@ -4,10 +4,10 @@ lead: "PM Control Tower безкоштовний, відкритий і нада
 facts:
   - { k: Оновлено, v: "27 жовтня 2026" }
   - { k: Ліцензія, v: "MIT" }
-  - { k: Live Tips, v: "окремі умови" }
+  - { k: Pacenote, v: "окремі умови" }
 ---
 
-Ці умови охоплюють сайт **tower.bodco.pm** і **PM Control Tower** (плагін Claude, скіли, шаблон Notion, документацію і код у [github.com/bodco/pm-control-tower](https://github.com/bodco/pm-control-tower)). **Live Tips** має [власні умови](/uk/live-tips/terms/).
+Ці умови охоплюють сайт **tower.bodco.pm** і **PM Control Tower** (плагін Claude, скіли, шаблон Notion, документацію і код у [github.com/bodco/pm-control-tower](https://github.com/bodco/pm-control-tower)). **Pacenote** має [власні умови](/uk/pacenote/terms/).
 
 ## Ліцензія
 

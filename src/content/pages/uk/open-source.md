@@ -50,4 +50,4 @@ facts:
 
 ## Що далі
 
-Підказки на дзвінку тепер окремий продукт, [Live Tips](/uk/live-tips/): застосунок для Мака і скіл для Cowork. Його компоненти та їхні ліцензії перелічені в його репозиторії, [github.com/bodco/live-tips](https://github.com/bodco/live-tips).
+Підказки на дзвінку тепер окремий продукт, [Pacenote](/uk/pacenote/): застосунок для Мака і скіл для Cowork. Його компоненти та їхні ліцензії перелічені в його репозиторії, [github.com/bodco/live-tips](https://github.com/bodco/live-tips).

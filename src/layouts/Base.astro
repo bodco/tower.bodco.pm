@@ -10,11 +10,16 @@ interface Props {
   description?: string;
   /** Pages that must not be indexed (404). Also drops canonical and hreflang. */
   noindex?: boolean;
+  /** 2026-10-28: 'pacenote' gives the Pacenote pages their own brand layer: accent, favicon, title suffix, share image. */
+  brand?: 'pacenote';
 }
 const lang = getLangFromUrl(Astro.url);
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, brand } = Astro.props;
+const pn = brand === 'pacenote';
 const site = Astro.site!;
-const fullTitle = title ? `${title} · PM Control Tower` : t(lang, 'meta.title');
+const fullTitle = title
+  ? (pn ? (title === 'Pacenote' ? (lang === 'uk' ? 'Pacenote · Ваш штурман на дзвінках' : 'Pacenote · Your co-driver on calls') : title.includes('Pacenote') ? title : `${title} · Pacenote`) : `${title} · PM Control Tower`)
+  : t(lang, 'meta.title');
 const rawDesc = description ?? t(lang, 'meta.description');
 // Search engines show about 160 characters: keep whole sentences that fit.
 function trimDesc(text: string, max = 165): string {
@@ -28,8 +33,8 @@ function trimDesc(text: string, max = 165): string {
 }
 const desc = trimDesc(rawDesc);
 const canonical = new URL(Astro.url.pathname, site);
-const ogImage = new URL(lang === 'uk' ? '/og-uk.png' : '/og.png', site);
-const ogAlt = t(lang, 'meta.title');
+const ogImage = new URL(pn ? (lang === 'uk' ? '/pacenote/og-uk.png' : '/pacenote/og-en.png') : (lang === 'uk' ? '/og-uk.png' : '/og.png'), site);
+const ogAlt = pn ? (lang === 'uk' ? 'Pacenote: ваш штурман на дзвінках' : 'Pacenote: your co-driver on calls') : t(lang, 'meta.title');
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '/uk/';
 
 // Structured data: the site itself, and on the home page the software it describes.
@@ -63,7 +68,7 @@ const jsonLd = isHome
   : null;
 ---
 <!doctype html>
-<html lang={lang} data-theme="dark">
+<html lang={lang} data-theme="dark" data-brand={brand}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -80,9 +85,9 @@ const jsonLd = isHome
           <link rel="alternate" hreflang="x-default" href={new URL(switchLang(Astro.url, 'en'), site)} />
         </>}
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" href={pn ? '/pacenote/favicon.svg' : '/favicon.svg'} type="image/svg+xml" />
+    <link rel="icon" href={pn ? '/pacenote/favicon-32.png' : '/favicon-32.png'} type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href={pn ? '/pacenote/apple-touch-icon.png' : '/apple-touch-icon.png'} />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0E1014" />
     <meta name="color-scheme" content="light dark" />
@@ -98,7 +103,7 @@ const jsonLd = isHome
       })();
     </script>
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="PM Control Tower" />
+    <meta property="og:site_name" content={pn ? 'Pacenote' : 'PM Control Tower'} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={desc} />
     {!noindex && <meta property="og:url" content={canonical} />}

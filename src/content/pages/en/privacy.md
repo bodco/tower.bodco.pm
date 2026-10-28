@@ -4,10 +4,10 @@ lead: "What this website and PM Control Tower do with your data. Short version: 
 facts:
   - { k: Updated, v: "27 October 2026" }
   - { k: Covers, v: "tower.bodco.pm, PM Control Tower" }
-  - { k: Live Tips, v: "its own policy" }
+  - { k: Pacenote, v: "its own policy" }
 ---
 
-This policy covers the website **tower.bodco.pm** and the open-source framework **PM Control Tower** (the Claude plugin, the skills, the Notion template and the documentation). The Mac app and the Cowork skill **Live Tips** have [their own privacy policy](/live-tips/privacy/), because they record calls.
+This policy covers the website **tower.bodco.pm** and the open-source framework **PM Control Tower** (the Claude plugin, the skills, the Notion template and the documentation). The Mac app and the Cowork skill **Pacenote** have [their own privacy policy](/pacenote/privacy/), because they record calls.
 
 PM Control Tower is a personal open-source project of its author, Bohdan N. ("I", "me"). It is not a hosted service: there is no account with me, no server of mine and no database of mine.
 

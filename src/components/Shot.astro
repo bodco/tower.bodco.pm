@@ -1,11 +1,12 @@
 ---
-// A real screenshot of the Live Tips app in the site's theme (dark or light). The pictures come from
-// `LiveTips --shots <folder>` (demo data) and live in public/live-tips/shots/<name>-dark|light.webp.
+// A picture of the Pacenote app in the site's theme (dark or light), from public/pacenote/shots/<name>-dark|light.webp.
+// 2026-10-28: the 0.8 design (Claude Design mockups and the reference tips window on demo data) until 0.8 ships;
+// then real screenshots from `LiveTips --shots <folder>` replace them under the same names.
 interface Props { name: string; alt: string; class?: string; eager?: boolean }
 const { name, alt, class: cls = '', eager = false } = Astro.props;
 ---
 <figure class={`ltshot ${cls}`}>
-  <img class="ltshot__img ltshot--dark" src={`/live-tips/shots/${name}-dark.webp`} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
-  <img class="ltshot__img ltshot--light" src={`/live-tips/shots/${name}-light.webp`} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <img class="ltshot__img ltshot--dark" src={`/pacenote/shots/${name}-dark.webp`} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <img class="ltshot__img ltshot--light" src={`/pacenote/shots/${name}-light.webp`} alt={alt} loading={eager ? 'eager' : 'lazy'} decoding="async" />
   <slot />
 </figure>

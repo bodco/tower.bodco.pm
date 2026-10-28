@@ -28,8 +28,8 @@ const T = {
     youLabel: 'From 09:00 · You',
     youNote: 'What stays human',
     you: ['Pick the top 3 for today', 'Negotiate scope with the client', 'Decide whether to take a risk or push a deadline', 'Read between the lines, protect the team'],
-    callLabel: 'On the call · Live Tips',
-    callNote: 'A quiet co-pilot',
+    callLabel: 'On the call · Pacenote',
+    callNote: 'Your co-driver',
     call: [['The answer when you are asked', 'facts or silence'], ['The next sentence to say', 'HELP NOW'], ['Notes into Notion after the call', 'wrap-up']],
   },
   uk: {
@@ -49,8 +49,8 @@ const T = {
     youLabel: 'З 09:00 · Ви',
     youNote: 'Що лишається людині',
     you: ['Вибрати 3 головні справи на сьогодні', 'Домовлятися з клієнтом про скоуп', 'Вирішити, чи брати ризик і чи тиснути на дедлайн', 'Читати між рядків і захищати команду'],
-    callLabel: 'На дзвінку · Live Tips',
-    callNote: 'Тихий співпілот',
+    callLabel: 'На дзвінку · Pacenote',
+    callNote: 'Ваш штурман',
     call: [['Відповідь, коли вас питають', 'факт або тиша'], ['Наступне речення, яке сказати', 'HELP NOW'], ['Нотатки в Notion після дзвінка', 'підсумок']],
   },
 }[lang];
@@ -87,7 +87,7 @@ const id = `hv-${lang}`;
     </ul>
   </div>
 
-  <a class="hv__shift hv__shift--call" href={lang === 'uk' ? '/uk/live-tips/' : '/live-tips/'}>
+  <a class="hv__shift hv__shift--call" href={lang === 'uk' ? '/uk/pacenote/' : '/pacenote/'}>
     <p class="hv__label">{T.callLabel}<span class="hv__note">{T.callNote}</span></p>
     <ul class="hv__list">
       {T.call.map(([what, how]) => <li class="hv__item hv__item--call"><span>{what}</span><span class="hv__skill">{how}</span></li>)}

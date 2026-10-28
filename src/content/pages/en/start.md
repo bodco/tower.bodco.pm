@@ -251,8 +251,8 @@ put daily-team-prep for <project> on a schedule, about 55 minutes before our int
 ```
 Start with a single task. Add the next after a week.
 
-### Live Tips (a separate product)
-**Gives you** quiet hints during the call when something matters. It is not part of the plugin: the app or its own Cowork skill, downloads and setup are on [the Live Tips page](/live-tips/).
+### Pacenote (a separate product)
+**Gives you** quiet hints during the call when something matters. It is not part of the plugin: the app or its own Cowork skill, downloads and setup are on [the Pacenote page](/pacenote/).
 
 ## If something goes wrong
 

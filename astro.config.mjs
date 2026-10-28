@@ -9,6 +9,14 @@ export default defineConfig({
   // so canonical URLs and internal links always end with a slash.
   trailingSlash: 'always',
   build: { format: 'directory' },
+  // 2026-10-28 (owner): Live Tips is now Pacenote. Old links (the app, READMEs, demos) keep working:
+  // each old page is a small HTML redirect to its new address.
+  redirects: Object.fromEntries(
+    ['', '/details', '/compare', '/privacy', '/terms'].flatMap((p) => [
+      [`/live-tips${p}`, `/pacenote${p}/`],
+      [`/uk/live-tips${p}`, `/uk/pacenote${p}/`],
+    ]),
+  ),
   integrations: [
     mdx(),
     sitemap({

@@ -1,10 +1,10 @@
 ---
-// A static picture of the tips window during a call, for the Live Tips product hero.
+// A static picture of the tips window during a call, for the Pacenote product hero.
 interface Props { lang: 'en' | 'uk' }
 const { lang } = Astro.props;
 const T = lang === 'uk'
-  ? { head: 'Live Tips · Статус-синк · 14:32', client: 'Клієнт', you: 'Ви', tag: 'Нова вимога', gist: 'Не погоджуйте зараз', topic: 'Тема: експорт · твоя', onme: 'На мені', item: 'Надіслати оцінку експорту до пʼятниці' }
-  : { head: 'Live Tips · Status sync · 14:32', client: 'Client', you: 'You', tag: 'New request', gist: 'Do not agree now', topic: 'Topic: export · yours', onme: 'On me', item: 'Send the export estimate by Friday' };
+  ? { head: 'Pacenote · Статус-синк · 14:32', client: 'Клієнт', you: 'Ви', tag: 'Нова вимога', gist: 'Не погоджуйте зараз', topic: 'Тема: експорт · твоя', onme: 'На мені', item: 'Надіслати оцінку експорту до пʼятниці' }
+  : { head: 'Pacenote · Status sync · 14:32', client: 'Client', you: 'You', tag: 'New request', gist: 'Do not agree now', topic: 'Topic: export · yours', onme: 'On me', item: 'Send the export estimate by Friday' };
 ---
 <div class="ltv" aria-hidden="true">
   <div class="ltv__bar"><span class="ltv__dot"></span>{T.head}<span class="ltv__sp"></span><span class="ltv__btn">||</span><span class="ltv__btn ltv__btn--end">End call</span></div>
