@@ -16,7 +16,7 @@ An honest comparison, written by the person who builds Pacenote. Fireflies and F
 
 <div class="grid" style="--min: 240px;">
 <div class="card"><h3 class="card__title">Pacenote</h3><p class="card__text">A co-pilot during the call: facts from your own preparation, a ready sentence when you are asked. Audio stays on your Mac, notes go to Notion. Free app; Claude through your key or your Claude plan.</p></div>
-<div class="card"><h3 class="card__title">Fireflies</h3><p class="card__text">The broadest note taker: a bot or the desktop app records, 100+ languages, Live Assist during the call, a meeting brief before it, many integrations and team controls.</p></div>
+<div class="card"><h3 class="card__title">Fireflies</h3><p class="card__text">The broadest note taker: a bot or the desktop app records, 100+ languages, strong search over past meetings, CRM sync and team controls. Live help and a pre-meeting brief exist, but they know the meeting, not your project.</p></div>
 <div class="card"><h3 class="card__title">Fathom</h3><p class="card__text">The strongest free plan for recording and summaries, live summaries, clips, CRM sync and team views for sales. Bot-free on Mac.</p></div>
 </div>
 
@@ -24,7 +24,7 @@ An honest comparison, written by the person who builds Pacenote. Fireflies and F
 
 | | Pacenote | Fireflies | Fathom |
 |---|---|---|---|
-| Free | The app is free (MIT). Claude: through your Claude plan at no extra cost, or your API key at about $0.2-0.8 for a 30-minute call with tips | Free plan: 400 minutes of storage per team, 20 AI credits, recordings up to 2 hours, limited summaries | Free plan: unlimited recordings and transcripts; AI action items and Ask Fathom limited |
+| Free | The app is free (MIT). Claude: through your Claude plan at no extra cost, or your API key at about $0.2-0.8 for a 30-minute call with tips | Free plan: 400 minutes of storage per team, 20 AI credits, recordings up to 2 hours, limited summaries | Free plan: unlimited recordings and transcripts; advanced summaries for 5 calls a month, then a basic one; AI action items and Ask Fathom limited |
 | Paid, per seat a month (yearly / monthly billing) | No seats; a monthly spending limit you set for the API key | Pro $10 / $18, Business $19 / $29, Enterprise $39 (yearly) | Premium $16 / $20, Team $15 / $19 (2 seats min), Business $25 / $34, Enterprise on request |
 | 10 calls of 30 min a month, one PM | $0 extra with a Claude plan for preparation and summaries; about $2-8 of API for live tips | $10-18 | $0 on the free plan for recording and summaries; $16-20 for the full AI features |
 
@@ -44,7 +44,7 @@ An honest comparison, written by the person who builds Pacenote. Fireflies and F
 
 | | Pacenote | Fireflies | Fathom |
 |---|---|---|---|
-| Preparation | **Prepare now** writes a brief, fact cards and a speech from your project folders, the local copy of Notion, earlier calls of the same meeting and the documents you name | **Meeting Prep:** a brief about 3 hours before (company, attendees, last 90 days of email, past meetings) | Not found |
+| Preparation | **Prepare now** writes a brief, fact cards and a speech from your project folders, the local copy of Notion, earlier calls of the same meeting and the documents you name | **Meeting Prep** (a recap before recurring meetings since 2025; now also a brief on external attendees from public company data, LinkedIn, 90 days of email and past meetings). Uses AI credits; it does not read your project documents | Not found |
 | Agenda and promises | The agenda as a bar during the call; open promises from earlier calls ("Done?" when one is said to be done) | Not as such | Not as such |
 | Back-to-back calls | Up next: prepare the next call while one is live, switch with one question | No | No |
 | Rehearsal | A presentation rehearsal with likely client questions | No | No |
@@ -54,7 +54,7 @@ An honest comparison, written by the person who builds Pacenote. Fireflies and F
 | | Pacenote | Fireflies | Fathom |
 |---|---|---|---|
 | Live transcript | Yes, in a side pane | Yes (Live Assist) | Live summary that updates during the call |
-| Tips without asking | Yes: a fact from your prep when you are asked, your update when it is your turn, a warning on a new request or a promised date | Live notes, nudges on pace and monologues; Sales Assist suggests answers from a knowledge base (bot calls only) | No |
+| Tips without asking | Yes: a fact from your prep when you are asked, your update when it is your turn, a warning on a new request or a promised date | Live notes (since January 2025), Live Assist (November 2025) with nudges on pace and monologues; Sales Assist suggests answers from a knowledge base you upload (bot calls only) | No |
 | Ask during the call | Yes, with your brief, the project's facts and the call so far; a question about files searches the project folder | Yes, AskFred (uses AI credits) | No |
 | One-key help | HELP NOW: the next sentence to say | Quick actions (catch up, summarize so far) | No |
 | Mic off, pause, proactive tips | Three buttons in the top bar with shortcuts | Not checked | Not checked |
@@ -66,7 +66,7 @@ An honest comparison, written by the person who builds Pacenote. Fireflies and F
 | Summary | A Notion page in the call's language: summary, decisions, our commitments, new requests, open questions, risks, action items, the transcript as a sub-page | Summary, action items, topics, templates per group (Business) | Summary, action items; advanced and custom summaries on paid plans |
 | Follow-up email | A draft from the call (never sent by itself) | Email Assistant (Pro and up) | Through integrations |
 | Search across calls | Call memory (Command-F) over your calls and the project's search index | AskFred over meetings | Ask Fathom, account-wide on Team and Business; API and MCP for ChatGPT and Claude |
-| CRM | Not yet (designed: [Pacenote for teams](https://github.com/bodco/live-tips/tree/main/docs/team)) | HubSpot, Salesforce, Zoho, Close, Copper: notes, tasks, field autofill after review | HubSpot (note, tasks, deal sync), Salesforce (tasks, opportunities on Business) |
+| CRM | Not yet (designed: [Pacenote for teams](https://github.com/bodco/live-tips/tree/main/docs/team)) | HubSpot, Salesforce, Zoho, Close, Copper: notes, tasks, field autofill after review | HubSpot (note, tasks, deal sync), Salesforce (tasks, opportunities); CRM sync on Business |
 | Notion | Native: the meeting page in your Meetings database | Native: a sub-page under a chosen page | Through Zapier or Make |
 | Team | Personal today; a team design with Google Drive now and a team server later is [written down](https://github.com/bodco/live-tips/tree/main/docs/team) | Workspaces, user groups, SSO, SCIM, audit logs (Enterprise) | Team folders and search, deal views, SSO and SCIM (Enterprise) |
 
@@ -77,6 +77,24 @@ An honest comparison, written by the person who builds Pacenote. Fireflies and F
 | Audio | Never leaves your Mac | Uploaded and stored in the cloud | Uploaded and stored in the cloud |
 | Training | Claude through your own key or plan; Anthropic's terms apply | No training on customer data, by Fireflies or its AI vendors | AI vendors may not train on it; Fathom uses de-identified data to improve its models unless you opt out |
 | Certifications | None (a personal open-source tool; the code is public) | SOC 2 Type II, ISO 42001, GDPR, HIPAA | SOC 2 Type II, GDPR, HIPAA |
+
+## What users say
+
+From reviews on G2, Capterra and Trustpilot and tests by independent writers in 2025-2026 (links below). Review sites lean positive, so the critical reviews say more than the averages.
+
+**Fireflies**
+
+- **Confirmed strengths:** summaries and action items save time (the most common praise); searching and asking about past meetings (AskFred) works well; CRM sync, especially HubSpot; many languages and in-person recording.
+- **Reported weaknesses:** speakers mixed up on calls with many people, crosstalk or one room camera (the most common technical complaint); summaries that flatten nuance; the bot joining meetings by default, also when you are not there; AI credits that run out quickly and billing complaints; mixed-language calls need the language set by hand.
+- **Live Assist and Meeting Prep:** few user reports yet. The live answers know the meeting so far and what you uploaded to its knowledge base, not your project folders; testers found the in-call chat fiddly or distracting.
+
+**Fathom**
+
+- **Confirmed strengths:** accurate summaries and action items with one-click follow-up emails (many reports); a generous free plan; easy setup and click-to-replay from the summary.
+- **Reported weaknesses:** the bot sometimes does not join or two bots join the same meeting (the most common complaint); hard to keep the bot out of some meetings; slow email-only support; summaries in only 7 languages, names and non-English terms come out wrong; CRM sync only on Business.
+- **Bot-free Mac capture and live summaries (April 2026):** no user feedback found yet. There is no help during the call beyond the live summary.
+
+**Pacenote, honestly:** a beta from one developer, Mac only, no team features or CRM yet, and the setup installs about 2.5 GB (speech and search models). Live tips depend on how good your preparation is: with an empty project folder they know only the call.
 
 ## Which one when
 
@@ -98,4 +116,5 @@ Checked on 28 October 2026.
 
 - Fireflies: [pricing](https://fireflies.ai/pricing), [monthly prices (third party, October 2026)](https://www.claap.io/blog/fireflies-pricing), [desktop app and Live Assist launch](https://fireflies.ai/blog/fireflies-launches-live-assist-and-desktop-app/), [Live Assist and Sales Assist](https://guide.fireflies.ai/articles/2679406774-live-assist-sales-assist-fireflies-desktop-app-real-time-notes-answers-suggestions), [Meeting Prep](https://guide.fireflies.ai/articles/3878280311-meeting-prep-get-briefed-before-every-meeting), [languages](https://guide.fireflies.ai/articles/2973706448-learn-about-fireflies-supported-languages), [HubSpot](https://guide.fireflies.ai/articles/4037978139-how-to-integrate-hubspot-with-fireflies), [Notion](https://fireflies.ai/integrations/note-taking/notion), [security](https://guide.fireflies.ai/articles/2154538358-policy-on-keeping-information-safe), [team settings](https://guide.fireflies.ai/articles/5508192632-team-management-features-for-admins)
 - Fathom: [pricing](https://www.fathom.ai/pricing), [what's new](https://www.fathom.ai/whats-new), [languages](https://help.fathom.video/en/articles/296192), [HubSpot](https://help.fathom.video/en/articles/448832), [Salesforce](https://help.fathom.video/en/articles/448640), [Notion](https://www.fathom.ai/integrations/notion), [security and data](https://help.fathom.video/en/articles/296512)
+- Users: [Fireflies on G2](https://www.g2.com/products/fireflies-ai/reviews), [Fireflies on Capterra](https://www.capterra.com/p/197037/Fireflies/reviews/), [Fireflies on Trustpilot](https://www.trustpilot.com/review/fireflies.ai), [Fathom on G2](https://www.g2.com/products/fathom-video/reviews), [Fathom on Capterra](https://www.capterra.com/p/276054/Fathom/reviews/), [Fathom on Trustpilot](https://www.trustpilot.com/review/fathom.video), [Fireflies real-time notes (January 2025)](https://fireflies.ai/blog/fireflies-ai-launches-real-time-meeting-notes/), [Live Assist (November 2025)](https://fireflies.ai/blog/live-assist/), tested reviews by [Lindy](https://www.lindy.ai/blog/fireflies-ai-review) and [tl;dv](https://tldv.io/blog/fireflies-review/) (both sell competing tools)
 - Pacenote: costs measured on the author's calls; see [the call co-pilot](/pacenote/) and the [documentation](https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md).
