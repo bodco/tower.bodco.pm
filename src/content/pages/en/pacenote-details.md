@@ -8,7 +8,7 @@ facts:
   - { k: Speech, v: "Whisper, on your Mac" }
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
-  - { k: Version, v: "0.8.7" }
+  - { k: Version, v: "0.8.7.1" }
 ---
 
 | At a glance | |
