@@ -1,114 +1,111 @@
 ---
 title: Pacenote vs Fireflies vs Fathom
-description: "Pacenote, Fireflies and Fathom compared for project managers and sales: price, recording without a bot, live help during the call, preparation before it, summaries, CRM, languages and where your data goes. Checked 28 October 2026."
-lead: "Three tools that write down your calls, compared on what matters when you run them: the price, how they record, help during the call, preparation before it and the summary after it. Prices and features as the vendors publish them on 28 October 2026."
+description: "Pacenote, Fireflies and Fathom compared at a glance: preparation from your own project, live help during the call, no bot, audio that stays on your Mac, Notion, CRM, price and team features. Checked 28 October 2026."
+lead: "Fireflies and Fathom record the meeting; Pacenote prepares you from your own project and helps you while you talk, with the audio never leaving your Mac."
 doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
-  - { k: Compared, v: "Price, recording, live help, prep, summary, CRM, data" }
-  - { k: Pacenote, v: "beta 0.8.2, macOS" }
+  - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
+  - { k: Pacenote, v: "0.8.7, macOS (Apple Silicon)" }
 ---
 
-An honest comparison, written by the person who builds Pacenote. Fireflies and Fathom are mature products with teams behind them; Pacenote is a beta built by one PM for his own calls. Where they are better, the table says so. Every vendor fact links to its source below; check the vendor pages before you buy, prices change.
+## At a glance
 
-## In one line each
-
-<div class="grid" style="--min: 240px;">
-<div class="card"><h3 class="card__title">Pacenote</h3><p class="card__text">A co-pilot during the call: facts from your own preparation, a ready sentence when you are asked. Audio stays on your Mac, notes go to Notion. Free app; Claude through your key or your Claude plan.</p></div>
-<div class="card"><h3 class="card__title">Fireflies</h3><p class="card__text">The broadest note taker: a bot or the desktop app records, 100+ languages, strong search over past meetings, CRM sync and team controls. Live help and a pre-meeting brief exist, but they know the meeting, not your project.</p></div>
-<div class="card"><h3 class="card__title">Fathom</h3><p class="card__text">The strongest free plan for recording and summaries, live summaries, clips, CRM sync and team views for sales. Bot-free on Mac.</p></div>
+<div class="verdict">
+<div class="verdict__card verdict__card--pn"><h3 class="verdict__title"><span>Pick</span>Pacenote if</h3><ul>
+<li>You want live help from your own project prep.</li>
+<li>Audio must stay on your Mac, with no bot in the call.</li>
+<li>You present, rehearse, or run calls back to back.</li>
+<li>You run sales calls with BANT, SPICED or MEDDIC and keep deals in HubSpot.</li>
+</ul></div>
+<div class="verdict__card"><h3 class="verdict__title"><span>Pick</span>Fireflies if</h3><ul>
+<li>A whole team needs one searchable meeting archive.</li>
+<li>You need CRM sync, SSO and admin controls.</li>
+<li>You record in many languages and on Windows.</li>
+</ul></div>
+<div class="verdict__card"><h3 class="verdict__title"><span>Pick</span>Fathom if</h3><ul>
+<li>You want free recordings and summaries.</li>
+<li>You sell and want video clips and CRM notes.</li>
+</ul></div>
 </div>
+
+They work together: Pacenote while you talk, Fireflies or Fathom as the archive after.
+
+## Side by side
+
+<p class="cmp-legend"><span><span class="mk mk--yes" aria-hidden="true">✓</span>yes</span><span><span class="mk mk--part" aria-hidden="true">◐</span>partial, paid or limited</span><span><span class="mk mk--no" aria-hidden="true">✗</span>no</span></p>
+
+| | Pacenote | Fireflies | Fathom |
+|---|---|---|---|
+| **Before the call** | | | |
+| Brief from your project files | ✓ from your project files | ◐ Meeting Prep, no project files | ✗ |
+| Rehearsal with tough client questions | ✓ plus slide-by-slide timer | ✗ | ✗ |
+| Back-to-back calls | ✓ prep the next call mid-call | ✗ | ✗ |
+| **During the call** | | | |
+| No bot in the meeting | ✓ any call app on the Mac | ◐ bot-free with desktop app | ◐ bot-free on Mac only |
+| Tips without asking | ✓ from your prep, when needed | ◐ Live Assist; Sales Assist from an uploaded base | ✗ live summary only |
+| Ask a question mid-call | ✓ with your brief and files | ◐ AskFred, uses AI credits | ✗ |
+| Mixed-language call, one-language transcript | ✓ one language, if you choose | ◐ language set by hand | ✗ as spoken |
+| **After the call** | | | |
+| Summary and follow-up draft | ✓ never sent for you | ◐ Email Assistant, Pro+ | ✓ one-click follow-up email |
+| Search past calls | ✓ call memory, Command-F | ✓ AskFred | ◐ Ask Fathom, Team and up |
+| Notion | ✓ your Meetings database | ✓ sub-page under a chosen page | ◐ through Zapier or Make |
+| CRM | ✓ HubSpot, writes only on your click | ✓ HubSpot, Salesforce, more | ◐ HubSpot, Salesforce on Business |
+| **Privacy** | | | |
+| Audio stays on your computer | ✓ Whisper runs on your Mac | ✗ uploaded to the cloud (US) | ✗ uploaded to the cloud (US) |
+| Certifications | ✗ open code you can audit | ✓ SOC 2, ISO 42001, HIPAA | ✓ SOC 2, GDPR, HIPAA |
+| **Team and platform** | | | |
+| Team admin | ✗ personal tool | ✓ SSO, SCIM (Enterprise) | ✓ team folders, SSO (Enterprise) |
+| Video | ✗ audio and text | ◐ Pro and up | ✓ bot-free video in beta |
+| Windows | ✗ Mac only | ✓ desktop app | ◐ bot only; bot-free soon |
+
+<p class="smallprint"><b>Also in Pacenote:</b> learns from your corrections (fix it on 2 calls, applied to every next brief) · a free local model as plan B when Claude is unreachable · speakers remembered by voice per project.</p>
+
+## Sales calls in Pacenote
+
+| | Pacenote |
+|---|---|
+| CRM (HubSpot) | ✓ a snapshot before the call; after it, tick what to write, Apply, Undo for 8 s |
+| Sales qualification | ✓ General sales, BANT, SPICED or MEDDIC, tracked live on a Deal tab |
+| Sales tips | ✓ objection, qualify, pain, next step, competitor, buying signal |
+| Sales brief | ✓ company web search (name or domain only), likely objections, questions to ask |
+| After a sales call | ✓ a Sales section and a scorecard, on the call page and in Notion |
+
+<p class="smallprint">Pacenote's own capabilities in 0.8.7. Fireflies and Fathom are compared in the table above.</p>
 
 ## Price
 
-| | Pacenote | Fireflies | Fathom |
-|---|---|---|---|
-| Free | The app is free (MIT). Claude: through your Claude plan at no extra cost, or your API key at about $0.2-0.8 for a 30-minute call with tips | Free plan: 400 minutes of storage per team, 20 AI credits, recordings up to 2 hours, limited summaries | Free plan: unlimited recordings and transcripts; advanced summaries for 5 calls a month, then a basic one; AI action items and Ask Fathom limited |
-| Paid, per seat a month (yearly / monthly billing) | No seats; a monthly spending limit you set for the API key | Pro $10 / $18, Business $19 / $29, Enterprise $39 (yearly) | Premium $16 / $20, Team $15 / $19 (2 seats min), Business $25 / $34, Enterprise on request |
-| 10 calls of 30 min a month, one PM | $0 extra with a Claude plan for preparation and summaries; about $2-8 of API for live tips | $10-18 | $0 on the free plan for recording and summaries; $16-20 for the full AI features |
+<div class="grid" style="--min: 240px;">
+<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 app, no seats</h3><p class="card__text">Preparation and notes from your Claude plan. On an API key a typical call is about $1.05 for 30 min and $1.15 for an hour (Sonnet brief, Haiku tips, measured), with a monthly limit you set.</p></div>
+<div class="card"><p class="card__tag">Fireflies</p><h3 class="card__title">$10-18 a seat a month</h3><p class="card__text">Free: 400 min storage per team, 20 AI credits, 2 h per recording. Pro $10 / $18, Business $19 / $29, Enterprise $39 (yearly / monthly).</p></div>
+<div class="card"><p class="card__tag">Fathom</p><h3 class="card__title">$0-20 a seat a month</h3><p class="card__text">Free: unlimited recordings, advanced summaries for 5 calls a month. Premium $16 / $20, Team $15 / $19 (2 seats min), Business $25 / $34.</p></div>
+</div>
 
-## How it records
-
-| | Pacenote | Fireflies | Fathom |
-|---|---|---|---|
-| Bot in the meeting | No bot: your microphone and the call's system audio on the Mac | A bot from your calendar, or bot-free with the desktop app (Mac and Windows) | A bot, or bot-free on Mac (Windows coming) |
-| Platforms | Any call app on the Mac (Zoom, Meet, Teams, Slack, a browser) | Zoom, Meet, Teams with the bot; anything on the computer with the desktop app; mobile and Chrome extension | Zoom, Meet, Teams; Slack huddles bot-free; iOS app for in-person |
-| Where audio goes | **Stays on your Mac** (Whisper runs locally); only text goes to Claude | Fireflies cloud (US; EU storage on Enterprise) | Fathom cloud (US) |
-| Languages | Whisper's ~99 languages; you set the call's languages | 100+, Ukrainian included, mixed-language mode (beta) | Transcripts in 38 (Ukrainian included); summaries in 7 languages, not Ukrainian |
-| A call in mixed languages | **One-language transcript:** on an English call, Spanish speech is written in English; or each language as spoken | Each language as spoken (mixed mode), or one set language | As spoken |
-| Speakers | Named by you once, remembered by voice per project, on your Mac | Speaker labels you can rename | Speaker attribution, also bot-free |
-| Video | No | Pro and up | Yes (bot-free video in beta) |
-
-## Before the call
-
-| | Pacenote | Fireflies | Fathom |
-|---|---|---|---|
-| Preparation | **Prepare now** writes a brief, fact cards and a speech from your project folders, the local copy of Notion, earlier calls of the same meeting and the documents you name | **Meeting Prep** (a recap before recurring meetings since 2025; now also a brief on external attendees from public company data, LinkedIn, 90 days of email and past meetings). Uses AI credits; it does not read your project documents | Not found |
-| Agenda and promises | The agenda as a bar during the call; open promises from earlier calls ("Done?" when one is said to be done) | Not as such | Not as such |
-| Back-to-back calls | Up next: prepare the next call while one is live, switch with one question | No | No |
-| Rehearsal | A presentation rehearsal with likely client questions | No | No |
-
-## During the call
-
-| | Pacenote | Fireflies | Fathom |
-|---|---|---|---|
-| Live transcript | Yes, in a side pane | Yes (Live Assist) | Live summary that updates during the call |
-| Tips without asking | Yes: a fact from your prep when you are asked, your update when it is your turn, a warning on a new request or a promised date | Live notes (since January 2025), Live Assist (November 2025) with nudges on pace and monologues; Sales Assist suggests answers from a knowledge base you upload (bot calls only) | No |
-| Ask during the call | Yes, with your brief, the project's facts and the call so far; a question about files searches the project folder | Yes, AskFred (uses AI credits) | No |
-| One-key help | HELP NOW: the next sentence to say | Quick actions (catch up, summarize so far) | No |
-| Mic off, pause, proactive tips | Three buttons in the top bar with shortcuts | Not checked | Not checked |
-
-## After the call
-
-| | Pacenote | Fireflies | Fathom |
-|---|---|---|---|
-| Summary | A Notion page in the call's language: summary, decisions, our commitments, new requests, open questions, risks, action items, the transcript as a sub-page | Summary, action items, topics, templates per group (Business) | Summary, action items; advanced and custom summaries on paid plans |
-| Follow-up email | A draft from the call (never sent by itself) | Email Assistant (Pro and up) | Through integrations |
-| Search across calls | Call memory (Command-F) over your calls and the project's search index | AskFred over meetings | Ask Fathom, account-wide on Team and Business; API and MCP for ChatGPT and Claude |
-| CRM | Not yet (designed: [Pacenote for teams](https://github.com/bodco/live-tips/tree/main/docs/team)) | HubSpot, Salesforce, Zoho, Close, Copper: notes, tasks, field autofill after review | HubSpot (note, tasks, deal sync), Salesforce (tasks, opportunities); CRM sync on Business |
-| Notion | Native: the meeting page in your Meetings database | Native: a sub-page under a chosen page | Through Zapier or Make |
-| Team | Personal today; a team design with Google Drive now and a team server later is [written down](https://github.com/bodco/live-tips/tree/main/docs/team) | Workspaces, user groups, SSO, SCIM, audit logs (Enterprise) | Team folders and search, deal views, SSO and SCIM (Enterprise) |
-
-## Your data
-
-| | Pacenote | Fireflies | Fathom |
-|---|---|---|---|
-| Audio | Never leaves your Mac | Uploaded and stored in the cloud | Uploaded and stored in the cloud |
-| Training | Claude through your own key or plan; Anthropic's terms apply | No training on customer data, by Fireflies or its AI vendors | AI vendors may not train on it; Fathom uses de-identified data to improve its models unless you opt out |
-| Certifications | None (a personal open-source tool; the code is public) | SOC 2 Type II, ISO 42001, GDPR, HIPAA | SOC 2 Type II, GDPR, HIPAA |
+<p class="smallprint">Pacenote on an API key: a preparation is about $0.8 with Sonnet; live tips on Haiku about $0.05 per 14 min. Details in the <a href="https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md">documentation</a>.</p>
 
 ## What users say
 
-From reviews on G2, Capterra and Trustpilot and tests by independent writers in 2025-2026 (links below). Review sites lean positive, so the critical reviews say more than the averages.
+From G2, Capterra, Trustpilot and independent tests in 2025-2026 (links below).
 
 **Fireflies**
 
-- **Confirmed strengths:** summaries and action items save time (the most common praise); searching and asking about past meetings (AskFred) works well; CRM sync, especially HubSpot; many languages and in-person recording.
-- **Reported weaknesses:** speakers mixed up on calls with many people, crosstalk or one room camera (the most common technical complaint); summaries that flatten nuance; the bot joining meetings by default, also when you are not there; AI credits that run out quickly and billing complaints; mixed-language calls need the language set by hand.
-- **Live Assist and Meeting Prep:** few user reports yet. The live answers know the meeting so far and what you uploaded to its knowledge base, not your project folders; testers found the in-call chat fiddly or distracting.
+- **Praised:** time-saving summaries and action items; search across past meetings (AskFred); HubSpot sync.
+- **Criticised:** speakers mixed up on busy calls; the bot joins by default; AI credits run out fast.
+- **Live Assist and Meeting Prep:** few reports yet; testers found the in-call chat fiddly.
 
 **Fathom**
 
-- **Confirmed strengths:** accurate summaries and action items with one-click follow-up emails (many reports); a generous free plan; easy setup and click-to-replay from the summary.
-- **Reported weaknesses:** the bot sometimes does not join or two bots join the same meeting (the most common complaint); hard to keep the bot out of some meetings; slow email-only support; summaries in only 7 languages, names and non-English terms come out wrong; CRM sync only on Business.
-- **Bot-free Mac capture and live summaries (April 2026):** no user feedback found yet. There is no help during the call beyond the live summary.
+- **Praised:** accurate summaries, one-click follow-up emails, a generous free plan.
+- **Criticised:** the bot sometimes fails to join, or joins twice; slow email-only support.
+- **Languages:** summaries in 7 languages; names and non-English terms come out wrong.
 
-**Pacenote, honestly:** a beta from one developer, Mac only, no team features or CRM yet, and the setup installs about 2.5 GB (speech and search models). Live tips depend on how good your preparation is: with an empty project folder they know only the call.
+## Requirements
 
-## Which one when
-
-- **You want help while you talk, from your own preparation, and the audio must stay on your Mac:** Pacenote.
-- **You want the broadest tool for a whole team: recordings everyone searches, a brief before meetings, many integrations and admin controls:** Fireflies.
-- **You sell and want free recordings and summaries, clips, and notes in your CRM:** Fathom.
-
-They do not exclude each other: Pacenote is about the minutes while you are on the call; the others are better archives after it.
-
-## Not there yet in Pacenote
-
-- **CRM.** Designed with a team server ([Pacenote for teams](https://github.com/bodco/live-tips/tree/main/docs/team)), not built.
-- **Summary without Notion.** Save it to Google Docs or Word in your Drive or OneDrive.
-- **Windows.** Pacenote is a Mac app.
+- **Mac with Apple Silicon.** Setup downloads about 2.5 GB of speech and search models.
+- **CRM:** HubSpot, with your own service key in the macOS Keychain.
+- **Audio and text, no video.** Summaries go to Notion today; Google Docs and Word are next.
+- **Personal tool; team version designed.** [Read the design](https://github.com/bodco/live-tips/tree/main/docs/team).
 
 ## Sources
 

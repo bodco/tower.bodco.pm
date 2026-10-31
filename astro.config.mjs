@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import { readFileSync } from 'node:fs';
+import rehypeCompare from './src/lib/rehype-compare.mjs';
 
 // 2026-10-28 (owner): Pacenote on its own site; while it is not live its pages stay here.
 const PN_LIVE = JSON.parse(readFileSync(new URL('./src/data/pacenote-domain.json', import.meta.url), 'utf8')).live && !process.env.PACENOTE_KEEP;
@@ -37,6 +38,8 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
   markdown: {
+    // 2026-10-30: tables whose cells start with ✓ / ✗ / ◐ become scannable comparison tables (src/lib/rehype-compare.mjs).
+    rehypePlugins: [rehypeCompare],
     shikiConfig: { themes: { light: 'github-light', dark: 'github-dark-dimmed' } },
   },
 });

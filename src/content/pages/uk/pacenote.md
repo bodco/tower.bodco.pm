@@ -1,112 +1,136 @@
 ---
 title: Pacenote
-lead: "Він слухає на вашому Маку і озивається лише тоді, коли потрібен факт чи фраза: питання до вас, ваша черга, нова вимога, дата, яку ви от-от пообіцяєте."
+lead: "Готує вас з файлів вашого ж проєкту, показує потрібний факт чи фразу тієї ж секунди і сам пише нотатки та лист-підсумок, щойно ви поклали слухавку."
 doc: https://github.com/bodco/live-tips/blob/main/docs/uk/live-tips.md
 facts:
-  - { k: Працює на, v: "Мак з Apple Silicon" }
-  - { k: Звук, v: "Лишається на вашому Маку" }
-  - { k: Вартість, v: "Застосунок безкоштовний, Claude близько $0.2-0.8 за дзвінок" }
+  - { k: Ціна, v: "Застосунок безкоштовний (MIT), без місць" }
+  - { k: Звук, v: "Ніколи не покидає ваш Мак" }
+  - { k: Claude, v: "Ваш план або ваш API-ключ" }
   - { k: Нотатки йдуть у, v: "Notion і папку проєкту" }
-  - { k: Статус, v: "бета 0.8.4" }
+  - { k: Версія, v: "0.8.7" }
 ---
 
+<div class="tiles">
+<div class="card card--tile"><p class="card__tag">До</p><h3 class="card__title">Ви вже готові</h3><p class="card__text">Бриф, картки фактів і промова з файлів вашого проєкту.</p></div>
+<div class="card card--tile"><p class="card__tag">Під час</p><h3 class="card__title">Факт, щойно спитали</h3><p class="card__text">Відповідь і готова фраза під камерою. Решту часу тиша.</p></div>
+<div class="card card--tile"><p class="card__tag">Після</p><h3 class="card__title">Нотатки вже написані</h3><p class="card__text">Рішення, що на вас, сторінка в Notion і драфт листа.</p></div>
+<div class="card card--tile card--accent"><p class="card__tag">Презентація</p><h3 class="card__title">Вчасно, слайд за слайдом</h3><p class="card__text">Таймер на кожен слайд і репетиція з важкими питаннями клієнта.</p></div>
+</div>
+
+<div class="tiles tiles--2up">
+<div class="card card--tile"><p class="card__num">0 байт</p><p class="card__text">звуку покидає ваш Мак</p></div>
+<div class="card card--tile"><p class="card__num">1-2 с</p><p class="card__text">до картки факту з вашої підготовки</p></div>
+<div class="card card--tile"><p class="card__num">$0</p><p class="card__text">застосунок; Claude на вашому плані чи ключі</p></div>
+<div class="card card--tile"><p class="card__num">0 ботів</p><p class="card__text">у зустрічі, будь-який застосунок дзвінків на Маку</p></div>
+</div>
+
+## Нове в 0.8.7 <span class="vbadge vbadge--soft">0.8.7</span>
+
+<div class="newlist">
+<ul>
+<li>💼 <b>Режим продажу.</b> Поверх будь-якого дзвінка: General sales, BANT, SPICED чи MEDDIC, таб Угода і підказки продажу.</li>
+<li>🔗 <b>HubSpot.</b> Знімок перед дзвінком; після нього позначте, що оновити, Apply, Undo протягом 8 с.</li>
+<li>⚙️ <b>Settings > Integrations.</b> Notion, Calendars і HubSpot; одна база Meetings, Tasks і Risks для всіх проєктів.</li>
+<li>✏️ <b>Редагування сторінки дзвінка.</b> Рішення, пункти і ризики; сторінка дзвінка в Notion оновлюється одразу.</li>
+<li>🧭 <b>Що вміє Pacenote.</b> Кожна функція з Try it, у Help і на Home.</li>
+<li>🎙️ <b>Транскрипт із запису (0.8.6).</b> Файл чи посилання стає транскриптом на вашому Маку, голоси розділено.</li>
+<li>✅ <b>Задачі з Notion в On you (0.8.6).</b> Ваші задачі поруч з обіцянками з дзвінків; позначка оновлює Notion.</li>
+<li>🧩 <b>Додатки за бажанням (0.8.6).</b> Ollama, локальна модель і завантажувач посилань, лише якщо вони вам потрібні.</li>
+</ul>
+</div>
+
+<p class="smallprint">Режим презентації, репетиція і панель після дзвінка зʼявилися в 0.8.5: <a href="/uk/changelog/">версії</a>.</p>
+
+## Як це на дзвінку
+
+<div class="gallery gallery--strip">
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-wide-dark.webp" alt="Pacenote: На дзвінку" width="1600" height="1034" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-wide-light.webp" alt="Pacenote: На дзвінку" width="1600" height="1034" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Одна відповідь, фраза, яку сказати, хто що сказав.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-dark.webp" alt="Pacenote: Під камерою" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-light.webp" alt="Pacenote: Під камерою" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Під камерою.</b> Погляд лишається на клієнті; Допоможи це ⌃⌥H.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-dark.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-light.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Наступний дзвінок, його готовність, незакриті обіцянки.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-ready-dark.webp" alt="Pacenote: Перед стартом" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-ready-light.webp" alt="Pacenote: Перед стартом" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Можна починати.</b> Бриф і що на вас.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Компактний режим" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Компактний режим" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Компактний режим.</b> Смуга, що росте лише коли треба (⌃⌥T).</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: Після дзвінка" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: Після дзвінка" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>Після дзвінка.</b> Сторінка в Notion з рішеннями і задачами.</figcaption></figure>
+</div>
+
+## Чому Pacenote
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile"><h3 class="card__title">🎯 Факт або тиша</h3><p class="card__text">Підказка несе число, дату, імʼя чи готове речення. Або її немає.</p></div>
+<div class="card card--tile"><h3 class="card__title">⚡ Працює і без підготовки</h3><p class="card__text">Почніть одразу: підказки, коли звертаються до вас, HELP NOW, пошук по проєкту.</p></div>
+<div class="card card--tile"><h3 class="card__title">🧠 Знає ваш проєкт</h3><p class="card__text">Ваші папки, ваш Notion, повні нотатки кожного минулого дзвінка.</p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Платите за дзвінок, не за місце</h3><p class="card__text">На вашому плані Claude, або близько $1.05 за 30-хвилинний дзвінок на ключі, разом із брифом.</p></div>
+</div>
+
 <div class="aimix">
-<h3 class="aimix__title">Claude і локальний AI, кожен для своєї роботи</h3>
-<p class="aimix__lead">Те, що має бути миттєвим і приватним, працює на вашому Маку. Те, що потребує думання, йде до Claude, лише текстом.</p>
+<h3 class="aimix__title">Приватно там, де важливо, розумно там, де треба</h3>
 <div class="aimix__cols">
-<div class="aimix__col"><h4>На Маку (локальні моделі, безкоштовно)</h4><ul>
-<li><b>Whisper</b> перетворює мову на текст; аудіо не покидає Мак.</li>
-<li><b>Local AI</b> (невелика модель пошуку, вбудована або Ollama) за долю секунди знаходить факти й картки за змістом і шукає по файлах проєкту.</li>
-<li><b>Голосова модель</b> розрізняє спікерів.</li></ul></div>
-<div class="aimix__col"><h4>Claude (хмара, ваш ключ або план)</h4><ul>
-<li>Підказки і готова фраза, коли питають вас, HELP NOW, відповіді на ваші питання.</li>
-<li>Картина дзвінка: тема, що на вас, рішення.</li>
-<li>Prepare now і глибокий пошук (Claude Code, лише читання), підсумок у Notion.</li></ul></div>
+<div class="aimix__col"><h4>На Маку, безкоштовно</h4><ul>
+<li><b>Whisper:</b> мова в текст, звук лишається локально.</li>
+<li><b>Миттєвий пошук:</b> факти і файли за змістом, менш ніж за секунду.</li>
+<li><b>Голоси:</b> хто говорить, запамʼятовується для проєкту.</li>
+<li><b>Локальна модель (за бажанням):</b> підготовка і нотатки без хмари.</li></ul></div>
+<div class="aimix__col"><h4>Claude, ваш план або ключ</h4><ul>
+<li>Живі підказки, HELP NOW, відповіді на ваші питання.</li>
+<li>Брифи, промови і питання для репетиції.</li>
+<li>Бриф для продажу з пошуком компанії в інтернеті.</li>
+<li>Сторінка в Notion і драфт листа.</li></ul></div>
 </div>
-<p class="aimix__note">Claude вимкнено для проєкту? Тоді працює лише частина на Маку: транскрипт, миттєві факти і пошук.</p>
 </div>
+
+## Дзвінки з продажу
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile"><h3 class="card__title">🧭 Оберіть метод</h3><p class="card__text">General sales за замовчуванням, або BANT, SPICED, MEDDIC. Поверх будь-якого типу дзвінка.</p></div>
+<div class="card card--tile"><h3 class="card__title">📊 Таб Угода</h3><p class="card__text">Кожен критерій невідомо, частково чи відомо, з тим, що прозвучало. "BANT 2/4" у заголовку.</p></div>
+<div class="card card--tile"><h3 class="card__title">💡 Підказки продажу</h3><p class="card__text">Заперечення, кваліфікація, біль, наступний крок, конкурент, сигнал купівлі. І ваші картки відповідей.</p></div>
+<div class="card card--tile card--accent"><h3 class="card__title">🔁 HubSpot лише за вашим кліком</h3><p class="card__text">Знімок перед дзвінком. Після нього: позначки, Apply, Undo протягом 8 с.</p></div>
+</div>
+
+Бриф додає компанію (пошук в інтернеті лише за її назвою чи доменом), ймовірні заперечення і питання, які варто поставити. Після дзвінка: секція Sales і scorecard.
+
+## Pacenote і нотатники
+
+Fireflies і Fathom записують зустріч. Pacenote допомагає її вести.
+
+| | Pacenote | Fireflies | Fathom |
+|---|---|---|---|
+| Живі підказки з файлів проєкту | ✓ з вашої підготовки | ◐ зустріч + завантажена база | ✗ |
+| Бриф перед дзвінком | ✓ з ваших документів | ◐ recap і бриф про учасників | ✗ |
+| Без бота в зустрічі | ✓ будь-який застосунок | ◐ з десктоп-застосунком | ◐ на Маку |
+| Звук лишається на компʼютері | ✓ | ✗ хмара | ✗ хмара |
+| Таймер презентації і репетиція | ✓ | ✗ | ✗ |
+| Ціна для одного PM | $0 застосунок; план Claude або близько $1 за дзвінок на ключі | $10-18 на місяць | $0-20 на місяць |
+| Синхронізація з CRM | ✓ HubSpot, запис за вашим кліком | ✓ | ◐ план Business |
+
+<p class="smallprint">Дані сервісів такі, як їх публікують на 28 жовтня 2026, з джерелами: <a href="/uk/pacenote/compare/">повне порівняння</a>.</p>
 
 ## Два способи запуску
 
 <div class="grid" style="--min: 280px; margin: 8px 0 12px;">
 <div class="card">
 <p class="card__tag">Для більшості</p>
-<h3 class="card__title">Pacenote для Мака</h3>
-<p class="card__text">Застосунок у рядку меню. Ваш API-ключ Claude або ваш план Claude через Claude Code, жодного чату, який треба тримати відкритим під час дзвінка. Setup сам ставить модель розпізнавання.</p>
+<h3 class="card__title">💻 Pacenote для Мака</h3>
+<p class="card__text">Застосунок у рядку меню на вашому плані Claude чи API-ключі. Setup сам ставить моделі розпізнавання.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Завантажити для Мака (.dmg)</a></div>
-<p class="smallprint">macOS 14.4+, Apple Silicon. Близько 2.5 ГБ локальних моделей при першому запуску. Бета без нотаризації: при першому запуску відкрийте System Settings > Privacy & Security і натисніть Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">Контрольні суми SHA-256</a>.</p>
+<p class="smallprint">Перший запуск: System Settings > Privacy & Security > Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">Контрольні суми SHA-256</a>.</p>
 </div>
 <div class="card">
 <p class="card__tag">Для тих, хто в Claude Cowork</p>
-<h3 class="card__title">Скіл Pacenote</h3>
-<p class="card__text">Ті самі підказки у вашому чаті Cowork, у межах вашого плану Claude. Потрібен записувач з репозиторію, налаштування близько 15 хвилин.</p>
+<h3 class="card__title">🧩 Скіл Pacenote</h3>
+<p class="card__text">Ті самі підказки і правила у вашому чаті Cowork, на вашому плані Claude. Налаштування близько 15 хвилин.</p>
 <div class="btns"><a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>Завантажити скіл (.skill)</a></div>
 <p class="smallprint">Додайте його в Cowork у розділі Skills, далі <a href="/uk/pacenote/details/#встановлення-десь-15-хвилин">кроки встановлення</a>.</p>
 </div>
 </div>
 
-Обидва працюють за тими самими правилами і з тим самим записувачем, тож підказки поводяться однаково. Код і релізи: [github.com/bodco/live-tips](https://github.com/bodco/live-tips).
-
-## Що він робить
-
-<div class="grid" style="--min: 300px;">
-<div class="card"><h3 class="card__title">До дзвінка</h3><p class="card__text">Home показує ваші дзвінки з календарів Google і Microsoft; оберіть той, на який ідете, напишіть, що важливо, і Prepare пише короткий бриф і картки фактів з папок проєкту і документів, які ви назвали. Кілька хвилин, поки ви робите інше. Не встигли? Починайте все одно: підказки, коли вас питають, HELP NOW і відповіді працюють і без неї, а запізніла підготовка підключиться до дзвінка.</p></div>
-<div class="card"><h3 class="card__title">Під час дзвінка</h3><p class="card__text">Маленьке вікно під камерою: відповідь, коли вас питають, ваш апдейт, коли ваша черга, попередження про нову вимогу. HELP NOW дає наступне речення.</p></div>
-<div class="card"><h3 class="card__title">Будь-яка мова на вході, одна в транскрипті</h3><p class="card__text">Задайте дзвінку одну мову, і кожного спікера буде записано нею: іспанська на англійському дзвінку виходить англійською. Або лишайте кожну мову як звучить.</p></div>
-<div class="card"><h3 class="card__title">Після дзвінка</h3><p class="card__text">Сторінка в Notion мовою дзвінка: підсумок, рішення, ваші зобовʼязання, нові вимоги, відкриті питання, ризики, action items, транскрипт дочірньою сторінкою.</p></div>
-</div>
-
-## Як це виглядає
-
-Pacenote 0.8 на демо-даних. Картинки йдуть за світлою чи темною темою сайту.
-
-<div class="gallery">
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-wide-dark.webp" alt="Pacenote: На дзвінку" width="1600" height="1034" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-wide-light.webp" alt="Pacenote: На дзвінку" width="1600" height="1034" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Одна відповідь за раз, шрифтом, що читається з першого погляду, з фразою, яку сказати. Раніші підказки згортаються в один рядок; смужка агенди показує, що ще не підняли; транскрипт збоку підписує, хто що сказав.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-dark.webp" alt="Pacenote: Під камерою" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-light.webp" alt="Pacenote: Під камерою" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Під камерою.</b> Те саме вікно на 440 px: відповідь, раніші підказки, наступний дзвінок, коли він близько, поле для питання і Допоможи (⌃⌥H).</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-ready-dark.webp" alt="Pacenote: Перед стартом" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-ready-light.webp" alt="Pacenote: Перед стартом" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Перед стартом.</b> Можна починати: бриф і що на вас, одна кнопка, щоб почати слухати.</figcaption></figure>
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-dark.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-light.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Що далі і чи ви готові: бриф, незакриті обіцянки, питання з минулого разу, накладки в календарі. Збоку: що на вас з усіх дзвінків, тиждень, недавні дзвінки з їхніми рішеннями.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/menubar-dark.webp" alt="Pacenote: Рядок меню" width="1200" height="768" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/menubar-light.webp" alt="Pacenote: Рядок меню" width="1200" height="768" loading="lazy" decoding="async" /><figcaption><b>Рядок меню.</b> Наступний дзвінок і його готовність, або живий дзвінок з Show tips, Pause і End call.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Компактний режим" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Компактний режим" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Компактний режим.</b> Смуга над відео, що росте лише тоді, коли є що сказати (⌃⌥T).</figcaption></figure>
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/onboarding-dark.webp" alt="Pacenote: Перший запуск" width="1600" height="760" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/onboarding-light.webp" alt="Pacenote: Перший запуск" width="1600" height="760" loading="lazy" decoding="async" /><figcaption><b>Перший запуск.</b> Назва і лого, потім налаштування в чотири кроки; розпізнавання мовлення ставиться у фоні.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: Після дзвінка" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: Після дзвінка" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>Після дзвінка.</b> Сторінка в Notion: підсумок, рішення, задачі, відкриті питання і транскрипт.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/splash-dark.webp" alt="Pacenote: Світла і темна тема" width="1200" height="1124" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/splash-light.webp" alt="Pacenote: Світла і темна тема" width="1200" height="1124" loading="lazy" decoding="async" /><figcaption><b>Світла і темна тема.</b> Кожне вікно йде за виглядом macOS.</figcaption></figure>
-</div>
-
-## Home і ваші календарі
-
-**Home** це головне вікно аппки: Insights за будь-який період, проєкт чи воркспейс (дзвінки, час на дзвінках, витрати на Claude, скільки підготовлено, хвилини по днях за проєктами; клік по дню показує цей день), дзвінок, що йде зараз, дзвінки попереду з календарів і зі списку Далі з їхньою підготовкою, і проведені дзвінки зі сторінкою в Notion, транскриптом і папкою (прибрати зі списку можна ×; файли лишаються). Внизу: ключ Claude, витрати за місяць проти ліміту, копія Notion, локальний AI і календарі. Показуєте Home колегам? Settings > General ховає ваші цифри.
-
-**Календарі через macOS, кілька акаунтів одразу.** Додайте акаунти Google і Microsoft у System Settings > Internet Accounts, потім у Pacenote Settings > Calendars позначте календарі, де ваші дзвінки. Нічого не треба встановлювати і ніде окремо входити; Pacenote лише читає. Дві-три зустрічі на один час це нормально: Home їх позначає, а ви готуєте і запускаєте ту, на яку реально йдете. Регулярна зустріч стартує з налаштувань і тексту "що важливо" її останнього дзвінка, тож ви лише коригуєте.
-
-## Дзвінки один за одним: Далі
-
-Дзвінок ще йде, а одразу після нього наступний. Відкрийте **Plan an upcoming call** (у меню в рядку меню або ⚙ > Далі у вікні-суфлері), налаштуйте наступний дзвінок і натисніть **Prepare**: його підготовка пишеться, поки ви говорите. Плануйте скільки завгодно дзвінків; вони чекають у списку **Далі** за часом, а їхні підготовки йдуть одна за одною. Записується одночасно лише один дзвінок.
-
-Коли час, **Перейти** (або "End and start" у вікні End call) питає один раз, коректно завершує поточний дзвінок (транскрипт збережено, підсумок у Notion пишеться у фоні) і за кілька секунд запускає наступний з уже завантаженою підготовкою. Підготовка, яка ще пишеться, продовжується і приєднується до нового дзвінка, коли готова; у чужий дзвінок вона не потрапляє ніколи.
-
-## Чим він інший
-
-- **Факт або тиша.** Підказка несе число, дату, імʼя чи готове речення з вашого ж матеріалу, або її немає. Червоне лише коли звертаються до вас.
-- **Ваш звук лишається на Маку.** Мова розпізнається локально через Whisper; у Claude йде лише текст.
-- **Він знає ваш проєкт.** Вашу підготовку, ваші папки і, з [PM Control Tower](/uk/), сторінки Notion і поточний стан проєкту.
-- **Платите за дзвінок, а не за місце.** Застосунок безкоштовний і відкритий (MIT); ви платите Claude за те, що використав дзвінок, і ставите місячний ліміт.
-
-## Pacenote, Fireflies і Fathom
-
-Fireflies і Fathom це зрілі нотатники зі спільним простором, відео і багатьма інтеграціями. Pacenote про хвилини, поки ви на дзвінку, і зроблений одним PM. Чесне порівняння (ціна, запис, підказки, підготовка, підсумок, CRM, дані), перевірене 28 жовтня 2026: [Pacenote, Fireflies і Fathom](/uk/pacenote/compare/).
+<p class="smallprint"><b>Потрібно:</b> Мак з Apple Silicon · macOS 14.4+ · близько 2.5 ГБ локальних моделей · план Claude або API-ключ · Notion і HubSpot за бажанням. <b>Далі:</b> підсумки в Google Docs чи Word, <a href="https://github.com/bodco/live-tips/blob/main/docs/team/README.uk.md">Pacenote для команд</a>.</p>
 
 ## Детальніше
 
 <div class="grid" style="--min: 230px;">
-<div class="card"><h3 class="card__title"><a href="/uk/pacenote/details/">Як працює і як встановити</a></h3><p class="card__text">Тригери, вікно підказок, режими презентації і співбесіди, спікери, приватність, вимоги і кроки встановлення.</p></div>
-<div class="card"><h3 class="card__title"><a href="/uk/pacenote/compare/">Порівняння з іншими</a></h3><p class="card__text">Ціна, запис, підказки, підготовка, підсумок і CRM поруч з Fireflies і Fathom.</p></div>
-<div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Код і релізи</a></h3><p class="card__text">Застосунок, скіл, записувач і повний посібник на GitHub. Що змінилося: <a href="/uk/changelog/">версії</a>.</p></div>
+<div class="card"><h3 class="card__title"><a href="/uk/pacenote/details/">Як це працює</a></h3><p class="card__text">Підказки, презентації, після дзвінка, витрати, приватність і встановлення.</p></div>
+<div class="card"><h3 class="card__title"><a href="/uk/pacenote/compare/">Повне порівняння</a></h3><p class="card__text">Pacenote, Fireflies і Fathom рядок за рядком, з джерелами.</p></div>
+<div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Код і релізи</a></h3><p class="card__text">Відкритий код на GitHub. Що змінилося: <a href="/uk/changelog/">версії</a>.</p></div>
 </div>
-
-Ще немає: підсумку в Google Docs чи Word у вашому Drive або OneDrive. У планах.
-
-## Для команд: ми про це думаємо
-
-Зараз Pacenote це особистий інструмент. Ми записали, як ним могла б користуватися команда: знання про проєкти в одному місці, кожен готується до своїх дзвінків, усі підсумки разом. Це вже працює через Google Drive і Notion; командний сервер з ролями, правами і конекторами CRM (HubSpot та інші) спроєктовано, але ще не збудовано. [Дизайн на GitHub](https://github.com/bodco/live-tips/blob/main/docs/team/README.uk.md).
 
 <p class="smallprint">Ваші дзвінки і ваші дані: <a href="/uk/pacenote/privacy/">політика конфіденційності</a> і <a href="/uk/pacenote/terms/">умови використання</a>.</p>

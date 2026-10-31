@@ -22,13 +22,18 @@ const { lang, slug, title, lead, description, facts = [], doc, parent, headings 
 const docHref = doc ? (doc.startsWith('http') ? doc : LINKS.docs(lang, doc)) : '';
 const docName = doc ? (doc.startsWith('http') ? doc.replace(/^https:\/\/github\.com\/bodco\//, '').replace('/blob/main/', '/') : `docs/${lang}/${doc}`) : '';
 const toc = headings.filter((h) => h.depth === 2);
+// 2026-10-30 (design review): the Pacenote landing has no side rail (it is a landing, not a manual), the compare
+// page shows its sections as a row of chips above the content, the details page keeps a compact sticky rail.
+const tocMode = slug === 'pacenote' ? 'none' : slug === 'pacenote-compare' ? 'chips' : slug.startsWith('pacenote-') ? 'compact' : 'rail';
+const showToc = toc.length > 1 && tocMode !== 'none';
+const solo = tocMode === 'none' || tocMode === 'chips';
 const { prev, next } = neighbours(slug);
 const product = slug === 'pacenote';     // 2026-10-27 (owner): a product hero (title, subtitle, buttons, a picture)
 // 2026-10-28 (owner): Pacenote pages carry the Pacenote brand layer (blue accent, its own icon and favicon).
 const brand = slug === 'pacenote' || slug.startsWith('pacenote-') ? 'pacenote' : undefined;
 const P = lang === 'uk'
-  ? { sub: 'Ваш штурман на дзвінках', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork', note: 'macOS 14.4+, Apple Silicon · безкоштовно, відкритий код · бета' }
-  : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: 'macOS 14.4+, Apple Silicon · free and open source · beta' };
+  ? { sub: 'Ваш штурман на дзвінках', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork', note: `Безкоштовно, відкритий код · macOS 14.4+, Apple Silicon · версія ${PN_VERSION.version}` }
+  : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: `Free and open source · macOS 14.4+, Apple Silicon · version ${PN_VERSION.version}` };
 ---
 <Base title={title} description={description ?? lead} brand={brand}
   crumbParent={parent ? { name: t(lang, `nav.${parent}` as any), href: path(lang, parent) } : undefined}
@@ -60,11 +65,13 @@ const P = lang === 'uk'
         <div class="product-hero__name"><img class="pn-theme--dark" src="/pacenote/icon-dark-128.png" alt="" width="64" height="64" /><img class="pn-theme--light" src="/pacenote/icon-light-128.png" alt="" width="64" height="64" /><h1 class="h1 h1--hero product-hero__wm"><span class="pn-sr">{title}</span><img class="pn-theme--dark" src="/pacenote/wordmark-white.svg" alt="" width="230" height="53" /><img class="pn-theme--light" src="/pacenote/wordmark-ink.svg" alt="" width="230" height="53" /></h1></div>
         <p class="product-hero__sub">{P.sub}</p>
         <p class="lead">{lead}</p>
-        <div class="btns">
+        <div class="btns btns--one">
           <a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>{P.mac} <Arrow /></a>
-          <a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{P.skill}</a>
-          <a class="btn btn--ink" href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>
         </div>
+        <p class="hero-alt">
+          <a href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{P.skill}</a>
+          <a href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>
+        </p>
         <p class="smallprint">{P.note}</p>
       </div>
       <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-tips-wide' : 'tips-wide'} width={1600} height={1034} eager alt={lang === 'uk' ? 'Вікно підказок Pacenote на дзвінку: одна відповідь великим шрифтом, раніші підказки рядками, транскрипт збоку' : 'The Pacenote tips window on a call: one answer in large type, earlier tips as single lines, the transcript on the side'} /></div>
@@ -87,16 +94,16 @@ const P = lang === 'uk'
   </section>
   )}
 
-  <div class="page-body wrap">
-    {toc.length > 1 && (
-      <details class="toc" open>
+  <div class:list={['page-body wrap', { 'page-body--solo': solo }]}>
+    {showToc && (
+      <details class:list={['toc', { 'toc--chips': tocMode === 'chips', 'toc--compact': tocMode === 'compact' }]} open>
         <summary class="label toc__sum">{t(lang, 'page.onthis')}</summary>
         <nav class="toc__links" aria-label={t(lang, 'page.onthis')}>
           {toc.map((h) => <a href={`#${h.slug}`}>{h.text}</a>)}
         </nav>
       </details>
     )}
-    {toc.length > 1 && (
+    {showToc && tocMode !== 'chips' && (
       <script is:inline>
         // Collapsed by default on narrow screens, so step 1 is not pushed a screen down. Runs before paint.
         (function () { var d = document.currentScript && document.currentScript.previousElementSibling; if (d && d.tagName === 'DETAILS' && window.matchMedia('(max-width: 700px)').matches) d.open = false; })();

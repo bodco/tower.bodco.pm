@@ -1,222 +1,276 @@
 ---
 title: How Pacenote works
-lead: "Everything behind the co-pilot: what triggers a tip, the tips window, presentation and interview modes, speakers, privacy, what you need and how to install it."
+lead: "What triggers a tip, what you see on the call and after it, what it costs and how to install it."
 doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 parent: pacenote
 facts:
-  - { k: Runs on, v: "Apple Silicon Mac" }
-  - { k: Speech model, v: "Whisper, local" }
-  - { k: Tips in, v: "A window under the camera" }
-  - { k: Writes to, v: "Notion Meetings DB" }
-  - { k: Status, v: "beta 0.6.0" }
+  - { k: Runs on, v: "Mac, Apple Silicon" }
+  - { k: Speech, v: "Whisper, on your Mac" }
+  - { k: Fact cards, v: "1-2 s, under your camera" }
+  - { k: Writes to, v: "Notion and your project folder" }
+  - { k: Version, v: "0.8.7" }
 ---
 
-You stop agreeing to scope in the moment and regretting it later. When the client asks "how long will the export take?", the number from your own prep is already under the camera. When they slip in "just a small extra", a short hint and a ready phrase appear before you answer. After the call, the action items, your promises and the transcript are on a Meetings page, and you did not write any of it.
+| At a glance | |
+|---|---|
+| **When it speaks** | A question to you, your turn, a new request, a promised date. Silence otherwise. |
+| **What you see** | One card under your camera: the fact and a phrase to say. |
+| **After the call** | Decisions, what is on you, a Notion page and a follow-up draft. |
+| **Sales calls** | General sales, BANT, SPICED or MEDDIC, a Deal tab, HubSpot on your click. |
+| **Privacy** | Audio is transcribed on your Mac. Only text goes to Claude. |
+| **Cost** | The app is free. A typical 30-min call on an API key: about $1.05. |
 
-This is a **beta**: built and tested by one person on real calls, and built on other people's open-source models (see [open source inside](/open-source/)).
+<p class="smallprint"><b>Jump to:</b> <a href="#when-it-speaks">Tips</a> · <a href="#presenting-and-rehearsal">Presenting</a> · <a href="#after-the-call">After the call</a> · <a href="#sales-calls">Sales</a> · <a href="#ai-and-costs">Cost</a> · <a href="#privacy">Privacy</a> · <a href="#requirements">Requirements</a> · <a href="#install-about-15-minutes">Install</a></p>
 
+## When it speaks
 
+A tip carries a number, a date, a name, a status or a ready phrase. Or it is not shown.
 
-## Facts or silence
-
-Silence is the default. A tip carries a number, a date, a name, a status or a ready phrase, or it is not shown. A tip appears when one of these fires:
-
-<div class="grid" style="--min: 240px;">
-<div class="card"><h3 class="card__title">A question to you</h3><p class="card__text">The answer as a ready sentence, with the fact and its source.</p></div>
-<div class="card"><h3 class="card__title">Your turn</h3><p class="card__text">Someone calls you by name: your update, ready to read.</p></div>
-<div class="card"><h3 class="card__title">A new request</h3><p class="card__text">An ask that looks like a change request: "do not agree now" and a phrase that buys time.</p></div>
-<div class="card"><h3 class="card__title">A promised date or estimate</h3><p class="card__text">It never suggests hours. The assignee gives the estimate.</p></div>
-<div class="card"><h3 class="card__title">Fix the owner and date</h3><p class="card__text">A decision was discussed but nobody owns it yet.</p></div>
-<div class="card"><h3 class="card__title">A contradiction</h3><p class="card__text">Something said against a recorded decision.</p></div>
+<div class="tiles" style="--min: 240px;">
+<div class="card card--tile"><h3 class="card__title">A question to you</h3><p class="card__text">The answer as a ready sentence, with the fact and its source.</p></div>
+<div class="card card--tile"><h3 class="card__title">Your turn</h3><p class="card__text">Someone calls you by name: your update, ready to read.</p></div>
+<div class="card card--tile"><h3 class="card__title">A new request</h3><p class="card__text">Looks like a change request: "do not agree now" and a phrase that buys time.</p></div>
+<div class="card card--tile"><h3 class="card__title">A promised date</h3><p class="card__text">It never suggests hours. The assignee gives the estimate.</p></div>
+<div class="card card--tile"><h3 class="card__title">No owner yet</h3><p class="card__text">A decision was discussed, but nobody owns it or dates it.</p></div>
+<div class="card card--tile"><h3 class="card__title">A contradiction</h3><p class="card__text">Something said against a recorded decision.</p></div>
 </div>
 
-It follows the live topic, not the plan: when the talk leaves your agenda, it looks for facts about what is being discussed or stays quiet. Proactive hints ("you can add...") are off by default and one switch away.
+Fact cards from your prep show in 1-2 s, before Claude is even asked. Claude adds the rest.
 
-## Instant before smart
+## What you see
 
-A model needs seconds to think, and the conversation does not wait. So before the call the skill prepares a small fact book and instant cards from your project: tickets with estimates, decisions, dates, open questions. During the call the recorder on your Mac matches every phrase against them and shows the fact within 1 or 2 seconds, with no model in the loop. Claude adds what the cards could not know. With the optional local search (below), the match works by meaning, not only by the exact words.
-
-## What a tip looks like
-
-Built for a small window right under the camera, so your eyes do not wander. 2 to 5 short lines: the gist first, then a ready phrase in the language of the call. Simple sentences, everyday words, no abbreviations.
+2 to 5 short lines: the gist first, then a phrase in the language of the call.
 
 <div class="grid" style="--min: 280px;">
 <div class="tip"><span class="card__tag">New request</span><b>New request. Do not agree now.</b><span>"Good idea. I will write it down. We will check it and come back to you."</span></div>
 <div class="tip"><span class="card__tag">Inaccurate</span><b>Release is 15.10, not 10.10</b><span>"Sorry, a small correction. The release date is October 15."</span><span><i>decision of 30.09</i></span></div>
 </div>
 
-A tip marked as internal relies on an internal source and is never meant to be repeated to the client.
-
 ## The tips window
 
-Tips appear in their own small window, not in a chat you have to keep open. It opens by itself when the recording starts, at the top centre of the screen, right under the camera.
+A small window right under the camera, so your eyes stay on the client.
 
-<div class="grid" style="--min: 240px;">
-<div class="card"><h3 class="card__title">🆘 Help now</h3><p class="card__text">You are talking and cannot type. One click: the best facts for what is being said appear at once, then the next sentence you can say.</p></div>
-<div class="card"><h3 class="card__title">⏸ Pause, ▶ resume</h3><p class="card__text">The talk went aside? Pause the tips. In the app the transcript pauses too (both sides, the dot turns grey); press play and it comes back to the live topic.</p></div>
-<div class="card"><h3 class="card__title">One field</h3><p class="card__text">Typing searches your fact book on the spot. Enter sends the question to Claude, and the answer arrives in the same window.</p></div>
-<div class="card"><h3 class="card__title">One menu</h3><p class="card__text">Meeting type, audience, language, microphone, text size, transparency and help live behind one gear. The top bar stays clean.</p></div>
-<div class="card"><h3 class="card__title">One warning at a time</h3><p class="card__text">Your microphone stopped recording? One alert with a button that fixes it, such as switching to the Mac's own microphone.</p></div>
-<div class="card"><h3 class="card__title">Stealth or demo</h3><p class="card__text">Hidden from screen sharing and screenshots by default. Switch stealth off to show the window to colleagues.</p></div>
+<div class="tiles" style="--min: 240px;">
+<div class="card card--tile"><p class="card__icon">💬</p><h3 class="card__title">One answer on top</h3><p class="card__text">The card that answers "what do I say now", in a large font.</p></div>
+<div class="card card--tile"><p class="card__icon">↺</p><h3 class="card__title">Earlier tips</h3><p class="card__text">One line each. A click brings one back; Back to latest returns.</p></div>
+<div class="card card--tile"><p class="card__icon">☰</p><h3 class="card__title">Agenda bar</h3><p class="card__text">Your checklist marks itself as you go. 5 min before the end: what is not raised.</p></div>
+<div class="card card--tile"><p class="card__icon">⌕</p><h3 class="card__title">Ask a question</h3><p class="card__text">Typing searches your facts at once. Enter asks Claude.</p></div>
+<div class="card card--tile card--accent"><p class="card__icon">🆘</p><h3 class="card__title">HELP NOW</h3><p class="card__text">Talking and cannot type? One click: the best facts, then the next sentence to say.</p></div>
+<div class="card card--tile"><p class="card__icon">▭</p><h3 class="card__title">Compact mode</h3><p class="card__text">A strip with the timer and the phrase. Hidden from screen sharing (checked in Google Meet).</p></div>
 </div>
 
-Pin any card, including your speech, so it stays on top; unpin it and it returns to its place. A ❓ line shows a question to you the moment it is heard, before the tip arrives. The interface speaks English or Ukrainian; the tips follow the language of the call. The 🎙 button is the mic mute: the recorder cannot see the mute button of Meet or Zoom, so when you are muted in a cafe, press it too. Closed the window by accident? Ask in the chat to open it again, and it comes back with every tip since the start of the call.
+<details>
+<summary>Shortcuts, meeting types and reliability</summary>
 
-## It reads the meeting by itself
+- **Shortcuts:** Control-Option-H HELP NOW, -P pause, -M mic, -T compact, -L proactive tips. They work while the meeting app has the focus; change them in Settings > General > Shortcuts.
+- **Reads the meeting by itself:** team, client or your manager on the other side; a discussion or you presenting. Correct it in Call settings.
+- **Interviews:** observer, interviewer, or coach when you are the one being asked.
+- **Tips on or off** per call, and a **Transcript** call type that only records and transcribes.
+- **Recording problems are a state, not a tip:** after 30 s without audio, a red strip with the reason, Mic and Call levels and one action.
+- **Bluetooth headsets:** the headset stays with the call app; Pacenote records you from the built-in mic.
+- **Slow hour at Claude:** the same request goes again after 2-3 s, and the first good answer wins.
+- **Stealth:** the window is hidden from screen sharing by default (checked in Google Meet; test your call app once). Switch it off to demo.
 
-You do not pick a meeting type before every call. Two things are worked out from the schedule, the project and what is being said, and you can correct them in the gear menu:
+</details>
 
-- **Who is on the other side.** Your team (candid, your language), a client (their language, internal facts stay internal, wording tuned to their culture) or your own manager playing the client on an internal project.
-- **What is happening.** A discussion, or you presenting: then it stops interrupting and keeps your outline (Now and Next) in view.
+## Presenting and rehearsal
 
-Two meeting types need a choice because they need their own preparation: **Presentation** (your talk as an outline that follows you) and **Interview**, with three roles:
-
-- **Observer.** Someone else asks and answers; you get a reference answer to compare with what you hear, and an analysis after the call.
-- **Interviewer.** You ask; it tracks your planned questions and suggests a follow-up when an answer is vague.
-- **Coach.** You are the one being asked: a steering committee, questions after a demo, a quarterly review, an audit, or a rehearsal before any of these. Like a coach at the edge of the field: short cues during the game, while you play it yourself. It keeps your prepared talking points, numbers and results within reach, reminds you of the part of a question you have not answered yet, and helps you keep the answer short and structured. It uses only what you prepared and never invents facts.
-
-For client calls, an optional culture lens from your project notes adjusts the wording and reads the signals: in many cultures "a bit concerning" means a real problem.
-
-## Presentation mode: slides and tips side by side
-
-When the meeting type is **Presentation** and the prep has slides (a `<name>.slides.json` file next to the brief), the tips window splits into 2 halves: slide cards with the full text of your speech, and the usual tips stream. It works the same in the Cowork skill and in the app.
-
-<div class="grid" style="--min: 240px;">
-<div class="card"><h3 class="card__title">One slide at a time</h3><p class="card__text">Cards snap into place one by one. Move with the arrows, the buttons or the mouse wheel.</p></div>
-<div class="card"><h3 class="card__title">A timer with a limit</h3><p class="card__text">Set the minutes you have, and the time of each slide scales to fit. The pace shows your words per minute.</p></div>
-<div class="card"><h3 class="card__title">Auto</h3><p class="card__text">Slides turn by the schedule with a short signal, and a warning comes 10 seconds before a slide's time is up.</p></div>
-<div class="card"><h3 class="card__title">Trim</h3><p class="card__text">Running late? Hide the paragraphs marked as safe to skip and keep only what must be said.</p></div>
+<div class="tiles" style="--min: 240px;">
+<div class="card card--tile"><p class="card__tag">Prepare</p><h3 class="card__title">Your talk, slide by slide</h3><p class="card__text">Attach PDF, PowerPoint, Keynote or an outline. Each slide is a card you edit.</p></div>
+<div class="card card--tile card--accent"><p class="card__tag">On the call</p><h3 class="card__title">Presentation mode</h3><p class="card__text">A timer per slide, Plan · Elapsed · Behind, one quiet advice when you run late.</p></div>
+<div class="card card--tile"><p class="card__tag">Before</p><h3 class="card__title">Rehearsal</h3><p class="card__text">Run through with timers, then 4 tough questions from Claude playing the client.</p></div>
 </div>
 
-Each paragraph on a card has a kind: **read aloud**, **may skip**, a **hint** for you (not to be read), or a **colleague's line** that comes right before your part. **My slides / All slides** switches between your part and the whole deck when several people present. At the end a table compares the plan with the actual time of every slide. 📑 hides or shows the cards, ⇄ swaps the 2 sides (the choice is remembered). The window grows towards the cards, so the tips stream stays where you put it.
+- **Fits the time?** A banner says so before the call; each slide has a budget and a one-sentence short version.
+- **Follows you:** Keynote or PowerPoint (app), or your speech: "Move to slide N?"
+- **Colleagues' slides:** no tips while they talk, then one "your turn" card.
+- **Apply to talk:** rehearsal proposes shorter text and better answers. You review them first.
+
+<details>
+<summary>Slide owners, Prepare again and shortcuts</summary>
+
+- **Who presents what:** click a slide or type "5-9 Ann", "1, 14 all", "10-13 me".
+- **Prepare again:** Keep my edits (default) or Rewrite everything. Restore previous version and Review changes show what moved.
+- **Shortcuts while presenting:** Control-Option-S presentation mode, Control-Option-Left and Right, Control-Option-= adds 30 s.
+- **Skill and app** use the same timing, advice and "Move to slide N?"; following Keynote or PowerPoint is app only.
+- Rehearsal records nothing.
+
+</details>
+
+## Before the call
+
+<div class="tiles" style="--min: 240px;">
+<div class="card card--tile"><h3 class="card__title">Your calendars</h3><p class="card__text">Google and Microsoft through macOS. A click fills the title, time and people.</p></div>
+<div class="card card--tile"><h3 class="card__title">Prepare</h3><p class="card__text">A brief, fact cards and your speech, point by point, from your project files.</p></div>
+<div class="card card--tile"><h3 class="card__title">Up next</h3><p class="card__text">Back-to-back calls: prepare the next one while you talk, switch with one question.</p></div>
+</div>
+
+- **Regular meetings** start from the last call's setup, with what was not raised last time.
+- **No time to prepare?** Start anyway: tips when you are addressed, HELP NOW and a search over the project folder.
+- **Open it early:** recording starts when the other side has spoken for about 5 s, or when you press Start.
+
+<details>
+<summary>Where the settings are</summary>
+
+- **Calendars:** add accounts in System Settings > Internet Accounts, then Settings > Integrations > Calendars > Connect calendars and tick the ones with your calls. Read only: Pacenote never changes an event.
+- **Prepare again:** once a brief is ready, Prepare becomes Prepare again and keeps the previous brief.
+- **Brief freshness:** "Brief is 2 days old · 3 changes since", with Refresh for only the changed sections.
+- **Start tips when a call begins:** with Zoom, Teams or a browser call on, Pacenote offers once. It never records by itself.
+- **Where the preparation runs:** Settings > AI > Preparation.
+
+</details>
+
+## After the call
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile card--accent"><h3 class="card__title">After-call panel</h3><p class="card__text">Decisions, what is on you and open questions, right in the tips window.</p></div>
+<div class="card card--tile"><h3 class="card__title">Notion page</h3><p class="card__text">Added to the meeting's page, or a new one. Transcript as a sub-page.</p></div>
+<div class="card card--tile"><h3 class="card__title">Follow-up draft</h3><p class="card__text">Rewrite it in your words. Copy or Open in Mail, never sent for you.</p></div>
+<div class="card card--tile"><h3 class="card__title">Learns from corrections</h3><p class="card__text">Fix the same thing on 2 calls, and every next prep and draft gets it.</p></div>
+</div>
+
+- **Full call notes** after every call: topics, questions and answers, numbers. The next preparation reads them.
+- **Edit the call page** (Command-E): decisions, items on you and on them, open questions and risks. The call's Notion page updates at once.
+- **On you:** your open promises from every call, overdue first. Your Notion tasks can join the list (off by default); a tick sets Notion, Undo for 8 s.
+- **Search calls** (Command-F): ask in plain words, get a quote and jump to the moment.
+- **Transcribe a recording:** a file or a link (Google Drive, YouTube, Vimeo, Dropbox) becomes a transcript on your Mac, voices told apart. Save it to a project or add it to Notion.
+
+<details>
+<summary>How the Notion page is found</summary>
+
+- Add a Notion token in **Settings > Integrations > Notion** and choose one Meetings, Tasks and Risks database for all projects. The project is a property of each page.
+- Pacenote looks in your Meetings database for a page dated within 20 minutes of the call start, so a Notion AI Meeting Notes page counts.
+- Found: it appends a **Pacenote** section. Not found: it creates a page with a real date in the title.
+- Missed it? **Send last call to Notion** in the menu bar.
+- Ask for the follow-up in plain words: "drop the pricing line", "shorter".
+
+</details>
+
+## Sales calls
+
+Sales is an option on top of any call type: Start call > Options > Sales. The default per project is in Settings > Projects.
+
+| Method | What Pacenote follows |
+|---|---|
+| General sales (default) | the client's pain, the value for them, objections, a next step with a date |
+| BANT | Budget, Authority, Need, Timeline |
+| SPICED | Situation, Pain, Impact, Critical event, Decision |
+| MEDDIC | Metrics, Economic buyer, Decision criteria, Decision process, Identify pain, Champion |
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile"><p class="card__tag">Before</p><h3 class="card__title">Sales brief</h3><p class="card__text">Company, from CRM, where we are, likely objections, questions to ask, the goal of this call.</p></div>
+<div class="card card--tile card--accent"><p class="card__tag">During</p><h3 class="card__title">Deal tab and tips</h3><p class="card__text">Each criterion unknown, partly or known. Tips for objections, pain, next step, competitor, buying signal.</p></div>
+<div class="card card--tile"><p class="card__tag">After</p><h3 class="card__title">Sales section and scorecard</h3><p class="card__text">Criteria known, your talk share, open questions. On the call page and in Notion.</p></div>
+</div>
+
+- **Answer cards:** short ready answers per project, edited in Settings > Projects.
+- **Next step reminder:** 5 minutes before the end, if no dated step was agreed.
+- **Company web search:** only the company's name or domain is searched. Switch it off in Settings > AI.
+
+<details>
+<summary>Connect HubSpot</summary>
+
+- In HubSpot: Settings > Development > Keys > Service Keys > Create service key, named Pacenote, with the scopes listed in Settings > Integrations > HubSpot (Copy list).
+- In Pacenote: Settings > Integrations > HubSpot, paste the key, Save, Test. The key stays in the macOS Keychain.
+- **Before the call:** Refresh in Start call reads the company, its open deal, contacts, the last 10 activities and open tasks into a local snapshot next to the brief.
+- **After the call:** Update HubSpot on the call page. A note, deal fields and a follow-up task, each with a checkbox; Apply writes, Undo works for 8 s.
+- Nothing is written without a click. The transcript goes into the note only if you turn that on.
+
+</details>
 
 ## Who is speaking
 
-Everyone on the other side arrives in one audio stream. An optional local voice model tells the voices apart. When a new voice has spoken for a few seconds, the window asks "Who is speaking?" with a quote, so you know whom it means, and buttons with the names from your project and from earlier calls. Nothing is named without you. One click fixes a wrong line or merges two voices; the names apply to the whole call. Identifying voices never delays a tip.
+- A new voice gets a "Who is speaking?" card with a quote and names from your project. Nothing is named without you.
+- Voices are remembered per project: your team everywhere, clients per project. Nothing is saved on a Public call.
+- Similar colleagues stay apart, and Settings > Voice library merges two entries of one person.
 
-## Built for real calls
+<details>
+<summary>How voices are matched</summary>
 
-- **The microphone does not go silent unnoticed.** If the stream freezes (it happens after unmuting in some meeting apps), the recorder restarts it, switches to the Mac's own microphone if needed, and tells you once.
-- **The loop does not stop by itself.** A red warning appears if Claude stops listening, and one word in the chat brings it back.
-- **The prep is checked.** The call does not start on an empty fact book: the skill checks that the cards and facts were written.
+- The library learns only from a speaker you named, and only from lines that sound like that person.
+- How close a voice must be grows with the number of lines behind it, so one noisy line does not decide.
+- Renaming a speaker to another known person moves the old person's lines back.
+- Voice prints stay on your Mac, and naming voices never delays a tip.
 
-## Optional: local search with Ollama
+</details>
 
-With [Ollama](https://ollama.com) and a small multilingual embedding model (`bge-m3`), the recorder understands meaning, not only words. Facts appear when a question is phrased differently from your notes, 🆘 finds the right one, and the text files of each project, including a local copy of your Notion, become searchable during the call. Each project gets its own index, so projects never mix. Logs show whether it helped on your calls, and one switch turns it off.
+## AI and costs
 
-## A call, step by step
-
-1. **Prep in the same session.** Meeting prep, the Notion pages or folder to focus on. The brief, the fact book and the cards start from it.
-2. **Say "live tips" right before the call.** Recording starts at once (your microphone and the other side as 2 channels), the tips window opens under the camera and shows your speech.
-3. **Use the window, not the keyboard.** 🆘 when you need help now, ⏸ when the talk goes aside, a question in the field when you have a second.
-4. **Stop it explicitly.** Type "stop" in the window or the chat, close the Terminal window, or let the idle timer ask. Closing Zoom or Meet does not stop the recording.
-
-**Open it before the call (standby).** You can start a few minutes early: the window opens, but nothing is recorded and no microphone warnings appear while you wait. Recording starts by itself when the other side has been speaking for about 5 seconds, or at once when you press the green **Start**. This works in the skill and in the app.
-
-**No time to prepare? Start anyway.** A preparation makes tips richer, it is not required. Without it you still get the red tips when you are addressed (a question to you, your turn, a new request, a date being promised), HELP NOW, answers to questions you type, a search over the project folder, On me and the meeting page after the call. A question nothing ready answers gets a sentence you can say at once ("give me a minute, I will check") and starts a deeper, read-only search: Claude Code reads the project folder, the local Notion copy and earlier calls, and the answer arrives as a new card, usually in 15-60 seconds. Missing until a preparation arrives: the speech card and the instant fact cards. A preparation that finishes after the start joins the call by itself, so a late one costs you a quieter first few minutes, not the call. Two lines in Call context (the goal, what to look for) already help.
-
-**Correct what you see.** ✎ on any card edits its heading, phrase and points, or removes it; in On me, × removes a line, a double-click corrects it and a field adds what the call picture missed. Corrections stay for the call and the Notion summary takes them as true. The 📄 button opens the full preparation next to the tips, editable; Read prep in Home shows and edits it before the call.
-
-**Proactive tips during the call.** The 💡 button in the top bar switches proactive tips (ideas to add: a missing owner or date, a fact worth mentioning) on and off without opening ⚙. The top bar now reads left to right: the dot, the title and the timer; then what the tips do (💡 proactive, ⏸ pause) and your mic (🎙); then the view (transcript, ⚙). End call stays apart, in the window's title bar, and always asks first.
-
-**Calendars and Home.** Settings > Calendars: add accounts in System Settings > Internet Accounts (several Google and Microsoft accounts are fine), connect, and tick the calendars with your calls. Start call then shows the calls around now as chips (in progress, in 5 min, overlapping ones too); a click fills the title, time, participants and, for a regular meeting, everything from its last call. Home lists the calls ahead with Prepare (it asks first for the project or workspace and what matters on the call), Set up, Start or Switch, this week's numbers, and the recent calls with Notion, Transcript and Show in Finder. An optional reminder before calendar calls is off by default.
-
-**Back-to-back calls: Up next.** During a call, Start call becomes **Plan an upcoming call**: the same window with a red "Recording: ..." line on top, so it is clear it does not start anything. **Add to Up next** keeps the call, **Prepare** writes its preparation while you talk (one at a time; the others wait in line), and **End current call and start this...** switches after one question. In the tips window, ⚙ > Up next lists the planned calls with their preparation (Edit, Prepare, Switch, ×), and the dock shows the next one with a **Switch...** button. End call offers "End and start <next call>", and after a call ends the green **Start next** button starts the next call at once. The list is kept when the app restarts. A preparation joins only the call it was made for.
-
-**The dot next to the call's name** shows the recording: grey while waiting for the call or paused, blue while the recording starts or stops (between pressing Start and the first transcribed second), blinking red while it records, orange when the microphone has a problem, green when it has stopped and the transcript is saved.
-
-## After the call: notes you did not have to write
-
-A wrap-up in the chat: action items with owners and dates, new requests, your commitments, open questions, and answers worth coming back to. It goes into the meeting's existing Notion page (for example the one Notion AI Meeting Notes created), and a new page appears only when there is none. Your notes from the call become lessons for the next one. Next steps (a report, a change request, a risk) are offered, never run without your command.
-
-## Pacenote app (beta)
-
-The same tips loop as a native macOS app in the menu bar, without a Cowork chat running during the call. It records the call on your Mac, transcribes it there with Whisper on MLX and calls the Claude API directly with your own API key, kept in the macOS Keychain.
-
-<div class="btns" style="margin: 8px 0 24px;">
-<a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download Pacenote for Mac (.dmg)</a>
-</div>
-
-<div class="grid" style="--min: 240px;">
-<div class="card"><h3 class="card__title">No chat to keep alive</h3><p class="card__text">The app asks the model on events (a question, your name, a new request) instead of a chat loop that can fall silent.</p></div>
-<div class="card"><h3 class="card__title">Spending limits</h3><p class="card__text">A soft and a hard limit per call and a monthly cap. The menu shows this call and this month. At the hard limit only the local layer keeps working.</p></div>
-<div class="card"><h3 class="card__title">Local AI built in</h3><p class="card__text">A small model on the Mac (bge-m3) matches facts and cards by meaning and powers 🆘 and project search. No Ollama needed.</p></div>
-<div class="card"><h3 class="card__title">Ready for the call</h3><p class="card__text">Standby start, a choice of microphone that stays put, the split view for presentations and the same tips window.</p></div>
-<div class="card"><h3 class="card__title">Notes in Notion</h3><p class="card__text">After the call the wrap-up and the transcript land on the meeting's Notion page: added to the existing one, or a new page when there is none.</p></div>
-<div class="card"><h3 class="card__title">Knows who is speaking</h3><p class="card__text">As in the skill: name a new voice once from the project's people, and the tips and the summary use the name. Voice prints stay on your Mac.</p></div>
-<div class="card"><h3 class="card__title">Interviews, both sides</h3><p class="card__text">Pick your role in Start call: you watch, you ask, or you are the one being interviewed. Tips follow the role.</p></div>
-<div class="card"><h3 class="card__title">Fast on busy hours</h3><p class="card__text">When Claude is slow to start, the same request goes again and the first good answer wins.</p></div>
-</div>
-
-**It is a beta, so expect rough edges:**
-
-- **Not notarized yet.** On the first launch macOS refuses to open it: open **System Settings > Privacy & Security**, press **Open Anyway** next to Pacenote and confirm (on macOS 14 a right-click > **Open** also works). After that it opens normally. Before that, you can check the download against the [SHA-256 checksums](https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt) published with every release: `shasum -a 256 ~/Downloads/LiveTips.dmg`.
-- **macOS 14.4 or newer on Apple silicon** (M1 or newer).
-- **Python 3.10 or newer.** The Setup window checks it and installs the rest (Python modules and models, about 2.5 GB in total) with a tick next to each step. Nothing needs an administrator password.
-- **Claude: an API key, your Claude plan, or both.** The key is billed by Anthropic per use (usually $0.10 to $1.20 per hour of a call, and the limits keep it in check). Your Claude plan works through Claude Code, best for the preparation and the summary. Settings > AI picks the way for each job and switches by itself when one is out.
-
-### After the call: the meeting page in Notion
-
-Turn on **Write the call summary to Notion** in Settings and add a Notion token in Keys. When you end the call, one Claude call writes the wrap-up: action items with owners and dates, decisions, your commitments, new requests, open questions and risks. The app finds this meeting's page in your Meetings database (its date within 20 minutes of the call start, so a Notion AI Meeting Notes page counts) and appends a **Pacenote** section with the transcript as a sub-page. No page yet: it creates one, with a real date in the title. Missed it? **Send last call to Notion** in the menu bar does it later. Only text goes to Claude and Notion; audio stays on your Mac.
-
-**Shortcuts.** Control-Option-H is HELP NOW and Control-Option-P pauses the transcript and the tips, even while the meeting app has the focus; change them in Settings > General > Shortcuts. The app and the skill can also record the same call side by side, each with its own files, if you want to compare them.
-
-### App or skill?
-
-Both do roughly the same job: the same rules, the same "facts or silence", the same tips window. Pick the one that fits how you work.
-
-- **Skill in Cowork:** no API key, it runs on your Claude plan, and it can look things up in Notion and the tracker during the call. It needs the Cowork chat to stay busy for the whole call.
-- **App:** one click from the menu bar, no chat to watch, your own key or Claude plan, and your limits.
-
-They work best together. Make the prep in Cowork (the brief, fact cards, an outline and slides for a presentation): the app picks it up by itself when the prep title matches the call title, so keep the same title for both. Without a prep the app still works: it uses the call context you type in **Start call** and a local search over the project folder.
-
-## Open source inside, beta outside
-
-The heavy parts are other people's open-source work: speech recognition, voice and text embeddings. What is built here is the glue around them: the audio capture and its watchdogs, the filters around Whisper, the tips window, the protocol between the recorder and Claude, instant cards, speaker naming, the local index and the skill itself. Claude writes the tips.
-
-- **Whisper** (OpenAI, MIT) on **MLX** (Apple, MIT): speech recognition.
-- **WebRTC VAD** (BSD) via py-webrtcvad (MIT): speech or silence.
-- **sherpa-onnx** (Apache-2.0) with the **WeSpeaker** voice model (trained on VoxCeleb, CC BY 4.0): who is speaking.
-- **Ollama** (MIT) with **bge-m3** (BAAI, MIT): local search by meaning.
-
-It is a beta: tested by one person on one Mac since October 2026, thresholds are still tuned, Zoom and Teams are not fully verified. The full list with licences, links and what exactly is built here is on the [open source page](/open-source/). Found a problem? [Open an issue](https://github.com/bodco/pm-control-tower/issues).
-
-## Why it is built this way
-
-- **Local Whisper.** Client conversations do not go to a third-party transcription service. The model runs on Apple Silicon. The network is needed once, to download it.
-- **2 channels, not 1.** Microphone and system audio are captured separately, so the transcript knows when you speak.
-- **Your languages are fixed in advance.** Your microphone is recognised only among your own languages. Better than auto-detect.
-- **Files as the interface.** The skill (the written instructions Claude follows) and the recorder talk only through a few files and one small command line helper.
-
-## Privacy and etiquette
-
-- Audio is not stored. Recognised phrases go straight to a text file, audio buffers live only in memory.
-- Voice prints, if you turn speakers on, stay on your Mac. A voice print is biometric data in many countries: tell people, and delete the ones you do not need.
-- Transcripts stay in your project folder. Keep them out of public repositories.
-- The Meetings page is internal. The skill never sends anything to the client.
-- Tell participants you keep a transcript and use an assistant, as with any note taker. Consent rules differ by country, by contract and by the meeting itself.
-- The full text: [Pacenote privacy policy](/pacenote/privacy/) and [terms of use](/pacenote/terms/).
-
-## What you need
-
-| | |
+| What runs | Measured cost |
 |---|---|
-| Mac | Apple Silicon (M1 or newer, 16 GB of memory is enough), macOS 14.2 or newer |
-| Tools | Xcode Command Line Tools, Python 3.10+ |
-| Disk | About 2.5 GB for the model and the environment, plus about 1.3 GB for the optional extras |
-| Claude | The app: a Claude API key, or a Claude plan with Claude Code. The skill: Claude desktop (Cowork) with a connected folder and the `live-tips` skill. A PM Control Tower project config is optional |
-| Notion | Optional but recommended: the brief and the page after the call need it |
-| Optional | Ollama with `bge-m3` for local search; the voice model for "who is speaking" |
+| Preparation, Sonnet on an API key | about $0.77, 3 min |
+| Preparation, Opus on an API key | $2.57, about 6 min |
+| Preparation and after-call jobs on your Claude plan (default) | from the plan's limits, no extra charge |
+| Live tips, Haiku on an API key (default) | about $0.05 per 14 min, median 1.6 s |
+| Live tips, Sonnet on an API key | about $0.27 per 14 min, median 2.0 s |
+| A typical call on a key: Sonnet brief, Haiku tips | about $1.05 for 30 min, $1.15 for 1 hour |
+| Preparation and notes on this Mac, Gemma 4 26B | free, a thinner brief |
 
-The Pacenote app needs less: macOS 14.4 or newer and Python 3.10 or newer, the rest comes from its Setup window. See [the app section](#pacenote-app-beta).
+- **Limits:** a soft and a hard limit per call and a monthly cap. At the hard limit only the local layer works.
+- **Plan B:** if Claude does not answer, preparation and after-call jobs run on the local model. Live tips stay on Claude.
+- **Auto switch:** when the key or the plan is out, the job goes the other way, then back.
+- **Optional add-ons:** Ollama, the local Gemma model (about 16 GB) and the link downloader install only when you choose, never during a call.
 
-A model tip: a faster model for everyday calls, the strongest one for interviews and high-stakes calls.
+## App or skill
+
+<p class="cmp-legend"><span><span class="mk mk--yes" aria-hidden="true">✓</span>yes</span><span><span class="mk mk--part" aria-hidden="true">◐</span>partial</span><span><span class="mk mk--no" aria-hidden="true">✗</span>no</span></p>
+
+| | Pacenote app | Skill in Cowork |
+|---|---|---|
+| Runs in | the menu bar, one click | your Cowork chat |
+| Claude | ✓ your plan or API key, per job | ✓ your Claude plan, no key |
+| Nothing to keep open | ✓ | ✗ chat busy for the whole call |
+| Mid-call lookups | ◐ prep, call context, project folder | ✓ Notion, tracker, project files |
+| Spending limits | ✓ per call and per month | ◐ your plan's limits |
+| Slides follow Keynote or PowerPoint | ✓ | ✗ speech only |
+| Setup | ✓ Setup window installs it all | ◐ about 15 min, steps below |
+
+Best together: prepare in Cowork, and the app picks the prep up when the titles match.
+
+<div class="btns" style="margin: 8px 0 8px;">
+<a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download Pacenote for Mac (.dmg)</a>
+<a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>Download the skill (.skill)</a>
+</div>
+
+<p class="smallprint">First launch: System Settings > Privacy & Security > Open Anyway. Check the download with the <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>: <code>shasum -a 256 ~/Downloads/Pacenote.dmg</code>.</p>
+
+## Privacy
+
+- **Audio is not stored.** Phrases go straight to a text file; audio lives only in memory.
+- **Local Whisper.** Client calls never go to a transcription service.
+- **2 channels.** Your mic and the call are recorded apart, so the transcript knows when you speak.
+- **Your languages, set in advance.** More accurate than auto-detect.
+- **Voice prints stay on your Mac.** In many countries they are biometric data: tell people.
+- **Transcripts stay in your project folder.** Keep them out of public repositories.
+- **Nothing goes to the client.** The Meetings page is internal; drafts wait for you.
+- **HubSpot only on your click.** The key stays in the Keychain; the transcript is off by default.
+- **Company web search:** only the company's name or domain, never your files.
+- **Local usage log.** Event names and numbers, stays on your Mac. Switch it off in Settings > General > Privacy.
+- **Nothing goes to the author.** No analytics, no tracking.
+- **Tell participants** you keep a transcript, as with any note taker.
+
+Full texts: [privacy policy](/pacenote/privacy/) and [terms of use](/pacenote/terms/).
+
+## Requirements
+
+| Requirement | App and skill |
+|---|---|
+| Mac | Apple Silicon (M1 or newer) |
+| macOS | App 14.4 or newer, skill 14.2 or newer |
+| Tools | Python 3.10+. App: Setup adds the rest, Claude Code included. Skill: also Xcode Command Line Tools |
+| Disk | About 2.5 GB. Skill extras: about 1.2 GB more. Optional local model: about 16 GB |
+| Claude | App: a Claude plan or an API key. Skill: Claude desktop (Cowork) with a connected folder |
+| Notion | Optional, for the brief, the meeting page and your tasks |
+| HubSpot | Optional, a service key for sales calls |
+
+16 GB of memory is enough for the speech and search models. The app's Setup needs no administrator password.
 
 ## Install, about 15 minutes
 
-Most of the time is the model download. Do it once, after [floor 2](/start/) works.
+For the skill. The app installs itself from its Setup window. Most of the time is the model download; do it once, after [floor 2](/start/) works.
 
-### 1. The tools it needs
+<details open>
+<summary>1. The tools it needs</summary>
 
 If you do not have them yet, paste these into Terminal one at a time (<kbd>Cmd</kbd>+<kbd>Space</kbd>, "Terminal"). Homebrew itself is on [the setup page](/start/#programs-some-add-ons-need).
 
@@ -227,7 +281,10 @@ brew install python@3.12
 
 The first one opens a window. Press **Install** and wait until it finishes.
 
-### 2. Put the recorder on your Mac
+</details>
+
+<details>
+<summary>2. Put the recorder on your Mac</summary>
 
 The recorder lives in the [Pacenote repository](https://github.com/bodco/live-tips) (the app installs its own copy, this is for the skill). Download the repository, then ask Claude in a task with the `work` folder:
 
@@ -235,7 +292,10 @@ The recorder lives in the [Pacenote repository](https://github.com/bodco/live-ti
 copy the recorder folder from ~/work/live-tips to ~/work/Tools/live-transcriber
 ```
 
-### 3. Run the installer
+</details>
+
+<details>
+<summary>3. Run the installer</summary>
 
 This one you run yourself in Terminal, because macOS gives sound permissions only to the person at the Mac:
 
@@ -245,7 +305,10 @@ bash ~/work/Tools/live-transcriber/install.sh
 
 It builds a small audio program, installs the speech model (about 1.6 GB) and then tests your sound.
 
-### 4. Allow the microphone and system audio
+</details>
+
+<details>
+<summary>4. Allow the microphone and system audio</summary>
 
 During the test macOS asks 2 questions. Answer **Allow** to both:
 
@@ -259,7 +322,10 @@ Missed the pop-ups? Open **System Settings**, **Privacy & Security**:
 - **Microphone**: switch on **Terminal**.
 - **Screen & System Audio Recording**: add **Terminal** under system audio recording.
 
-### 5. Optional extras
+</details>
+
+<details>
+<summary>5. Optional extras</summary>
 
 Who is speaking (a local voice model, about 30 MB):
 
@@ -271,10 +337,13 @@ Local search by meaning: install [Ollama](https://ollama.com), then index each p
 
 ```
 ollama pull bge-m3
-~/work/Tools/live-transcriber/bin/lt index "$HOME/work/Acme Portal"
+~/work/Tools/live-transcriber/bin/lt index "$HOME/work/Orbit"
 ```
 
-### 6. Check it
+</details>
+
+<details>
+<summary>6. Check it</summary>
 
 Ask Claude:
 
@@ -284,7 +353,10 @@ check ~/work/Tools/live-transcriber/logs/install.log and tell me if the install 
 
 **Done when** the log ends with `install OK` and both the `mic` and `sys` peaks are above zero. If `sys` is zero, most likely nothing was playing during the test. Play a video and ask Claude to run the system audio check from `docs/en/17-live-tips.md`.
 
-### 7. Try the tips window
+</details>
+
+<details>
+<summary>7. Try the tips window</summary>
 
 ```
 python3 ~/work/Tools/live-transcriber/bin/demo_prompter.py
@@ -292,7 +364,10 @@ python3 ~/work/Tools/live-transcriber/bin/demo_prompter.py
 
 A scripted call of about 2 minutes plays in the real window: a speech, tips, a question marker, a "Who is speaking?" card, a microphone warning. Press 🆘 and ⏸ to see what they do. To check stealth, start a meeting in Google Meet, share your entire screen and look at what Meet shows you are presenting. **Done when** the window is not in that picture.
 
-### 8. Try it on a fake call
+</details>
+
+<details>
+<summary>8. Try it on a fake call</summary>
 
 In a Cowork task with the `work` folder and Notion on:
 
@@ -301,3 +376,9 @@ live tips <your project>
 ```
 
 A "Live transcriber" Terminal window and the tips window open by themselves. Talk for a minute, then write `stop` in the chat. **Done when** you get a wrap-up in the chat and the meeting's page in your Meetings database.
+
+</details>
+
+## Built on open source
+
+Whisper on MLX, WebRTC VAD, sherpa-onnx with WeSpeaker, Ollama with bge-m3: licences and links on the [open source page](/open-source/). Found a problem? [Open an issue](https://github.com/bodco/pm-control-tower/issues).

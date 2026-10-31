@@ -547,3 +547,155 @@ html[data-theme='light'] .pn-theme--dark { display: none !important; }
 html[data-theme='light'] .pn-theme--light { display: block !important; }
 .pn-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .newlink svg.logo circle { fill: #0a6cff; }
+
+/* ===== 2026-10-30: scannable Pacenote pages (classes documented in review/design-components.md) ===== */
+:root { --yes: #7fd1a4; --no: #7d838c; --part: #f2b84b; --header-h: 70px; }
+html[data-theme='light'] { --yes: #1d7a4b; --no: #8a8e96; --part: #8a5a00; }
+html[data-brand='pacenote'] { --pn-tint: rgba(77, 157, 255, 0.07); }
+html[data-brand='pacenote'][data-theme='light'] { --pn-tint: rgba(10, 108, 255, 0.06); }
+
+/* Comparison table: built from a Markdown table by src/lib/rehype-compare.mjs (cells start with ✓ ✗ ◐). */
+.cmp-wrap { border: 1px solid var(--line-strong); border-radius: 12px; background: var(--band); }
+.prose table.cmp { display: table; width: 100%; table-layout: fixed; border: 0; border-radius: 0; background: none; overflow: visible; font-size: 14px; }
+.prose .cmp th, .prose .cmp td { min-width: 0; overflow-wrap: anywhere; }
+.prose .cmp thead th { position: sticky; top: var(--header-h); z-index: 2; background: var(--bg); padding: 14px 16px; white-space: normal; color: var(--text-2); }
+.prose .cmp thead th:first-child { border-top-left-radius: 11px; }
+.prose .cmp thead th:last-child { border-top-right-radius: 11px; }
+.prose .cmp thead th.is-pn { color: var(--accent); background: linear-gradient(var(--pn-tint, transparent), var(--pn-tint, transparent)), var(--bg); }
+.prose .cmp .cmp__corner { width: 26%; }
+.prose .cmp td { padding: 12px 16px; line-height: 1.45; color: var(--text-2); }
+.prose .cmp td.cmp__label { color: var(--text); font-size: 15px; font-weight: 500; }
+.prose .cmp .is-pn { background: var(--pn-tint, transparent); }
+.prose .cmp td.is-pn { color: var(--text); }
+.cmp__cell { display: flex; align-items: flex-start; gap: 10px; position: relative; }
+.cmp__txt { min-width: 0; font-size: 13.5px; line-height: 1.45; color: var(--text-2); padding-top: 1px; }
+.cmp .is-pn .cmp__txt { color: var(--text); }
+.mk { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; font-size: 12px; font-weight: 700; line-height: 1; font-family: var(--sans); }
+.mk--yes { color: var(--yes); background: color-mix(in srgb, var(--yes) 16%, transparent); }
+.mk--part { color: transparent; position: relative; background: color-mix(in srgb, var(--part) 16%, transparent); }
+.mk--part::after { content: ''; position: absolute; left: 5px; top: 5px; width: 10px; height: 10px; border-radius: 50%; box-shadow: inset 0 0 0 1.5px var(--part); background: linear-gradient(90deg, var(--part) 50%, transparent 50%); }
+.mk--no { color: var(--no); background: transparent; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--no) 45%, transparent); }
+.mk--no + .pn-sr + .cmp__txt { color: var(--text-3); }
+.prose .cmp tr.cmp__grp th strong { font-weight: 600; }
+.prose .cmp tr.cmp__grp th { background: var(--bg); color: var(--text); font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 500; text-align: left; padding: 18px 16px 10px; border-top: 1px solid var(--line-strong); border-bottom: 1px solid var(--line); }
+.prose .cmp tr.cmp__grp + tr td { border-top: 0; }
+/* Phones: the row name goes on its own line, the products stay side by side; the header row sticks. */
+@media (max-width: 640px) {
+  .cmp-wrap { border-radius: 10px; }
+  .prose table.cmp, .prose .cmp thead, .prose .cmp tbody { display: block; }
+  .prose .cmp tr { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); }
+  .prose .cmp thead { position: sticky; top: var(--header-h); z-index: 2; background: var(--bg); border-radius: 10px 10px 0 0; border-bottom: 1px solid var(--line-strong); }
+  .prose .cmp thead th { position: static; padding: 12px 10px; font-size: 10px; letter-spacing: 0.1em; border-bottom: 0; }
+  .prose .cmp thead th.cmp__corner { display: none; }
+  .prose .cmp thead th:nth-child(2) { border-left: 0; border-top-left-radius: 10px; }
+  .prose .cmp th:first-child, .prose .cmp td:first-child { position: static; min-width: 0; background: transparent; }
+  .prose .cmp td { padding: 4px 10px 12px; border-top: 0; }
+  .prose .cmp td.cmp__label { grid-column: 1 / -1; padding: 12px 10px 6px; border-top: 1px solid var(--line); font-size: 14px; }
+  .prose .cmp tr:first-child td.cmp__label { border-top: 0; }
+  .prose .cmp td:nth-child(2) { border-left: 0; }
+  .prose .cmp td.is-pn { background: var(--pn-tint, transparent); }
+  .prose .cmp td.cmp__label.is-pn { background: transparent; }
+  .prose .cmp tr.cmp__grp th { grid-column: 1 / -1; position: static; padding: 16px 10px 8px; }
+  .cmp__cell { flex-direction: column; gap: 4px; }
+  .cmp__txt { font-size: 13px; }
+}
+
+/* Benefit tiles: short title, 1-2 lines. Optional number up front. */
+.tiles { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(var(--min, 200px), 100%), 1fr)); }
+.prose .tiles { margin-top: 20px; }
+.card--tile { padding: 18px 20px; gap: 6px; }
+.prose .card--tile .card__title, .card--tile .card__title { font-size: 16.5px; line-height: 1.3; margin: 0; }
+.card--tile .card__text { font-size: 14.5px; line-height: 1.5; }
+.card__icon { width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; background: var(--pn-tint, var(--chip-active)); color: var(--accent); font-size: 17px; line-height: 1; margin: 0 0 4px; }
+.prose .card__icon { margin: 0 0 4px; }
+.card__num { margin: 0; font-size: 30px; line-height: 1; font-weight: 700; letter-spacing: -0.02em; color: var(--text); }
+.prose .card .card__num { margin: 0 0 4px; }
+.card__num small { font-size: 14px; font-weight: 500; color: var(--text-2); letter-spacing: 0; margin-left: 4px; }
+@media (max-width: 640px) {
+  .tiles--2up { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .tiles--2up .card--tile { padding: 14px; }
+  .card--tile { padding: 16px; }
+}
+
+/* Version badge, usable anywhere (headings, tiles, the hero note). */
+.vbadge { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; background: var(--accent); color: var(--on-accent); font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; line-height: 1.5; text-transform: uppercase; vertical-align: middle; white-space: nowrap; }
+.vbadge--soft { background: transparent; color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+html[data-brand='pacenote'][data-theme='light'] .vbadge:not(.vbadge--soft) { background: #0a6cff; color: #fff; }
+.prose h2 .vbadge, .prose h3 .vbadge { margin-left: 10px; position: relative; top: -3px; }
+
+/* "What's new" list. */
+.newlist { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 12px; padding: 20px 22px; }
+.newlist__head { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; font-weight: 600; color: var(--text); font-size: 16px; }
+.prose .newlist__head { margin: 0 0 12px; }
+.newlist ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px 32px; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+.prose .newlist ul { margin: 0; }
+.prose .newlist li + li { margin-top: 0; }
+.newlist li { position: relative; padding-left: 20px; font-size: 15px; line-height: 1.5; color: var(--text-2); }
+.newlist li::before { content: ''; position: absolute; left: 2px; top: 0.62em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
+.newlist li b, .newlist li strong { color: var(--text); font-weight: 600; }
+@media (max-width: 640px) { .newlist { padding: 16px; } .newlist li { font-size: 14.5px; } }
+
+/* Verdict: "Pick X if" cards on the compare page. */
+.verdict { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); }
+.verdict__card { border: 1px solid var(--line-strong); background: var(--surface); border-radius: 12px; padding: 20px 22px; display: flex; flex-direction: column; gap: 10px; }
+.verdict__card--pn { border-color: var(--accent); background: var(--surface-warm); }
+.verdict__title { margin: 0; font-size: 17px; line-height: 1.3; font-weight: 600; color: var(--text); }
+.prose .verdict__title { margin: 0; font-size: 17px; }
+.verdict__title span { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-3); font-weight: 500; margin-bottom: 4px; }
+.verdict__card--pn .verdict__title span { color: var(--accent); }
+.verdict ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.prose .verdict ul { margin: 0; }
+.prose .verdict li + li { margin-top: 0; }
+.verdict li { position: relative; padding-left: 26px; font-size: 14.5px; line-height: 1.45; color: var(--text-2); }
+.verdict li::before { content: '✓'; position: absolute; left: 0; top: 1px; width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--text-2); background: var(--chip-active); }
+.verdict__card--pn li::before { color: var(--yes); background: color-mix(in srgb, var(--yes) 16%, transparent); }
+.verdict li b, .verdict li strong { color: var(--text); font-weight: 600; }
+
+/* Gallery as a horizontal strip (scrolls inside itself, never the page). */
+.gallery--strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(280px, 42%); grid-template-columns: none; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 12px; overscroll-behavior-x: contain; }
+.gallery--strip .ltshot, .gallery--strip .ltshot--wide { grid-column: auto; scroll-snap-align: start; }
+.gallery--strip .ltshot--wide { grid-column: span 1; }
+@media (max-width: 640px) { .gallery--strip { grid-auto-columns: 86%; gap: 14px; } }
+
+/* Pacenote pages: no side rail on the landing, section chips on the compare page, compact rail on details. */
+.page-body--solo .page-main { max-width: 1000px; margin-left: auto; margin-right: auto; }
+.page-body--solo .toc { flex: 1 1 100%; min-width: 0; max-width: 1000px; margin-left: auto; margin-right: auto; position: static; }
+.toc--chips .toc__sum { display: none; }
+.toc--chips .toc__links { flex-direction: row; flex-wrap: wrap; gap: 8px; }
+.toc--chips a { border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 14px; font-size: 13.5px; line-height: 1.3; min-height: 36px; display: inline-flex; align-items: center; }
+.toc--chips a:hover, .toc--chips a.is-active { border-color: var(--accent); color: var(--text); }
+@media (max-width: 700px) {
+  .toc.toc--chips { border: 0; background: none; }
+  .toc--chips .toc__links { flex-wrap: nowrap; overflow-x: auto; padding: 0 0 6px; scrollbar-width: none; }
+  .toc--chips .toc__links::-webkit-scrollbar { display: none; }
+  .toc--chips a { flex: none; }
+}
+@media (min-width: 961px) {
+  .toc--compact { max-height: calc(100vh - 110px); overflow-y: auto; }
+  .toc--compact a { padding: 6px 12px; font-size: 13px; line-height: 1.35; }
+}
+
+/* Product hero: one primary button, the rest as quiet links. */
+.hero-alt { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 18px; margin: 0; font-size: 15px; }
+.hero-alt a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; color: var(--text-2); text-decoration: underline; text-decoration-color: var(--line-button); text-underline-offset: 4px; }
+.hero-alt a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+.hero-alt svg.logo { width: 16px; height: 16px; flex: none; }
+@media (max-width: 600px) { .product-hero .btns--one { display: flex; } .product-hero .btns--one .btn { width: 100%; justify-content: center; } }
+
+/* .aimix inside .prose: the prose heading margins pushed its title down (empty band at the top). */
+.prose .aimix__title { margin: 0 0 4px; }
+.prose .aimix__lead { margin: 0 0 14px; }
+.prose .aimix__col h4 { margin: 0 0 6px; }
+.prose .aimix__note { margin: 12px 0 0; }
+
+/* Legend above a comparison table. */
+.cmp-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; font-size: 13px; color: var(--text-3); }
+.prose .cmp-legend { margin-top: 12px; }
+.cmp-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.prose .cmp-legend + .cmp-wrap { margin-top: 12px; }
+
+/* 2026-10-30: the strip shows every screen in one box height, so tall and wide shots line up. */
+.gallery--strip .ltshot__img { height: 340px; width: 100%; object-fit: contain; object-position: center; }
+.gallery--strip .ltshot figcaption { font-size: 0.9rem; }
+@media (max-width: 640px) { .gallery--strip .ltshot__img { height: 280px; } }
+.tiles + .aimix { margin-top: 20px; }

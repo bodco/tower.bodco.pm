@@ -1,112 +1,136 @@
 ---
 title: Pacenote
-lead: "It listens on your Mac and speaks up only when a fact or a phrase is needed: a question to you, your turn, a new request, a date you are about to promise."
+lead: "Preps you from your own project files, shows the fact or phrase you need the second you need it, and writes the notes and the follow-up when you hang up."
 doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 facts:
-  - { k: Runs on, v: "Mac, Apple Silicon" }
-  - { k: Audio, v: "Stays on your Mac" }
-  - { k: Cost, v: "Free app, about $0.2-0.8 of Claude per call" }
+  - { k: Price, v: "Free app (MIT), no seats" }
+  - { k: Audio, v: "Never leaves your Mac" }
+  - { k: Claude, v: "Your plan or your API key" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Status, v: "beta 0.8.4" }
+  - { k: Version, v: "0.8.7" }
 ---
 
+<div class="tiles">
+<div class="card card--tile"><p class="card__tag">Before</p><h3 class="card__title">Walk in prepared</h3><p class="card__text">A brief, fact cards and your speech, written from your project files.</p></div>
+<div class="card card--tile"><p class="card__tag">During</p><h3 class="card__title">The fact, right when asked</h3><p class="card__text">The answer and a ready phrase, under your camera. Silence otherwise.</p></div>
+<div class="card card--tile"><p class="card__tag">After</p><h3 class="card__title">Notes already written</h3><p class="card__text">Decisions, what is on you, a Notion page and a follow-up draft.</p></div>
+<div class="card card--tile card--accent"><p class="card__tag">Presenting</p><h3 class="card__title">On time, slide by slide</h3><p class="card__text">A timer per slide, and a rehearsal against tough client questions.</p></div>
+</div>
+
+<div class="tiles tiles--2up">
+<div class="card card--tile"><p class="card__num">0 bytes</p><p class="card__text">of audio leave your Mac</p></div>
+<div class="card card--tile"><p class="card__num">1-2 s</p><p class="card__text">to a fact card from your prep</p></div>
+<div class="card card--tile"><p class="card__num">$0</p><p class="card__text">the app; Claude on your own plan or key</p></div>
+<div class="card card--tile"><p class="card__num">0 bots</p><p class="card__text">in the meeting, any call app on the Mac</p></div>
+</div>
+
+## New in 0.8.7 <span class="vbadge vbadge--soft">0.8.7</span>
+
+<div class="newlist">
+<ul>
+<li>💼 <b>Sales mode.</b> On top of any call: General sales, BANT, SPICED or MEDDIC, a Deal tab and sales tips.</li>
+<li>🔗 <b>HubSpot.</b> A snapshot before the call; after it, tick what to update, Apply, Undo for 8 s.</li>
+<li>⚙️ <b>Settings > Integrations.</b> Notion, Calendars and HubSpot; one Meetings, Tasks and Risks database for all projects.</li>
+<li>✏️ <b>Edit the call page.</b> Decisions, items and risks; the call's Notion page updates at once.</li>
+<li>🧭 <b>What Pacenote can do.</b> Every feature with Try it, in Help and on Home.</li>
+<li>🎙️ <b>Transcribe a recording (0.8.6).</b> A file or a link becomes a transcript on your Mac, voices told apart.</li>
+<li>✅ <b>Notion tasks in On you (0.8.6).</b> Your tasks next to call promises; a tick updates Notion.</li>
+<li>🧩 <b>Optional add-ons (0.8.6).</b> Ollama, a local model and a link downloader, only if you want them.</li>
+</ul>
+</div>
+
+<p class="smallprint">Presentation mode, rehearsal and the after-call panel arrived in 0.8.5: the <a href="/changelog/">changelog</a>.</p>
+
+## See it on a call
+
+<div class="gallery gallery--strip">
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-wide-dark.webp" alt="Pacenote: On the call" width="1600" height="1034" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-wide-light.webp" alt="Pacenote: On the call" width="1600" height="1034" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> One answer, the phrase to say, who said what.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-dark.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-light.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Under your camera.</b> Eyes stay on the client; Help is ⌃⌥H.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-dark.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-light.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The next call, its readiness, open promises.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-ready-dark.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-ready-light.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Ready to start.</b> The brief and what is on you.</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Compact mode.</b> A strip that grows only when needed (⌃⌥T).</figcaption></figure>
+<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>After the call.</b> A Notion page with decisions and actions.</figcaption></figure>
+</div>
+
+## Why Pacenote
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile"><h3 class="card__title">🎯 Facts or silence</h3><p class="card__text">A tip carries a number, a date, a name or a ready sentence. Or it is not shown.</p></div>
+<div class="card card--tile"><h3 class="card__title">⚡ Works without prep</h3><p class="card__text">Start anyway: tips when you are addressed, HELP NOW, project search.</p></div>
+<div class="card card--tile"><h3 class="card__title">🧠 Knows your project</h3><p class="card__text">Your folders, your Notion, full notes of every earlier call.</p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">On your Claude plan, or about $1.05 a 30-min call on a key, brief included.</p></div>
+</div>
+
 <div class="aimix">
-<h3 class="aimix__title">Claude and local AI, each for its job</h3>
-<p class="aimix__lead">What must be instant and private runs on your Mac. What needs real thinking goes to Claude, as text only.</p>
+<h3 class="aimix__title">Private where it matters, smart where it counts</h3>
 <div class="aimix__cols">
-<div class="aimix__col"><h4>On your Mac (local models, free)</h4><ul>
-<li><b>Whisper</b> turns speech into text; audio never leaves the Mac.</li>
-<li><b>Local AI</b> (a small search model, built in or Ollama) finds facts and cards by meaning in under a second and searches your project files.</li>
-<li><b>A voice model</b> tells speakers apart.</li></ul></div>
-<div class="aimix__col"><h4>Claude (cloud, your key or plan)</h4><ul>
-<li>Tips and the ready phrase when you are asked, HELP NOW, answers to your questions.</li>
-<li>The picture of the call: topic, what is on you, decisions.</li>
-<li>Prepare now and deep search (Claude Code, read-only), the Notion summary.</li></ul></div>
+<div class="aimix__col"><h4>On your Mac, free</h4><ul>
+<li><b>Whisper:</b> speech to text, audio stays local.</li>
+<li><b>Instant search:</b> facts and files by meaning, under a second.</li>
+<li><b>Voices:</b> who is speaking, remembered per project.</li>
+<li><b>Local model (optional):</b> preparation and notes with no cloud.</li></ul></div>
+<div class="aimix__col"><h4>Claude, your plan or key</h4><ul>
+<li>Live tips, HELP NOW, answers to your questions.</li>
+<li>Briefs, speeches and rehearsal questions.</li>
+<li>The sales brief, with a web search for the company.</li>
+<li>The Notion page and the follow-up draft.</li></ul></div>
 </div>
-<p class="aimix__note">Claude off for a project? It runs on the Mac part only: transcript, instant facts and search.</p>
 </div>
+
+## Sales calls
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile"><h3 class="card__title">🧭 Pick a method</h3><p class="card__text">General sales by default, or BANT, SPICED, MEDDIC. On top of any call type.</p></div>
+<div class="card card--tile"><h3 class="card__title">📊 Deal tab</h3><p class="card__text">Each criterion unknown, partly or known, with what was said. "BANT 2/4" in the header.</p></div>
+<div class="card card--tile"><h3 class="card__title">💡 Sales tips</h3><p class="card__text">Objection, qualify, pain, next step, competitor, buying signal. Plus your answer cards.</p></div>
+<div class="card card--tile card--accent"><h3 class="card__title">🔁 HubSpot on your click</h3><p class="card__text">A snapshot before the call. After it: tick, Apply, Undo for 8 s.</p></div>
+</div>
+
+The brief adds the company (a web search with its name or domain only), likely objections and questions to ask. After the call: a Sales section and a scorecard.
+
+## Pacenote vs note takers
+
+Fireflies and Fathom record the meeting. Pacenote helps you run it.
+
+| | Pacenote | Fireflies | Fathom |
+|---|---|---|---|
+| Live tips from your project files | ✓ from your own prep | ◐ meeting + uploaded base | ✗ |
+| Brief before the call | ✓ from your documents | ◐ recap and attendee brief | ✗ |
+| No bot in the meeting | ✓ any call app | ◐ with the desktop app | ◐ on Mac |
+| Audio stays on your computer | ✓ | ✗ cloud | ✗ cloud |
+| Presentation timer and rehearsal | ✓ | ✗ | ✗ |
+| Price for one PM | $0 app; Claude plan or about $1 a call on a key | $10-18 a month | $0-20 a month |
+| CRM sync | ✓ HubSpot, writes on your click | ✓ | ◐ Business plan |
+
+<p class="smallprint">Vendor facts as published on 28 October 2026, with sources: <a href="/pacenote/compare/">the full comparison</a>.</p>
 
 ## Two ways to run it
 
 <div class="grid" style="--min: 280px; margin: 8px 0 12px;">
 <div class="card">
 <p class="card__tag">For most people</p>
-<h3 class="card__title">Pacenote for Mac</h3>
-<p class="card__text">A menu bar app. Your Claude API key or your Claude plan through Claude Code, no chat to keep open during the call. Setup installs the speech model by itself.</p>
+<h3 class="card__title">💻 Pacenote for Mac</h3>
+<p class="card__text">A menu bar app on your Claude plan or API key. Setup installs the speech models for you.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download for Mac (.dmg)</a></div>
-<p class="smallprint">macOS 14.4+, Apple Silicon. About 2.5 GB of local models on the first run. Beta, not notarized: on the first launch open System Settings > Privacy & Security and press Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
+<p class="smallprint">First launch: System Settings > Privacy & Security > Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
 </div>
 <div class="card">
 <p class="card__tag">For Claude Cowork users</p>
-<h3 class="card__title">Pacenote skill</h3>
-<p class="card__text">The same tips inside your Cowork chat, on your Claude plan. Needs the recorder from the repository, about 15 minutes to set up.</p>
+<h3 class="card__title">🧩 Pacenote skill</h3>
+<p class="card__text">The same tips and rules inside your Cowork chat, on your Claude plan. About 15 minutes to set up.</p>
 <div class="btns"><a class="btn btn--ink" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>Download the skill (.skill)</a></div>
 <p class="smallprint">Add it in Cowork under Skills, then follow <a href="/pacenote/details/#install-about-15-minutes">the install steps</a>.</p>
 </div>
 </div>
 
-Both run the same rules and the same recorder, so the tips behave the same way. Code and releases: [github.com/bodco/live-tips](https://github.com/bodco/live-tips).
-
-## What it does
-
-<div class="grid" style="--min: 300px;">
-<div class="card"><h3 class="card__title">Before the call</h3><p class="card__text">Home lists your calls from Google and Microsoft calendars; pick the one you join, say what matters, and Prepare writes a short brief and fact cards from your project folders and the documents you name. A few minutes, while you do something else. No time? Start anyway: tips when you are asked, HELP NOW and answers work without it, and a late preparation joins the call.</p></div>
-<div class="card"><h3 class="card__title">During the call</h3><p class="card__text">A small window under your camera: the answer when you are asked, your update when it is your turn, a warning on a new request. HELP NOW gives the next sentence to say.</p></div>
-<div class="card"><h3 class="card__title">Any language in, one language out</h3><p class="card__text">Set the call to one language and every speaker is written in it: Spanish on an English call comes out in English. Or keep each language as spoken.</p></div>
-<div class="card"><h3 class="card__title">After the call</h3><p class="card__text">A Notion page in the call's language: summary, decisions, your commitments, new requests, open questions, risks, action items, the transcript as a sub-page.</p></div>
-</div>
-
-## How it looks
-
-Pacenote 0.8 on demo data. The pictures follow the site's light or dark theme.
-
-<div class="gallery">
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-wide-dark.webp" alt="Pacenote: On the call" width="1600" height="1034" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-wide-light.webp" alt="Pacenote: On the call" width="1600" height="1034" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> One answer at a time, in type you can read at a glance, with the phrase to say. Earlier tips fold into one line each; the agenda bar shows what is still not raised; the transcript on the side names who said what.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-dark.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-light.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Under your camera.</b> The same window at 440 px: the answer, earlier tips, the next call when it is close, the field for a question and Help (⌃⌥H).</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-ready-dark.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-ready-light.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Before you start.</b> Ready when you are: the brief and what is on you, one button to start listening.</figcaption></figure>
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-dark.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-light.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><figcaption><b>Home.</b> What is next and whether you are ready: the brief, promises still open, questions left from last time, overlaps in the calendar. On the side: what is on you from every call, the week, recent calls with their decisions.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/menubar-dark.webp" alt="Pacenote: Menu bar" width="1200" height="768" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/menubar-light.webp" alt="Pacenote: Menu bar" width="1200" height="768" loading="lazy" decoding="async" /><figcaption><b>Menu bar.</b> The next call and its readiness, or the live call with Show tips, Pause and End call.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Compact mode.</b> A strip above the video that grows only when there is something to say (⌃⌥T).</figcaption></figure>
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/onboarding-dark.webp" alt="Pacenote: First launch" width="1600" height="760" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/onboarding-light.webp" alt="Pacenote: First launch" width="1600" height="760" loading="lazy" decoding="async" /><figcaption><b>First launch.</b> The name and logo, then setup in four steps; speech recognition installs in the background.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>After the call.</b> A Notion page: summary, decisions, action items, open questions and the transcript.</figcaption></figure>
-<figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/splash-dark.webp" alt="Pacenote: Light and dark" width="1200" height="1124" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/splash-light.webp" alt="Pacenote: Light and dark" width="1200" height="1124" loading="lazy" decoding="async" /><figcaption><b>Light and dark.</b> Every window follows the macOS appearance.</figcaption></figure>
-</div>
-
-## Home and your calendars
-
-**Home** is the app's main window: insights for any period, project or workspace (calls, time on calls, Claude spend, how many were prepared, minutes per day by project; click a day to see it), the call that is live, the calls ahead from your calendars and Up next with their preparation, and the calls already held with their Notion page, transcript and folder (remove one from the list with ×; the files stay). At the bottom: the Claude key, this month's spend against your limit, the Notion copy, local AI and the calendars. Showing Home to colleagues? Settings > General hides your numbers.
-
-**Calendars through macOS, several accounts at once.** Add your Google and Microsoft accounts in System Settings > Internet Accounts, then Settings > Calendars in Pacenote: tick the calendars that have your calls. Nothing to install and no extra sign-in; Pacenote only reads. Two or three meetings at the same time are normal: Home marks them, and you prepare and start the one you actually go to. A regular meeting starts from the settings and the "what matters" text of its last call, so you only correct them.
-
-## Back-to-back calls: Up next
-
-A call is still running and the next one starts right after it. Open **Plan an upcoming call** (the menu bar, or ⚙ > Up next in the tips window), set up the next call and press **Prepare**: its preparation is written while you talk. Plan as many calls as you like; they wait in **Up next**, ordered by time, and their preparations run one after another. Only one call records at a time.
-
-When it is time, **Switch** (or "End and start" in End call) asks once, ends the current call properly (the transcript is saved, the Notion summary is written in the background) and starts the next one in a couple of seconds, with its preparation loaded. A preparation that is still running goes on and joins the new call when ready; it never lands in the call it was not made for.
-
-## Why it is different
-
-- **Facts or silence.** A tip carries a number, a date, a name or a ready sentence from your own material, or it is not shown. Red only when you are addressed.
-- **Your audio stays on your Mac.** Speech is transcribed locally with Whisper; only text goes to Claude.
-- **It knows your project.** Your preparation, your folders and, with [PM Control Tower](/), your Notion pages and the project's current state.
-- **Pay per call, not per seat.** The app is free and open source (MIT); you pay Claude for what a call uses and set a monthly limit.
-
-## Pacenote vs Fireflies and Fathom
-
-Fireflies and Fathom are mature note takers with team workspaces, video and many integrations. Pacenote is about the minutes while you are on the call, built by one PM. The honest side-by-side (price, recording, live help, preparation, summary, CRM, data), checked on 28 October 2026: [Pacenote vs Fireflies vs Fathom](/pacenote/compare/).
+<p class="smallprint"><b>Requirements:</b> Mac with Apple Silicon · macOS 14.4+ · about 2.5 GB of local models · a Claude plan or API key · Notion and HubSpot optional. <b>Next:</b> summaries to Google Docs or Word, <a href="https://github.com/bodco/live-tips/tree/main/docs/team">Pacenote for teams</a>.</p>
 
 ## Learn more
 
 <div class="grid" style="--min: 230px;">
-<div class="card"><h3 class="card__title"><a href="/pacenote/details/">How it works and setup</a></h3><p class="card__text">Triggers, the tips window, presentation and interview modes, speakers, privacy, requirements and install steps.</p></div>
-<div class="card"><h3 class="card__title"><a href="/pacenote/compare/">Compared with others</a></h3><p class="card__text">Price, recording, live help, preparation, summary and CRM next to Fireflies and Fathom.</p></div>
-<div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Code and releases</a></h3><p class="card__text">The app, the skill, the recorder and the full guide on GitHub. What changed: the <a href="/changelog/">changelog</a>.</p></div>
+<div class="card"><h3 class="card__title"><a href="/pacenote/details/">How it works</a></h3><p class="card__text">Tips, presenting, after the call, costs, privacy and setup.</p></div>
+<div class="card"><h3 class="card__title"><a href="/pacenote/compare/">Full comparison</a></h3><p class="card__text">Pacenote vs Fireflies vs Fathom, row by row, with sources.</p></div>
+<div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Code and releases</a></h3><p class="card__text">Open source on GitHub. What changed: the <a href="/changelog/">changelog</a>.</p></div>
 </div>
-
-Not there yet: the summary in Google Docs or Word in your Drive or OneDrive. Planned.
-
-## For teams: we are thinking about it
-
-Pacenote is a personal tool today. We have written down how a team could use it: project knowledge in one place, everyone preparing for their own calls, every summary in one place. It works now with Google Drive and Notion; a team server with roles, permissions and CRM connectors (HubSpot and others) is designed, not built. [Read the design on GitHub](https://github.com/bodco/live-tips/tree/main/docs/team).
 
 <p class="smallprint">Your calls and your data: <a href="/pacenote/privacy/">privacy policy</a> and <a href="/pacenote/terms/">terms of use</a>.</p>
