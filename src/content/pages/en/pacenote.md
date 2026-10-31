@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Never leaves your Mac" }
   - { k: Claude, v: "Your plan or your API key" }
   - { k: Notes go to, v: "Notion and your project folder" }
-  - { k: Version, v: "0.8.7.1" }
+  - { k: Version, v: "0.8.7.2" }
 ---
 
 <div class="tiles">
