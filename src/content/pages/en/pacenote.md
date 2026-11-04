@@ -69,7 +69,7 @@ facts:
 <div class="card card--tile"><h3 class="card__title">🎯 Facts or silence</h3><p class="card__text">A tip carries a number, a date, a name or a ready sentence. Or it is not shown.</p></div>
 <div class="card card--tile"><h3 class="card__title">⚡ Works without prep</h3><p class="card__text">Start anyway: tips when you are addressed, HELP NOW, project search.</p></div>
 <div class="card card--tile"><h3 class="card__title">🧠 Knows your project</h3><p class="card__text">Your folders, your Notion, your Google Docs, full notes of every earlier call.</p></div>
-<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">On your Claude or ChatGPT plan, or about $1 a 30-min call on a Claude key, brief included.</p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">About $1.33 for a 30-min call on a key (brief, tips and notes), about $13 a month for 10 calls. Or the Claude or ChatGPT seat you already have. <a href="/pacenote/details/#ai-and-costs">Cost table</a></p></div>
 </div>
 
 <div class="aimix">
@@ -110,7 +110,7 @@ Fireflies and Fathom record the meeting. Pacenote helps you run it.
 | Ask a question mid-call | ✓ with your brief and files | ◐ AskFred, uses AI credits | ✗ |
 | Audio stays on your computer | ✓ | ✗ cloud | ✗ cloud |
 | Presentation timer and rehearsal | ✓ | ✗ | ✗ |
-| Price for one PM | $0 app; your AI plan or about $1 a call on a key | $10-18 a month | $0-20 a month |
+| Price for one PM | $0 app; about $13 a month for 10 calls on a key, or your own AI plan | $10-18 a month | $0-20 a month |
 | CRM sync | ✓ HubSpot, writes on your click | ✓ | ◐ Business plan |
 
 <p class="smallprint">Vendor facts as published on 28 October 2026, with sources: <a href="/pacenote/compare/">the full comparison</a>.</p>

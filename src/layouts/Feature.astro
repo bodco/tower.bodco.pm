@@ -119,10 +119,13 @@ const P = lang === 'uk'
         </aside>
       )}
 
+      {/* 2026-11-04 (owner): no Previous/Next on Pacenote pages, the neighbours were PM Control Tower pages. */}
+      {!brand && (
       <nav class="pager" aria-label="Pager">
         {prev ? <a href={path(lang, prev)}><span class="label">{t(lang, 'page.prev')}</span><b>{t(lang, `nav.${prev}` as any)}</b></a> : <span />}
         {next && <a class="next" href={path(lang, next)}><span class="label">{t(lang, 'page.next')}</span><b>{t(lang, `nav.${next}` as any)} <Arrow /></b></a>}
       </nav>
+      )}
     </div>
   </div>
 </Base>
@@ -131,6 +134,12 @@ const P = lang === 'uk'
   .product-hero__in { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
   .product-hero__text { flex: 1 1 440px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
   .product-hero__vis { flex: 1 1 380px; min-width: 0; }
+  /* 2026-11-04 (owner): a bigger picture, about 2/3 of the width, reaching a little under the text column. */
+  @media (min-width: 1000px) {
+    .product-hero__in { flex-wrap: nowrap; gap: 0; }
+    .product-hero__text { flex: 0 0 36%; padding-right: 3%; position: relative; z-index: 2; }
+    .product-hero__vis { flex: 0 0 66%; margin-left: -2%; position: relative; z-index: 1; }
+  }
   .product-hero__name { display: flex; align-items: center; gap: 18px; }
   .product-hero__name img { border-radius: 14px; }
   .product-hero__name h1 { margin: 0; }

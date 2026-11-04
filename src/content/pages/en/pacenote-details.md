@@ -18,7 +18,7 @@ facts:
 | **After the call** | Decisions, what is on you, a Notion page and a follow-up draft. |
 | **Sales calls** | General sales, BANT, SPICED or MEDDIC, a Deal tab, HubSpot on your click. |
 | **Privacy** | Audio is transcribed on your Mac. Only text goes to Claude. |
-| **Cost** | The app is free. A typical 30-min call on an API key: about $1.05. |
+| **Cost** | The app is free. A 30-min call on an API key is about $1.33 (brief, tips and notes), about $13 a month for 10 calls. [Full table](#ai-and-costs) |
 
 <p class="smallprint"><b>Jump to:</b> <a href="#when-it-speaks">Tips</a> · <a href="#presenting-and-rehearsal">Presenting</a> · <a href="#after-the-call">After the call</a> · <a href="#sales-calls">Sales</a> · <a href="#ai-and-costs">Cost</a> · <a href="#privacy">Privacy</a> · <a href="#requirements">Requirements</a> · <a href="#install-about-15-minutes">Install</a></p>
 
@@ -196,18 +196,120 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 
 ## AI and costs
 
-| What runs | Measured cost |
-|---|---|
-| Preparation, Sonnet on an API key | about $0.77, 3 min |
-| Preparation, Opus on an API key | $2.57, about 6 min |
-| Preparation and after-call jobs on your Claude plan (default) | from the plan's limits, no extra charge |
-| Live tips, Haiku on an API key (default) | about $0.05 per 14 min, median 1.6 s |
-| Live tips, Sonnet on an API key | about $0.27 per 14 min, median 2.0 s |
-| A typical call on a key: Sonnet brief, Haiku tips | about $1.05 for 30 min, $1.15 for 1 hour |
-| Preparation and notes on this Mac, Gemma 4 26B | free, a thinner brief |
+**In short.** The app is free; you pay only for the AI. With API keys a person who makes 10 calls a month spends about **$7 to $13**, a team of 10 about **$70 to $130** a month, depending on the provider. If the team already has Claude or ChatGPT seats, preparation and notes come from the plan and the extra cost is about **$1 per person** a month (live tips on a key). Fully on your own Macs it is **$0**, with a thinner brief and no AI-written tips.
+
+Pacenote does three jobs, and each one picks its own provider and model in Settings > AI: **Preparation** (before the call), **Live tips** (during it) and **After the call** (notes, follow-up, memory). That is why the cost is a sum of three parts.
+
+### What each part costs
+
+One call of 30 minutes. Preparation and notes do not depend much on the length of the call, live tips do.
+
+| Part | Model | Price per 1M tokens, in / out | One call |
+|---|---|---|---|
+| Preparation | Claude Sonnet 5.5 (default) | $2 / $10 | $0.77 |
+| | Claude Opus 5.5 | $4 / $20 | $2.57 |
+| | GPT-6.1 Sol (OpenAI default) | $2 / $10 | $0.40 |
+| | GPT-6 Luna | $0.10 / $0.50 | $0.02, unreliable on a large context |
+| | Gemini 3.8 Flash (Gemini default) | $0.75 / $3.75 | $0.15 |
+| | Gemini 3.5 Flash-Lite | $0.30 / $2.50 | $0.09 |
+| | Gemini 4 Argon | $2 / $10 | stops at its output limit, not usable yet |
+| | Gemma 4 26B on your Mac | free | $0 |
+| Live tips | Claude Haiku 5.5 (default) | $0.10 / $0.50 | $0.11 |
+| | Claude Sonnet 5.5 | $2 / $10 | $0.59 |
+| | Claude Opus 5.5 | $4 / $20 | $1.50 |
+| | GPT-6 Luna (OpenAI default) | $0.10 / $0.50 | $0.06 |
+| | GPT-6.1 Terra | $1 / $5 | ~$0.45 |
+| | GPT-6.1 Sol | $2 / $10 | ~$0.90 |
+| | Gemini 3.5 Flash-Lite (Gemini default) | $0.30 / $2.50 | $0.47 |
+| | On your Mac | free | $0, cards and facts from your files only, no model-written tips |
+| After the call | Claude Sonnet 5.5 (default) | $2 / $10 | $0.45 |
+| | Claude Opus 5.5 | $4 / $20 | $0.90 |
+| | Claude Haiku 5.5 | $0.10 / $0.50 | ~$0.02 |
+| | GPT-6.1 Sol (OpenAI default) | $2 / $10 | $0.28 |
+| | GPT-6 Luna | $0.10 / $0.50 | $0.02 |
+| | Gemini 3.8 Flash (Gemini default) | $0.75 / $3.75 | $0.11 |
+| | Gemini 3.5 Flash-Lite | $0.30 / $2.50 | $0.04 |
+| | Gemma 4 26B on your Mac | free | $0 |
+
+Gemini prices go up: Argon from 1 December 2026, Flash from 1 January 2027 (about twice the price). Gemini live tips cost more than Luna or Haiku because in our test Gemini's automatic cache never kicked in, so every request paid full input price.
+
+### How each model does
+
+Scores from a blind test on one invented 30-minute call (4 November 2026). Two judges, Claude Opus 5.5 and GPT-6.1 Sol, scored every output without knowing which model wrote it; the score is their average. Briefs and notes are out of 10, live tips out of 5.
+
+| Part | Model | Score | In short |
+|---|---|---|---|
+| Preparation | Claude Sonnet 5.5 | 8.0 | The fullest brief: every open item, risk and ready phrase. Long. |
+| | GPT-6.1 Sol | 8.0 | Most careful with facts and dates, catches calendar mismatches. Wordy. |
+| | GPT-6 Luna | 7.0 | A solid checklist at almost no cost, a few wrong owners. Failed twice on a larger context. |
+| | Gemini 3.5 Flash-Lite | 5.0 | Covers the main items, but turns plans into done deals. |
+| | Gemini 3.8 Flash | 4.0 | Readable, but its ready-to-say lines promise things nobody agreed. |
+| | Gemini 4 Argon | n/a | Stopped at its output limit before finishing. |
+| Live tips | GPT-6 Luna | 4.0 | The most tips (27 in 30 min), on time; one tip named the wrong owner. |
+| | Claude Haiku 5.5 | 3.9 | Fewer tips (16), steady and timely; a few repeat what was just said. |
+| | Gemini 3.5 Flash-Lite | 4.7 | Very precise but almost silent: 3 tips in 30 minutes. |
+| After the call | Claude Sonnet 5.5 | 7.0 | Best structure and balance; missed one deadline. |
+| | GPT-6.1 Sol | 7.0 | The most complete, with tables of actions; very long. |
+| | Gemini 3.8 Flash | 6.5 | Clean, dated action items; overstates a few estimates as settled. |
+| | Gemini 3.5 Flash-Lite | 6.0 | Short and practical; a few wrong dates. |
+| | GPT-6 Luna | 5.0 | Covers almost everything, but repeated the whole note twice. |
+| | Gemini 4 Argon | n/a | Stopped at its output limit before finishing. |
+
+All models caught every question asked in the call except Gemini (Flash 30 of 31, Flash-Lite 29 of 31). One call and two AI judges is a small test: read the scores as a direction, not a ranking to the decimal.
+
+### Ready-made setups
+
+Billed per token (API key). One call, one person with 10 calls a month, and a team of 10 people with 10 calls each.
+
+| Setup | One call | 1 person, 10 calls | 10 people, 10 calls each |
+|---|---|---|---|
+| **Claude API, default:** Sonnet brief, Haiku tips, Sonnet notes | $1.33 | **$13** | **$133** |
+| Claude API, thrifty: the same, Haiku notes | $0.90 | $9 | $90 |
+| Claude API, best quality: Opus brief and notes, Sonnet tips | $4.06 | $41 | $406 |
+| **OpenAI API, default:** Sol brief, Luna tips, Sol notes | $0.74 | **$7** | **$74** |
+| OpenAI API, thrifty: the same, Luna notes | $0.48 | $5 | $48 |
+| OpenAI API, Sol for everything | ~$1.58 | ~$16 | ~$158 |
+| **Gemini API, default:** Flash brief, Flash-Lite tips, Flash notes | $0.73 | **$7** | **$73** |
+| Gemini API, thrifty: Flash-Lite for everything | $0.60 | $6 | $60 |
+| Brief and notes on your Mac, Haiku tips on a key | $0.11 | $1.10 | $11 |
+| Brief and notes on your Mac, Luna tips on a key | $0.06 | $0.60 | $6 |
+| Everything on your Mac, no key | $0 | $0 | $0 |
+
+With a Claude or ChatGPT account, preparation and notes are not billed per token: the plan pays. Live tips still run best on a key (an hour of a call is hundreds of requests, and an account answers a few seconds later), so a plan setup is a seat plus $0.11 per call (Haiku) or $0.06 (Luna). Gemini works through a key only.
+
+| Plan setup | Seat per person | 1 person, 10 calls | 10 people, 10 calls each |
+|---|---|---|---|
+| Claude Pro, Haiku tips on a key | $20 ($17 a year) | ~$21 | ~$211 |
+| Claude Team standard seat, Haiku tips on a key | $25 ($20 a year), from 2 seats | ~$26 | ~$261 |
+| ChatGPT Plus, Luna tips on a key | $20 | ~$21 | ~$206 |
+| ChatGPT Business, Luna tips on a key | $25 ($20 a year), from 2 seats | ~$26 | ~$256 |
+| Plan only, no key, tips through the account | the seat price | $20 and up | $200 and up |
+| **Seats the team already pays for** | $0 extra | **~$1** (Claude), ~$0.6 (ChatGPT) | **~$11** (Claude), ~$6 (ChatGPT) |
+
+**Account or key?** A seat costs the same however many calls you make; a key costs per call. At about $1.33 a call, a $20 seat plus tips is cheaper than a Claude key from roughly 16 calls a month; against the OpenAI or Gemini key at about $0.74 a call, from roughly 30. At 10 calls the key is cheaper, so take a seat only when you already have one or make more calls. Claude and OpenAI do not publish plan limits in tokens, so a very heavy month on a plan may hit the limit; the app then switches to the other way by itself.
+
+### A longer or shorter call
+
+Preparation is about the same for any length; live tips and notes grow with the minutes.
+
+| Call length | Claude API, default | OpenAI API, default | Gemini API, default |
+|---|---|---|---|
+| 15 minutes | $1.05 | $0.57 | $0.44 |
+| 30 minutes | $1.33 | $0.74 | $0.73 |
+| 60 minutes | $1.89 | $1.08 | $1.31 |
+
+### How these numbers were made
+
+- **Live tips** on Claude are counted from 15 recorded calls of 25 to 52 minutes (22 to 26 October 2026): every request's tokens, taken at the vendors' current prices. The earlier test on one 14-minute recording (Haiku $0.05, Sonnet $0.27, Opus $0.71) gives close numbers, and where the two differ the table takes the higher one.
+- **Preparation** on Claude is measured (five runs of one real preparation, section "What a preparation costs" in the guide). Notes on Claude are measured at about $0.19 per 15-minute call; the follow-up and memory are added on top.
+- **OpenAI and Gemini** are measured (4 November 2026) on an invented 30-minute call run through every model in turn, with Claude on the same call as the yardstick: the OpenAI and Gemini figures are their measured ratio to Claude applied to Claude's figures for a real call. Live tips were replayed in real time; OpenAI ran with its prompt cache on. Only the rows marked ~ are estimated from measured tokens.
+- **A real call varies:** a call with many questions has more tips and costs more. The numbers have a reserve of about a quarter. Settings has a soft and a hard limit per call and a monthly cap, so a bad month cannot run away.
+- Prices: Claude, OpenAI and Gemini API, 4 November 2026; Claude plans, 4 November 2026; ChatGPT plans, 16 October 2026. They change, so check the vendors' pricing pages before you budget. The app keeps its own price table and shows what each call really cost.
+
+### Limits and fallbacks
 
 - **Limits:** a soft and a hard limit per call and a monthly cap. At the hard limit only the local layer works.
-- **Plan B:** if Claude does not answer, preparation and after-call jobs run on the local model. Live tips stay on Claude.
+- **Plan B:** if Claude does not answer, preparation and after-call jobs run on the local model. Live tips stay on Claude. Gemini can be turned on as a plan B for every job (Settings > AI > Automatic switching).
 - **Auto switch:** when the key or the plan is out, the job goes the other way, then back.
 - **Optional add-ons:** Ollama, the local Gemma model (about 16 GB) and the link downloader install only when you choose, never during a call.
 

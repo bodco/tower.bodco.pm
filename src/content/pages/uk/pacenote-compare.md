@@ -77,7 +77,7 @@ facts:
 ## Ціна
 
 <div class="grid" style="--min: 240px;">
-<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 застосунок, без місць</h3><p class="card__text">Підготовка і нотатки з вашого плану Claude. На API-ключі типовий дзвінок коштує близько $1.05 за 30 хв і $1.15 за годину (бриф на Sonnet, підказки на Haiku, виміряно), з місячним лімітом, який задаєте ви.</p></div>
+<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 застосунок, без місць</h3><p class="card__text">На API-ключі 30-хвилинний дзвінок коштує близько $1.33 з брифом, підказками і нотатками: 10 дзвінків на місяць близько $13, команда з 10 людей близько $130. Або місце Claude чи ChatGPT, яке в вас уже є. Місячний ліміт задаєте ви. <a href="/uk/pacenote/details/#моделі-і-вартість">Таблиця вартості</a></p></div>
 <div class="card"><p class="card__tag">Fireflies</p><h3 class="card__title">$10-18 за місце на місяць</h3><p class="card__text">Безкоштовно: 400 хв сховища на команду, 20 AI-кредитів, до 2 год на запис. Pro $10 / $18, Business $19 / $29, Enterprise $39 (річна / місячна).</p></div>
 <div class="card"><p class="card__tag">Fathom</p><h3 class="card__title">$0-20 за місце на місяць</h3><p class="card__text">Безкоштовно: необмежені записи, розширені підсумки для 5 дзвінків на місяць. Premium $16 / $20, Team $15 / $19 (від 2 місць), Business $25 / $34.</p></div>
 </div>
