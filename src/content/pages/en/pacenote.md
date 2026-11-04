@@ -5,60 +5,71 @@ doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 facts:
   - { k: Price, v: "Free app (MIT), no seats" }
   - { k: Audio, v: "Never leaves your Mac" }
-  - { k: Claude, v: "Your plan or your API key" }
-  - { k: Notes go to, v: "Notion and your project folder" }
+  - { k: AI, v: "Claude or ChatGPT: your plan or your key" }
+  - { k: Accounts, v: "Google (several), Notion, HubSpot" }
   - { k: Version, v: "0.9.2" }
 ---
 
 <div class="tiles">
-<div class="card card--tile"><p class="card__tag">Before</p><h3 class="card__title">Walk in prepared</h3><p class="card__text">A brief, fact cards and your speech, written from your project files.</p></div>
-<div class="card card--tile"><p class="card__tag">During</p><h3 class="card__title">The fact, right when asked</h3><p class="card__text">The answer and a ready phrase, under your camera. Silence otherwise.</p></div>
-<div class="card card--tile"><p class="card__tag">After</p><h3 class="card__title">Notes already written</h3><p class="card__text">Decisions, what is on you, a Notion page and a follow-up draft.</p></div>
+<div class="card card--tile"><p class="card__tag">Before</p><h3 class="card__title">Walk in prepared</h3><p class="card__text">A brief, an agenda, fact cards and your update, from your files, your Google Docs and earlier calls.</p></div>
+<div class="card card--tile"><p class="card__tag">During</p><h3 class="card__title">The fact, right when it matters</h3><p class="card__text">The answer when you are asked, a ready reply when someone states what your prep answers. Silence otherwise.</p></div>
+<div class="card card--tile"><p class="card__tag">After</p><h3 class="card__title">Notes already written</h3><p class="card__text">Decisions, what is on you, risks and a follow-up draft, in the call's language. Export to Notion, Google Docs or Word.</p></div>
 <div class="card card--tile card--accent"><p class="card__tag">Presenting</p><h3 class="card__title">On time, slide by slide</h3><p class="card__text">A timer per slide, and a rehearsal against tough client questions.</p></div>
 </div>
 
 <div class="tiles tiles--2up">
 <div class="card card--tile"><p class="card__num">0 bytes</p><p class="card__text">of audio leave your Mac</p></div>
 <div class="card card--tile"><p class="card__num">1-2 s</p><p class="card__text">to a fact card from your prep</p></div>
-<div class="card card--tile"><p class="card__num">$0</p><p class="card__text">the app; Claude on your own plan or key</p></div>
-<div class="card card--tile"><p class="card__num">0 bots</p><p class="card__text">in the meeting, any call app on the Mac</p></div>
+<div class="card card--tile"><p class="card__num">$0</p><p class="card__text">the app; AI on your own plan or key</p></div>
+<div class="card card--tile"><p class="card__num">Any</p><p class="card__text">call app on the Mac: Zoom, Meet, Teams, Slack</p></div>
 </div>
 
-## New in 0.8.7 <span class="vbadge vbadge--soft">0.8.7</span>
+## New in 0.9 <span class="vbadge vbadge--soft">0.9.2</span>
 
 <div class="newlist">
 <ul>
-<li>💼 <b>Sales mode.</b> On top of any call: General sales, BANT, SPICED or MEDDIC, a Deal tab and sales tips.</li>
-<li>🔗 <b>HubSpot.</b> A snapshot before the call; after it, tick what to update, Apply, Undo for 8 s.</li>
-<li>⚙️ <b>Settings > Integrations.</b> Notion, Calendars and HubSpot; one Meetings, Tasks and Risks database for all projects.</li>
-<li>✏️ <b>Edit the call page.</b> Decisions, items and risks; the call's Notion page updates at once.</li>
-<li>🧭 <b>What Pacenote can do.</b> Every feature with Try it, in Help and on Home.</li>
-<li>🎙️ <b>Transcribe a recording (0.8.6).</b> A file or a link becomes a transcript on your Mac, voices told apart.</li>
-<li>✅ <b>Notion tasks in On you (0.8.6).</b> Your tasks next to call promises; a tick updates Notion.</li>
-<li>🧩 <b>Optional add-ons (0.8.6).</b> Ollama, a local model and a link downloader, only if you want them.</li>
+<li>🔗 <b>Google accounts, as many as you use.</b> Calendars on Home, private Docs, Sheets and Slides links read for the brief, notes exported to Google Docs, the Meet participants and transcript after a call.</li>
+<li>🏠 <b>Home and call pages.</b> The next call with one main button; every call has its page: setup and brief before, summary, decisions, tasks and risks after.</li>
+<li>✅ <b>Tracker.</b> Tasks, decisions and risks of every project on one screen.</li>
+<li>🤖 <b>Claude or ChatGPT.</b> Your plan or an API key, per job: preparation, live tips, after the call.</li>
+<li>🧭 <b>A live agenda.</b> The checklist of the brief, ticked as the call goes; an item to agree is ticked only after a clear yes.</li>
+<li>🎯 <b>Facts follow the topic.</b> A point made over several lines gets its fact; what you just said yourself does not come back.</li>
+<li>🟠 <b>A ready answer to a statement.</b> When someone says what your material answers ("there is no process yet"), you get the answer to give.</li>
+<li>📄 <b>The primary document.</b> Add the file the call is about; the brief is built around it.</li>
 </ul>
 </div>
 
-<p class="smallprint">Presentation mode, rehearsal and the after-call panel arrived in 0.8.5: the <a href="/changelog/">changelog</a>.</p>
+<p class="smallprint">Sales mode, HubSpot and Integrations arrived in 0.8.7, presenting and rehearsal in 0.8.5: the <a href="/changelog/">changelog</a>.</p>
 
 ## See it on a call
 
 <div class="gallery gallery--strip">
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-wide-dark.webp" alt="Pacenote: On the call" width="1600" height="1034" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-wide-light.webp" alt="Pacenote: On the call" width="1600" height="1034" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> One answer, the phrase to say, who said what.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/live-092-dark.webp" alt="Pacenote: On the call" width="1600" height="1046" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/live-092-light.webp" alt="Pacenote: On the call" width="1600" height="1046" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> The agenda, one answer, the phrase to say, who said what.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-dark.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-light.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Under your camera.</b> Eyes stay on the client; Help is ⌃⌥H.</figcaption></figure>
-<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-dark.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-light.webp" alt="Pacenote: Home" width="1600" height="1200" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The next call, its readiness, open promises.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-092-dark.webp" alt="Pacenote: Home" width="1600" height="1109" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-092-light.webp" alt="Pacenote: Home" width="1600" height="1109" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The next call and its readiness, what is coming up, recent calls.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-ready-dark.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-ready-light.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Ready to start.</b> The brief and what is on you.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Compact mode.</b> A strip that grows only when needed (⌃⌥T).</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>After the call.</b> A Notion page with decisions and actions.</figcaption></figure>
 </div>
+
+## Your accounts, connected
+
+<div class="tiles" style="--min: 230px;">
+<div class="card card--tile"><h3 class="card__title">🔗 Google, several accounts</h3><p class="card__text">Work and client accounts side by side. Pick the calendars per account; private Docs, Sheets and Slides links open through the account that can read them.</p></div>
+<div class="card card--tile"><h3 class="card__title">📅 Calendars</h3><p class="card__text">Google, Microsoft and iCloud calendars through macOS too, without doubles. The next call and its readiness on Home.</p></div>
+<div class="card card--tile"><h3 class="card__title">📒 Notion</h3><p class="card__text">Meeting pages, your tasks in On you, risks and decisions, from a local copy of your workspace.</p></div>
+<div class="card card--tile card--accent"><h3 class="card__title">🔁 HubSpot</h3><p class="card__text">A deal snapshot before a sales call; after it, tick what to update, Apply, Undo for 8 s.</p></div>
+</div>
+
+<p class="smallprint">Google: read-only, except the Google Doc you export. Tokens stay in the macOS Keychain; Remove revokes them. Google is reviewing the app: until it ends, sign-in shows "Google hasn't verified this app" (Advanced, then Go to Pacenote). <a href="/pacenote/privacy/#google-user-data">Google user data</a>.</p>
 
 ## Why Pacenote
 
 <div class="tiles" style="--min: 230px;">
 <div class="card card--tile"><h3 class="card__title">🎯 Facts or silence</h3><p class="card__text">A tip carries a number, a date, a name or a ready sentence. Or it is not shown.</p></div>
 <div class="card card--tile"><h3 class="card__title">⚡ Works without prep</h3><p class="card__text">Start anyway: tips when you are addressed, HELP NOW, project search.</p></div>
-<div class="card card--tile"><h3 class="card__title">🧠 Knows your project</h3><p class="card__text">Your folders, your Notion, full notes of every earlier call.</p></div>
-<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">On your Claude plan, or about $1.05 a 30-min call on a key, brief included.</p></div>
+<div class="card card--tile"><h3 class="card__title">🧠 Knows your project</h3><p class="card__text">Your folders, your Notion, your Google Docs, full notes of every earlier call.</p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">On your Claude or ChatGPT plan, or about $1 a 30-min call on a Claude key, brief included.</p></div>
 </div>
 
 <div class="aimix">
@@ -69,11 +80,11 @@ facts:
 <li><b>Instant search:</b> facts and files by meaning, under a second.</li>
 <li><b>Voices:</b> who is speaking, remembered per project.</li>
 <li><b>Local model (optional):</b> preparation and notes with no cloud.</li></ul></div>
-<div class="aimix__col"><h4>Claude, your plan or key</h4><ul>
+<div class="aimix__col"><h4>Claude or ChatGPT, your plan or key</h4><ul>
 <li>Live tips, HELP NOW, answers to your questions.</li>
 <li>Briefs, speeches and rehearsal questions.</li>
 <li>The sales brief, with a web search for the company.</li>
-<li>The Notion page and the follow-up draft.</li></ul></div>
+<li>The notes, the Notion page and the follow-up draft.</li></ul></div>
 </div>
 </div>
 
@@ -94,12 +105,12 @@ Fireflies and Fathom record the meeting. Pacenote helps you run it.
 
 | | Pacenote | Fireflies | Fathom |
 |---|---|---|---|
-| Live tips from your project files | ✓ from your own prep | ◐ meeting + uploaded base | ✗ |
 | Brief before the call | ✓ from your documents | ◐ recap and attendee brief | ✗ |
-| No bot in the meeting | ✓ any call app | ◐ with the desktop app | ◐ on Mac |
+| Tips without asking | ✓ from your prep, when needed | ◐ Live Assist, Sales Assist from an uploaded base | ✗ live summary only |
+| Ask a question mid-call | ✓ with your brief and files | ◐ AskFred, uses AI credits | ✗ |
 | Audio stays on your computer | ✓ | ✗ cloud | ✗ cloud |
 | Presentation timer and rehearsal | ✓ | ✗ | ✗ |
-| Price for one PM | $0 app; Claude plan or about $1 a call on a key | $10-18 a month | $0-20 a month |
+| Price for one PM | $0 app; your AI plan or about $1 a call on a key | $10-18 a month | $0-20 a month |
 | CRM sync | ✓ HubSpot, writes on your click | ✓ | ◐ Business plan |
 
 <p class="smallprint">Vendor facts as published on 28 October 2026, with sources: <a href="/pacenote/compare/">the full comparison</a>.</p>
@@ -110,7 +121,7 @@ Fireflies and Fathom record the meeting. Pacenote helps you run it.
 <div class="card">
 <p class="card__tag">For most people</p>
 <h3 class="card__title">💻 Pacenote for Mac</h3>
-<p class="card__text">A menu bar app on your Claude plan or API key. Setup installs the speech models for you.</p>
+<p class="card__text">A menu bar app on your Claude or ChatGPT plan, or an API key. Setup installs the speech models for you.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download for Mac (.dmg)</a></div>
 <p class="smallprint">First launch: System Settings > Privacy & Security > Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
 </div>
@@ -123,7 +134,7 @@ Fireflies and Fathom record the meeting. Pacenote helps you run it.
 </div>
 </div>
 
-<p class="smallprint"><b>Requirements:</b> Mac with Apple Silicon · macOS 14.4+ · about 2.5 GB of local models · a Claude plan or API key · Notion and HubSpot optional. <b>Next:</b> summaries to Google Docs or Word, <a href="https://github.com/bodco/live-tips/tree/main/docs/team">Pacenote for teams</a>.</p>
+<p class="smallprint"><b>Requirements:</b> Mac with Apple Silicon · macOS 14.4+ · about 2.5 GB of local models · a Claude or ChatGPT plan or API key · Google, Notion and HubSpot optional. <b>Next:</b> <a href="https://github.com/bodco/live-tips/tree/main/docs/team">Pacenote for teams</a>.</p>
 
 ## Learn more
 

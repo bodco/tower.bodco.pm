@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
   - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
-  - { k: Pacenote, v: "0.8.7, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.9.2, macOS (Apple Silicon)" }
 ---
 
 ## At a glance
@@ -72,7 +72,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Sales brief | ✓ company web search (name or domain only), likely objections, questions to ask |
 | After a sales call | ✓ a Sales section and a scorecard, on the call page and in Notion |
 
-<p class="smallprint">Pacenote's own capabilities in 0.8.7. Fireflies and Fathom are compared in the table above.</p>
+<p class="smallprint">Pacenote's own capabilities in 0.9.2. Fireflies and Fathom are compared in the table above.</p>
 
 ## Price
 
@@ -104,7 +104,7 @@ From G2, Capterra, Trustpilot and independent tests in 2025-2026 (links below).
 
 - **Mac with Apple Silicon.** Setup downloads about 2.5 GB of speech and search models.
 - **CRM:** HubSpot, with your own service key in the macOS Keychain.
-- **Audio and text, no video.** Summaries go to Notion today; Google Docs and Word are next.
+- **Audio and text, no video.** Notes go to Notion, Google Docs, Word or Markdown.
 - **Personal tool; team version designed.** [Read the design](https://github.com/bodco/live-tips/tree/main/docs/team).
 
 ## Sources

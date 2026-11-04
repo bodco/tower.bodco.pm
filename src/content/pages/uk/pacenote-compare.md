@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Перевірено, v: "28 жовтня 2026" }
   - { k: Порівнюємо, v: "Підготовка, підказки, запис, підсумок, CRM, дані, ціна" }
-  - { k: Pacenote, v: "0.8.7, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.9.2, macOS (Apple Silicon)" }
 ---
 
 ## Коротко
@@ -72,7 +72,7 @@ facts:
 | Бриф для продажу | ✓ пошук компанії в інтернеті (лише назва чи домен), ймовірні заперечення, питання |
 | Після дзвінка з продажу | ✓ секція Sales і scorecard, на сторінці дзвінка і в Notion |
 
-<p class="smallprint">Власні можливості Pacenote у 0.8.7. Fireflies і Fathom порівняно в таблиці вище.</p>
+<p class="smallprint">Власні можливості Pacenote у 0.9.2. Fireflies і Fathom порівняно в таблиці вище.</p>
 
 ## Ціна
 
@@ -104,7 +104,7 @@ facts:
 
 - **Мак з Apple Silicon.** Setup завантажує близько 2.5 ГБ моделей мови і пошуку.
 - **CRM:** HubSpot, з вашим власним сервісним ключем у Keychain macOS.
-- **Звук і текст, без відео.** Підсумки йдуть у Notion; Google Docs і Word наступні.
+- **Звук і текст, без відео.** Нотатки йдуть у Notion, Google Docs, Word чи Markdown.
 - **Особистий інструмент; командну версію спроєктовано.** [Дизайн тут](https://github.com/bodco/live-tips/blob/main/docs/team/README.uk.md).
 
 ## Джерела

@@ -52,7 +52,7 @@ const P = lang === 'uk'
     description: description ?? lead,
     url: new URL(path(lang, 'pacenote'), Astro.site).href,
     downloadUrl: 'https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg',
-    screenshot: new URL(`/pacenote/shots/${lang === 'uk' ? 'uk-' : ''}tips-wide-dark.webp`, Astro.site).href,
+    screenshot: new URL(`/pacenote/shots/${lang === 'uk' ? 'uk-' : ''}hero-dark.webp`, Astro.site).href,
     sameAs: ['https://github.com/bodco/live-tips'],
     author: { '@type': 'Person', name: 'bodco', url: 'https://github.com/bodco' },
     inLanguage: ['en', 'uk'],
@@ -74,7 +74,7 @@ const P = lang === 'uk'
         </p>
         <p class="smallprint">{P.note}</p>
       </div>
-      <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-tips-wide' : 'tips-wide'} width={1600} height={1034} eager alt={lang === 'uk' ? 'Вікно підказок Pacenote на дзвінку: одна відповідь великим шрифтом, раніші підказки рядками, транскрипт збоку' : 'The Pacenote tips window on a call: one answer in large type, earlier tips as single lines, the transcript on the side'} /></div>
+      <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-hero' : 'hero'} width={1600} height={1034} eager alt={lang === 'uk' ? 'Pacenote: Home з наступним дзвінком і живий дзвінок з агендою, готовою відповіддю і транскриптом' : 'Pacenote: Home with the next call, and a live call with the agenda, a ready answer and the transcript'} /></div>
     </div>
   </section>
   ) : (
