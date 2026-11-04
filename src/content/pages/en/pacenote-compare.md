@@ -77,7 +77,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 ## Price
 
 <div class="grid" style="--min: 240px;">
-<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 app, no seats</h3><p class="card__text">On an API key a 30-min call is about $1.33 with the brief, tips and notes: about $13 a month for 10 calls, about $130 for a team of 10. Or the Claude or ChatGPT seat you already have. A monthly limit you set. <a href="/pacenote/details/#ai-and-costs">Cost table</a></p></div>
+<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 app, no seats</h3><p class="card__text">On an API key a 30-min call is about $1.33 with the brief, tips and notes: about $13 a month for 10 calls, about $130 for a team of 10. Or the Claude or ChatGPT seat you already have. A monthly limit you set. <a href="/pacenote/pricing/">Cost table</a></p></div>
 <div class="card"><p class="card__tag">Fireflies</p><h3 class="card__title">$10-18 a seat a month</h3><p class="card__text">Free: 400 min storage per team, 20 AI credits, 2 h per recording. Pro $10 / $18, Business $19 / $29, Enterprise $39 (yearly / monthly).</p></div>
 <div class="card"><p class="card__tag">Fathom</p><h3 class="card__title">$0-20 a seat a month</h3><p class="card__text">Free: unlimited recordings, advanced summaries for 5 calls a month. Premium $16 / $20, Team $15 / $19 (2 seats min), Business $25 / $34.</p></div>
 </div>

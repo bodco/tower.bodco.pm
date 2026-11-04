@@ -69,7 +69,7 @@ facts:
 <div class="card card--tile"><h3 class="card__title">🎯 Facts or silence</h3><p class="card__text">A tip carries a number, a date, a name or a ready sentence. Or it is not shown.</p></div>
 <div class="card card--tile"><h3 class="card__title">⚡ Works without prep</h3><p class="card__text">Start anyway: tips when you are addressed, HELP NOW, project search.</p></div>
 <div class="card card--tile"><h3 class="card__title">🧠 Knows your project</h3><p class="card__text">Your folders, your Notion, your Google Docs, full notes of every earlier call.</p></div>
-<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">About $1.33 for a 30-min call on a key (brief, tips and notes), about $13 a month for 10 calls. Or the Claude or ChatGPT seat you already have. <a href="/pacenote/details/#ai-and-costs">Cost table</a></p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">About $1.33 for a 30-min call on a key (brief, tips and notes), about $13 a month for 10 calls. Or the Claude or ChatGPT seat you already have. <a href="/pacenote/pricing/">Cost table</a></p></div>
 </div>
 
 <div class="aimix">

@@ -699,3 +699,15 @@ html[data-brand='pacenote'][data-theme='light'] .vbadge:not(.vbadge--soft) { bac
 .gallery--strip .ltshot figcaption { font-size: 0.9rem; }
 @media (max-width: 640px) { .gallery--strip .ltshot__img { height: 280px; } }
 .tiles + .aimix { margin-top: 20px; }
+
+/* 2026-11-04 (owner): the Pacenote pricing page, and an easier read of the long Pacenote pages
+   (a rule between sections, a shorter line, tables as wide as the text on wide screens). */
+html[data-brand='pacenote'] .prose > p, html[data-brand='pacenote'] .prose > ul, html[data-brand='pacenote'] .prose > ol { max-width: 74ch; }
+html[data-brand='pacenote'] .prose h2 { border-top: 1px solid var(--line); padding-top: 1.2em; margin-top: 2em; }
+html[data-brand='pacenote'] .prose h2:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+html[data-brand='pacenote'] .prose h3 { margin-top: 1.4em; }
+html[data-brand='pacenote'] .prose td { font-variant-numeric: tabular-nums; }
+html[data-brand='pacenote'] .prose tbody tr:hover td { background: var(--pn-tint); }
+@media (min-width: 1100px) { html[data-brand='pacenote'] .prose table:not(.cmp) { display: table; } }
+.pn-price .card { gap: 6px; }
+.pn-price .pn-price__big { font-size: 40px; font-weight: 600; line-height: 1.05; color: var(--text); margin: 2px 0 0; font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }

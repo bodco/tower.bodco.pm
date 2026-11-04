@@ -69,7 +69,7 @@ facts:
 <div class="card card--tile"><h3 class="card__title">🎯 Факт або тиша</h3><p class="card__text">Підказка несе число, дату, імʼя чи готове речення. Або її не видно.</p></div>
 <div class="card card--tile"><h3 class="card__title">⚡ Працює без підготовки</h3><p class="card__text">Починайте одразу: підказки, коли звертаються до вас, HELP NOW, пошук по проєкту.</p></div>
 <div class="card card--tile"><h3 class="card__title">🧠 Знає ваш проєкт</h3><p class="card__text">Ваші папки, ваш Notion, ваші Google Docs, повні нотатки кожного попереднього дзвінка.</p></div>
-<div class="card card--tile"><h3 class="card__title">💳 Плата за дзвінок, а не за місце</h3><p class="card__text">Близько $1.33 за 30-хвилинний дзвінок на ключі (бриф, підказки і нотатки), 10 дзвінків на місяць близько $13. Або місце Claude чи ChatGPT, яке в вас уже є. <a href="/uk/pacenote/details/#моделі-і-вартість">Таблиця вартості</a></p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Плата за дзвінок, а не за місце</h3><p class="card__text">Близько $1.33 за 30-хвилинний дзвінок на ключі (бриф, підказки і нотатки), 10 дзвінків на місяць близько $13. Або місце Claude чи ChatGPT, яке в вас уже є. <a href="/uk/pacenote/pricing/">Таблиця вартості</a></p></div>
 </div>
 
 <div class="aimix">

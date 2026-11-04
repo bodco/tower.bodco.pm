@@ -7,7 +7,7 @@ import { join } from 'node:path';
 const cfg = JSON.parse(readFileSync(new URL('../src/data/pacenote-domain.json', import.meta.url), 'utf8'));
 if (!cfg.live || process.env.PACENOTE_KEEP) process.exit(0);
 const DIST = process.argv[2] || 'dist';
-const subs = ['', 'details', 'compare', 'privacy', 'terms'];
+const subs = ['', 'details', 'pricing', 'compare', 'privacy', 'terms'];
 const stub = (to) => `<!doctype html><html><head><meta charset="utf-8"><title>Pacenote</title><meta http-equiv="refresh" content="0; url=${to}"><link rel="canonical" href="${to}"><meta name="robots" content="noindex"></head><body><a href="${to}">${to}</a></body></html>\n`;
 let n = 0;
 for (const uk of ['', 'uk/']) {

@@ -13,7 +13,7 @@ const OUT = process.argv[3] || 'dist-pacenote';
 const cfg = JSON.parse(readFileSync(new URL('../src/data/pacenote-domain.json', import.meta.url), 'utf8'));
 const ORIGIN = cfg.origin;                 // https://pacenote.bodco.pm
 const TOWER = 'https://tower.bodco.pm';
-const SUBS = ['', 'details', 'compare', 'privacy', 'terms'];
+const SUBS = ['', 'details', 'pricing', 'compare', 'privacy', 'terms'];
 
 rmSync(OUT, { recursive: true, force: true });
 mkdirSync(OUT, { recursive: true });
@@ -36,12 +36,12 @@ function rewrite(html) {
     return `href="${TOWER}${p}"`;
   });
   // 2. Absolute addresses of the Pacenote pages (canonical, hreflang, og:url, structured data).
-  html = html.replace(/https:\/\/tower\.bodco\.pm\/(uk\/)?pacenote\/(?:(details|compare|privacy|terms)\/)?(?=[#"'<\s&])/g,
+  html = html.replace(/https:\/\/tower\.bodco\.pm\/(uk\/)?pacenote\/(?:(details|pricing|compare|privacy|terms)\/)?(?=[#"'<\s&])/g,
     (_m, uk, sub) => `${ORIGIN}/${uk || ''}${sub ? sub + '/' : ''}`);
   // Pacenote's images and icons are copied to /pacenote/ on the new site too.
   html = html.replaceAll(`${TOWER}/pacenote/`, `${ORIGIN}/pacenote/`);
   // 3. Links between the Pacenote pages (images keep /pacenote/..., the files are there).
-  html = html.replace(/href="(\/uk)?\/pacenote\/(?:(details|compare|privacy|terms)\/)?(#[^"]*)?"/g,
+  html = html.replace(/href="(\/uk)?\/pacenote\/(?:(details|pricing|compare|privacy|terms)\/)?(#[^"]*)?"/g,
     (_m, uk, sub, hash) => `href="${uk || ''}/${sub ? sub + '/' : ''}${hash || ''}"`);
   html = html.replace(/href="\/sitemap-index\.xml"/, 'href="/sitemap.xml"');
   return html;
