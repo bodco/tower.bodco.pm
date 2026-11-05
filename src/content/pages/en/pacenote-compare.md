@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
   - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
-  - { k: Pacenote, v: "0.9.4, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.9.5, macOS (Apple Silicon)" }
 ---
 
 ## At a glance
@@ -57,7 +57,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Certifications | ✗ open code you can audit | ✓ SOC 2, ISO 42001, HIPAA | ✓ SOC 2, GDPR, HIPAA |
 | **Team and platform** | | | |
 | Team admin | ✗ personal tool | ✓ SSO, SCIM (Enterprise) | ✓ team folders, SSO (Enterprise) |
-| Video | ✗ audio and text | ◐ Pro and up | ✓ bot-free video in beta |
+| Video | ✓ sound and screen, saved on your Mac (0.9.5, off by default) | ◐ Pro and up | ✓ bot-free video in beta |
 | Windows | ✗ Mac only | ✓ desktop app | ◐ bot only; bot-free soon |
 
 <p class="smallprint"><b>Also in Pacenote:</b> learns from your corrections (fix it on 2 calls, applied to every next brief) · a free local model or Gemini as plan B when Claude is unreachable · speakers remembered by voice per project.</p>
@@ -72,7 +72,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Sales brief | ✓ company web search (name or domain only), likely objections, questions to ask |
 | After a sales call | ✓ a Sales section and a scorecard, on the call page and in Notion |
 
-<p class="smallprint">Pacenote's own capabilities in 0.9.4. Fireflies and Fathom are compared in the table above.</p>
+<p class="smallprint">Pacenote's own capabilities in 0.9.5. Fireflies and Fathom are compared in the table above.</p>
 
 ## Price
 
@@ -104,7 +104,7 @@ From G2, Capterra, Trustpilot and independent tests in 2025-2026 (links below).
 
 - **Mac with Apple Silicon.** Setup downloads about 2.5 GB of speech and search models.
 - **CRM:** HubSpot, with your own service key in the macOS Keychain.
-- **Audio and text, no video.** Notes go to Notion, Google Docs, Word or Markdown.
+- **Recording on your Mac.** The sound, or the sound and the screen, saved on your Mac and never sent to the cloud. Notes go to Notion, Google Docs, Word or Markdown.
 - **Personal tool; team version designed.** [Read the design](https://github.com/bodco/live-tips/tree/main/docs/team).
 
 ## Sources

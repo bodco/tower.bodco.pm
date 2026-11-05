@@ -16,8 +16,9 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 
 ## What stays on your Mac
 
-- **Audio.** Speech is recognised locally with Whisper. Audio buffers live only in memory and are never written to disk or sent anywhere.
+- **Audio.** Speech is recognised locally with Whisper. Audio is never sent to an AI or anywhere else; it is written to disk only when you record a call (below).
 - **Transcripts.** Recognised phrases are saved as text in your project folder (`live/` inside it), with speaker names if you use them.
+- **Call recording (0.9.5), off by default.** If you turn it on in Settings > Call recording or choose it for a call, Pacenote saves the call's sound, or the sound and the screen (a whole screen or one window, never Pacenote's own windows), as a file in the project's `video/` folder on your Mac. It is never sent to an AI. To show which window will be recorded, the window picker takes a small picture of it on your Mac and does not keep it. Nothing is shown or played to the other participants: telling them is up to you (Settings > General > Recording consent can say or copy a message).
 - **Voice prints.** If you turn speakers on, the voice prints that tell people apart are stored only on your Mac. In many countries a voice print is biometric data: tell people, and delete the ones you do not need (Settings > AI > Speakers, the Forget button).
 - **Keys and tokens** (Claude, OpenAI, Gemini, Notion, HubSpot, Google and others) are kept in the macOS Keychain.
 - **Settings, logs and the spend ledger** stay in the app's folder in your Library. Logs hold technical events, not the transcript.
@@ -33,6 +34,7 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 - **Notion.** With a Notion token set, the wrap-up and the transcript (as a child page) go to the meeting's page in your workspace, and the app reads your project pages to keep a local mirror.
 - **HubSpot (0.8.7), if you connect it.** The service key stays in the macOS Keychain. Pacenote reads the company, the deal, contacts and recent activity into a local snapshot next to the brief. It writes a note, deal fields and a task only after you tick them in Update HubSpot and press Apply; the transcript goes into the note only if you turn that on (off by default).
 - **Google (0.9.1), if you connect Google accounts.** Read-only access to your calendars, to the Google Docs, Sheets and Slides you link, and to Google Meet participants, plus an optional export of notes to a Google Doc that Pacenote itself creates. Everything is described in [Google user data](#google-user-data) below.
+- **Call recordings to Google Drive (0.9.5), only if you upload them.** By a click on the call page, or after every call if you choose so: into your own Drive (My Drive > Pacenote > the project), with the `drive.file` permission that lets Pacenote see only the files it made.
 - **Company web search before sales calls (0.8.7).** On by default, switch it off in Settings > AI. Only the company's name or domain goes into the search, never anything from your files; the brief says what was searched.
 - **Links you give for preparation.** If your preparation names web pages (for example a public Google Doc or Notion page), the app reads only those pages.
 - **One-time downloads.** Setup downloads the speech, search and voice models (Hugging Face, GitHub) and Python packages (PyPI). Each model file is checked against its SHA-256. These services see an ordinary download request.
@@ -42,7 +44,7 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 
 - Nothing goes to me unless you turn on Help improve Pacenote (above). The app and the skill have **no analytics SDK, no tracking and no crash reporting**; the skill sends nothing to me at all.
 - Nothing is sent to the client or posted anywhere by itself. Drafts and notes are for you.
-- Pacenote does not see your screen, your chats or files outside the project folders you choose.
+- Pacenote does not see your screen unless you record a call with the screen (above), and never your chats or files outside the project folders you choose.
 
 <h2 id="google-user-data">Google user data</h2>
 
@@ -54,7 +56,7 @@ This section applies only if you connect a Google account in Settings > Integrat
 - **The list of your calendars** (`calendar.calendarlist.readonly`) **and their events** (`calendar.events.readonly`): to show your upcoming calls on the Home screen and to prepare each call. Pacenote reads the title, time, attendees, Meet link and the files attached to the invitation. By default only your primary calendar is on; you can tick others.
 - **Google Docs, Sheets and Slides you link** (`documents.readonly`, `spreadsheets.readonly`, `presentations.readonly`): to read the text of a document you link in a call's setup, or that is attached to the invitation, so the call brief can use it. Other Drive files are not read.
 - **Google Meet conference data** (`meetings.space.readonly`): only when you choose More > Google Meet record on a past call, to read the participants and, if transcription was on in Meet, the transcript.
-- **Files Pacenote creates** (`drive.file`): only when you choose Export to Google Docs, to create one Google Doc in your Drive with the notes of that call. With this permission Pacenote can see only the files it created.
+- **Files Pacenote creates** (`drive.file`): only when you choose Export to Google Docs or upload a call recording, to create that Google Doc or recording file in your Drive (My Drive > Pacenote > the project). With this permission Pacenote can see only the files it created.
 
 **Where the data is stored.** The refresh token stays in the macOS Keychain on your Mac; access tokens live only in memory. Text of linked documents is copied into your project folder on your Mac. Pacenote has no server and no database: nothing from Google is sent to me or stored anywhere I control.
 

@@ -7,7 +7,7 @@ facts:
   - { k: Звук, v: "Ніколи не покидає ваш Мак" }
   - { k: ШІ, v: "Claude, ChatGPT або Gemini: ваш план чи ваш ключ" }
   - { k: Акаунти, v: "Google (кілька), Notion, HubSpot" }
-  - { k: Версія, v: "0.9.4.1" }
+  - { k: Версія, v: "0.9.5" }
 ---
 
 <div class="tiles">
@@ -24,10 +24,13 @@ facts:
 <div class="card card--tile"><p class="card__num">Будь-який</p><p class="card__text">застосунок дзвінків на Маку: Zoom, Meet, Teams, Slack</p></div>
 </div>
 
-## Нове в 0.9 <span class="vbadge vbadge--soft">0.9.4</span>
+## Нове в 0.9 <span class="vbadge vbadge--soft">0.9.5</span>
 
 <div class="newlist">
 <ul>
+<li>🎥 <b>Запис дзвінка.</b> Звук або звук і екран (весь екран чи вікно дзвінка) зберігаються на вашому Маку, щоб переглянути дзвінок ще раз, наприклад реакції іншої сторони. Запис можна підготувати до старту і бачити, яке саме вікно буде записано. Щоб поділитися, вивантажте його у свій Google Drive. Типово вимкнено.</li>
+<li>🎛️ <b>Плаваюча панель дзвінка.</b> Вузька смужка поверх вікон: Home, підказки, пауза, одна кнопка запису і завершення дзвінка. Її крапка показує стан.</li>
+<li>📋 <b>Нові сторінки дзвінків.</b> Підсумок у дві колонки, що на вас і що на них поруч, транскрипт за спікерами.</li>
 <li>🔗 <b>Google-акаунти, скільки у вас їх є.</b> Календарі на Home, приватні посилання на Docs, Sheets і Slides для брифу, нотатки в Google Docs, учасники і транскрипт Meet після дзвінка.</li>
 <li>🏠 <b>Home і сторінки дзвінків.</b> Наступний дзвінок з однією головною кнопкою; кожен дзвінок має сторінку: налаштування і бриф до, підсумок, рішення, задачі й ризики після.</li>
 <li>✅ <b>Трекер.</b> Задачі, рішення і ризики всіх проєктів на одному екрані.</li>
@@ -49,6 +52,7 @@ facts:
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-live-092-dark.webp" alt="Pacenote: На дзвінку" width="1600" height="1046" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-live-092-light.webp" alt="Pacenote: На дзвінку" width="1600" height="1046" loading="lazy" decoding="async" /><figcaption><b>На дзвінку.</b> Агенда, одна відповідь, фраза, яку сказати, хто що сказав.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-dark.webp" alt="Pacenote: Під камерою" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-light.webp" alt="Pacenote: Під камерою" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Під камерою.</b> Погляд лишається на клієнті; Допоможи це ⌃⌥H.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-home-092-dark.webp" alt="Pacenote: Home" width="1600" height="1109" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-home-092-light.webp" alt="Pacenote: Home" width="1600" height="1109" loading="lazy" decoding="async" /><figcaption><b>Home.</b> Наступний дзвінок і його готовність, що попереду, останні дзвінки.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-callpage-095-dark.webp" alt="Pacenote: Сторінка дзвінка" width="1600" height="1311" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-callpage-095-light.webp" alt="Pacenote: Сторінка дзвінка" width="1600" height="1311" loading="lazy" decoding="async" /><figcaption><b>Сторінка дзвінка.</b> Що вирішили, що далі, агенда і транскрипт.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/uk-tips-ready-dark.webp" alt="Pacenote: Перед стартом" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/uk-tips-ready-light.webp" alt="Pacenote: Перед стартом" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Можна починати.</b> Бриф і що на вас.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Компактний режим" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Компактний режим" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Компактний режим.</b> Смуга, що росте лише коли треба (⌃⌥T).</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: Після дзвінка" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: Після дзвінка" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>Після дзвінка.</b> Сторінка в Notion з рішеннями і задачами.</figcaption></figure>

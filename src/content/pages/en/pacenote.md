@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Never leaves your Mac" }
   - { k: AI, v: "Claude, ChatGPT or Gemini: your plan or your key" }
   - { k: Accounts, v: "Google (several), Notion, HubSpot" }
-  - { k: Version, v: "0.9.4.1" }
+  - { k: Version, v: "0.9.5" }
 ---
 
 <div class="tiles">
@@ -24,10 +24,13 @@ facts:
 <div class="card card--tile"><p class="card__num">Any</p><p class="card__text">call app on the Mac: Zoom, Meet, Teams, Slack</p></div>
 </div>
 
-## New in 0.9 <span class="vbadge vbadge--soft">0.9.4</span>
+## New in 0.9 <span class="vbadge vbadge--soft">0.9.5</span>
 
 <div class="newlist">
 <ul>
+<li>🎥 <b>Record the call.</b> The sound, or the sound and the screen (a whole screen or the call's window), saved on your Mac to watch again, for example the other side's reactions. Prepare it before you start listening and see exactly which window will be recorded. Upload to your own Google Drive to share it. Off by default.</li>
+<li>🎛️ <b>Floating call controls.</b> A slim strip above your windows: Home, tips, pause, one Record button and End call. Its dot shows the state.</li>
+<li>📋 <b>Call pages, redone.</b> The summary in two columns, what is on you and on them side by side, the transcript grouped by speaker.</li>
 <li>🔗 <b>Google accounts, as many as you use.</b> Calendars on Home, private Docs, Sheets and Slides links read for the brief, notes exported to Google Docs, the Meet participants and transcript after a call.</li>
 <li>🏠 <b>Home and call pages.</b> The next call with one main button; every call has its page: setup and brief before, summary, decisions, tasks and risks after.</li>
 <li>✅ <b>Tracker.</b> Tasks, decisions and risks of every project on one screen.</li>
@@ -49,6 +52,7 @@ facts:
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/live-092-dark.webp" alt="Pacenote: On the call" width="1600" height="1046" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/live-092-light.webp" alt="Pacenote: On the call" width="1600" height="1046" loading="lazy" decoding="async" /><figcaption><b>On the call.</b> The agenda, one answer, the phrase to say, who said what.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-dark.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-light.webp" alt="Pacenote: Under your camera" width="880" height="1584" loading="lazy" decoding="async" /><figcaption><b>Under your camera.</b> Eyes stay on the client; Help is ⌃⌥H.</figcaption></figure>
 <figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/home-092-dark.webp" alt="Pacenote: Home" width="1600" height="1109" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/home-092-light.webp" alt="Pacenote: Home" width="1600" height="1109" loading="lazy" decoding="async" /><figcaption><b>Home.</b> The next call and its readiness, what is coming up, recent calls.</figcaption></figure>
+<figure class="ltshot ltshot--wide"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/callpage-095-dark.webp" alt="Pacenote: The call page" width="1600" height="1311" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/callpage-095-light.webp" alt="Pacenote: The call page" width="1600" height="1311" loading="lazy" decoding="async" /><figcaption><b>The call page.</b> What was decided, what is next, the agenda and the transcript.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-ready-dark.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-ready-light.webp" alt="Pacenote: Before you start" width="880" height="1025" loading="lazy" decoding="async" /><figcaption><b>Ready to start.</b> The brief and what is on you.</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/tips-compact-dark.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/tips-compact-light.webp" alt="Pacenote: Compact mode" width="1120" height="364" loading="lazy" decoding="async" /><figcaption><b>Compact mode.</b> A strip that grows only when needed (⌃⌥T).</figcaption></figure>
 <figure class="ltshot"><img class="ltshot__img ltshot--dark" src="/pacenote/shots/notion-dark.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src="/pacenote/shots/notion-light.webp" alt="Pacenote: After the call" width="1000" height="983" loading="lazy" decoding="async" /><figcaption><b>After the call.</b> A Notion page with decisions and actions.</figcaption></figure>
