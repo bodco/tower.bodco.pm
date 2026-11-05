@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
   - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
-  - { k: Pacenote, v: "0.9.2, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.9.4, macOS (Apple Silicon)" }
 ---
 
 ## At a glance
@@ -60,7 +60,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Video | ✗ audio and text | ◐ Pro and up | ✓ bot-free video in beta |
 | Windows | ✗ Mac only | ✓ desktop app | ◐ bot only; bot-free soon |
 
-<p class="smallprint"><b>Also in Pacenote:</b> learns from your corrections (fix it on 2 calls, applied to every next brief) · a free local model as plan B when Claude is unreachable · speakers remembered by voice per project.</p>
+<p class="smallprint"><b>Also in Pacenote:</b> learns from your corrections (fix it on 2 calls, applied to every next brief) · a free local model or Gemini as plan B when Claude is unreachable · speakers remembered by voice per project.</p>
 
 ## Sales calls in Pacenote
 
@@ -72,12 +72,12 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Sales brief | ✓ company web search (name or domain only), likely objections, questions to ask |
 | After a sales call | ✓ a Sales section and a scorecard, on the call page and in Notion |
 
-<p class="smallprint">Pacenote's own capabilities in 0.9.2. Fireflies and Fathom are compared in the table above.</p>
+<p class="smallprint">Pacenote's own capabilities in 0.9.4. Fireflies and Fathom are compared in the table above.</p>
 
 ## Price
 
 <div class="grid" style="--min: 240px;">
-<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 app, no seats</h3><p class="card__text">On an API key a 30-min call is about $1.33 with the brief, tips and notes: about $13 a month for 10 calls, about $130 for a team of 10. Or the Claude or ChatGPT seat you already have. A monthly limit you set. <a href="/pacenote/pricing/">Cost table</a></p></div>
+<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 app, no seats</h3><p class="card__text">On an API key a 30-min call is about $1.33 with the brief, tips and notes: about $13 a month for 10 calls, about $130 for a team of 10. Or the Claude, ChatGPT or Gemini plan you already have. A monthly limit you set. <a href="/pacenote/pricing/">Cost table</a></p></div>
 <div class="card"><p class="card__tag">Fireflies</p><h3 class="card__title">$10-18 a seat a month</h3><p class="card__text">Free: 400 min storage per team, 20 AI credits, 2 h per recording. Pro $10 / $18, Business $19 / $29, Enterprise $39 (yearly / monthly).</p></div>
 <div class="card"><p class="card__tag">Fathom</p><h3 class="card__title">$0-20 a seat a month</h3><p class="card__text">Free: unlimited recordings, advanced summaries for 5 calls a month. Premium $16 / $20, Team $15 / $19 (2 seats min), Business $25 / $34.</p></div>
 </div>

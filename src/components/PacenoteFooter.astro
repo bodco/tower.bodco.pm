@@ -1,0 +1,74 @@
+---
+// 2026-11-04 (owner): the footer of the Pacenote site. PM Control Tower is only a link ("Also by bodco").
+import PN_VERSION from '../data/pacenote-version.json';
+import { getLangFromUrl, pnHref } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const REPO = 'https://github.com/bodco/live-tips';
+const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
+const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
+const T = lang === 'uk'
+  ? {
+      about: 'Ваш штурман на дзвінках. Бета. Безкоштовно, відкритий код.',
+      beta: 'бета', product: 'Продукт', get: 'Взяти', legal: 'Правила', also: 'Ще від bodco',
+      overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', compare: 'Порівняння з іншими',
+      dmg: 'Завантажити для Мака', skill: 'Скіл для Cowork', repo: 'Репозиторій GitHub', changes: 'Список змін', docs: 'Документація',
+      privacy: 'Конфіденційність', terms: 'Умови використання', consent: 'Налаштування аналітики',
+      tower: 'PM Control Tower', towerNote: 'AI для рутини ПМа в Notion',
+    }
+  : {
+      about: 'Your co-driver on calls. Beta. Free and open source.',
+      beta: 'beta', product: 'Product', get: 'Get it', legal: 'Legal', also: 'Also by bodco',
+      overview: 'Overview', details: 'How it works', pricing: 'Pricing', compare: 'Compared with others',
+      dmg: 'Download for Mac', skill: 'Skill for Cowork', repo: 'GitHub repository', changes: 'Changelog', docs: 'Documentation',
+      privacy: 'Privacy', terms: 'Terms of use', consent: 'Analytics settings',
+      tower: 'PM Control Tower', towerNote: 'AI for the routine of project management, in Notion',
+    };
+const TOWER = lang === 'uk' ? 'https://tower.bodco.pm/uk/' : 'https://tower.bodco.pm/';
+---
+<footer class="site-footer">
+  <div class="footer wrap">
+    <div class="footer__about">
+      <b>Pacenote</b>
+      <span>{T.about}</span>
+      <span class="label">v{PN_VERSION.version} · {T.beta} · MIT</span>
+    </div>
+    <div class="footer__cols">
+      <div class="footer__col">
+        <span class="label">{T.product}</span>
+        <a href={pnHref(lang)}>{T.overview}</a>
+        <a href={pnHref(lang, 'details')}>{T.details}</a>
+        <a href={pnHref(lang, 'pricing')}>{T.pricing}</a>
+        <a href={pnHref(lang, 'compare')}>{T.compare}</a>
+      </div>
+      <div class="footer__col">
+        <span class="label">{T.get}</span>
+        <a href={DMG} download>{T.dmg}</a>
+        <a href={SKILL} download>{T.skill}</a>
+        <a href={REPO}>{T.repo}</a>
+        <a href={`${REPO}/blob/main/CHANGELOG.md`}>{T.changes}</a>
+        <a href={`${REPO}/blob/main/docs/${lang}/live-tips.md`}>{T.docs}</a>
+      </div>
+      <div class="footer__col">
+        <span class="label">{T.legal}</span>
+        <a href={pnHref(lang, 'privacy')}>{T.privacy}</a>
+        <a href={pnHref(lang, 'terms')}>{T.terms}</a>
+        <button type="button" class="footer__consent" id="consent-reset">{T.consent}</button>
+      </div>
+      <div class="footer__col">
+        <span class="label">{T.also}</span>
+        <a href={TOWER}>{T.tower}</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script is:inline>
+  // Forget the analytics choice and show the consent banner again.
+  (function () {
+    var b = document.getElementById('consent-reset');
+    if (b) b.addEventListener('click', function () {
+      try { localStorage.removeItem('analytics-consent'); } catch (e) {}
+      location.reload();
+    });
+  })();
+</script>

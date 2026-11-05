@@ -1,0 +1,19 @@
+---
+// 2026-11-04 (owner): the 404 page of pacenote.bodco.pm. It exists only in the build that feeds that site
+// (PACENOTE_KEEP=1); the PM Control Tower build gets no such page. scripts/pacenote-site.mjs turns it into 404.html.
+import Base from '../../layouts/Base.astro';
+import PacenoteLogo from '../../components/PacenoteLogo.astro';
+export function getStaticPaths() {
+  return process.env.PACENOTE_KEEP ? [{ params: { v: 'index' } }] : [];
+}
+---
+<Base title="Page not found · Pacenote" noindex brand="pacenote">
+  <section class="wrap section stack" style="align-items: flex-start;">
+    <div style="width:44px;height:44px;color:var(--text)"><PacenoteLogo /></div>
+    <p class="eyebrow">404</p>
+    <h1 class="h1 h1--page">This page is off the route</h1>
+    <p class="lead">The link may be old, or the page moved. Start from the Pacenote home page.</p>
+    <p class="lead" lang="uk">Цієї сторінки немає на маршруті. Почніть з головної сторінки Pacenote.</p>
+    <div class="btns"><a class="btn btn--primary" href="/pacenote/">Home</a><a class="btn" href="/uk/pacenote/">Головна</a></div>
+  </section>
+</Base>

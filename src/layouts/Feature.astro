@@ -36,7 +36,7 @@ const P = lang === 'uk'
   : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: `Free and open source · macOS 14.4+, Apple Silicon · version ${PN_VERSION.version}` };
 ---
 <Base title={title} description={description ?? lead} brand={brand}
-  crumbParent={parent ? { name: t(lang, `nav.${parent}` as any), href: path(lang, parent) } : undefined}
+  crumbParent={parent && !brand ? { name: t(lang, `nav.${parent}` as any), href: path(lang, parent) } : undefined}
   ld={product ? [{
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -61,7 +61,6 @@ const P = lang === 'uk'
   <section class="page-hero product-hero">
     <div class="wrap product-hero__in">
       <div class="product-hero__text">
-        <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {t(lang, `nav.${slug}` as any)}</p>
         <div class="product-hero__name"><img class="pn-theme--dark" src="/pacenote/icon-dark-128.png" alt="" width="64" height="64" /><img class="pn-theme--light" src="/pacenote/icon-light-128.png" alt="" width="64" height="64" /><h1 class="h1 h1--hero product-hero__wm"><span class="pn-sr">{title}</span><img class="pn-theme--dark" src="/pacenote/wordmark-white.svg" alt="" width="230" height="53" /><img class="pn-theme--light" src="/pacenote/wordmark-ink.svg" alt="" width="230" height="53" /></h1></div>
         <p class="product-hero__sub">{P.sub}</p>
         <p class="lead">{lead}</p>
@@ -81,7 +80,9 @@ const P = lang === 'uk'
   <section class="page-hero">
     <div class="page-hero__in wrap">
       <div class="page-hero__text">
-        <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {parent && <><a href={path(lang, parent as any)}>{t(lang, `nav.${parent}` as any)}</a> / </>}{t(lang, `nav.${slug}` as any)}</p>
+        {brand
+          ? <p class="crumbs"><a href={path(lang, 'pacenote')}>Pacenote</a> / {t(lang, `nav.${slug}` as any)}</p>
+          : <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {parent && <><a href={path(lang, parent as any)}>{t(lang, `nav.${parent}` as any)}</a> / </>}{t(lang, `nav.${slug}` as any)}</p>}
         <h1 class="h1 h1--page">{title}</h1>
         <p class="lead">{lead}</p>
       </div>

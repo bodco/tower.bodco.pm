@@ -16,7 +16,7 @@ facts:
 <div class="card card--tile"><p class="card__tag">Claude API</p><p class="pn-price__big">$13</p><p class="card__text">a month for 10 calls. $1.33 a call. The best quality.</p></div>
 <div class="card card--tile card--accent"><p class="card__tag">OpenAI API</p><p class="pn-price__big">$7</p><p class="card__text">a month for 10 calls. $0.74 a call. Close to Claude.</p></div>
 <div class="card card--tile"><p class="card__tag">Gemini API</p><p class="pn-price__big">$7</p><p class="card__text">a month for 10 calls. $0.73 a call. Good as a plan B.</p></div>
-<div class="card card--tile"><p class="card__tag">Seats you already have</p><p class="pn-price__big">~$1</p><p class="card__text">a month. Claude or ChatGPT plan, tips on a key.</p></div>
+<div class="card card--tile"><p class="card__tag">Seats you already have</p><p class="pn-price__big">~$1</p><p class="card__text">a month. Claude, ChatGPT or Gemini plan, tips on a key.</p></div>
 </div>
 
 Pacenote does three jobs: **Preparation** before the call, **Live tips** during it and **After the call** (notes, follow-up, memory). Each job picks its own provider and model in Settings > AI, so a call costs the sum of three parts.
@@ -26,8 +26,8 @@ Pacenote does three jobs: **Preparation** before the call, **Live tips** during 
 <div class="tiles" style="--min: 320px;">
 <div class="card card--tile"><h3 class="card__title">The best quality</h3><p class="card__text">Claude defaults: Sonnet for the brief and notes, Haiku for the tips. The fullest briefs and the best-structured notes. $13 a month.</p></div>
 <div class="card card--tile card--accent"><h3 class="card__title">Almost the same, half the price</h3><p class="card__text">OpenAI defaults: Sol for the brief and notes, Luna for the tips. The judges put Sol level with Sonnet, and Luna gave the most useful tips. $7 a month.</p></div>
-<div class="card card--tile"><h3 class="card__title">Already paying for seats</h3><p class="card__text">Preparation and notes come from your Claude or ChatGPT plan, tips run on a key. About $1 a month extra.</p></div>
-<div class="card card--tile"><h3 class="card__title">Gemini, as a plan B</h3><p class="card__text">Cheap preparation and notes, but its briefs promise things nobody agreed and its live tips are almost silent. Turn it on as the fallback.</p></div>
+<div class="card card--tile"><h3 class="card__title">Already paying for seats</h3><p class="card__text">Preparation and notes come from your Claude, ChatGPT or Gemini plan, tips run on a key. About $1 a month extra.</p></div>
+<div class="card card--tile"><h3 class="card__title">Gemini, as a plan B</h3><p class="card__text">Cheap preparation and notes, but its briefs promise things nobody agreed and its live tips are almost silent. Turn it on as the fallback: on a key for every job, or on your Google account for preparation and notes.</p></div>
 </div>
 
 ## Side by side
@@ -114,7 +114,7 @@ On an API key, billed per token.
 
 ## With a plan you already have
 
-On a Claude or ChatGPT account the plan pays for preparation and notes. Live tips still run best on a key: an hour of a call is hundreds of requests, and an account answers a few seconds later. So a plan setup is a seat plus $0.11 a call (Haiku) or $0.06 (Luna). Gemini works through a key only.
+On a Claude, ChatGPT or Gemini account the plan pays for preparation and notes. Live tips still run best on a key: an hour of a call is hundreds of requests, and an account answers a few seconds later (a Gemini account takes 20 to 30 seconds, so it does no live tips at all). So a plan setup is a seat plus $0.11 a call (Haiku) or $0.06 (Luna). Gemini tips on a key are the dearest of the three, see the limits below.
 
 | Plan setup | Seat per person | 10 calls | Team of 10 |
 |---|---|---|---|
@@ -126,6 +126,8 @@ On a Claude or ChatGPT account the plan pays for preparation and notes. Live tip
 | **Seats the team already pays for** | $0 extra | **~$1** Claude, ~$0.6 ChatGPT | **~$11** Claude, ~$6 ChatGPT |
 
 **Account or key?** A seat costs the same however many calls you make, a key costs per call. A $20 seat plus tips is cheaper than a Claude key from about 16 calls a month, and cheaper than an OpenAI or Gemini key from about 30. At 10 calls a month the key wins, so take a seat only when you already have one. Claude and OpenAI do not publish plan limits in tokens: a very heavy month may hit the limit, and the app then switches to the key by itself.
+
+**The Gemini account.** It uses your Google plan through Google's Antigravity CLI, with no API key, for the preparation and the notes. Pacenote runs each request in an empty folder with no file, shell or write access, and deletes the CLI's own copy of the conversation afterwards. Google's Antigravity terms forbid use through third-party software, so your Google account may be suspended, and they let Google use and review the conversations: Pacenote shows a red warning when you choose it. Take a Gemini key instead if you cannot accept that.
 
 ## A longer or shorter call
 
@@ -141,9 +143,10 @@ The preparation costs about the same for any length; tips and notes grow with th
 
 - **Gemini 4 Argon** stops at its output limit before finishing a brief or notes. Use Flash for now.
 - **Gemini live tips** cost more than Luna or Haiku: in our test Gemini's automatic cache never kicked in, so every request paid full input price.
+- **Gemini account** does preparation and notes only: a request takes 20 to 30 seconds, so no live tips.
 - **GPT-6 Luna** finished a brief on a small project and failed twice on a larger one. For preparation, Sol is the safe choice.
 - **Limits in Settings:** a soft and a hard limit per call and a monthly cap, so a bad month cannot run away. At the hard limit only the local layer works.
-- **Fallbacks:** if Claude does not answer, preparation and after-call jobs run on the local model. Gemini can be the plan B for every job (Settings > AI > Automatic switching).
+- **Fallbacks:** if Claude does not answer, preparation and after-call jobs run on the local model. Gemini can be the plan B (Settings > AI > Automatic switching): on a key for every job, and with no key on your Google account for preparation and notes.
 
 ## How we measured
 

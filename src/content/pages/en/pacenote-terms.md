@@ -4,12 +4,12 @@ lead: "Pacenote is free, open source and given as is. You decide which calls it 
 description: "Pacenote terms of use: a free, open-source (MIT) Mac app given as is. You choose the calls, get consent from the people on them and check what the AI says."
 parent: pacenote
 facts:
-  - { k: Updated, v: "27 October 2026" }
+  - { k: Updated, v: "5 November 2026" }
   - { k: Licence, v: "MIT" }
   - { k: Status, v: "beta" }
 ---
 
-These terms cover **Pacenote**: the Mac app, the recorder and the Cowork skill, with the code at [github.com/bodco/live-tips](https://github.com/bodco/live-tips). The website and the rest of PM Control Tower have [their own terms](/terms/).
+These terms cover **Pacenote**: the Mac app, the recorder and the Cowork skill, with the code at [github.com/bodco/live-tips](https://github.com/bodco/live-tips). This website, pacenote.bodco.pm, is covered by these terms too. PM Control Tower, another project of the same author, has [its own terms](https://tower.bodco.pm/terms/).
 
 ## Licence
 
@@ -23,13 +23,14 @@ Pacenote is a beta built and used by one project manager. It is provided **as is
 
 - **Consent of the people on the call.** You are responsible for telling participants that you transcribe the call and use an AI assistant, and for getting their consent where the law, your employer or your client requires it. Do not use Pacenote where recording or transcription is not allowed.
 - **AI can be wrong.** Tips, summaries and transcripts can mishear names, numbers and terms or miss context. Check them before you say, send or decide anything on their basis.
-- **Your accounts and costs.** Pacenote uses your own Claude key or Claude account (or another provider's key), your Notion and your Mac. Their terms, limits and costs apply to you. Set the call and monthly budgets in Settings.
+- **Your accounts and costs.** Pacenote uses your own Claude, ChatGPT or Gemini key or account (or another provider's key), your Notion and your Mac. Their terms, limits and costs apply to you. Set the call and monthly budgets in Settings. A Gemini account runs through Google's Antigravity CLI, whose terms forbid use through third-party software and let Google use and review the conversations: choosing it is your decision and your risk, including the suspension of your Google account.
 - **Your data and your employer's rules.** Make sure that processing work calls and project files with AI is allowed by your employer and your clients. Keep transcripts and voice prints out of public places.
 - **Nothing is sent for you.** Pacenote prepares notes and drafts; sending anything to a client is always your own action.
+- **Fair use of the site.** Do not attack or overload this website.
 
 ## Trademarks
 
-Claude, Notion, Whisper, macOS and other names belong to their owners. Pacenote is an independent project and is not affiliated with or endorsed by them.
+Claude, ChatGPT, OpenAI, Gemini, Google, Antigravity, Notion, Whisper, macOS and other names belong to their owners. Pacenote is an independent project and is not affiliated with or endorsed by them.
 
 ## Changes and contact
 

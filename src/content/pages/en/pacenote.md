@@ -5,9 +5,9 @@ doc: https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md
 facts:
   - { k: Price, v: "Free app (MIT), no seats" }
   - { k: Audio, v: "Never leaves your Mac" }
-  - { k: AI, v: "Claude or ChatGPT: your plan or your key" }
+  - { k: AI, v: "Claude, ChatGPT or Gemini: your plan or your key" }
   - { k: Accounts, v: "Google (several), Notion, HubSpot" }
-  - { k: Version, v: "0.9.2" }
+  - { k: Version, v: "0.9.4" }
 ---
 
 <div class="tiles">
@@ -24,22 +24,24 @@ facts:
 <div class="card card--tile"><p class="card__num">Any</p><p class="card__text">call app on the Mac: Zoom, Meet, Teams, Slack</p></div>
 </div>
 
-## New in 0.9 <span class="vbadge vbadge--soft">0.9.2</span>
+## New in 0.9 <span class="vbadge vbadge--soft">0.9.4</span>
 
 <div class="newlist">
 <ul>
 <li>🔗 <b>Google accounts, as many as you use.</b> Calendars on Home, private Docs, Sheets and Slides links read for the brief, notes exported to Google Docs, the Meet participants and transcript after a call.</li>
 <li>🏠 <b>Home and call pages.</b> The next call with one main button; every call has its page: setup and brief before, summary, decisions, tasks and risks after.</li>
 <li>✅ <b>Tracker.</b> Tasks, decisions and risks of every project on one screen.</li>
-<li>🤖 <b>Claude or ChatGPT.</b> Your plan or an API key, per job: preparation, live tips, after the call.</li>
+<li>🤖 <b>Claude, ChatGPT or Gemini.</b> Your account or an API key, per job: preparation, live tips, after the call. A Gemini account (through Google's Antigravity CLI) covers the preparation and the notes, not live tips.</li>
 <li>🧭 <b>A live agenda.</b> The checklist of the brief, ticked as the call goes; an item to agree is ticked only after a clear yes.</li>
 <li>🎯 <b>Facts follow the topic.</b> A point made over several lines gets its fact; what you just said yourself does not come back.</li>
 <li>🟠 <b>A ready answer to a statement.</b> When someone says what your material answers ("there is no process yet"), you get the answer to give.</li>
 <li>📄 <b>The primary document.</b> Add the file the call is about; the brief is built around it.</li>
+<li>✔️ <b>Rate a tip.</b> Useful, fine but off the point, or not useful, with a reason and a comment. The tips of the call follow it at once, and a tip you rated down on two calls is not given again.</li>
+<li>🗣️ <b>Meet names the voices.</b> After a Google Meet call the participants name the speakers; one person keeps one name however it is spelled.</li>
 </ul>
 </div>
 
-<p class="smallprint">Sales mode, HubSpot and Integrations arrived in 0.8.7, presenting and rehearsal in 0.8.5: the <a href="/changelog/">changelog</a>.</p>
+<p class="smallprint">Sales mode, HubSpot and Integrations arrived in 0.8.7, presenting and rehearsal in 0.8.5: the <a href="https://github.com/bodco/live-tips/blob/main/CHANGELOG.md">changelog</a>.</p>
 
 ## See it on a call
 
@@ -69,7 +71,7 @@ facts:
 <div class="card card--tile"><h3 class="card__title">🎯 Facts or silence</h3><p class="card__text">A tip carries a number, a date, a name or a ready sentence. Or it is not shown.</p></div>
 <div class="card card--tile"><h3 class="card__title">⚡ Works without prep</h3><p class="card__text">Start anyway: tips when you are addressed, HELP NOW, project search.</p></div>
 <div class="card card--tile"><h3 class="card__title">🧠 Knows your project</h3><p class="card__text">Your folders, your Notion, your Google Docs, full notes of every earlier call.</p></div>
-<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">About $1.33 for a 30-min call on a key (brief, tips and notes), about $13 a month for 10 calls. Or the Claude or ChatGPT seat you already have. <a href="/pacenote/pricing/">Cost table</a></p></div>
+<div class="card card--tile"><h3 class="card__title">💳 Pay per call, not per seat</h3><p class="card__text">About $1.33 for a 30-min call on a key (brief, tips and notes), about $13 a month for 10 calls. Or the Claude, ChatGPT or Gemini plan you already have. <a href="/pacenote/pricing/">Cost table</a></p></div>
 </div>
 
 <div class="aimix">
@@ -80,7 +82,7 @@ facts:
 <li><b>Instant search:</b> facts and files by meaning, under a second.</li>
 <li><b>Voices:</b> who is speaking, remembered per project.</li>
 <li><b>Local model (optional):</b> preparation and notes with no cloud.</li></ul></div>
-<div class="aimix__col"><h4>Claude or ChatGPT, your plan or key</h4><ul>
+<div class="aimix__col"><h4>Claude, ChatGPT or Gemini, your plan or key</h4><ul>
 <li>Live tips, HELP NOW, answers to your questions.</li>
 <li>Briefs, speeches and rehearsal questions.</li>
 <li>The sales brief, with a web search for the company.</li>
@@ -121,7 +123,7 @@ Fireflies and Fathom record the meeting. Pacenote helps you run it.
 <div class="card">
 <p class="card__tag">For most people</p>
 <h3 class="card__title">💻 Pacenote for Mac</h3>
-<p class="card__text">A menu bar app on your Claude or ChatGPT plan, or an API key. Setup installs the speech models for you.</p>
+<p class="card__text">A menu bar app on your Claude, ChatGPT or Gemini plan, or an API key. Setup installs the speech models for you.</p>
 <div class="btns"><a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download for Mac (.dmg)</a></div>
 <p class="smallprint">First launch: System Settings > Privacy & Security > Open Anyway. <a href="https://github.com/bodco/live-tips/releases/latest/download/SHA256SUMS.txt">SHA-256 checksums</a>.</p>
 </div>
@@ -134,14 +136,14 @@ Fireflies and Fathom record the meeting. Pacenote helps you run it.
 </div>
 </div>
 
-<p class="smallprint"><b>Requirements:</b> Mac with Apple Silicon · macOS 14.4+ · about 2.5 GB of local models · a Claude or ChatGPT plan or API key · Google, Notion and HubSpot optional. <b>Next:</b> <a href="https://github.com/bodco/live-tips/tree/main/docs/team">Pacenote for teams</a>.</p>
+<p class="smallprint"><b>Requirements:</b> Mac with Apple Silicon · macOS 14.4+ · about 2.5 GB of local models · a Claude, ChatGPT or Gemini plan or API key · Google, Notion and HubSpot optional. <b>Next:</b> <a href="https://github.com/bodco/live-tips/tree/main/docs/team">Pacenote for teams</a>.</p>
 
 ## Learn more
 
 <div class="grid" style="--min: 230px;">
 <div class="card"><h3 class="card__title"><a href="/pacenote/details/">How it works</a></h3><p class="card__text">Tips, presenting, after the call, costs, privacy and setup.</p></div>
 <div class="card"><h3 class="card__title"><a href="/pacenote/compare/">Full comparison</a></h3><p class="card__text">Pacenote vs Fireflies vs Fathom, row by row, with sources.</p></div>
-<div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Code and releases</a></h3><p class="card__text">Open source on GitHub. What changed: the <a href="/changelog/">changelog</a>.</p></div>
+<div class="card"><h3 class="card__title"><a href="https://github.com/bodco/live-tips">Code and releases</a></h3><p class="card__text">Open source on GitHub. What changed: the <a href="https://github.com/bodco/live-tips/blob/main/CHANGELOG.md">changelog</a>.</p></div>
 </div>
 
 <p class="smallprint">Your calls and your data: <a href="/pacenote/privacy/">privacy policy</a> and <a href="/pacenote/terms/">terms of use</a>.</p>

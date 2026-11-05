@@ -24,9 +24,13 @@ cpSync(join(SRC, 'pacenote'), join(OUT, 'pacenote'), {
   recursive: true,
   filter: (p) => !p.endsWith('.html') && !SUBS.slice(1).some((s) => p === join(SRC, 'pacenote', s)),
 });
-for (const f of ['favicon.svg', 'favicon-32.png', 'apple-touch-icon.png', 'icon-512.png', 'site.webmanifest']) {
-  if (existsSync(join(SRC, f))) cpSync(join(SRC, f), join(OUT, f));
-}
+// The site icons are Pacenote's own (not the PM Control Tower ones); the manifest names Pacenote.
+for (const f of ['favicon.svg', 'favicon-32.png', 'apple-touch-icon.png']) cpSync(join(SRC, 'pacenote', f), join(OUT, f));
+writeFileSync(join(OUT, 'site.webmanifest'), JSON.stringify({
+  name: 'Pacenote', short_name: 'Pacenote', start_url: '/', display: 'browser',
+  background_color: '#0E1014', theme_color: '#0E1014',
+  icons: [{ src: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+}, null, 2) + '\n');
 
 function rewrite(html) {
   html = html.replace(/<meta http-equiv="Content-Security-Policy"[^>]*>/, '');
@@ -57,7 +61,10 @@ for (const uk of ['', 'uk/']) {
     urls.push(`${ORIGIN}/${uk}${s ? s + '/' : ''}`);
   }
 }
-if (existsSync(join(SRC, '404.html'))) writeFileSync(join(OUT, '404.html'), rewrite(readFileSync(join(SRC, '404.html'), 'utf8')));
+// The 404 page is Pacenote's own (src/pages/pn404, built only with PACENOTE_KEEP=1), not the PM Control Tower one.
+const nf = join(SRC, 'pn404', 'index', 'index.html');
+if (!existsSync(nf)) throw new Error('pacenote 404 page missing: ' + nf);
+writeFileSync(join(OUT, '404.html'), rewrite(readFileSync(nf, 'utf8')));
 
 const today = new Date().toISOString().slice(0, 10);
 const alt = (u) => {

@@ -9,7 +9,7 @@ facts:
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
   - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $13 a month</a>' }
-  - { k: Version, v: "0.9.2" }
+  - { k: Version, v: "0.9.4" }
 ---
 
 | At a glance | |
@@ -18,7 +18,7 @@ facts:
 | **What you see** | One card under your camera: the fact and a phrase to say. |
 | **After the call** | Decisions, what is on you, a Notion page and a follow-up draft. |
 | **Sales calls** | General sales, BANT, SPICED or MEDDIC, a Deal tab, HubSpot on your click. |
-| **Privacy** | Audio is transcribed on your Mac. Only text goes to Claude. |
+| **Privacy** | Audio is transcribed on your Mac. Only text goes to the AI you chose (Claude, ChatGPT or Gemini). |
 | **Cost** | The app is free; you pay for the AI. A 30-min call: $1.33 on Claude, $0.74 on OpenAI, $0.73 on Gemini. [Pricing](/pacenote/pricing/) |
 
 ## When it speaks
@@ -197,7 +197,7 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 
 The app is free; you pay only for the AI. A 30-minute call costs **$1.33** on Claude, **$0.74** on OpenAI and **$0.73** on Gemini: about **$7 to $13 a month** for 10 calls. Seats your team already pays for: about **$1 a month**. Everything on your Mac: **$0**.
 
-Each job (preparation, live tips, after the call) picks its own provider and model in Settings > AI. A soft and a hard limit per call and a monthly cap keep a bad month in check.
+Each job (preparation, live tips, after the call) picks its own provider and model in Settings > AI: Claude, ChatGPT or Gemini, on your account or on an API key. A Gemini account runs through Google's Antigravity CLI and does the preparation and the notes, not live tips (a request takes 20 to 30 seconds); it carries a warning, see the [privacy policy](/pacenote/privacy/). A soft and a hard limit per call and a monthly cap keep a bad month in check.
 
 <p><a class="btn" href="/pacenote/pricing/">Prices, setups and how each model does</a></p>
 
@@ -208,7 +208,7 @@ Each job (preparation, live tips, after the call) picks its own provider and mod
 | | Pacenote app | Skill in Cowork |
 |---|---|---|
 | Runs in | the menu bar, one click | your Cowork chat |
-| Claude | ✓ your plan or API key, per job | ✓ your Claude plan, no key |
+| AI | ✓ Claude, ChatGPT or Gemini, your account or key, per job | ✓ your Claude plan, no key |
 | Nothing to keep open | ✓ | ✗ chat busy for the whole call |
 | Mid-call lookups | ◐ prep, call context, project folder | ✓ Notion, tracker, project files |
 | Spending limits | ✓ per call and per month | ◐ your plan's limits |
@@ -249,7 +249,7 @@ Full texts: [privacy policy](/pacenote/privacy/) and [terms of use](/pacenote/te
 | macOS | App 14.4 or newer, skill 14.2 or newer |
 | Tools | Python 3.10+. App: Setup adds the rest, Claude Code included. Skill: also Xcode Command Line Tools |
 | Disk | About 2.5 GB. Skill extras: about 1.2 GB more. Optional local model: about 16 GB |
-| Claude | App: a Claude plan or an API key. Skill: Claude desktop (Cowork) with a connected folder |
+| AI | App: a Claude, ChatGPT or Gemini plan, or an API key. Skill: Claude desktop (Cowork) with a connected folder |
 | Notion | Optional, for the brief, the meeting page and your tasks |
 | HubSpot | Optional, a service key for sales calls |
 
@@ -257,12 +257,12 @@ Full texts: [privacy policy](/pacenote/privacy/) and [terms of use](/pacenote/te
 
 ## Install, about 15 minutes
 
-For the skill. The app installs itself from its Setup window. Most of the time is the model download; do it once, after [floor 2](/start/) works.
+For the skill. The app installs itself from its Setup window. Most of the time is the model download; do it once, after your Cowork task with a connected folder works.
 
 <details open>
 <summary>1. The tools it needs</summary>
 
-If you do not have them yet, paste these into Terminal one at a time (<kbd>Cmd</kbd>+<kbd>Space</kbd>, "Terminal"). Homebrew itself is on [the setup page](/start/#programs-some-add-ons-need).
+If you do not have them yet, paste these into Terminal one at a time (<kbd>Cmd</kbd>+<kbd>Space</kbd>, "Terminal"). Homebrew itself is installed as described on [brew.sh](https://brew.sh).
 
 ```
 xcode-select --install
@@ -371,4 +371,4 @@ A "Live transcriber" Terminal window and the tips window open by themselves. Tal
 
 ## Built on open source
 
-Whisper on MLX, WebRTC VAD, sherpa-onnx with WeSpeaker, Ollama with bge-m3: licences and links on the [open source page](/open-source/). Found a problem? [Open an issue](https://github.com/bodco/pm-control-tower/issues).
+Whisper on MLX, WebRTC VAD, sherpa-onnx with WeSpeaker, Ollama with bge-m3: licences and links in [the documentation](https://github.com/bodco/live-tips/blob/main/docs/en/live-tips.md#13-what-is-open-source-and-what-is-built-here). Found a problem? [Open an issue](https://github.com/bodco/live-tips/issues).
