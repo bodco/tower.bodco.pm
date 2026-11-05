@@ -75,7 +75,7 @@ writeFileSync(join(OUT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\
 writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${ORIGIN}/sitemap.xml\n`);
 writeFileSync(join(OUT, 'CNAME'), new URL(ORIGIN).host + '\n');
 writeFileSync(join(OUT, '.nojekyll'), '');
-writeFileSync(join(OUT, 'README.md'), `# ${new URL(ORIGIN).host}\n\nThe built Pacenote website. Do not edit here: the source is the Pacenote pages of\nhttps://github.com/bodco/tower.bodco.pm (\`npm run build:pacenote\`). The app and its code: https://github.com/bodco/live-tips\n`);
+writeFileSync(join(OUT, 'README.md'), `# ${new URL(ORIGIN).host}\n\nThe built Pacenote website: the files GitHub Pages serves, nothing else. Do not edit here.\n\n- Source: the Pacenote pages of https://github.com/bodco/tower.bodco.pm (\`src/content/pages/{en,uk}/pacenote*.md\`, \`PacenoteHeader.astro\`, \`PacenoteFooter.astro\`, \`src/pages/pn404\`).\n- Build: \`npm run build:pacenote\` there (\`scripts/pacenote-site.mjs\` makes this folder); the folder is then copied here, committed and pushed to \`main\`.\n- The app, its guide and the changelog: https://github.com/bodco/live-tips\n- Licence: MIT.\n\nThis file is written by the build and replaced on every publish.\n`);
 
 execFileSync(process.execPath, [fileURLToPath(new URL('./csp.mjs', import.meta.url)), OUT], { stdio: 'inherit' });
 console.log(`pacenote site: ${urls.length} pages in ${OUT}`);

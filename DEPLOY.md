@@ -39,15 +39,40 @@ and `bodco.pm` as its custom domain. This subdomain is not affected.
 
 ## Pacenote on its own site (pacenote.bodco.pm)
 
-Since 2026-10-28 the Pacenote pages are also published as their own site, from the same source.
+Since 2026-10-28 the Pacenote pages are published as their own site from the same source. Since 2026-11-05 the site is
+separate in look too: its own header, footer and 404 page, no PM Control Tower menu. PM Control Tower is linked there only
+as "Also by bodco", and Pacenote is linked from this site the same way, as another product.
 
-- `npm run build:pacenote` builds this site with the Pacenote pages kept (`PACENOTE_KEEP=1`), then
-  `scripts/pacenote-site.mjs` turns `/pacenote/*` and `/uk/pacenote/*` into a standalone site in
-  `dist-pacenote/` (`/`, `/details/`, `/compare/`, `/privacy/`, `/terms/` and `/uk/...`), points the other links
-  to tower.bodco.pm, writes its sitemap, robots.txt and CNAME, and recomputes the CSP.
-- `dist-pacenote/` is pushed to [bodco/pacenote.bodco.pm](https://github.com/bodco/pacenote.bodco.pm), served by
-  GitHub Pages from `main`.
-- DNS: a CNAME record `pacenote` -> `bodco.github.io` at the domain's DNS provider.
-- `src/data/pacenote-domain.json` `"live"`: while `false`, the pages stay here as before. When `true`, the header,
-  footer and home page link to pacenote.bodco.pm, `scripts/pacenote-redirects.mjs` turns `/pacenote/` and the old
-  `/live-tips/` addresses into redirects there, and the sitemap leaves them out.
+**What the build does.** `npm run build:pacenote` runs `PACENOTE_KEEP=1 astro build` (the Pacenote pages and the Pacenote
+404 page exist only with this variable), `scripts/csp.mjs`, then `scripts/pacenote-site.mjs dist dist-pacenote`, which
+turns `/pacenote/*` and `/uk/pacenote/*` into a standalone site in `dist-pacenote/`:
+
+- the pages `/`, `/details/`, `/pricing/`, `/compare/`, `/privacy/`, `/terms/` and the same under `/uk/`;
+- `404.html` from `src/pages/pn404/[v].astro`, Pacenote's own favicon files and `site.webmanifest`;
+- links to the rest of PM Control Tower pointed at tower.bodco.pm, `/pacenote/x/` turned into `/x/` (canonical, hreflang
+  and og:url included), `sitemap.xml` with hreflang, `robots.txt`, `CNAME`, `.nojekyll`, the README of the site repository
+  and a recomputed CSP.
+
+**What makes the look.** `src/components/PacenoteHeader.astro` and `PacenoteFooter.astro`, rendered by `Base.astro` when a
+page has `brand="pacenote"` (it also sets the accent, favicon, title suffix and the breadcrumbs and JSON-LD that point at
+Pacenote); `Feature.astro` makes the breadcrumbs "Pacenote / page". Nothing else of PM Control Tower changes: its build
+(`npm run build`) must stay the same outside `/pacenote/`, which is checked by comparing the file hashes before and
+after.
+
+**Every release of Pacenote** changes, in this repository: `src/data/pacenote-version.json`, the `v:` facts of the details and
+compare pages, the "Version" fact and the "New in" list of the Pacenote page, and a row in `src/content/pages/{en,uk}/changelog.md`.
+Commit and push these sources first, then publish the site.
+
+**Publishing.** `dist-pacenote/` is copied into [bodco/pacenote.bodco.pm](https://github.com/bodco/pacenote.bodco.pm)
+(built files only), committed and pushed to `main`; GitHub Pages serves it. The GitHub Actions workflow of this
+repository does not publish it: it builds and publishes only the PM Control Tower site. The Pacenote release script does the copy
+right after it pushes this repository, so the sources must be committed before it runs. Check first: `npm run check:text`,
+`npm run build:pacenote`, a look at `dist-pacenote/` (`python3 -m http.server 8765 --directory dist-pacenote`), and after
+publishing the live pages (home, privacy, the Ukrainian pages, a missing address for the 404).
+
+**DNS and Pages (once).** A CNAME record `pacenote` pointing at `bodco.github.io` at the domain's DNS provider; in the
+site repository Settings > Pages: source `main`, custom domain `pacenote.bodco.pm`, Enforce HTTPS.
+
+**The `live` switch.** `src/data/pacenote-domain.json` `"live"` is `true`: the header, footer and home page of this site
+link to pacenote.bodco.pm, `scripts/pacenote-redirects.mjs` turns `/pacenote/` and the old `/live-tips/` addresses into
+redirects there, and the sitemap leaves them out. With `false` the pages would stay here as before.
