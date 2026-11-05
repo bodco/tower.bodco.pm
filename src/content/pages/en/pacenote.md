@@ -7,7 +7,7 @@ facts:
   - { k: Audio, v: "Never leaves your Mac" }
   - { k: AI, v: "Claude, ChatGPT or Gemini: your plan or your key" }
   - { k: Accounts, v: "Google (several), Notion, HubSpot" }
-  - { k: Version, v: "0.9.4" }
+  - { k: Version, v: "0.9.4.1" }
 ---
 
 <div class="tiles">
