@@ -4,6 +4,7 @@ import Arrow from '../components/Arrow.astro';
 import GithubLogo from '../components/GithubLogo.astro';
 import LiveTipsVisual from '../components/LiveTipsVisual.astro';
 import Shot from '../components/Shot.astro';
+import PacenoteLanding from '../components/PacenoteLanding.astro';
 import { t, path, neighbours, LINKS, type Lang } from '../i18n/ui';
 import PN_VERSION from '../data/pacenote-version.json';
 
@@ -95,6 +96,7 @@ const P = lang === 'uk'
   </section>
   )}
 
+  {product ? <PacenoteLanding lang={lang} /> : (
   <div class:list={['page-body wrap', { 'page-body--solo': solo }]}>
     {showToc && (
       <details class:list={['toc', { 'toc--chips': tocMode === 'chips', 'toc--compact': tocMode === 'compact' }]} open>
@@ -129,6 +131,7 @@ const P = lang === 'uk'
       )}
     </div>
   </div>
+  )}
 </Base>
 
 <style>

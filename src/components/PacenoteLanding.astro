@@ -1,0 +1,616 @@
+---
+// 2026-11-05 (owner): the Pacenote landing below the hero, v5. Built from a PM, marketer, focus group,
+// copywriter and designer pass (Pacenote project: research/pacenote-landing-v5-*.md).
+// Message: keep your note taker, Pacenote is for while you talk; you pay for calls, not seats.
+// Two variants share every block except the signature one:
+//   a "The three seconds": a without / with replay of the moment a client asks.
+//   b "Tuesday": a day of five calls as a snap carousel of real screenshots.
+// Build b with PN_LANDING=b npm run build:pacenote (preview only); the default is a.
+// One content width (.wrap) for every section. EN and UK texts live side by side and mean the same.
+// Self-hosted script only; without it, and with prefers-reduced-motion, everything shows its end state.
+import type { Lang } from '../i18n/ui';
+import '../styles/pacenote-landing.css';
+
+interface Props { lang: Lang; variant?: 'a' | 'b' }
+const { lang } = Astro.props;
+const variant = Astro.props.variant ?? ((process.env.PN_LANDING === 'b' ? 'b' : 'a') as 'a' | 'b');
+const uk = lang === 'uk';
+const B = uk ? '/uk/pacenote' : '/pacenote';
+const REPO = 'https://github.com/bodco/live-tips';
+const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
+const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
+// Ukrainian screenshots exist for these; the rest fall back to English.
+const UK_SHOTS = ['home-092', 'tips', 'tips-wide', 'tips-ready', 'callpage-095', 'live-092', 'hero'];
+const SH = (n: string) => `/pacenote/shots/${uk && UK_SHOTS.includes(n) ? 'uk-' : ''}${n}`;
+
+// Per-call AI cost in USD (pricing page, measured 22 Oct - 4 Nov 2026; 15 and 60 min of the existing plan scaled by minutes).
+const RATES = { plan: [0.055, 0.11, 0.22], openai: [0.57, 0.74, 1.08], claude: [1.05, 1.33, 1.89], local: [0, 0, 0] };
+// Recorder seats as published 28 Oct 2026 (billed yearly / monthly).
+const SEATS = [['Fireflies Pro', 10, 18], ['Fathom Premium', 16, 20]] as const;
+
+const T = uk ? {
+  trust: ['Аудіо лишається на вашому Маку', 'Жоден бот не заходить у дзвінок', 'Безкоштовний, відкритий код (MIT)', 'Платите лише за ШІ, яким користуєтесь', 'Бета · Apple Silicon, macOS 14.4+'],
+  rp: {
+    eyebrow: 'Ті три секунди', h: 'Клієнт питає. Відповідь уже під камерою.',
+    sub: 'Pacenote знаходить факт у ваших матеріалах і показує його за 1-2\u00a0с. Ви й далі дивитесь на клієнта.',
+    without: 'Без Pacenote', with: 'Із Pacenote', replay: 'Ще раз', you: 'Ви',
+    files: 'Ваші вкладки', card: 'картка', note: 'Відповідь була в нотатках стартової зустрічі.', vNo: '3 с. Відповіді нема.', vYes: '1,4 с. Відповідь є.', sec: 'с', lab: { ans: 'ВІДПОВІДЬ', now: 'зараз', docs: 'З ДОКУМЕНТІВ' },
+    caption: 'Відтворення за сценарієм. Дзвінок англійською, тож і фраза англійською. Картки з вашої підготовки зʼявляються за 1-2 с.',
+    alt: 'Порівняння. Без Pacenote: Emily питає, коли експорт буде в користувачів; ви шукаєте в нотатках, Slack і Drive і за три секунди кажете «Let me get back to you on that». З Pacenote: за 1,4 с під камерою зʼявляється картка з нотаток kickoff, і ви відповідаєте одразу.',
+    listening: 'Слухаю', cta: 'Завантажити для Мака', under: 'Безкоштовна бета · Apple Silicon, macOS 14.4+', how: 'Як обирається підказка',
+    quick: 'Картка зʼявляється за 1-2\u00a0с і лише тоді, коли у ваших матеріалах є відповідь. Для старту досить календаря й одного документа чи папки; Setup завантажує близько 2,5\u00a0ГБ. Немає в підготовці? Pacenote шукає в папках проєкту, і відповідь приходить новою карткою.',
+  },
+  fH: 'Один рядок факту. Або нічого.', fSub: 'Підказка містить число, дату, імʼя або готове речення. Якщо у ваших матеріалах цього нема, вікно лишається порожнім.',
+  tips: [
+    { k: 'НОВИЙ ЗАПИТ', t: 'Новий запит. Не погоджуйтесь одразу.', p: '«Гарна ідея. Я запишу, ми перевіримо й повернемося до вас.»', c: 'amber' },
+    { k: 'НЕТОЧНІСТЬ', t: 'Реліз 15 жовтня, а не 10 жовтня.', p: '«Маленьке уточнення. Дата релізу: 15 жовтня.»', s: 'рішення від 30 вересня', c: 'red' },
+    { k: 'ТВОЯ ЧЕРГА', t: 'Два проєкти, коротко: експорт на dev, пілот стартує 10 листопада.', c: 'green' },
+  ],
+  empty: { k: 'СЛУХАЮ', t: 'Поки нічого.', s: 'Підказка зʼявиться, коли у ваших матеріалах є відповідь.' },
+  fFoot: 'Оцініть підказку або виправте її. Ваші виправлення враховуються в наступних брифах і підказках.',
+  sH: 'Усе, що вміє ваш нотатник. І ще сам дзвінок.', sSub: 'Транскрипт і запис працюють на вашому Маку і коштують $0. Нотатки й follow-up теж, на локальній моделі або на ШІ, який ви обрали. А далі те, чого рекордери не роблять: допомога, поки ви говорите.',
+  baseH: 'Що роблять рекордери', baseList: [['Транскрипт зі спікерами', '$0 на Маку'], ['Запис звуку чи екрана', '$0 на Маку'], ['Підсумок, рішення, задачі', 'локально $0 або ваш ШІ'], ['Чернетка follow-up мовою дзвінка', ''], ['Пошук по минулих дзвінках', ''], ['Експорт у Notion, Google Docs, Word, Markdown', ''], ['HubSpot, лише за вашим кліком', ''], ['Учасники й транскрипт Google Meet', '']],
+  onlyH: 'Лише в Pacenote', onlyList: ['Бриф із ваших файлів, Notion і попередніх дзвінків', 'Відповідь під камерою за 1-2\u00a0с', 'HELP NOW і питання посеред дзвінка', 'Агенда, що відмічається по ходу', 'Таймер слайдів і репетиція', 'BANT, SPICED, MEDDIC наживо'],
+  swH: 'Переходите з…',
+  sw: [
+    ['Fireflies', 'Транскрипт, запис, нотатки, задачі й оновлення CRM є і в Pacenote, на вашому Маку. Зверху бриф перед дзвінком і відповіді, поки ви говорите. Спільного командного простору Pacenote не має: якщо команда живе у Fireflies, лишайте його для цього.'],
+    ['Fathom', 'Безкоштовний запис Fathom добрий. У Pacenote запис теж безкоштовний і не залишає Мак: транскрипт, екран, нотатки. Плюс те, чого Fathom не робить: ваші файли до дзвінка і відповіді під час нього. Якщо команда ділиться записами у Fathom, лишайте його для цього.'],
+    ['Granola', 'Нотатки після дзвінка Pacenote пише теж, а звук транскрибується на вашому Маку. Різниця до і під час: бриф із файлів проєкту і потрібне число, дата чи речення під камерою, поки ви говорите.'],
+    ['Zoom, Teams, Meet AI', 'Вбудований ШІ працює в одній платформі. Pacenote однаково працює в Zoom, Meet, Teams і Slack, знає ваш проєкт і підказує під час дзвінка. З Google Meet він імпортує учасників і транскрипт Meet.'],
+    ['Лише нотатки', 'Пишіть далі, якщо зручно. Pacenote читає ваш документ перед дзвінком разом із Notion, Google Docs і попередніми дзвінками, під час дзвінка показує потрібний рядок, а після нього пише нотатки в Notion, Google Docs, Word або Markdown.'],
+  ],
+  ph: [
+    { k: '8:55 · До дзвінка', h: 'Приходьте з фактами.', l: 'Бриф із файлів проєкту, Notion, Google Docs і попередніх дзвінків. Home показує наступний дзвінок і чи готовий його бриф.', img: 'home-092', W: 1600, H: 1109, x: 96, y: 140, w: 560, hh: 653, alt: 'Pacenote Home: наступний дзвінок і його готовність' },
+    { k: '9:00 · Під час дзвінка', h: 'Погляд на клієнті, відповідь під камерою.', l: 'HELP NOW (Control-Option-H) для нового питання. Запис за бажанням і лишається на Маку; скажіть людям, що ведете транскрипт.', img: 'tips', W: 880, H: 1584, x: 0, y: 0, w: 880, hh: 1027, alt: 'Вікно підказок Pacenote з відповіддю', small: 'Вікно приховане від показу екрана, перевірено в Google Meet. Один раз перевірте свій застосунок.' },
+    { k: '9:31 · Після дзвінка', h: 'Нотатки, які не довелося писати.', l: 'Рішення, що за вами і що за ними, ризики. Чернетка follow-up мовою дзвінка, експорт у Notion, Google Docs чи Word.', img: 'callpage-095', W: 1600, H: 1311, x: 1010, y: 372, w: 460, hh: 537, alt: 'Сторінка дзвінка Pacenote: на наступний дзвінок і агенда' },
+  ],
+  phH: 'Від запрошення до follow-up.', phL: 'Один дзвінок', moH: 'Також для продажів і виступів.', moL: 'Режими',
+  lH: 'Ваші дзвінки, ваша мова.', lSub: 'Для дзвінків мовою, яка для вас не рідна.',
+  lList: ['Задайте мови дзвінка заздалегідь. Це точніше за автовизначення.', 'Готова фраза приходить мовою дзвінка.', 'Чернетка follow-up теж пишеться мовою дзвінка.', 'Дзвінок кількома мовами? За бажанням транскрипт буде однією мовою.'],
+  lClose: 'Ваша англійська, і речення вже готове.',
+  lCard1: { k: 'ВІДПОВІДЬ', q: 'коли пілот?', a: 'The pilot starts on November 10 with five users.' },
+  lCard2: { k: 'Чернетка follow-up · не надіслано', lines: ['Hi Emily, thanks for today.', 'Export: on dev now, production on Tuesday.', 'Pilot: starts November 10 with five users.', 'Next: David confirms the test accounts.'] },
+  modes: [
+    { k: 'Режим продажів', h: 'Кваліфікуйте, поки говорите.', l: ['BANT, SPICED або MEDDIC, наживо на вкладці Deal.', 'Знімок HubSpot перед дзвінком. Оновлення лише за вашим кліком, Undo 8\u00a0с.'] },
+    { k: 'Режим презентації', h: 'Вкладіться в час.', l: ['Таймер на кожен слайд і одна тиха порада, коли ви запізнюєтесь.', 'Спершу репетиція, потім 4 складні питання від «клієнта».'] },
+  ],
+  bant: [['BUDGET', 'відомо'], ['AUTHORITY', 'частково'], ['NEED', 'відомо'], ['TIMING', 'невідомо']],
+  toast: 'HubSpot оновлено вашим кліком · Undo 8\u00a0с', illus: 'Вкладка Deal, спрощено', compact: 'Компактна смужка під час виступу.',
+  cH: 'Платите за дзвінки, а не за місця.', cSub: 'Застосунок безкоштовний. Ви платите провайдеру ШІ лише за дзвінки, які провели.',
+  opts: [
+    { tag: 'Рекомендовано', t: 'План, за який ви вже платите', big: '~$1.1', u: 'на місяць понад ваш план, 10 дзвінків', d: 'Брифи й нотатки йдуть через ваш план Claude, ChatGPT чи Gemini. Живим підказкам потрібен окремий API-ключ, зі стелею, яку задаєте ви.' },
+    { tag: 'Власний API-ключ', t: 'Оплата за дзвінок', big: '$7-13', u: 'на місяць, 10 дзвінків', d: '$0.74 за дзвінок на OpenAI, $1.33 на Claude. Мʼякий і жорсткий ліміт на дзвінок, плюс місячна стеля, яку задаєте ви.' },
+    { tag: 'Повністю на Маку', t: 'Без API-ключа', big: '$0', u: 'завжди', d: 'Транскрипт, запис, брифи й нотатки на вашому Маку, від локальної моделі. Простіші картки з ваших файлів, без підказок від ШІ.' },
+  ],
+  calc: { title: 'Ваш місяць', calls: 'Дзвінків на місяць', len: 'Тривалість дзвінка', lens: ['15 хв', '30 хв', '60 хв'], how: 'Як працює ШІ', plans: ['Мій наявний план', 'API-ключ OpenAI', 'API-ключ Claude', 'На моєму Маку'], out: 'Pacenote, ШІ на місяць', onTop: 'Pacenote (понад ваш план)', per: 'за дзвінок', seat: 'Місце в рекордері, хоч скільки дзвінків', yearly: 'на рік', monthly: 'помісячно', free: 'У Fathom є й безкоштовний план.', cap: 'Місячна стеля в Settings зупиняє платні виклики, щойно її досягнуто.', more: 'Дорожче за місце в рекордері при такій кількості. Ви платите за дзвінок, а не за місяць простою.', unit: (n: number) => `${n} ${n % 10 === 1 && n % 100 !== 11 ? 'дзвінок' : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? 'дзвінки' : 'дзвінків'}` },
+  table: { cap: 'Вартість ШІ на місяць, дзвінки по 30 хвилин', head: ['Дзвінків на місяць', 'Наявний план', 'API-ключ OpenAI', 'API-ключ Claude', 'Місце в рекордері'], rows: [['4', 'до $1', '~$3', '~$5', '$10-20'], ['10', '~$1.1', '~$7', '~$13', '$10-20'], ['20', '~$2', '~$15', '~$27', '$10-20']] },
+  cFoot: 'Вартість Pacenote виміряна на реальних і тестових дзвінках, 22 жовтня - 4 листопада 2026. Ціни токенів станом на 4 листопада 2026. Ціни рекордерів опубліковані 28 жовтня 2026. Ціни змінюються; застосунок показує реальну вартість кожного дзвінка.',
+  cLink: 'Повна таблиця вартості',
+  qH: 'Перед встановленням',
+  faq: [
+    ['Як швидко зʼявляється підказка і чи вона точна?', 'Картки фактів із вашої підготовки зʼявляються за 1-2\u00a0с, або не зʼявляється нічого. У цій беті ваші оцінки й виправлення впливають на наступні дзвінки.'],
+    ['Скільки налаштувань до першої користі?', 'Для старту досить запрошення в календарі й одного документа чи папки. Вікно Setup завантажує близько 2,5 ГБ і не просить пароль адміністратора.'],
+    ['Це $0 чи потрібен API-ключ?', 'З вашим планом підказкам потрібен невеликий API-ключ: близько $1 на місяць. Повністю на Маку, з простішими картками, це $0.'],
+    ['Чи можна довіряти непідписаній беті?', 'Застосунок ще не нотаризовано, тож перший запуск потребує Open Anyway у Privacy & Security. Код відкритий (MIT), а завантаження можна звірити за SHA-256.'],
+    ['Що він робить із моїм акаунтом Google?', 'Google необовʼязковий і лише на читання, крім документа, який ви експортуєте. Календарі працюють і через macOS, а вхід поки показує «unverified app», бо Google ще перевіряє застосунок.'],
+    ['Куди йде текст мого дзвінка?', 'Аудіо лишається на Маку, а текст іде лише до обраного вами провайдера ШІ, за умовами вашого акаунта чи API. Авторові нічого не надходить, якщо ви не ввімкнете лічильники використання.'],
+    ['Що сказати учасникам дзвінка?', 'Скажіть, що ведете транскрипт і користуєтесь ШІ-асистентом. Отримайте згоду там, де цього вимагає закон чи роботодавець.'],
+    ['Чи треба відмовлятися від мого нотатника?', 'Не обовʼязково, але він може стати зайвим: транскрипт, запис і нотатки є в Pacenote, на Маку безкоштовно. Лишайте його, якщо команда ділиться записами там.'],
+    ['З якими застосунками й Маками він працює?', 'З будь-яким застосунком для дзвінків на Маку: Zoom, Meet, Teams чи Slack. Він слухає звук Мака і потребує Apple Silicon та macOS 14.4+.'],
+  ],
+  faqLinks: [['Дані користувача Google', `${B}/privacy/#google-user-data`], ['Конфіденційність', `${B}/privacy/`], ['Порівняння з Fireflies і Fathom', `${B}/compare/`]],
+  end: { h: 'Спробуйте на наступному дзвінку.', hB: 'Спробуйте наступного вівторка.', sub: 'Транскрипт, запис і нотатки як у звичного нотатника, плюс допомога, поки ви говорите.', btn: 'Завантажити для Мака', under: 'Безкоштовна бета · Apple Silicon, macOS 14.4+', first: 'Перший запуск: Open Anyway у System Settings > Privacy & Security.', it: 'Для ІТ: ще не нотаризовано, пароль адміністратора не потрібен. Відкритий код (MIT), SHA-256 для перевірки. Авторові нічого не надходить, якщо ви не ввімкнете лічильники використання.', skill: 'Працюєте в Claude Cowork? Візьміть скіл із тими самими підказками.', docs: 'Документація', news: 'Що нового' },
+  day: {
+    eyebrow: 'День із Pacenote', h: 'Вівторок. Пʼять дзвінків поспіль.', sub: 'Звичайний день дзвінків і що Pacenote показує на кожному.', prev: 'Попередній', next: 'Наступний',
+    stops: [
+      ['8:55', 'Наступний дзвінок за 5 хвилин.', 'Home показує наступний дзвінок з усіх ваших календарів і чи готовий його бриф.', 'home-092', 1600, 1109],
+      ['9:00', 'Emily питає. Відповідь уже є.', 'Одна картка під камерою: факт, його джерело і речення, яке можна сказати.', 'tips-wide', 1600, 1034],
+      ['11:00', 'Репетиція о 10:30. Вчасно об 11:00.', 'Репетиція поставила 4 складні питання. Тепер таймер на кожен слайд тримає вас у плані.', 'tips-compact', 1120, 364],
+      ['14:00', 'BANT збоку, погляд на покупці.', 'Вкладка Deal відстежує кожен критерій наживо. HubSpot змінюється лише за вашим кліком.', 'live-092', 1600, 1046],
+      ['17:30', 'Усе, що ви сьогодні пообіцяли, в одному місці.', 'Сторінка кожного дзвінка, а Tracker збирає задачі, рішення й ризики з усіх проєктів.', 'callpage-095', 1600, 1311],
+    ],
+  },
+} : {
+  trust: ['Audio stays on your Mac', 'No bot joins the call', 'Free and open source (MIT)', 'Pay only for the AI you use', 'Beta · Apple Silicon, macOS 14.4+'],
+  rp: {
+    eyebrow: 'The three seconds', h: 'A client asks. The answer is already under your camera.',
+    sub: 'Pacenote finds the fact in your own material and shows it in 1-2\u00a0s. You keep looking at the client.',
+    without: 'Without Pacenote', with: 'With Pacenote', replay: 'Replay', you: 'You',
+    files: 'Your open tabs', card: 'card', note: 'The answer was in your kickoff notes.', vNo: '3 s. No answer.', vYes: '1.4 s. Answered.', sec: 's', lab: { ans: 'ANSWER', now: 'now', docs: 'FROM DOCS' },
+    caption: 'A scripted replay. Fact cards from your own prep show in 1-2 s.',
+    alt: 'A comparison. Without Pacenote: Emily asks when the export is live; you search your notes, Slack and Drive and after three seconds say "Let me get back to you on that." With Pacenote: at 1.4 s a card from your kickoff notes appears under the camera and you answer at once.',
+    listening: 'Listening', cta: 'Download for Mac', under: 'Free beta · Apple Silicon, macOS 14.4+', how: 'How a tip is chosen',
+    quick: 'A card shows in 1-2\u00a0s, and only when your material has the answer. To start, a calendar and one doc or folder are enough; Setup downloads about 2.5\u00a0GB. Not in your prep? Pacenote searches your project folders, and the answer comes as a new card.',
+  },
+  fH: 'One line of fact. Or nothing.', fSub: 'A tip carries a number, a date, a name or a ready sentence. If your material has none, the window stays empty.',
+  tips: [
+    { k: 'NEW REQUEST', t: 'New request. Do not agree now.', p: '"Good idea. I will write it down, and we will come back to you."', c: 'amber' },
+    { k: 'INACCURATE', t: 'Release is October 15, not October 10.', p: '"A small correction. The release date is October 15."', s: 'decision of September 30', c: 'red' },
+    { k: 'YOUR TURN', t: 'Two projects, short: the export is on dev, the pilot starts November 10.', c: 'green' },
+  ],
+  empty: { k: 'LISTENING', t: 'Nothing to show yet.', s: 'A tip appears when your material has the answer.' },
+  fFoot: 'Rate a tip or fix it. Your corrections shape the next briefs and tips.',
+  sH: 'Everything your note taker does. Plus the call itself.', sSub: 'Transcript and recording run on your Mac and cost $0. Notes and the follow-up too, on a local model or the AI you pick. Then the part recorders skip: help while you talk.',
+  baseH: 'What recorders do', baseList: [['Transcript with speakers', '$0 on your Mac'], ['Sound or screen recording', '$0 on your Mac'], ['Summary, decisions, action items', 'local $0, or your AI'], ['Follow-up draft in the call\u2019s language', ''], ['Search across past calls', ''], ['Export to Notion, Google Docs, Word, Markdown', ''], ['HubSpot, only on your click', ''], ['Google Meet participants and transcript', '']],
+  onlyH: 'Only in Pacenote', onlyList: ['A brief from your files, Notion and earlier calls', 'The answer under your camera in 1-2\u00a0s', 'HELP NOW and questions mid-call', 'A live agenda, ticked as you go', 'A timer per slide and a rehearsal', 'BANT, SPICED, MEDDIC, live'],
+  swH: 'Switching from…',
+  sw: [
+    ['Fireflies', 'Transcript, recording, notes, action items and a CRM update are in Pacenote too, on your Mac. On top: a brief before the call and answers while you talk. Pacenote has no shared team workspace: if your team lives in Fireflies, keep it for that.'],
+    ['Fathom', 'Fathom\u2019s free recorder is good. Pacenote\u2019s is free too and never leaves your Mac: transcript, screen, notes. Plus the part Fathom skips: your files before the call and answers during it. If your team shares recordings in Fathom, keep it for that.'],
+    ['Granola', 'Pacenote writes the notes after the call too, and the audio is transcribed on your Mac. The difference is before and during: a brief from your project files, and the number, date or sentence you need under your camera while you talk.'],
+    ['Zoom, Teams, Meet AI', 'Built-in AI lives in one platform. Pacenote works the same in Zoom, Meet, Teams and Slack, knows your project, and helps during the call. From Google Meet it imports the participants and the Meet transcript.'],
+    ['Just notes', 'Keep writing if you like. Pacenote reads your doc before the call, along with Notion, Google Docs and earlier calls, shows the line you need during the call, and writes the notes to Notion, Google Docs, Word or Markdown after it.'],
+  ],
+  ph: [
+    { k: '8:55 · Before the call', h: 'Walk in with the facts.', l: 'A brief from your project files, Notion, Google Docs and earlier calls. Home shows the next call and whether its brief is ready.', img: 'home-092', W: 1600, H: 1109, x: 96, y: 140, w: 560, hh: 653, alt: 'Pacenote Home: the next call and its readiness' },
+    { k: '9:00 · During the call', h: 'Eyes on the client, answer under the camera.', l: 'HELP NOW (Control-Option-H) for a new question. Recording is optional and stays on your Mac; tell people you keep a transcript.', img: 'tips', W: 880, H: 1584, x: 0, y: 0, w: 880, hh: 1027, alt: 'The Pacenote tips window with an answer', small: 'Hidden from screen sharing, checked in Google Meet. Check your call app once.' },
+    { k: '9:31 · After the call', h: 'Notes you did not have to write.', l: 'Decisions, what is on you and on them, risks. A follow-up draft in the call’s language, exported to Notion, Google Docs or Word.', img: 'callpage-095', W: 1600, H: 1311, x: 1010, y: 372, w: 460, hh: 537, alt: 'The Pacenote call page: for the next call and the agenda' },
+  ],
+  phH: 'From the invite to the follow-up.', phL: 'One call', moH: 'Sales calls and talks, too.', moL: 'Modes',
+  lH: 'Your calls, your language.', lSub: 'For calls in a language that is not your first.',
+  lList: ['Set the call’s languages in advance. That is more accurate than auto-detect.', 'The ready phrase comes in the language of the call.', 'The follow-up draft is written in the call’s language too.', 'Mixed-language call? Keep the transcript in one language, if you choose.'],
+  lClose: 'Your English, with the sentence ready.',
+  lCard1: { k: 'ANSWER', q: 'when is the pilot?', a: 'The pilot starts on November 10 with five users.' },
+  lCard2: { k: 'Follow-up draft · not sent', lines: ['Hi Emily, thanks for today.', 'Export: on dev now, production on Tuesday.', 'Pilot: starts November 10 with five users.', 'Next: David confirms the test accounts.'] },
+  modes: [
+    { k: 'Sales mode', h: 'Qualify while you talk.', l: ['BANT, SPICED or MEDDIC, tracked live on a Deal tab.', 'HubSpot snapshot before the call. Updates only on your click, with 8\u00a0s Undo.'] },
+    { k: 'Presenting mode', h: 'Finish on time.', l: ['A timer per slide, and one quiet note when you run late.', 'Rehearse first, then face 4 tough client questions.'] },
+  ],
+  bant: [['BUDGET', 'known'], ['AUTHORITY', 'partly'], ['NEED', 'known'], ['TIMING', 'unknown']],
+  toast: 'HubSpot updated on your click · Undo 8\u00a0s', illus: 'Deal tab, simplified', compact: 'The compact strip during a talk.',
+  cH: 'Pay for calls, not seats.', cSub: 'The app is free. You pay your AI provider only for the calls you run.',
+  opts: [
+    { tag: 'Recommended', t: 'A plan you already pay for', big: '~$1.1', u: 'a month on top of your plan, 10 calls', d: 'Briefs and notes run on your Claude, ChatGPT or Gemini plan. Live tips need a separate API key, with a cap you set.' },
+    { tag: 'Your own API key', t: 'Pay per call', big: '$7-13', u: 'a month, 10 calls', d: '$0.74 a call on OpenAI, $1.33 on Claude. Soft and hard limits per call, plus a monthly cap you set.' },
+    { tag: 'Fully on your Mac', t: 'No API key at all', big: '$0', u: 'always', d: 'Transcript, recording, briefs and notes on your Mac, from a local model. Simpler cards from your files, no AI-written tips.' },
+  ],
+  calc: { title: 'Your month', calls: 'Calls a month', len: 'Call length', lens: ['15 min', '30 min', '60 min'], how: 'How you run the AI', plans: ['My existing plan', 'OpenAI API key', 'Claude API key', 'On my Mac'], out: 'Pacenote, AI cost a month', onTop: 'Pacenote (on top of your plan)', per: 'per call', seat: 'A recorder seat, any number of calls', yearly: 'yearly', monthly: 'monthly', free: 'Fathom also has a free plan.', cap: 'Your monthly cap in Settings stops paid calls when it is reached.', more: 'More than a recorder seat at this volume. You pay per call, not per idle month.', unit: (n: number) => `${n} call${n === 1 ? '' : 's'}` },
+  table: { cap: 'AI cost a month, 30-minute calls', head: ['Calls a month', 'Existing plan', 'OpenAI API key', 'Claude API key', 'Recorder seat'], rows: [['4', 'under $1', '~$3', '~$5', '$10-20'], ['10', '~$1.1', '~$7', '~$13', '$10-20'], ['20', '~$2', '~$15', '~$27', '$10-20']] },
+  cFoot: 'Pacenote costs measured on real and test calls, 22 October to 4 November 2026. Token prices as of 4 November 2026. Recorder prices as published 28 October 2026. Prices change; the app shows what each call really cost.',
+  cLink: 'Full cost table',
+  qH: 'Before you install',
+  faq: [
+    ['How fast is a tip, and is it right?', 'Fact cards from your prep show in 1-2\u00a0s, or nothing shows at all. In this beta, your tip ratings and corrections shape later calls.'],
+    ['How much setup before it is useful?', 'A calendar invite and one doc or folder are enough to start. The Setup window downloads about 2.5 GB and needs no admin password.'],
+    ['Is it $0, or do I need an API key?', 'On your plan, tips need a small API key: about $1 a month. Fully on your Mac, with simpler cards, it costs $0.'],
+    ['Can I trust an unsigned beta?', 'It is not notarized yet, so first launch needs Open Anyway in Privacy & Security. The code is open (MIT), and you can check the download’s SHA-256.'],
+    ['What does it do with my Google account?', 'Google is optional and read-only, except the Doc you export. Calendars also work through macOS; sign-in warns "unverified app" while Google reviews the app.'],
+    ['Where does my call text go?', 'Audio stays on your Mac, and only text reaches the AI provider you pick, under your own account or API terms. The author gets nothing unless you switch on usage counts.'],
+    ['What do I tell people on the call?', 'Tell them you keep a transcript and use an AI assistant. Get consent where the law or your employer requires it.'],
+    ['Do I have to drop my note taker?', 'You may not need it: transcript, recording and notes are in Pacenote too, free on your Mac. Keep it if your team shares recordings there.'],
+    ['Which call apps and Macs does it work with?', 'Any call app on your Mac, such as Zoom, Meet, Teams or Slack. It listens to the Mac’s sound and needs Apple Silicon with macOS 14.4+.'],
+  ],
+  faqLinks: [['Google user data', `${B}/privacy/#google-user-data`], ['Privacy', `${B}/privacy/`], ['Pacenote vs Fireflies and Fathom', `${B}/compare/`]],
+  end: { h: 'Try it on your next call.', hB: 'Try it next Tuesday.', sub: 'Transcript, recording and notes like your note taker, plus help while you talk.', btn: 'Download for Mac', under: 'Free beta · Apple Silicon, macOS 14.4+', first: 'First launch: Open Anyway in System Settings > Privacy & Security.', it: 'For IT: not notarized yet, no admin password needed. Open source (MIT), SHA-256 to verify. Nothing is sent to the author unless you switch on usage counts.', skill: 'Work in Claude Cowork? Get the skill with the same tips.', docs: 'Documentation', news: 'What’s new' },
+  day: {
+    eyebrow: 'A day with Pacenote', h: 'Tuesday. Five calls, back to back.', sub: 'One ordinary day of calls, and what Pacenote shows at each one.', prev: 'Previous', next: 'Next',
+    stops: [
+      ['8:55', 'Next call in 5 minutes.', 'Home shows the next call from every calendar and whether its brief is ready.', 'home-092', 1600, 1109],
+      ['9:00', 'Emily asks. The answer is already there.', 'One card under your camera: the fact, its source and a sentence to say.', 'tips-wide', 1600, 1034],
+      ['11:00', 'Rehearsed at 10:30. On time at 11:00.', 'Rehearsal asked 4 tough questions. Now a timer per slide keeps you on plan.', 'tips-compact', 1120, 364],
+      ['14:00', 'BANT on the side, eyes on the buyer.', 'The Deal tab tracks each criterion live. HubSpot changes only on your click.', 'live-092', 1600, 1046],
+      ['17:30', 'Everything you promised today, in one place.', 'A page for every call, and a Tracker of tasks, decisions and risks across projects.', 'callpage-095', 1600, 1311],
+    ],
+  },
+};
+
+// The scripted call, the same for both languages (a call with an American client).
+const RP_WITHOUT = [
+  { at: 0, who: 'Emily', cl: true, t: 'When is the export live for our users?' },
+  { at: 1300, who: T.rp.you, t: 'Good question. It is close, I think...' },
+  { at: 2600, who: 'David', cl: true, t: 'Close as in this week? Our finance team is waiting.' },
+  { at: 3800, who: T.rp.you, t: 'Let me get back to you on that.', bad: true },
+];
+const RP_WITH = [
+  { at: 0, who: 'Emily', cl: true, t: 'When is the export live for our users?' },
+  { at: 2300, who: T.rp.you, t: 'It is on dev now. Production on Tuesday, after the review.', good: true },
+  { at: 3300, who: 'David', cl: true, t: 'Good. And who tests the pilot?' },
+];
+const SEAT_MAX = 24;
+---
+<script is:inline>if ('IntersectionObserver' in window) document.documentElement.classList.add('pnl-js');</script>
+<div class="pnl" data-pnl>
+
+  <section class="pnl-trust" aria-label={uk ? 'Коротко' : 'In short'}>
+    <div class="wrap"><ul>{T.trust.map((f) => <li>{f}</li>)}</ul></div>
+  </section>
+
+  {variant === 'a' ? (
+  <!-- A. The three seconds: a without / with replay -->
+  <section class="pnl-sec pnl-sec--sig" id="moment" data-section="moment">
+    <div class="wrap">
+      <div class="pnl-head pnl-rv">
+        <p class="pnl-label">{T.rp.eyebrow}</p>
+        <h2 class="pnl-h2" id="the-three-seconds">{T.rp.h}</h2>
+        <p class="pnl-lead">{T.rp.sub}</p>
+      </div>
+      <div class="pnl-rp" data-rp>
+        <div class="pnl-rp__bar" data-rp-bar hidden>
+          <div class="pnl-seg" role="group" aria-label={T.rp.eyebrow}>
+            <button type="button" class="pnl-seg__opt" data-rp-mode="without" aria-pressed="false">{T.rp.without}</button>
+            <button type="button" class="pnl-seg__opt" data-rp-mode="with" aria-pressed="true">{T.rp.with}</button>
+            <span class="pnl-seg__pill" aria-hidden="true"></span>
+          </div>
+          <button type="button" class="pnl-rp__replay" data-rp-replay><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.4h2.4" /></svg>{T.rp.replay}</button>
+        </div>
+        <p class="pn-sr">{T.rp.alt}</p>
+        <div class="pnl-rp__stages" aria-hidden="true">
+          {(['without', 'with'] as const).map((k) => {
+            const lines = k === 'without' ? RP_WITHOUT : RP_WITH;
+            return (
+            <div class={`pnl-rp__stage pnl-rp__stage--${k}`} data-rp-stage={k}>
+              <p class="pnl-rp__name">{k === 'without' ? T.rp.without : T.rp.with}</p>
+              <div class="pnl-rp__grid">
+                <div class="pnl-rp__call">
+                  <div class="pnl-rp__cam"><span class="pnl-rp__avatar">E</span><span class="pnl-rp__avatar pnl-rp__avatar--d">D</span><span class="pnl-rp__live">12:04</span></div>
+                  {lines.map((l) => <p class:list={['pnl-rp__line', { 'is-cl': l.cl, 'is-bad': (l as any).bad, 'is-good': (l as any).good }]} data-at={l.at}><b>{l.who}</b><span>{l.t}</span></p>)}
+                  {k === 'without' && <p class="pnl-rp__note" data-at="4400">{T.rp.note}</p>}
+                </div>
+                <div class:list={['pnl-rp__win', { 'pnl-rp__win--tabs': k === 'without' }]}>
+                  {k === 'without'
+                    ? <div class="pnl-mini__bar"><span class="pnl-mini__dots"><i></i><i></i><i></i></span><span>{T.rp.files}</span></div>
+                    : <div class="pnl-mini__bar"><span class="pnl-mini__dots"><i></i><i></i><i></i></span><span>Pacenote · Orbit weekly</span><span class="pnl-mini__rec"></span></div>}
+                  {k === 'without'
+                    ? <div class="pnl-mini__body pnl-mini__body--tabs"><p class="pnl-tabrow" data-at="900"><b>notes.md</b><span>kickoff, Oct 28</span></p><p class="pnl-tabrow" data-at="1700"><b>Slack #orbit</b><span>412 messages</span></p><p class="pnl-tabrow" data-at="2500"><b>Drive: release plan</b><span>v3, 14 pages</span></p></div>
+                    : <div class="pnl-mini__body">
+                        <div class="pnl-ans" data-at="1400">
+                          <p class="pnl-ans__tag">{T.rp.lab.ans} <span>{T.rp.lab.now}</span></p>
+                          <p class="pnl-ans__q">when is the export live?</p>
+                          <p class="pnl-ans__a">It is on dev now, production on Tuesday after the review.</p>
+                          <p class="pnl-ans__src">{T.rp.lab.docs} · kickoff-notes.md</p>
+                        </div>
+                      </div>}
+                </div>
+              </div>
+              <div class="pnl-ruler" data-ruler>
+                <div class="pnl-ruler__track"><span class="pnl-ruler__fill" data-fill={k === 'without' ? '100' : '46.7'}></span>{k === 'with' && <span class="pnl-ruler__mark" data-at="1400" style="left: 46.7%">{T.rp.card} · {uk ? '1,4' : '1.4'}{'\u00a0'}{T.rp.sec}</span>}</div>
+                <div class="pnl-ruler__ticks">{[0, 1, 2, 3].map((n) => <span>{n}{'\u00a0'}{T.rp.sec}</span>)}</div>
+              </div>
+              <p class="pnl-rp__verdict" data-at={k === 'without' ? '4400' : '1400'}>{k === 'without' ? T.rp.vNo : T.rp.vYes}</p>
+            </div>
+          ); })}
+        </div>
+        <p class="pnl-small">{T.rp.caption}</p>
+      </div>
+      <p class="pnl-rp__quick pnl-rv">{T.rp.quick}</p>
+      <div class="pnl-ctarow pnl-rv">
+        <a class="btn btn--primary" href={DMG} download>{T.rp.cta}</a>
+        <span class="pnl-ctarow__under">{T.rp.under}</span>
+        <a class="pnl-link" href={`${B}/details/#when-it-speaks`}>{T.rp.how} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+  ) : (
+  <!-- B. Tuesday: a day of five calls -->
+  <section class="pnl-sec pnl-sec--sig" id="tuesday" data-section="tuesday">
+    <div class="wrap">
+      <div class="pnl-head pnl-rv">
+        <p class="pnl-label">{T.day.eyebrow}</p>
+        <h2 class="pnl-h2" id="tuesday-h">{T.day.h}</h2>
+        <p class="pnl-lead">{T.day.sub}</p>
+      </div>
+      <div class="pnl-day" data-day>
+        <nav class="pnl-day__rail" aria-label={T.day.eyebrow}>
+          {T.day.stops.map((s, i) => <a class:list={['pnl-day__chip', { 'is-on': i === 0 }]} href={`#day-${i}`} data-i={i}>{s[0]}</a>)}
+          <span class="pnl-day__nav"><button type="button" data-day-prev aria-label={T.day.prev} hidden>‹</button><button type="button" data-day-next aria-label={T.day.next} hidden>›</button></span>
+        </nav>
+        <ol class="pnl-day__track" data-day-track tabindex="0">
+          {T.day.stops.map((s, i) => (
+            <li class="pnl-day__stop" id={`day-${i}`} data-i={i}>
+              <figure class={`pnl-day__shot pnl-day__shot--${s[3]}`}><img class="ltshot--dark" src={`${SH(s[3] as string)}-dark.webp`} alt={s[1] as string} width={s[4] as number} height={s[5] as number} loading="lazy" decoding="async" /><img class="ltshot--light" src={`${SH(s[3] as string)}-light.webp`} alt={s[1] as string} width={s[4] as number} height={s[5] as number} loading="lazy" decoding="async" /></figure>
+              <div class="pnl-day__cap"><p class="pnl-day__time">{s[0]}</p><h3>{s[1]}</h3><p>{s[2]}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="pnl-ctarow pnl-rv">
+        <a class="btn btn--primary" href={DMG} download>{T.rp.cta}</a>
+        <span class="pnl-ctarow__under">{T.rp.under}</span>
+      </div>
+    </div>
+  </section>
+  )}
+
+  <!-- One line of fact, or nothing -->
+  <section class="pnl-sec" id="facts" data-section="facts">
+    <div class="wrap">
+      <div class="pnl-head pnl-rv"><h2 class="pnl-h2" id="one-line-of-fact">{T.fH}</h2><p class="pnl-lead">{T.fSub}</p></div>
+      <div class="pnl-tips">
+        {T.tips.map((t) => <div class="pnl-tip pnl-rv"><p class={`pnl-tip__k pnl-tip__k--${t.c}`}><i></i>{t.k}</p><p class="pnl-tip__t">{t.t}</p>{t.p && <p class="pnl-tip__p">{t.p}</p>}{(t as any).s && <p class="pnl-tip__s">{(t as any).s}</p>}</div>)}
+        <div class="pnl-tip pnl-tip--empty pnl-rv"><p class="pnl-tip__k"><span class="pnl-wait"><i></i><i></i><i></i></span>{T.empty.k}</p><p class="pnl-tip__t">{T.empty.t}</p><p class="pnl-tip__s">{T.empty.s}</p></div>
+      </div>
+      <p class="pnl-small pnl-rv">{T.fFoot}</p>
+    </div>
+  </section>
+
+  {variant === 'a' && (
+  <!-- Before / during / after: three columns with detail crops -->
+  <section class="pnl-sec" id="phases" data-section="phases">
+    <div class="wrap">
+      <div class="pnl-head pnl-rv"><p class="pnl-label">{T.phL}</p><h2 class="pnl-h2" id="before-during-after">{T.phH}</h2></div>
+      <div class="pnl-phases">
+        {T.ph.map((p) => (
+          <article class="pnl-phase pnl-rv">
+            <div class="pnl-crop" style={`aspect-ratio: ${p.w} / ${p.hh}`} role="img" aria-label={p.alt}>
+              {['dark', 'light'].map((th) => <img class={`ltshot--${th}`} src={`${SH(p.img)}-${th}.webp`} alt="" width={p.W} height={p.H} loading="lazy" decoding="async" style={`width: ${(p.W / p.w * 100).toFixed(3)}%; left: ${(-p.x / p.w * 100).toFixed(3)}%; top: ${(-p.y / p.hh * 100).toFixed(3)}%`} />)}
+            </div>
+            <p class="pnl-label">{p.k}</p>
+            <h3 class="pnl-h3">{p.h}</h3>
+            <p class="pnl-body">{p.l}</p>
+            {(p as any).small && <p class="pnl-small">{(p as any).small}</p>}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+  )}
+
+  <!-- Everything a note taker does, plus the call itself -->
+  <section class="pnl-sec" id="switch" data-section="switch">
+    <div class="wrap">
+      <div class="pnl-head pnl-rv"><h2 class="pnl-h2" id="everything-your-note-taker-does">{T.sH}</h2><p class="pnl-lead">{T.sSub}</p></div>
+      <div class="pnl-parity pnl-rv">
+        <div class="pnl-parity__col"><p class="pnl-label">{T.baseH}</p><ul>{T.baseList.map(([a, b]) => <li><span>{a}</span>{b && <em>{b}</em>}</li>)}</ul></div>
+        <div class="pnl-parity__col pnl-parity__col--only"><p class="pnl-label">{T.onlyH}</p><ul>{T.onlyList.map((a) => <li><span>{a}</span></li>)}</ul></div>
+      </div>
+      <div class="pnl-switch pnl-rv" data-switch>
+        <p class="pnl-switch__lbl pnl-label">{T.swH}</p>
+        <div class="pnl-switch__tabs" role="tablist" aria-label={T.swH} hidden data-switch-tabs>
+          {T.sw.map(([n], i) => <button type="button" role="tab" id={`sw-t${i}`} aria-controls={`sw-p${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{n}</button>)}
+        </div>
+        <div class="pnl-switch__panels">
+          {T.sw.map(([n, t], i) => <div class="pnl-switch__panel" role="tabpanel" id={`sw-p${i}`} aria-labelledby={`sw-t${i}`}><h3 class="pnl-switch__h">{n}</h3><p>{t}</p></div>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {variant === 'a' && (
+  <!-- Your calls, your language -->
+  <section class="pnl-sec" id="language" data-section="language">
+    <div class="wrap pnl-lang">
+      <div class="pnl-lang__text pnl-rv">
+        <h2 class="pnl-h2" id="your-language">{T.lH}</h2>
+        <p class="pnl-lead">{T.lSub}</p>
+        <ul class="pnl-dots">{T.lList.map((x) => <li>{x}</li>)}</ul>
+        <p class="pnl-lang__close">{T.lClose}</p>
+      </div>
+      <div class="pnl-lang__cards pnl-rv" aria-hidden="true">
+        <div class="pnl-ans pnl-ans--solo"><p class="pnl-ans__tag">{T.lCard1.k} <span>{T.rp.lab.now}</span></p><p class="pnl-ans__q">{T.lCard1.q}</p><p class="pnl-ans__a">{T.lCard1.a}</p></div>
+        <div class="pnl-draft"><p class="pnl-draft__k">{T.lCard2.k}</p>{T.lCard2.lines.map((x) => <p>{x}</p>)}</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sales and presenting -->
+  <section class="pnl-sec" id="modes" data-section="modes">
+    <div class="wrap">
+    <div class="pnl-head pnl-rv"><p class="pnl-label">{T.moL}</p><h2 class="pnl-h2" id="sales-and-talks">{T.moH}</h2></div>
+    <div class="pnl-modes">
+      <article class="pnl-mode pnl-rv">
+        <div class="pnl-mode__vis pnl-mode__vis--sales" aria-hidden="true">
+          <ul class="pnl-bant">{T.bant.map(([k, v], i) => <li class={`is-${['known', 'part', 'known', 'no'][i]}`}><b>{k}</b><span>{v}</span></li>)}</ul>
+          <p class="pnl-toast"><i></i>{T.toast}</p>
+          <p class="pnl-mode__illus">{T.illus}</p>
+        </div>
+        <p class="pnl-label">{T.modes[0].k}</p><h3 class="pnl-h3">{T.modes[0].h}</h3>{T.modes[0].l.map((x) => <p class="pnl-body">{x}</p>)}
+      </article>
+      <article class="pnl-mode pnl-rv">
+        <div class="pnl-mode__vis pnl-mode__vis--present">
+          <figure class="ltshot"><img class="ltshot__img ltshot--dark" src={`${SH('tips-compact')}-dark.webp`} alt={T.compact} width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src={`${SH('tips-compact')}-light.webp`} alt={T.compact} width="1120" height="364" loading="lazy" decoding="async" /><figcaption>{T.compact}</figcaption></figure>
+        </div>
+        <p class="pnl-label">{T.modes[1].k}</p><h3 class="pnl-h3">{T.modes[1].h}</h3>{T.modes[1].l.map((x) => <p class="pnl-body">{x}</p>)}
+      </article>
+    </div>
+    </div>
+  </section>
+  )}
+
+  <!-- Cost -->
+  <section class="pnl-sec" id="cost" data-section="cost">
+    <div class="wrap">
+      <div class="pnl-head pnl-rv"><h2 class="pnl-h2" id="pay-for-calls">{T.cH}</h2><p class="pnl-lead">{T.cSub}</p></div>
+      <div class="pnl-opts">
+        {T.opts.map((o, i) => <div class:list={['pnl-opt pnl-rv', { 'is-rec': i === 0 }]}><p class="pnl-label">{o.tag}</p><h3 class="pnl-opt__t">{o.t}</h3><p class="pnl-opt__big">{o.big}<span>{o.u}</span></p><p class="pnl-body">{o.d}</p></div>)}
+      </div>
+      <div class="pnl-calc pnl-rv" data-calc data-rates={JSON.stringify(RATES)} data-unit={uk ? 'uk' : 'en'}>
+        <div class="pnl-calc__in" data-calc-ui hidden>
+          <p class="pnl-calc__title">{T.calc.title}</p>
+          <label class="pnl-calc__f"><span>{T.calc.calls} <output data-calc-n>{T.calc.unit(10)}</output></span><input type="range" min="1" max="40" step="1" value="10" data-calc-calls /></label>
+          <fieldset class="pnl-calc__f"><legend>{T.calc.len}</legend><div class="pnl-seg pnl-seg--sm">{T.calc.lens.map((l, i) => <label><input type="radio" name="pnl-len" value={i} checked={i === 1} /><span>{l}</span></label>)}</div></fieldset>
+          <fieldset class="pnl-calc__f"><legend>{T.calc.how}</legend><div class="pnl-calc__plans">{T.calc.plans.map((l, i) => <label><input type="radio" name="pnl-plan" value={['plan', 'openai', 'claude', 'local'][i]} checked={i === 0} /><span>{l}</span></label>)}</div></fieldset>
+        </div>
+        <div class="pnl-calc__out" data-calc-ui hidden>
+          <p class="pnl-calc__lbl">{T.calc.out}</p>
+          <p class="pnl-calc__big" aria-live="polite"><output data-calc-total>~$1.1</output> <span data-calc-per>~$0.1 {T.calc.per}</span></p>
+          <div class="pnl-bars" data-max={SEAT_MAX}>
+            <div class="pnl-bar pnl-bar--pn"><span class="pnl-bar__n" data-calc-name data-a="Pacenote" data-b={T.calc.onTop}>{T.calc.onTop}</span><span class="pnl-bar__t"><i data-calc-bar style="width: 2%"></i></span><span class="pnl-bar__v" data-calc-v>~$1.1</span></div>
+            {SEATS.map(([n, y, m]) => <div class="pnl-bar"><span class="pnl-bar__n">{n}</span><span class="pnl-bar__t"><i style={`width: ${(y / SEAT_MAX * 100).toFixed(1)}%`}></i><i class="is-m" style={`width: ${((m - y) / SEAT_MAX * 100).toFixed(1)}%`}></i></span><span class="pnl-bar__v">${y}-{m}</span></div>)}
+          </div>
+          <p class="pnl-bars__key"><span><i></i>{T.calc.yearly}</span><span><i class="is-m"></i>{T.calc.monthly}</span></p>
+          <p class="pnl-small">{T.calc.seat}. {T.calc.free}</p>
+          <p class="pnl-calc__more" data-calc-more hidden>{T.calc.more}</p>
+          <p class="pnl-small">{T.calc.cap}</p>
+        </div>
+        <table class="pnl-calc__table" data-calc-table>
+          <caption>{T.table.cap}</caption>
+          <thead><tr>{T.table.head.map((h) => <th scope="col">{h}</th>)}</tr></thead>
+          <tbody>{T.table.rows.map((r) => <tr>{r.map((c, i) => i === 0 ? <th scope="row">{c}</th> : <td>{c}</td>)}</tr>)}</tbody>
+        </table>
+      </div>
+      <p class="pnl-small pnl-foot">{T.cFoot} <a href={`${B}/pricing/`}>{T.cLink}</a></p>
+      <div class="pnl-ctarow pnl-rv">
+        <a class="btn btn--primary" href={DMG} download>{T.rp.cta}</a>
+        <span class="pnl-ctarow__under">{T.rp.under}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before you install -->
+  <section class="pnl-sec" id="faq" data-section="faq">
+    <div class="wrap pnl-faq">
+      <div class="pnl-faq__head pnl-rv"><h2 class="pnl-h2" id="before-you-install">{T.qH}</h2><p class="pnl-faq__links">{T.faqLinks.map(([n, h]) => <a href={h}>{n}</a>)}</p></div>
+      <div class="pnl-faq__list pnl-rv">
+        {T.faq.map(([q, a]) => <details class="pnl-faq__item"><summary>{q}<i aria-hidden="true"></i></summary><p>{a}</p></details>)}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="pnl-sec pnl-end" id="get" data-section="get">
+    <div class="wrap">
+      <div class="pnl-end__in pnl-rv">
+        <div>
+          <h2 class="pnl-h2" id="try-it">{variant === 'a' ? T.end.h : T.end.hB}</h2>
+          <p class="pnl-lead">{T.end.sub}</p>
+        </div>
+        <div class="pnl-end__act">
+          <a class="btn btn--primary pnl-btn-lg" href={DMG} download>{T.end.btn}</a>
+          <p class="pnl-ctarow__under">{T.end.under}</p>
+          <p class="pnl-small">{T.end.first} <a href={`${REPO}/releases/latest/download/SHA256SUMS.txt`}>SHA-256</a></p>
+          <p class="pnl-small">{T.end.it}</p>
+        </div>
+      </div>
+      <p class="pnl-end__links"><a href={SKILL} download>{T.end.skill}</a><a href={uk ? `${REPO}/blob/main/docs/uk/live-tips.md` : `${REPO}/blob/main/docs/en/live-tips.md`}>{T.end.docs}</a><a href={`${REPO}/blob/main/CHANGELOG.md`}>{T.end.news}</a></p>
+    </div>
+  </section>
+</div>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-pnl]');
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const uk = document.documentElement.lang === 'uk';
+  if (root && 'IntersectionObserver' in window) {
+    if (!reduce) {
+      root.classList.add('pnl-anim');
+      const io = new IntersectionObserver((es) => {
+        for (const e of es) if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+      }, { rootMargin: '0px 0px -8% 0px' });
+      root.querySelectorAll('.pnl-rv').forEach((el) => io.observe(el));
+    }
+
+    // Replay: plays "without", then "with", once; the toggle and Replay are in the visitor's hands.
+    const rp = root.querySelector<HTMLElement>('[data-rp]');
+    if (rp) {
+      const bar = rp.querySelector<HTMLElement>('[data-rp-bar]')!;
+      const opts = [...rp.querySelectorAll<HTMLButtonElement>('[data-rp-mode]')];
+      const stages = Object.fromEntries([...rp.querySelectorAll<HTMLElement>('[data-rp-stage]')].map((s) => [s.dataset.rpStage, s]));
+      let timers: number[] = [];
+      let mode = 'with';
+      const clear = () => { timers.forEach((t) => clearTimeout(t)); timers = []; };
+      const show = (m: string) => {
+        mode = m; rp.dataset.mode = m;
+        opts.forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.rpMode === m)));
+      };
+      const finish = (s: HTMLElement) => {
+        s.querySelectorAll('[data-at]').forEach((el) => el.classList.add('on'));
+        s.querySelectorAll<HTMLElement>('[data-fill]').forEach((f) => { f.style.transition = 'none'; f.style.width = `${f.dataset.fill}%`; });
+      };
+      const play = (m: string, then?: () => void) => {
+        clear(); show(m);
+        const s = stages[m]; if (!s) return;
+        if (reduce) { finish(s); then?.(); return; }
+        s.querySelectorAll('[data-at]').forEach((el) => el.classList.remove('on'));
+        const fill = s.querySelector<HTMLElement>('[data-fill]');
+        const dur = m === 'without' ? 3000 : 1400;
+        if (fill) { fill.style.transition = 'none'; fill.style.width = '0%'; void fill.offsetWidth; fill.style.transition = `width ${dur}ms linear`; timers.push(window.setTimeout(() => { fill.style.width = `${fill.dataset.fill}%`; }, 300)); }
+        let last = 0;
+        s.querySelectorAll<HTMLElement>('[data-at]').forEach((el) => { const at = Number(el.dataset.at); last = Math.max(last, at); timers.push(window.setTimeout(() => el.classList.add('on'), at + 200)); });
+        if (then) timers.push(window.setTimeout(then, last + 1400));
+      };
+      rp.classList.add('is-js');
+      bar.hidden = false;
+      Object.values(stages).forEach((s) => finish(s as HTMLElement));
+      show('with');
+      opts.forEach((o) => o.addEventListener('click', () => play(o.dataset.rpMode!)));
+      rp.querySelector('[data-rp-replay]')?.addEventListener('click', () => play(mode));
+      if (!reduce) {
+        const vo = new IntersectionObserver((es) => {
+          if (!es[0].isIntersecting) return;
+          vo.disconnect();
+          play('without', () => play('with'));
+        }, { threshold: 0.4 });
+        vo.observe(rp.querySelector('.pnl-rp__stages')!);
+      }
+    }
+
+    // Switching tabs (ARIA tabs with arrow keys); without script all panels are listed.
+    const sw = root.querySelector<HTMLElement>('[data-switch]');
+    if (sw) {
+      const tabs = [...sw.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
+      const panels = [...sw.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+      const sel = (i: number, focus = false) => {
+        tabs.forEach((t, j) => { t.setAttribute('aria-selected', String(i === j)); t.tabIndex = i === j ? 0 : -1; });
+        panels.forEach((p, j) => { p.hidden = i !== j; });
+        if (focus) tabs[i].focus();
+      };
+      sw.classList.add('is-js');
+      (sw.querySelector('[data-switch-tabs]') as HTMLElement).hidden = false;
+      tabs.forEach((t, i) => {
+        t.addEventListener('click', () => sel(i));
+        t.addEventListener('keydown', (e) => {
+          const k = (e as KeyboardEvent).key;
+          if (k === 'ArrowRight' || k === 'ArrowLeft') { e.preventDefault(); sel((i + (k === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length, true); }
+        });
+      });
+      sel(0);
+    }
+
+    // Cost calculator.
+    const calc = root.querySelector<HTMLElement>('[data-calc]');
+    if (calc) {
+      const rates = JSON.parse(calc.dataset.rates || '{}') as Record<string, number[]>;
+      const max = Number(calc.querySelector<HTMLElement>('.pnl-bars')?.dataset.max || 60);
+      const range = calc.querySelector<HTMLInputElement>('[data-calc-calls]')!;
+      const nOut = calc.querySelector<HTMLElement>('[data-calc-n]')!;
+      const tot = calc.querySelector<HTMLElement>('[data-calc-total]')!;
+      const per = calc.querySelector<HTMLElement>('[data-calc-per]')!;
+      const barEl = calc.querySelector<HTMLElement>('[data-calc-bar]')!;
+      const v = calc.querySelector<HTMLElement>('[data-calc-v]')!;
+      const more = calc.querySelector<HTMLElement>('[data-calc-more]')!;
+      const money = (x: number) => x === 0 ? '$0' : x < 2 ? `~$${x.toFixed(1)}` : `~$${Math.round(x)}`;
+      const money2 = (x: number) => x === 0 ? '$0' : `~$${x.toFixed(2)}`;
+      const unit = (n: number) => uk
+        ? `${n} ${n % 10 === 1 && n % 100 !== 11 ? 'дзвінок' : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? 'дзвінки' : 'дзвінків'}`
+        : `${n} call${n === 1 ? '' : 's'}`;
+      const perWord = uk ? 'за дзвінок' : 'per call';
+      const upd = () => {
+        const n = Number(range.value);
+        const len = Number((calc.querySelector('input[name="pnl-len"]:checked') as HTMLInputElement)?.value ?? 1);
+        const plan = (calc.querySelector('input[name="pnl-plan"]:checked') as HTMLInputElement)?.value ?? 'plan';
+        const r = rates[plan]?.[len] ?? 0;
+        const total = n * r;
+        nOut.textContent = unit(n);
+        tot.textContent = money(total);
+        v.textContent = money(total);
+        per.textContent = `${money2(r)} ${perWord}`;
+        barEl.style.width = `${Math.max(total > 0 ? 1.5 : 0.6, Math.min(100, total / max * 100))}%`;
+        more.hidden = !(total > 10);
+        const nm = calc.querySelector<HTMLElement>('[data-calc-name]');
+        if (nm) nm.textContent = plan === 'plan' ? (nm.dataset.b ?? '') : (nm.dataset.a ?? '');
+        range.style.setProperty('--p', `${((n - 1) / 39) * 100}%`);
+      };
+      calc.classList.add('is-js');
+      calc.querySelectorAll<HTMLElement>('[data-calc-ui]').forEach((el) => { el.hidden = false; });
+      calc.querySelectorAll('input').forEach((i) => i.addEventListener('input', upd));
+      upd();
+    }
+
+    // Tuesday: the chip of the stop in view; prev / next buttons.
+    const day = root.querySelector<HTMLElement>('[data-day]');
+    if (day) {
+      const track = day.querySelector<HTMLElement>('[data-day-track]')!;
+      const stops = [...day.querySelectorAll<HTMLElement>('.pnl-day__stop')];
+      const chips = [...day.querySelectorAll<HTMLElement>('.pnl-day__chip')];
+      let cur = 0;
+      const go = (i: number) => { const s = stops[Math.max(0, Math.min(stops.length - 1, i))]; track.scrollTo({ left: s.offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' }); };
+      const dio = new IntersectionObserver((es) => {
+        for (const e of es) if (e.isIntersecting) { cur = Number((e.target as HTMLElement).dataset.i); chips.forEach((c, j) => c.classList.toggle('is-on', j === cur)); }
+      }, { root: track, threshold: 0.6 });
+      stops.forEach((s) => dio.observe(s));
+      chips.forEach((c, i) => c.addEventListener('click', (e) => { e.preventDefault(); go(i); }));
+      day.querySelectorAll<HTMLButtonElement>('[data-day-prev],[data-day-next]').forEach((b) => { b.hidden = false; b.addEventListener('click', () => go(cur + (b.hasAttribute('data-day-next') ? 1 : -1))); });
+      track.addEventListener('keydown', (e) => { const k = (e as KeyboardEvent).key; if (k === 'ArrowRight') { e.preventDefault(); go(cur + 1); } if (k === 'ArrowLeft') { e.preventDefault(); go(cur - 1); } });
+    }
+  }
+</script>
