@@ -251,6 +251,11 @@ put daily-team-prep for <project> on a schedule, about 55 minutes before our int
 ```
 Start with a single task. Add the next after a week.
 
+### Dashboard on your phone
+**Gives you** every project on one calm screen: what needs you today, whose turn it is, the next call, and Ask Claude to settle a thread with one sentence.
+
+**Needs** Node.js 18+, a free Cloudflare account and 20 to 30 minutes. Steps: [document 20](https://github.com/bodco/pm-control-tower/blob/main/docs/en/20-dashboard-install.md); `npm run doctor` checks each one. What it looks like: [the dashboard page](/dashboard/).
+
 ### Pacenote (a separate product)
 **Gives you** quiet hints during the call when something matters. It is not part of the plugin: the app or its own Cowork skill, downloads and setup are on [the Pacenote page](/pacenote/).
 

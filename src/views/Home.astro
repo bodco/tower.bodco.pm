@@ -7,6 +7,7 @@ import PacenoteLogo from '../components/PacenoteLogo.astro';
 import Shot from '../components/Shot.astro';
 import HeroVisual from '../components/HeroVisual.astro';
 import FocusVisual from '../components/FocusVisual.astro';
+import DashShot from '../components/DashShot.astro';
 import { LINKS, path, t, type Lang, pnHref } from '../i18n/ui';
 import { SKILLS } from '../data/skills';
 
@@ -20,8 +21,8 @@ const C = {
   en: {
   // 1. HERO
   eyebrow: 'Open-source Claude setup for project managers',
-  h1: 'Your meeting prep and reply drafts, ready before the day starts',
-  lead: 'Before you start work, Claude reads your chats, mail and tracker. At 09:00 you open Notion and find a reply draft for each message that waits on you.<sup>*</sup> Each meeting prep lands about 55 minutes before the call. You check, fix and press send yourself.',
+  h1: 'Your meeting preps and a sorted inbox, ready before the day starts',
+  lead: 'Before you start work, Claude reads your chats, mail and tracker. At 09:00 you open Notion, or the dashboard on your phone, and see every message that waits on you, sorted by whose turn it is.<sup>*</sup> Each meeting prep lands about 55 minutes before the call. A decision takes one sentence, you approve every change, and you send every reply yourself.',
   reality: 'That is the full setup, built up over a few weeks. On the first evening you get the Notion template and meeting preps on request.',
   fn: '* No magic button: the morning work runs as a scheduled task in Claude Cowork, and each meeting prep is scheduled shortly before the meeting. Your computer has to be awake.',
   fnLink: 'How the schedule works',
@@ -40,10 +41,10 @@ const C = {
     ['2h+', 'a week spent only on weekly and monthly reports'],
   ],
   day: [
-    ['Before 09:00', 'It runs without you', 'Yesterday\'s chats and mail are sorted by whose turn it is to answer. Reply drafts are waiting.'],
-    ['09:00 · 15-30 min', 'You read what came in', 'Go through the threads that wait on you. Send, edit or park each draft. Pick 3 things for today.'],
+    ['Before 09:00', 'It runs without you', 'Yesterday\'s chats and mail are sorted by whose turn it is to answer. The daily report is waiting.'],
+    ['09:00 · 15-30 min', 'You read what came in', 'Go through the threads that wait on you: reply, turn one into a task, or settle it with one sentence through Ask Claude. Pick 3 things for today.'],
     ['Before each meeting', 'The prep is already there', 'About 55 minutes before the call: board movement, blockers, open questions, errors from the last 24 hours. You add your own notes.'],
-    ['During the day', 'Replies in 2-3 batches', 'The drafts exist, so a batch takes minutes. A decision goes into the log as a sentence. A "small extra" from the client gets sorted before you agree to it.'],
+    ['During the day', 'Replies in 2-3 batches', 'The context is already in Notion, so a batch takes minutes; Claude drafts a reply when you ask. A decision goes into the log as a sentence. A "small extra" from the client gets sorted before you agree to it.'],
     ['End of day · 5 min', 'Close and leave', 'Mark what is done, empty the inbox, write a line about tomorrow. The analysis waits for the morning.'],
   ],
 
@@ -83,7 +84,7 @@ const C = {
     ['client-report', 'A client report in English, ready for you to proofread.'],
   ],
   skillsBtn: 'All 21 skills',
-  howQ: 'Curious how a message becomes a draft?',
+  howQ: 'Curious how a message becomes a task or a decision?',
   howLink: 'How it works',
 
   // 6. NOTION
@@ -95,9 +96,17 @@ const C = {
   shotsP: 'Real pages from the public template, with demo data. You can open them yourself.',
   shots: [
     ['demo-prep.webp', 570, 690, 'Reports · Daily Team Prep', 'A sync prep', 'written by daily-team-prep: what moved, what is blocked, what to ask.'],
-    ['demo-thread.webp', 570, 636, 'Threads · Awaiting Reply', 'A thread that waits on you', 'with the sources it read and a reply draft from inbox-responder. You edit and send.'],
+    ['demo-thread-v2.webp', 570, 505, 'Threads · Awaiting Reply', 'A thread that waits on you', 'with its project, the linked task and topic. Settle it with one sentence through Ask Claude.'],
   ],
   shotsLink: 'Open the template',
+
+  // 6c. DASHBOARD
+  dashEyebrow: 'On your phone',
+  dashH: 'Every project on one calm screen',
+  dashP: 'An optional web app over the same Notion: what needs you today, whose turn it is, the next call. Act in one tap, or press Ask Claude and settle a thread with one sentence. Notion stays the only store, and nothing is sent from it.',
+  dashBtn: 'See the dashboard',
+  dashAlt: 'The dashboard Today page on a phone, with demo data',
+  dashNew: 'every project on your phone, calmly',
 
   // 7. TRUST
   trustEyebrow: 'Before you try it',
@@ -144,8 +153,8 @@ const C = {
   uk: {
   // 1. HERO
   eyebrow: 'Відкритий інструмент на Claude для проєктних менеджерів',
-  h1: 'Підготовка до мітингів і драфти відповідей готові ще до початку дня',
-  lead: 'Поки ви ще не сіли за роботу, Claude читає ваші чати, пошту і трекер. О 09:00 ви відкриваєте Notion, а там драфт на кожне повідомлення, яке чекає на вашу відповідь.<sup>*</sup> Підготовка до мітингу зʼявляється десь за 55 хвилин до дзвінка. Перевіряєте, правите і надсилаєте ви самі.',
+  h1: 'Підготовка до мітингів і розібрані повідомлення готові ще до початку дня',
+  lead: 'Поки ви ще не сіли за роботу, Claude читає ваші чати, пошту і трекер. О 09:00 ви відкриваєте Notion або дашборд на телефоні й бачите кожне повідомлення, що чекає на вас, розкладене за тим, чия черга.<sup>*</sup> Підготовка до мітингу зʼявляється десь за 55 хвилин до дзвінка. Рішення займає одне речення, кожну зміну підтверджуєте ви, і кожну відповідь надсилаєте ви самі.',
   reality: 'Так виглядає повне налаштування, яке складається за кілька тижнів. За перший вечір ви отримуєте шаблон Notion і підготовки до мітингів на прохання.',
   fn: '* Без чарівної кнопки: ранкова робота запускається запланованою задачею в Claude Cowork, а підготовка до кожного мітингу запланована незадовго до нього. Компʼютер має бути увімкнений.',
   fnLink: 'Як працює розклад',
@@ -164,10 +173,10 @@ const C = {
     ['2 год+', 'на тиждень лише на тижневі й місячні звіти'],
   ],
   day: [
-    ['До 09:00', 'Працює без вас', 'Вчорашні чати й пошта розкладені за тим, чия черга відповідати. Драфти відповідей уже чекають.'],
-    ['09:00 · 15-30 хв', 'Читаєте, що прийшло', 'Переглянути треди, де відповідь за вами. Кожен драфт надіслати, поправити або відкласти. Вибрати 3 справи на сьогодні.'],
+    ['До 09:00', 'Працює без вас', 'Вчорашні чати й пошта розкладені за тим, чия черга відповідати. Щоденний звіт уже чекає.'],
+    ['09:00 · 15-30 хв', 'Читаєте, що прийшло', 'Переглянути треди, де відповідь за вами: відповісти, зробити задачу або закрити одним реченням через Спитати Claude (Ask Claude). Вибрати 3 справи на сьогодні.'],
     ['Перед кожним мітингом', 'Підготовка вже є', 'Десь за 55 хвилин до дзвінка: рух на борді, блокери, відкриті питання, помилки за 24 години. Ви дописуєте свої нотатки.'],
-    ['Протягом дня', 'Відповіді 2-3 пачками', 'Драфти вже є, тож пачка займає хвилини. Рішення йде в лог коротким реченням. Клієнтську "дрібничку" спершу розбираєте, а вже потім погоджуєте.'],
+    ['Протягом дня', 'Відповіді 2-3 пачками', 'Контекст уже в Notion, тож пачка займає хвилини; драфт відповіді Claude пише на прохання. Рішення йде в лог коротким реченням. Клієнтську "дрібничку" спершу розбираєте, а вже потім погоджуєте.'],
     ['Кінець дня · 5 хв', 'Закрили й пішли', 'Готове в Done, Inbox порожній, рядок про завтра. Аналіз почекає до ранку.'],
   ],
 
@@ -207,7 +216,7 @@ const C = {
     ['client-report', 'Звіт клієнту англійською, готовий до вичитки.'],
   ],
   skillsBtn: 'Усі 21 скіл',
-  howQ: 'Цікаво, як повідомлення стає драфтом?',
+  howQ: 'Цікаво, як повідомлення стає задачею чи рішенням?',
   howLink: 'Як це працює',
 
   // 6. NOTION
@@ -219,9 +228,17 @@ const C = {
   shotsP: 'Справжні сторінки з публічного шаблону, з демо-даними. Їх можна відкрити самому.',
   shots: [
     ['demo-prep.webp', 570, 690, 'Reports · Daily Team Prep', 'Підготовка до синку', 'від daily-team-prep: що зрушило, що заблоковано, що спитати.'],
-    ['demo-thread.webp', 570, 636, 'Threads · Awaiting Reply', 'Тред, який чекає на вас', 'з джерелами, які прочитано, і драфтом відповіді від inbox-responder. Ви правите й надсилаєте.'],
+    ['demo-thread-v2.webp', 570, 505, 'Threads · Awaiting Reply', 'Тред, який чекає на вас', 'з проєктом, повʼязаною задачею і топіком. Закрийте його одним реченням через Спитати Claude.'],
   ],
   shotsLink: 'Відкрити шаблон',
+
+  // 6c. ДАШБОРД
+  dashEyebrow: 'На телефоні',
+  dashH: 'Усі проєкти на одному спокійному екрані',
+  dashP: 'Необовʼязковий веб-застосунок над тим самим Notion: що чекає на вас сьогодні, чия черга, наступний дзвінок. Дія одним дотиком, або Спитати Claude, і тред закривається одним реченням. Notion лишається єдиним сховищем, і з дашборда нічого не надсилається.',
+  dashBtn: 'Подивитися дашборд',
+  dashAlt: 'Сторінка Today дашборда на телефоні, з демо-даними',
+  dashNew: 'усі проєкти на телефоні, спокійно',
 
   // 7. ДОВІРА
   trustEyebrow: 'Перш ніж пробувати',
@@ -284,6 +301,7 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
             <a class="btn btn--ink" href={LINKS.notion}><NotionLogo /> {t(lang, 'cta.notion.hero')}</a>
             <a class="btn btn--ink" href={LINKS.repo}><GithubLogo /> {t(lang, 'cta.repo.hero')}</a>
           </div>
+          <a class="newlink" href={path(lang, 'dashboard')}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><b>{lang === 'uk' ? 'Дашборд' : 'Dashboard'}</b><span class="newlink__txt">{C.dashNew}</span><Arrow /></a>
           <a class="newlink" href={pnHref(lang)}><span class="newlink__tag">{lang === 'uk' ? 'Нове' : 'New'}</span><PacenoteLogo /><b>Pacenote</b><span class="newlink__txt">{lang === 'uk' ? 'ваш штурман на дзвінках, застосунок для Мака' : 'your co-driver on calls, an app for Mac'}</span><Arrow /></a>
           </div>
           <p class="reality">{C.reality}</p>
@@ -390,6 +408,19 @@ const sayOf = (name: string) => SKILLS.find((s) => s.name === name)?.say[lang] ?
         <div class="btns"><a class="btn" href={path(lang, 'notion')}>{C.notionTour} <Arrow /></a></div>
       </div>
       <div style="min-width: 0; flex-basis: 560px;"><FocusVisual lang={lang} /></div>
+    </div>
+  </section>
+
+  <!-- 6c. DASHBOARD (2026-11-08) -->
+  <section aria-labelledby="dash-h">
+    <div class="wrap section split">
+      <div class="stack" style="gap: 18px; flex-basis: 380px;">
+        <p class="eyebrow">{C.dashEyebrow}</p>
+        <h2 id="dash-h" class="h2 h2--sm">{C.dashH}</h2>
+        <p class="muted" style="margin: 0; font-size: 17px; line-height: 1.6;">{C.dashP}</p>
+        <div class="btns"><a class="btn" href={path(lang, 'dashboard')}>{C.dashBtn} <Arrow /></a></div>
+      </div>
+      <div style="min-width: 0; flex-basis: 360px;"><DashShot name="today-phone" lang={lang} phone alt={C.dashAlt} /></div>
     </div>
   </section>
 

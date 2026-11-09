@@ -17,9 +17,11 @@ interface Props {
   /** SEO 2026-10-28: the parent page for the breadcrumb (name and path) and extra structured data. */
   crumbParent?: { name: string; href: string };
   ld?: Record<string, unknown>[];
+  /** 2026-11-08: a page's own share image (path under public/, 1200x630) and its alt text. */
+  og?: { src: string; alt: string };
 }
 const lang = getLangFromUrl(Astro.url);
-const { title, description, noindex = false, brand, crumbParent, ld = [] } = Astro.props;
+const { title, description, noindex = false, brand, crumbParent, ld = [], og } = Astro.props;
 const pn = brand === 'pacenote';
 const site = Astro.site!;
 const fullTitle = title
@@ -39,8 +41,8 @@ function trimDesc(text: string, max = 165): string {
 }
 const desc = trimDesc(rawDesc);
 const canonical = new URL(Astro.url.pathname, site);
-const ogImage = new URL(pn ? (lang === 'uk' ? '/pacenote/og-uk.png' : '/pacenote/og-en.png') : (lang === 'uk' ? '/og-uk.png' : '/og.png'), site);
-const ogAlt = pn ? (lang === 'uk' ? 'Pacenote: ваш штурман на дзвінках' : 'Pacenote: your co-driver on calls') : t(lang, 'meta.title');
+const ogImage = og ? new URL(og.src, site) : new URL(pn ? (lang === 'uk' ? '/pacenote/og-uk.png' : '/pacenote/og-en.png') : (lang === 'uk' ? '/og-uk.png' : '/og.png'), site);
+const ogAlt = og ? og.alt : pn ? (lang === 'uk' ? 'Pacenote: ваш штурман на дзвінках' : 'Pacenote: your co-driver on calls') : t(lang, 'meta.title');
 const isHome = !pn && (Astro.url.pathname === '/' || Astro.url.pathname === '/uk/');
 // 2026-11-04 (owner): Pacenote is its own site; its pages never mention PM Control Tower in the breadcrumb or structured data.
 const pnHomePath = path(lang, 'pacenote');

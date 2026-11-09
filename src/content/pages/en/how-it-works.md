@@ -30,7 +30,7 @@ COLLECT          BUFFER              SYNTHESIZE              REMEMBER           
 chats ────┐
 mail ─────┼──▶  Threads ──┐
 calendar ─┘               ├──▶  prep skills ──────▶  Reports ──┐
-meetings ───▶  Meetings ──┤     inbox-responder ──▶  drafts     ├──▶  you: send,
+meetings ───▶  Meetings ──┤     resolve-item ─────▶  Decisions  ├──▶  you: send,
 tracker ──────────────────┤     topic-manager ────▶  Topics     │     decide,
 errors, logs ─────────────┤     risk-register ────▶  Risks      │     record
 repos ────────────────────┘     weekly, monthly ──▶  Reports ──┘
@@ -38,6 +38,8 @@ repos ────────────────────┘     weekly
 ```
 
 Every result lands in the Reports database with a type, a skill, a date and a project. Local copies are only a duplicate. Over time Control Tower becomes a complete, searchable archive of everything the system has produced.
+
+**Where you look at it.** The Notion page is the hub. The optional [dashboard](/dashboard/) is a view over the same databases for the phone and the morning triage, not a replacement and not a second store: it shows what needs you, lets you close a task or set a thread status, and its Ask Claude button hands one item to `resolve-item`. Nothing runs from it.
 
 ## A short file that knows your project
 
@@ -88,7 +90,7 @@ The line is drawn carefully. Degradation is allowed for **derived** data: a tick
 ## 3 situations, start to finish
 
 ### A client message becomes a ticket
-The morning collector pulls yesterday's chat into Threads with a status. The mail collector does the same for email. `inbox-responder` drafts a reply with context from the tracker and error monitoring. You open Control Tower, edit and send the draft, or turn the thread into a ticket with a single sentence.
+The morning collector pulls yesterday's chat into Threads with a status. The mail collector does the same for email. You open Control Tower or the dashboard and see the thread on your turn. You reply yourself (Claude drafts it on request, with context from the tracker and error monitoring), or turn the thread into a ticket with a single sentence. When a call settles it, Ask Claude plus one sentence lets `resolve-item` record the decision, move the task date and set the thread status after your OK.
 
 ### A client meeting you did not have to prep for
 About 55 minutes before, `client-meeting-prep` writes the prep into Reports: the week in the tracker, open threads, risks, questions left from last time. After the call you drop the meeting link into the chat and get a bilingual report with decisions and action items on the same page. On Monday the topic and weekly skills pick it up.

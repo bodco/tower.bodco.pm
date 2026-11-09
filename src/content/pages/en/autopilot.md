@@ -34,7 +34,7 @@ In plain words: a task that reads files on your Mac runs only if the Mac is awak
 This is the shape of the author's schedule. Yours will follow your own meeting calendar.
 
 <div class="grid" style="--min: 230px;">
-<div class="card"><span class="card__tag">Every morning</span><p class="card__text">Chat sync, the daily work report, mail collection and reply drafts. The internal sync prep about 55 minutes before the sync.</p></div>
+<div class="card"><span class="card__tag">Every morning</span><p class="card__text">Chat sync, the daily work report and mail collection. The internal sync prep about 55 minutes before the sync.</p></div>
 <div class="card"><span class="card__tag">Monday</span><p class="card__text">Topics, the weekly overview, the planning prep before the planning call.</p></div>
 <div class="card"><span class="card__tag">Tuesday and Thursday</span><p class="card__text">Status and 1-1 preps before the client calls. The weekly stability scan on Thursday night.</p></div>
 <div class="card"><span class="card__tag">Friday</span><p class="card__text">Board health and the review prep, as 2 separate reports. The risk register as part of the review cycle.</p></div>

@@ -3,7 +3,7 @@ title: "Changelog: what changed in each version"
 lead: What changed in each version of the plugin, the Notion template and the documentation.
 description: "PM Control Tower and Pacenote changelog: every version of the plugin, the Notion template, the documentation and the Pacenote Mac app, with dates."
 facts:
-  - { k: Current, v: "v1.8.0" }
+  - { k: Current, v: "v1.11.1" }
   - { k: First public, v: "2026-09-11" }
   - { k: Licence, v: "MIT" }
   - { k: Status, v: "beta" }
@@ -13,6 +13,9 @@ facts:
 
 | Version | Date | What changed |
 |---|---|---|
+| 1.11.1 | 2026-11-08 | **Install the dashboard yourself:** a step-by-step guide with a check after every step, `npm run doctor` that says what to fix (and never prints your token), an optional automatic deploy from GitHub, and a prompt that lets Claude walk you through it. A new [dashboard page](/dashboard/) on this site. In the dashboard: pick any due date when you add a task, and read a task's full text before you open Notion. Skills unchanged. |
+| 1.11.0 | 2026-11-08 | **Ask Claude and `resolve-item`:** press Ask Claude on a thread, task or risk in the dashboard, paste the pack into Claude with one sentence, and the new skill records the decision, the task date, the thread status and one topic after your OK. `inbox-responder` is removed: reply drafts are no longer stored in Notion, Claude writes one when you ask. 21 skills. |
+| 1.10.0 | 2026-11-06 | **The dashboard:** an installable web app over your Control Tower Notion for the phone and the laptop, behind a login. A thread status you set by hand now sticks until a new message arrives. |
 | Pacenote 0.9.5.4 beta | 2026-11-06 | Questions dig into your folders on every AI way: a typed question or HELP NOW with no ready answer searches the project folder and every folder added to the call (before, only through Claude Code), and the preparation's model answers as a new card. A typed question is answered by the preparation's model (for example Sonnet or GPT-6.1 Sol) when that way answers in seconds. The site: [Pacenote](/pacenote/) has a new home page. |
 | Pacenote 0.9.5.3 beta | 2026-11-05 | Tips read like a person talking: a plain sentence about what is happening, a quieter line on why it matters, and a phrase of 1-3 natural sentences. Long tips get a smaller font; the window menu can hide the main card so all tips read as one feed. |
 | Pacenote 0.9.5.2 beta | 2026-11-05 | Meeting notes on the call page: a short summary, decisions, action items, open questions and topics, every item with its time; Copy, and Export to Word, Google Docs, Notion or Markdown with real headings and lists and a Preview first. The meeting page in Notion carries the same notes. Naming a speaker is one sheet that saves by itself, with names grouped by where they come from. Fixed: a recording of one window had no call sound. Quieter tips: no Risk card for what you said yourself, and a fact shows as soon as one line matches it closely. |

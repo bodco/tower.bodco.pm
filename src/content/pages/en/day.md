@@ -14,12 +14,12 @@ The morning starts with 15-30 minutes of reading instead of going through every 
 ## The day
 
 ### Before 09:00: it works, you do not
-Yesterday's chat lands in Threads with statuses. The daily work report arrives: what happened yesterday across calendar, meetings, threads, tracker and chat, and a plan for today. Mail is collected, and reply drafts are written for everything waiting on you.
+Yesterday's chat lands in Threads with statuses. The daily work report arrives: what happened yesterday across calendar, meetings, threads, tracker and chat, and a plan for today. Mail is collected, and every thread is sorted by whose turn it is.
 
 ### 09:00: the morning ritual, 15-30 minutes
 1. Open Control Tower.
 2. Read the daily report. This replaces going through everything by hand.
-3. Open the threads with drafts. 3 moves per thread: **send it** (with your edits), **turn it into a ticket**, or **defer it** and write the decision into the page. Do not change the status by hand: the next collector pass moves it by the reply.
+3. Open the threads on your turn, in Notion or on the [dashboard](/dashboard/). 3 moves per thread: **reply** (Claude drafts it on request, you send it), **turn it into a ticket**, or **settle it** with one sentence through Ask Claude, so `resolve-item` records the decision and the new date. A status you set by hand sticks until a new message arrives.
 4. Inbox in 2 minutes.
 5. Today, This Week and Overdue: pick the top 3 for the day. It is a menu, not a contract. You see the whole load together: every project, company matters, personal. If it does not fit, move something right away.
 6. Red signals: new errors from the prep, critical risks, deadlines.
@@ -28,7 +28,7 @@ Yesterday's chat lands in Threads with statuses. The daily work report arrives: 
 The prep is already in Reports about 55 minutes before: who works on what, board movement, blockers, chat topics, action items, errors over the last 24 hours, and an empty block for your own notes.
 
 ### During the day: replies in batches
-- Replies in 2 or 3 batches a day. The drafts exist, so a batch takes minutes.
+- Replies in 2 or 3 batches a day. The context is already in Notion, so a batch takes minutes.
 - Artefacts as you go: a decision into Decisions (1 sentence, date, source), a state change into the config (the short file about the project), a risk into Risks.
 - The client asks for "just a small extra"? `change-request` sorts it: **A** is logged even when free, **B** costs hours, **C** touches data, money or security and is always a change request. At the end of the month the Extras Log shows how much goodwill went beyond scope.
 - After a meeting: drop the link, get a bilingual report with action items on the meeting page.
@@ -67,4 +67,4 @@ Preps and reports are no longer blocks in your calendar. The weekly overview bec
 
 ## If your project is smaller
 
-No error monitoring or repositories? The rhythm shrinks to collectors, Threads, reply drafts, meeting preps, the weekly overview and Decisions. The minimal autopilot is 3 tasks: chat or mail sync, a meeting prep, the weekly overview.
+No error monitoring or repositories? The rhythm shrinks to collectors, Threads, meeting preps, the weekly overview and Decisions. The minimal autopilot is 3 tasks: chat or mail sync, a meeting prep, the weekly overview.

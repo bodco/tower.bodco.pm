@@ -37,6 +37,7 @@ const P = lang === 'uk'
   : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: `Free and open source · macOS 14.4+, Apple Silicon · version ${PN_VERSION.version}` };
 ---
 <Base title={title} description={description ?? lead} brand={brand}
+  og={slug === 'dashboard' ? { src: `/dashboard/og-${lang}.png`, alt: title } : undefined}
   crumbParent={parent && !brand ? { name: t(lang, `nav.${parent}` as any), href: path(lang, parent) } : undefined}
   ld={product ? [{
     '@context': 'https://schema.org',

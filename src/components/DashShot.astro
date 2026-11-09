@@ -1,0 +1,13 @@
+---
+// A picture of the dashboard (tools/dashboard) in the site's theme, from public/dashboard/shots/[uk-]<name>-dark|light.webp.
+// 2026-11-08: shot with Playwright from `npm run demo` (demo data only, the two 🧪 Demo projects).
+interface Props { name: string; alt: string; lang?: 'en' | 'uk'; phone?: boolean; eager?: boolean }
+const { name, alt, lang = 'en', phone = false, eager = false } = Astro.props;
+const base = `/dashboard/shots/${lang === 'uk' ? 'uk-' : ''}${name}`;
+const size = phone ? { width: 780, height: 1688 } : { width: 1600, height: 1000 };
+---
+<figure class={`ltshot dashshot ${phone ? 'dashshot--phone' : ''}`}>
+  <img class="ltshot__img ltshot--dark" src={`${base}-dark.webp`} alt={alt} {...size} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <img class="ltshot__img ltshot--light" src={`${base}-light.webp`} alt={alt} {...size} loading={eager ? 'eager' : 'lazy'} decoding="async" />
+  <slot />
+</figure>

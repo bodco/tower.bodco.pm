@@ -1,0 +1,80 @@
+---
+title: "Dashboard: every project on your phone, calmly"
+lead: An optional web app over the same Notion databases. It shows what needs you today, whose turn it is and the next call, and lets you act in one tap. Notion stays the only store.
+description: The PM Control Tower dashboard is an installable web app over your Control Tower Notion. Today, whose turn, risks, the next call and Ask Claude, on a phone or a laptop. Free Cloudflare plan, your data stays in your Notion.
+doc: 19-dashboard.md
+facts:
+  - { k: Stores data, v: "nowhere, Notion only" }
+  - { k: Devices, v: "phone, tablet, laptop" }
+  - { k: Hosting, v: "free Cloudflare plan" }
+  - { k: Sends to client, v: "never" }
+---
+
+import DashShot from '../../../components/DashShot.astro';
+
+The Notion page is the hub, but it is a page for a laptop. Between calls you want one screen: what is mine right now, what is late, who owes whom a reply. The dashboard is that screen. It reads the same databases the skills write to, so it adds no second place to keep up to date.
+
+<DashShot name="today-laptop" alt="The Today page on a laptop: one sentence, five numbers, the Needs you queue, the next call and two demo projects" eager />
+
+## A morning with it
+
+Open it on the phone before the first call. The page starts with one sentence, for example "3 replies, 2 tasks and 2 risks need you", then a quiet strip of numbers that also works as a filter.
+
+- **Needs you.** Threads on your turn, overdue tasks and tasks due today, critical risks and risks about to trigger. Late and critical first, then your turn by age.
+- **Whose turn.** A thread is yours when the reply is owed by you, theirs when you wait. Theirs becomes "to nudge" only after 5 days.
+- **Next call.** The next meeting today or tomorrow, with 2 or 3 things to raise from that project.
+- **Projects.** One sentence and one health word each: Needs you, Watch or On track. The rule is written down, not a score.
+
+Swipe right for the main action (task done, thread replied, risk reviewed), tap for details. Every change can be undone for 6 seconds and is written to Notion when the toast ends. Offline, changes wait and sync later.
+
+<div class="dashpair">
+  <DashShot name="today-phone" phone alt="The Today page on a phone: the sentence, the numbers, the next call and the queue" />
+  <DashShot name="sheet-phone" phone alt="The details sheet of a thread with Replied, Status, Make a task and Ask Claude" />
+</div>
+
+## Ask Claude: one sentence instead of five edits
+
+A call settles a thread: the client agreed to wait, an estimate was given, the work moves to next month. Writing that down by hand means a decision, a task with a new date, a thread status and a link between them.
+
+1. On the card, press **Ask Claude** (key `A` on a laptop). The dashboard copies a short context pack to the clipboard: the project, the Notion links, the status, the Jira key and related meetings, tasks and threads it already loaded.
+2. Paste it into Claude (Cowork or the phone app) and add one sentence after `My decision:`.
+3. The `resolve-item` skill checks the candidates in Notion and shows a plan: a Decision, the task with the agreed date, the thread status and one Topic that links the story.
+4. It writes only after your OK. It never stores reply drafts in Notion, never touches Jira or the client's board and never sends anything.
+
+The dashboard itself runs nothing and writes nothing for this step.
+
+## Principles
+
+- **Calm first.** One sentence per page, numbers as a quiet strip, at most one colored fact per row, red on at most three items, each with an action next to it.
+- **Old is not urgent.** A thread with no activity for 30 days drops out of every number and waits in one review.
+- **One rule per number.** Every metric has one definition; a click on a number opens exactly the rows it counted.
+- **Nothing runs from the app.** Skills and scheduled tasks run in Cowork. The Automation page only shows what ran and what failed.
+- **Nothing goes to the client.** The dashboard writes only to your Notion.
+- **Never guesses the project.** You pick the project when you create a task or a decision.
+
+<DashShot name="project-laptop" alt="A demo project on a laptop: overview with your move, risks to watch and the latest decision" />
+
+## Security
+
+- **Login in front of everything.** Cloudflare Access asks for your email before any page or file loads.
+- **Checked twice.** The Worker verifies the Access token on every request (signature, audience, expiry, an optional email list). Without the gate configured it refuses everything.
+- **The token never reaches a browser.** The Notion token is a secret of your Worker. Database IDs and the project list live in a git-ignored config, so the public code connects to nothing.
+- **Guarded writes.** A change is accepted only for a record of a configured project, with a value that exists in your Notion, and it is refused if someone edited the record in Notion in the meantime.
+
+## What you need
+
+| | |
+|---|---|
+| Your Control Tower in Notion | the [template](https://bodco.notion.site/pm-control-tower) or your own hub with the same databases |
+| A free Cloudflare account | with Zero Trust on the free plan (the sign-up asks for a card even at $0) |
+| Node.js 18 or newer | for the install, once |
+| 20 to 30 minutes | `npm run doctor` checks every step and says what to fix |
+
+Try it first without any account: `npm run demo` opens it with demo data on your computer. The step-by-step install, with a prompt that lets Claude walk you through it, is [document 20](https://github.com/bodco/pm-control-tower/blob/main/docs/en/20-dashboard-install.md).
+
+## Limits
+
+- One person per install: one Notion token, one login policy.
+- Numbers come from Notion only. Jira, Sentry and time tracking reach it through the skills and their reports.
+- Notion buttons, calendar views and the text of Notion AI meeting notes are not read.
+- Beta: the author uses it daily; nobody else has installed it yet.

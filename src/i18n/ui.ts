@@ -14,7 +14,7 @@ export const LINKS = {
   liveTips: 'https://github.com/bodco/live-tips',
 };
 
-export const VERSION = '1.9.1';
+export const VERSION = '1.11.1';
 
 import PN_DOMAIN from '../data/pacenote-domain.json';
 /** 2026-10-28 (owner): Pacenote's own site. While `live` is false its pages stay here at /pacenote/.
@@ -31,6 +31,7 @@ export const PAGES = [
   { slug: 'day', nav: true },
   { slug: 'pacenote', nav: true },
   { slug: 'notion', nav: true },
+  { slug: 'dashboard', nav: true },
   { slug: 'skills', nav: true },
   { slug: 'how-it-works', nav: true },
   { slug: 'autopilot', nav: false },
@@ -45,7 +46,7 @@ export const ui = {
   en: {
     'meta.title': 'PM Control Tower: AI for the routine part of project management',
     'meta.description':
-      'Claude reads your chats, mail, meetings and tracker and leaves meeting preps, reports and reply drafts in Notion. You check and send. Free template, open source.',
+      'Claude reads your chats, mail, meetings and tracker and leaves meeting preps, reports and a sorted inbox in Notion, with a calm dashboard for your phone. You decide and send. Free template, open source.',
     'skip': 'Skip to content',
     'menu': 'Menu',
     'lang.label': 'Language',
@@ -58,6 +59,7 @@ export const ui = {
     'nav.how-it-works': 'How it works',
     'nav.skills': 'Skills',
     'nav.notion': 'Notion template',
+    'nav.dashboard': 'Dashboard',
     'nav.autopilot': 'Autopilot',
     'nav.pacenote': 'Pacenote',
     'nav.pacenote-compare': 'Compared with others',
@@ -99,7 +101,7 @@ export const ui = {
   uk: {
     'meta.title': 'PM Control Tower: AI для рутинної частини роботи ПМа',
     'meta.description':
-      'Claude читає ваші чати, пошту, мітинги і трекер і кладе в Notion підготовки, звіти й драфти відповідей. Ви перевіряєте і надсилаєте. Безкоштовно, відкритий код.',
+      'Claude читає ваші чати, пошту, мітинги і трекер і кладе в Notion підготовки, звіти й розібрані повідомлення, а спокійний дашборд показує все на телефоні. Вирішуєте й надсилаєте ви. Безкоштовно, відкритий код.',
     'skip': 'До змісту',
     'menu': 'Меню',
     'lang.label': 'Мова',
@@ -112,6 +114,7 @@ export const ui = {
     'nav.how-it-works': 'Як це працює',
     'nav.skills': 'Скіли',
     'nav.notion': 'Шаблон Notion',
+    'nav.dashboard': 'Дашборд',
     'nav.autopilot': 'Автопілот',
     'nav.pacenote': 'Pacenote',
     'nav.pacenote-compare': 'Порівняння з іншими',

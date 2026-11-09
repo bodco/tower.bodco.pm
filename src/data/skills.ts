@@ -67,12 +67,12 @@ export const SKILLS: Skill[] = [
     say: { en: 'collect mail', uk: 'збери пошту' },
   },
   {
-    name: 'inbox-responder', group: 'collect', when: daily, out: 'Draft Response',
+    name: 'resolve-item', group: 'collect', when: onDemand, out: 'Decisions, Tasks, Threads, Topics',
     what: {
-      en: 'A reply draft for every open thread, in the language of the thread, with context from the tracker, errors and topics already pulled in. You edit and send.',
-      uk: 'Драфт відповіді на кожен відкритий тред, мовою треду, з уже підтягнутим контекстом із трекера, помилок і тем. Ви правите й надсилаєте.',
+      en: 'One sentence about a thread, task or risk becomes a consistent update: a decision, the task with the agreed date, the thread status and one topic that links the story. Shows a plan first and writes after your OK. Start it from the dashboard with Ask Claude.',
+      uk: 'Одне речення про тред, задачу чи ризик стає узгодженим оновленням: рішення, задача з узгодженою датою, статус треду і один топік, що звʼязує історію. Спершу показує план, пише після вашого "ок". Запускається з дашборда кнопкою Ask Claude.',
     },
-    say: { en: 'draft replies for Orbit', uk: 'підготуй відповіді по Orbit' },
+    say: { en: 'postponed, the client agreed to the estimate', uk: 'відклали, клієнт погодився на естімейт' },
   },
   {
     name: 'thread-ticket-sync', run: 'local', group: 'collect', when: onDemand, out: 'tasks',
