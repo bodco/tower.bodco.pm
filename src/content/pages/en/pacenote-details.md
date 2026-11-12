@@ -9,12 +9,13 @@ facts:
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
   - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $13 a month</a>' }
-  - { k: Version, v: "0.9.5.4" }
+  - { k: Version, v: "0.10.0" }
 ---
 
 | At a glance | |
 |---|---|
-| **When it speaks** | A question to you, your turn, a new request, a promised date. Silence otherwise. |
+| **When it speaks** | Anyone's question on the call, a new topic, a new request, a promised date. Silence otherwise. |
+| **Before the call** | A Meeting Sheet from your files: every fact with its source, and a readiness check. |
 | **What you see** | One card under your camera: the fact and a phrase to say. |
 | **After the call** | Decisions, what is on you, a Notion page and a follow-up draft. |
 | **Sales calls** | General sales, BANT, SPICED or MEDDIC, a Deal tab, HubSpot on your click. |
@@ -26,7 +27,10 @@ facts:
 A tip carries a number, a date, a name, a status or a ready phrase. Or it is not shown.
 
 <div class="tiles" style="--min: 240px;">
-<div class="card card--tile"><h3 class="card__title">A question to you</h3><p class="card__text">The answer as a ready sentence, with the fact and its source.</p></div>
+<div class="card card--tile card--accent"><h3 class="card__title">A question on the call</h3><p class="card__text">To you, to a colleague or to the room: the answer as a ready sentence, with its source.</p></div>
+<div class="card card--tile"><h3 class="card__title">Heard, searching</h3><p class="card__text">Not in your prep: a card says so at once, and the answer from the project replaces it in a few seconds.</p></div>
+<div class="card card--tile"><h3 class="card__title">A new topic</h3><p class="card__text">A prompter card: where the topic stands by your sources, and one thing to say or ask.</p></div>
+<div class="card card--tile"><h3 class="card__title">A point to react to</h3><p class="card__text">A proposal or a doubt: a paraphrase to check you understood, or a counter-question.</p></div>
 <div class="card card--tile"><h3 class="card__title">Your turn</h3><p class="card__text">Someone calls you by name: your update, ready to read.</p></div>
 <div class="card card--tile"><h3 class="card__title">A new request</h3><p class="card__text">Looks like a change request: "do not agree now" and a phrase that buys time.</p></div>
 <div class="card card--tile"><h3 class="card__title">A promised date</h3><p class="card__text">It never suggests hours. The assignee gives the estimate.</p></div>
@@ -34,7 +38,7 @@ A tip carries a number, a date, a name, a status or a ready phrase. Or it is not
 <div class="card card--tile"><h3 class="card__title">A contradiction</h3><p class="card__text">Something said against a recorded decision.</p></div>
 </div>
 
-Fact cards from your prep show in 1-2 s, before Claude is even asked. Claude adds the rest.
+Fact cards from your prep show in 1-2 s, before the AI is even asked. The AI adds the rest. When the project has no answer either, the card says so, with the nearest fact and a sentence to buy time. You may have forgotten everything about the call: the window keeps telling you where things stand.
 
 ## What you see
 
@@ -55,13 +59,13 @@ A small window right under the camera, so your eyes stay on the client.
 <div class="card card--tile"><p class="card__icon">☰</p><h3 class="card__title">Agenda bar</h3><p class="card__text">Your checklist marks itself as you go. 5 min before the end: what is not raised.</p></div>
 <div class="card card--tile"><p class="card__icon">⌕</p><h3 class="card__title">Ask a question</h3><p class="card__text">Typing searches your facts at once. Enter asks Claude.</p></div>
 <div class="card card--tile card--accent"><p class="card__icon">🆘</p><h3 class="card__title">HELP NOW</h3><p class="card__text">Talking and cannot type? One click: the best facts, then the next sentence to say.</p></div>
-<div class="card card--tile"><p class="card__icon">▭</p><h3 class="card__title">Compact mode</h3><p class="card__text">A strip with the timer and the phrase. Hidden from screen sharing (checked in Google Meet).</p></div>
+<div class="card card--tile"><p class="card__icon">●</p><h3 class="card__title">AI status</h3><p class="card__text">Turns orange near a usage limit and red at it. Hover for each AI's usage and reset time.</p></div>
 </div>
 
 <details>
 <summary>Shortcuts, meeting types and reliability</summary>
 
-- **Shortcuts:** Control-Option-H HELP NOW, -P pause, -M mic, -T compact, -L proactive tips. They work while the meeting app has the focus; change them in Settings > General > Shortcuts.
+- **Shortcuts:** Control-Option-H HELP NOW, -P pause, -M mic, -L proactive tips. They work while the meeting app has the focus; change them in Settings > General > Shortcuts.
 - **Reads the meeting by itself:** team, client or your manager on the other side; a discussion or you presenting. Correct it in Call settings.
 - **Interviews:** observer, interviewer, or coach when you are the one being asked.
 - **Tips on or off** per call, and a **Transcript** call type that only records and transcribes.
@@ -76,10 +80,13 @@ A small window right under the camera, so your eyes stay on the client.
 
 <div class="tiles" style="--min: 240px;">
 <div class="card card--tile"><h3 class="card__title">Your calendars</h3><p class="card__text">Google and Microsoft through macOS. A click fills the title, time and people.</p></div>
-<div class="card card--tile"><h3 class="card__title">Prepare</h3><p class="card__text">A brief, fact cards and your speech, point by point, from your project files.</p></div>
+<div class="card card--tile card--accent"><h3 class="card__title">Meeting Sheet</h3><p class="card__text">One document from your files, folders, Notion, Google Docs and earlier calls. Every fact says where it comes from.</p></div>
+<div class="card card--tile"><h3 class="card__title">Readiness</h3><p class="card__text">What is missing before the call, with a fix next to it: a link to confirm, a source to add.</p></div>
 <div class="card card--tile"><h3 class="card__title">Up next</h3><p class="card__text">Back-to-back calls: prepare the next one while you talk, switch with one question.</p></div>
 </div>
 
+- **Presets** pick the blocks for the meeting: a sales intro, a client sync, a stand-up, an interview and more. A stand-up gets your own short update from the last calls and your open items.
+- **Start call opens the meeting:** the Meet, Teams or Zoom link of the event, where this series opened it before.
 - **Regular meetings** start from the last call's setup, with what was not raised last time.
 - **No time to prepare?** Start anyway: tips when you are addressed, HELP NOW and a search over the project folder.
 - **Open it early:** recording starts when the other side has spoken for about 5 s, or when you press Start.
@@ -89,7 +96,8 @@ A small window right under the camera, so your eyes stay on the client.
 
 - **Calendars:** add accounts in System Settings > Internet Accounts, then Settings > Integrations > Calendars > Connect calendars and tick the ones with your calls. Read only: Pacenote never changes an event.
 - **Prepare again:** once a brief is ready, Prepare becomes Prepare again and keeps the previous brief.
-- **Brief freshness:** "Brief is 2 days old · 3 changes since", with Refresh for only the changed sections.
+- **Sheet freshness:** a newer source wins, the older value stays visible as "was"; Refresh rebuilds only what changed.
+- **Folders as sources:** the files changed in the last 7 days go into the sheet; during the call the whole folder is searchable.
 - **Start tips when a call begins:** with Zoom, Teams or a browser call on, Pacenote offers once. It never records by itself.
 - **Where the preparation runs:** Settings > AI > Preparation.
 
@@ -182,6 +190,7 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 - A new voice gets a "Who is speaking?" card with a quote and names from your project. Nothing is named without you.
 - Voices are remembered per project: your team everywhere, clients per project. Nothing is saved on a Public call.
 - Similar colleagues stay apart, and Settings > Voice library merges two entries of one person.
+- **Your own words:** Settings > Transcription > Dictionary fixes names the transcript gets wrong ("Lumenfield" heard as "Lumen field").
 
 <details>
 <summary>How voices are matched</summary>
@@ -198,6 +207,8 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 The app is free; you pay only for the AI. A 30-minute call costs **$1.33** on Claude, **$0.74** on OpenAI and **$0.73** on Gemini: about **$7 to $13 a month** for 10 calls. Seats your team already pays for: about **$1 a month**. Everything on your Mac: **$0**.
 
 Each job (preparation, live tips, after the call) picks its own provider and model in Settings > AI: Claude, ChatGPT or Gemini, on your account or on an API key. A Gemini account runs through Google's Antigravity CLI and does the preparation and the notes, not live tips (a request takes 20 to 30 seconds); it carries a warning, see the [privacy policy](/pacenote/privacy/). A soft and a hard limit per call and a monthly cap keep a bad month in check.
+
+**When an AI is out** (a usage limit, no credit, a signed-out account), the job moves to the next AI in your list (Settings > AI > If an AI is out) and comes back once yours answers. Economy mode, the leaf in the menu bar, moves work to the cheapest model or to your plan, also during a call.
 
 <p><a class="btn" href="/pacenote/pricing/">Prices, setups and how each model does</a></p>
 

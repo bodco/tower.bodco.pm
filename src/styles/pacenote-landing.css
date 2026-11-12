@@ -400,3 +400,7 @@ html[data-theme='light'] .pnl-tip, html[data-theme='light'] .pnl-opt, html[data-
 .pnl-parity em { font-style: normal; font-size: 13px; color: var(--ok); }
 .pnl-switch__lbl { margin-bottom: 8px; }
 .pnl-switch .pnl-switch__panels { max-width: 860px; }
+
+/* 0.10.0: the co-driver screenshot, a tall tips window next to the text */
+.pnl-cdshot{max-width:420px;margin:0 auto}
+.pnl-cdshot img{width:100%;height:auto}

@@ -1,5 +1,6 @@
 ---
-// 2026-11-05 (owner): the Pacenote landing below the hero, v5. Built from a PM, marketer, focus group,
+// 2026-11-05 (owner): the Pacenote landing below the hero, v5. 2026-11-12 (0.10.0): the co-driver section, the
+// Meeting Sheet in the phases, the presentation window instead of the removed compact strip. Built from a PM, marketer, focus group,
 // copywriter and designer pass (Pacenote project: research/pacenote-landing-v5-*.md).
 // Message: keep your note taker, Pacenote is for while you talk; you pay for calls, not seats.
 // Two variants share every block except the signature one:
@@ -20,7 +21,7 @@ const REPO = 'https://github.com/bodco/live-tips';
 const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
 // Ukrainian screenshots exist for these; the rest fall back to English.
-const UK_SHOTS = ['home-092', 'tips', 'tips-wide', 'tips-ready', 'callpage-095', 'live-092', 'hero'];
+const UK_SHOTS = ['home-092', 'tips', 'tips-wide', 'tips-ready', 'callpage-095', 'live-092', 'hero', 'codriver', 'codriver-wide', 'tips-presentation'];
 const SH = (n: string) => `/pacenote/shots/${uk && UK_SHOTS.includes(n) ? 'uk-' : ''}${n}`;
 
 // Per-call AI cost in USD (pricing page, measured 22 Oct - 4 Nov 2026; 15 and 60 min of the existing plan scaled by minutes).
@@ -40,6 +41,18 @@ const T = uk ? {
     listening: 'Слухаю', cta: 'Завантажити для Мака', under: 'Безкоштовна бета · Apple Silicon, macOS 14.4+', how: 'Як обирається підказка',
     quick: 'Картка зʼявляється за 1-2\u00a0с і лише тоді, коли у ваших матеріалах є відповідь. Для старту досить календаря й одного документа чи папки; Setup завантажує близько 2,5\u00a0ГБ. Немає в підготовці? Pacenote шукає в папках проєкту, і відповідь приходить новою карткою.',
   },
+  cd: {
+    eyebrow: 'Co-driver', h: 'Забули все за 10 секунд до дзвінка? Pacenote памʼятає.',
+    sub: 'Він працює як суфлер: на кожну нову тему каже, де вона стоїть, і відповідає на питання, які ставить будь-хто, а не лише ті, що вам.',
+    pts: [
+      ['Суфлер на кожну тему', 'Розмова перейшла далі: одна картка про те, де тема стоїть за вашими джерелами, і одна річ, яку можна сказати чи спитати.'],
+      ['Питання будь-кого', 'Вам, колезі чи всім: відповідь із підготовки або зі швидкого пошуку в папках проєкту.'],
+      ['Почув, шукаю', 'Нема в підготовці? Картка одразу каже, що питання почуте, а за кілька секунд на її місці відповідь. Нема і в проєкті? Так і скаже, з найближчим фактом і фразою, щоб виграти час.'],
+      ['Думка, на яку варто відреагувати', 'Пропозиція чи сумнів: короткий перефраз, щоб перевірити, що ви зрозуміли, або зустрічне питання.'],
+    ],
+    alt: 'Вікно підказок: картка суфлера на тему тестових акаунтів, відповідь на питання Девіда до колеги, і відповідь на питання Емілі, знайдена в папці проєкту',
+    cap: 'Демо-дані. Пошук триває кілька секунд; факти з підготовки зʼявляються за 1-2 с.',
+  },
   fH: 'Один рядок факту. Або нічого.', fSub: 'Підказка містить число, дату, імʼя або готове речення. Якщо у ваших матеріалах цього нема, вікно лишається порожнім.',
   tips: [
     { k: 'НОВИЙ ЗАПИТ', t: 'Новий запит. Не погоджуйтесь одразу.', p: '«Гарна ідея. Я запишу, ми перевіримо й повернемося до вас.»', c: 'amber' },
@@ -50,7 +63,7 @@ const T = uk ? {
   fFoot: 'Оцініть підказку або виправте її. Ваші виправлення враховуються в наступних брифах і підказках.',
   sH: 'Усе, що вміє ваш нотатник. І ще сам дзвінок.', sSub: 'Транскрипт і запис працюють на вашому Маку і коштують $0. Нотатки й follow-up теж, на локальній моделі або на ШІ, який ви обрали. А далі те, чого рекордери не роблять: допомога, поки ви говорите.',
   baseH: 'Що роблять рекордери', baseList: [['Транскрипт зі спікерами', '$0 на Маку'], ['Запис звуку чи екрана', '$0 на Маку'], ['Підсумок, рішення, задачі', 'локально $0 або ваш ШІ'], ['Чернетка follow-up мовою дзвінка', ''], ['Пошук по минулих дзвінках', ''], ['Експорт у Notion, Google Docs, Word, Markdown', ''], ['HubSpot, лише за вашим кліком', ''], ['Учасники й транскрипт Google Meet', '']],
-  onlyH: 'Лише в Pacenote', onlyList: ['Бриф із ваших файлів, Notion і попередніх дзвінків', 'Відповідь під камерою за 1-2\u00a0с', 'HELP NOW і питання посеред дзвінка', 'Агенда, що відмічається по ходу', 'Таймер слайдів і репетиція', 'BANT, SPICED, MEDDIC наживо'],
+  onlyH: 'Лише в Pacenote', onlyList: ['Meeting Sheet із ваших файлів, Notion і попередніх дзвінків, кожен факт із джерелом', 'Відповідь під камерою за 1-2\u00a0с', 'Суфлер на кожну нову тему', 'Відповіді на питання будь-кого, або «почув, шукаю»', 'Агенда, що відмічається по ходу', 'Таймер слайдів і репетиція', 'BANT, SPICED, MEDDIC наживо'],
   swH: 'Переходите з…',
   sw: [
     ['Fireflies', 'Транскрипт, запис, нотатки, задачі й оновлення CRM є і в Pacenote, на вашому Маку. Зверху бриф перед дзвінком і відповіді, поки ви говорите. Спільного командного простору Pacenote не має: якщо команда живе у Fireflies, лишайте його для цього.'],
@@ -60,8 +73,8 @@ const T = uk ? {
     ['Лише нотатки', 'Пишіть далі, якщо зручно. Pacenote читає ваш документ перед дзвінком разом із Notion, Google Docs і попередніми дзвінками, під час дзвінка показує потрібний рядок, а після нього пише нотатки в Notion, Google Docs, Word або Markdown.'],
   ],
   ph: [
-    { k: '8:55 · До дзвінка', h: 'Приходьте з фактами.', l: 'Бриф із файлів проєкту, Notion, Google Docs і попередніх дзвінків. Home показує наступний дзвінок і чи готовий його бриф.', img: 'home-092', W: 1600, H: 1109, x: 96, y: 140, w: 560, hh: 653, alt: 'Pacenote Home: наступний дзвінок і його готовність' },
-    { k: '9:00 · Під час дзвінка', h: 'Погляд на клієнті, відповідь під камерою.', l: 'HELP NOW (Control-Option-H) для нового питання. Запис за бажанням і лишається на Маку; скажіть людям, що ведете транскрипт.', img: 'tips', W: 880, H: 1584, x: 0, y: 0, w: 880, hh: 1027, alt: 'Вікно підказок Pacenote з відповіддю', small: 'Вікно приховане від показу екрана, перевірено в Google Meet. Один раз перевірте свій застосунок.' },
+    { k: '8:55 · До дзвінка', h: 'Приходьте з фактами.', l: 'Meeting Sheet із файлів проєкту, Notion, Google Docs і попередніх дзвінків: кожен факт із джерелом і перевірка готовності. Home показує наступний дзвінок і чи він готовий.', img: 'home-092', W: 1600, H: 1109, x: 96, y: 140, w: 560, hh: 653, alt: 'Pacenote Home: наступний дзвінок і його готовність' },
+    { k: '9:00 · Під час дзвінка', h: 'Погляд на клієнті, відповідь під камерою.', l: 'Відповіді на питання будь-кого, картка суфлера на кожну нову тему, HELP NOW (Control-Option-H). Запис за бажанням і лишається на Маку; скажіть людям, що ведете транскрипт.', img: 'tips', W: 880, H: 1584, x: 0, y: 0, w: 880, hh: 1027, alt: 'Вікно підказок Pacenote з відповіддю', small: 'Вікно приховане від показу екрана, перевірено в Google Meet. Один раз перевірте свій застосунок.' },
     { k: '9:31 · Після дзвінка', h: 'Нотатки, які не довелося писати.', l: 'Рішення, що за вами і що за ними, ризики. Чернетка follow-up мовою дзвінка, експорт у Notion, Google Docs чи Word.', img: 'callpage-095', W: 1600, H: 1311, x: 1010, y: 372, w: 460, hh: 537, alt: 'Сторінка дзвінка Pacenote: на наступний дзвінок і агенда' },
   ],
   phH: 'Від запрошення до follow-up.', phL: 'Один дзвінок', moH: 'Також для продажів і виступів.', moL: 'Режими',
@@ -75,7 +88,7 @@ const T = uk ? {
     { k: 'Режим презентації', h: 'Вкладіться в час.', l: ['Таймер на кожен слайд і одна тиха порада, коли ви запізнюєтесь.', 'Спершу репетиція, потім 4 складні питання від «клієнта».'] },
   ],
   bant: [['BUDGET', 'відомо'], ['AUTHORITY', 'частково'], ['NEED', 'відомо'], ['TIMING', 'невідомо']],
-  toast: 'HubSpot оновлено вашим кліком · Undo 8\u00a0с', illus: 'Вкладка Deal, спрощено', compact: 'Компактна смужка під час виступу.',
+  toast: 'HubSpot оновлено вашим кліком · Undo 8\u00a0с', illus: 'Вкладка Deal, спрощено', compact: 'Режим презентації: таймер на кожен слайд.',
   cH: 'Платите за дзвінки, а не за місця.', cSub: 'Застосунок безкоштовний. Ви платите провайдеру ШІ лише за дзвінки, які провели.',
   opts: [
     { tag: 'Рекомендовано', t: 'План, за який ви вже платите', big: '~$1.1', u: 'на місяць понад ваш план, 10 дзвінків', d: 'Брифи й нотатки йдуть через ваш план Claude, ChatGPT чи Gemini. Живим підказкам потрібен окремий API-ключ, зі стелею, яку задаєте ви.' },
@@ -88,7 +101,7 @@ const T = uk ? {
   cLink: 'Повна таблиця вартості',
   qH: 'Перед встановленням',
   faq: [
-    ['Як швидко зʼявляється підказка і чи вона точна?', 'Картки фактів із вашої підготовки зʼявляються за 1-2\u00a0с, або не зʼявляється нічого. У цій беті ваші оцінки й виправлення впливають на наступні дзвінки.'],
+    ['Як швидко зʼявляється підказка і чи вона точна?', 'Картки фактів із вашої підготовки зʼявляються за 1-2\u00a0с. Питання, якого нема в підготовці, отримує картку «почув, шукаю», а відповідь за кілька секунд. Вигаданих чисел не буває: нема факту, нема числа. У цій беті ваші оцінки й виправлення впливають на наступні дзвінки.'],
     ['Скільки налаштувань до першої користі?', 'Для старту досить запрошення в календарі й одного документа чи папки. Вікно Setup завантажує близько 2,5 ГБ і не просить пароль адміністратора.'],
     ['Це $0 чи потрібен API-ключ?', 'З вашим планом підказкам потрібен невеликий API-ключ: близько $1 на місяць. Повністю на Маку, з простішими картками, це $0.'],
     ['Чи можна довіряти непідписаній беті?', 'Застосунок ще не нотаризовано, тож перший запуск потребує Open Anyway у Privacy & Security. Код відкритий (MIT), а завантаження можна звірити за SHA-256.'],
@@ -103,9 +116,9 @@ const T = uk ? {
   day: {
     eyebrow: 'День із Pacenote', h: 'Вівторок. Пʼять дзвінків поспіль.', sub: 'Звичайний день дзвінків і що Pacenote показує на кожному.', prev: 'Попередній', next: 'Наступний',
     stops: [
-      ['8:55', 'Наступний дзвінок за 5 хвилин.', 'Home показує наступний дзвінок з усіх ваших календарів і чи готовий його бриф.', 'home-092', 1600, 1109],
+      ['8:55', 'Наступний дзвінок за 5 хвилин.', 'Home показує наступний дзвінок з усіх ваших календарів і чи готовий його Meeting Sheet.', 'home-092', 1600, 1109],
       ['9:00', 'Emily питає. Відповідь уже є.', 'Одна картка під камерою: факт, його джерело і речення, яке можна сказати.', 'tips-wide', 1600, 1034],
-      ['11:00', 'Репетиція о 10:30. Вчасно об 11:00.', 'Репетиція поставила 4 складні питання. Тепер таймер на кожен слайд тримає вас у плані.', 'tips-compact', 1120, 364],
+      ['11:00', 'Девід питає колегу. Відповідаєте ви.', 'Питання не вам, але відповідь уже на екрані. Нема в підготовці? «Почув, шукаю», і відповідь за кілька секунд.', 'codriver-wide', 1600, 1108],
       ['14:00', 'BANT збоку, погляд на покупці.', 'Вкладка Deal відстежує кожен критерій наживо. HubSpot змінюється лише за вашим кліком.', 'live-092', 1600, 1046],
       ['17:30', 'Усе, що ви сьогодні пообіцяли, в одному місці.', 'Сторінка кожного дзвінка, а Tracker збирає задачі, рішення й ризики з усіх проєктів.', 'callpage-095', 1600, 1311],
     ],
@@ -122,6 +135,18 @@ const T = uk ? {
     listening: 'Listening', cta: 'Download for Mac', under: 'Free beta · Apple Silicon, macOS 14.4+', how: 'How a tip is chosen',
     quick: 'A card shows in 1-2\u00a0s, and only when your material has the answer. To start, a calendar and one doc or folder are enough; Setup downloads about 2.5\u00a0GB. Not in your prep? Pacenote searches your project folders, and the answer comes as a new card.',
   },
+  cd: {
+    eyebrow: 'Co-driver', h: 'Forgot everything 10 seconds before the call? Pacenote did not.',
+    sub: 'It works like a prompter: on every new topic it tells you where things stand, and it answers the questions anyone asks, not only the ones put to you.',
+    pts: [
+      ['A prompter on every topic', 'When the talk moves on, one card: where the topic stands by your sources, and one thing to say or ask.'],
+      ['Anyone\u2019s question', 'Asked to you, to a colleague or to the room: the answer from your prep, or from a quick search of your project folders.'],
+      ['Heard, searching', 'Not in your prep? A card says so at once, and the answer takes its place a few seconds later. Not in the project either? It says that too, with the nearest fact and a sentence to buy time.'],
+      ['A point to react to', 'A proposal or a doubt gets a short paraphrase to check you understood, or a counter-question.'],
+    ],
+    alt: 'The tips window: a prompter card on the pilot test accounts, an answer to a question David asked a colleague, and the answer to Emily\u2019s question found in the project folder',
+    cap: 'Demo data. A search takes a few seconds; facts from your prep show in 1-2 s.',
+  },
   fH: 'One line of fact. Or nothing.', fSub: 'A tip carries a number, a date, a name or a ready sentence. If your material has none, the window stays empty.',
   tips: [
     { k: 'NEW REQUEST', t: 'New request. Do not agree now.', p: '"Good idea. I will write it down, and we will come back to you."', c: 'amber' },
@@ -132,7 +157,7 @@ const T = uk ? {
   fFoot: 'Rate a tip or fix it. Your corrections shape the next briefs and tips.',
   sH: 'Everything your note taker does. Plus the call itself.', sSub: 'Transcript and recording run on your Mac and cost $0. Notes and the follow-up too, on a local model or the AI you pick. Then the part recorders skip: help while you talk.',
   baseH: 'What recorders do', baseList: [['Transcript with speakers', '$0 on your Mac'], ['Sound or screen recording', '$0 on your Mac'], ['Summary, decisions, action items', 'local $0, or your AI'], ['Follow-up draft in the call\u2019s language', ''], ['Search across past calls', ''], ['Export to Notion, Google Docs, Word, Markdown', ''], ['HubSpot, only on your click', ''], ['Google Meet participants and transcript', '']],
-  onlyH: 'Only in Pacenote', onlyList: ['A brief from your files, Notion and earlier calls', 'The answer under your camera in 1-2\u00a0s', 'HELP NOW and questions mid-call', 'A live agenda, ticked as you go', 'A timer per slide and a rehearsal', 'BANT, SPICED, MEDDIC, live'],
+  onlyH: 'Only in Pacenote', onlyList: ['A Meeting Sheet from your files, Notion and earlier calls, every fact with its source', 'The answer under your camera in 1-2\u00a0s', 'A prompter card on every new topic', 'Answers to anyone\u2019s question, or "heard, searching"', 'A live agenda, ticked as you go', 'A timer per slide and a rehearsal', 'BANT, SPICED, MEDDIC, live'],
   swH: 'Switching from…',
   sw: [
     ['Fireflies', 'Transcript, recording, notes, action items and a CRM update are in Pacenote too, on your Mac. On top: a brief before the call and answers while you talk. Pacenote has no shared team workspace: if your team lives in Fireflies, keep it for that.'],
@@ -142,8 +167,8 @@ const T = uk ? {
     ['Just notes', 'Keep writing if you like. Pacenote reads your doc before the call, along with Notion, Google Docs and earlier calls, shows the line you need during the call, and writes the notes to Notion, Google Docs, Word or Markdown after it.'],
   ],
   ph: [
-    { k: '8:55 · Before the call', h: 'Walk in with the facts.', l: 'A brief from your project files, Notion, Google Docs and earlier calls. Home shows the next call and whether its brief is ready.', img: 'home-092', W: 1600, H: 1109, x: 96, y: 140, w: 560, hh: 653, alt: 'Pacenote Home: the next call and its readiness' },
-    { k: '9:00 · During the call', h: 'Eyes on the client, answer under the camera.', l: 'HELP NOW (Control-Option-H) for a new question. Recording is optional and stays on your Mac; tell people you keep a transcript.', img: 'tips', W: 880, H: 1584, x: 0, y: 0, w: 880, hh: 1027, alt: 'The Pacenote tips window with an answer', small: 'Hidden from screen sharing, checked in Google Meet. Check your call app once.' },
+    { k: '8:55 · Before the call', h: 'Walk in with the facts.', l: 'A Meeting Sheet from your project files, Notion, Google Docs and earlier calls: every fact with its source, and a readiness check. Home shows the next call and whether it is ready.', img: 'home-092', W: 1600, H: 1109, x: 96, y: 140, w: 560, hh: 653, alt: 'Pacenote Home: the next call and its readiness' },
+    { k: '9:00 · During the call', h: 'Eyes on the client, answer under the camera.', l: 'Answers to anyone\u2019s question, a prompter card on each new topic, HELP NOW (Control-Option-H). Recording is optional and stays on your Mac; tell people you keep a transcript.', img: 'tips', W: 880, H: 1584, x: 0, y: 0, w: 880, hh: 1027, alt: 'The Pacenote tips window with an answer', small: 'Hidden from screen sharing, checked in Google Meet. Check your call app once.' },
     { k: '9:31 · After the call', h: 'Notes you did not have to write.', l: 'Decisions, what is on you and on them, risks. A follow-up draft in the call’s language, exported to Notion, Google Docs or Word.', img: 'callpage-095', W: 1600, H: 1311, x: 1010, y: 372, w: 460, hh: 537, alt: 'The Pacenote call page: for the next call and the agenda' },
   ],
   phH: 'From the invite to the follow-up.', phL: 'One call', moH: 'Sales calls and talks, too.', moL: 'Modes',
@@ -157,7 +182,7 @@ const T = uk ? {
     { k: 'Presenting mode', h: 'Finish on time.', l: ['A timer per slide, and one quiet note when you run late.', 'Rehearse first, then face 4 tough client questions.'] },
   ],
   bant: [['BUDGET', 'known'], ['AUTHORITY', 'partly'], ['NEED', 'known'], ['TIMING', 'unknown']],
-  toast: 'HubSpot updated on your click · Undo 8\u00a0s', illus: 'Deal tab, simplified', compact: 'The compact strip during a talk.',
+  toast: 'HubSpot updated on your click · Undo 8\u00a0s', illus: 'Deal tab, simplified', compact: 'Presentation mode: a timer per slide.',
   cH: 'Pay for calls, not seats.', cSub: 'The app is free. You pay your AI provider only for the calls you run.',
   opts: [
     { tag: 'Recommended', t: 'A plan you already pay for', big: '~$1.1', u: 'a month on top of your plan, 10 calls', d: 'Briefs and notes run on your Claude, ChatGPT or Gemini plan. Live tips need a separate API key, with a cap you set.' },
@@ -170,7 +195,7 @@ const T = uk ? {
   cLink: 'Full cost table',
   qH: 'Before you install',
   faq: [
-    ['How fast is a tip, and is it right?', 'Fact cards from your prep show in 1-2\u00a0s, or nothing shows at all. In this beta, your tip ratings and corrections shape later calls.'],
+    ['How fast is a tip, and is it right?', 'Fact cards from your prep show in 1-2\u00a0s. A question your prep does not answer gets a "heard, searching" card and the answer a few seconds later. No invented numbers: no fact, no number. In this beta, your tip ratings and corrections shape later calls.'],
     ['How much setup before it is useful?', 'A calendar invite and one doc or folder are enough to start. The Setup window downloads about 2.5 GB and needs no admin password.'],
     ['Is it $0, or do I need an API key?', 'On your plan, tips need a small API key: about $1 a month. Fully on your Mac, with simpler cards, it costs $0.'],
     ['Can I trust an unsigned beta?', 'It is not notarized yet, so first launch needs Open Anyway in Privacy & Security. The code is open (MIT), and you can check the download’s SHA-256.'],
@@ -185,9 +210,9 @@ const T = uk ? {
   day: {
     eyebrow: 'A day with Pacenote', h: 'Tuesday. Five calls, back to back.', sub: 'One ordinary day of calls, and what Pacenote shows at each one.', prev: 'Previous', next: 'Next',
     stops: [
-      ['8:55', 'Next call in 5 minutes.', 'Home shows the next call from every calendar and whether its brief is ready.', 'home-092', 1600, 1109],
+      ['8:55', 'Next call in 5 minutes.', 'Home shows the next call from every calendar and whether its Meeting Sheet is ready.', 'home-092', 1600, 1109],
       ['9:00', 'Emily asks. The answer is already there.', 'One card under your camera: the fact, its source and a sentence to say.', 'tips-wide', 1600, 1034],
-      ['11:00', 'Rehearsed at 10:30. On time at 11:00.', 'Rehearsal asked 4 tough questions. Now a timer per slide keeps you on plan.', 'tips-compact', 1120, 364],
+      ['11:00', 'David asks a colleague. You answer.', 'The question was not to you, and the answer is on screen. Not in your prep? "Heard, searching", and the answer in a few seconds.', 'codriver-wide', 1600, 1108],
       ['14:00', 'BANT on the side, eyes on the buyer.', 'The Deal tab tracks each criterion live. HubSpot changes only on your click.', 'live-092', 1600, 1046],
       ['17:30', 'Everything you promised today, in one place.', 'A page for every call, and a Tracker of tasks, decisions and risks across projects.', 'callpage-095', 1600, 1311],
     ],
@@ -323,6 +348,21 @@ const SEAT_MAX = 24;
     </div>
   </section>
 
+  <!-- 0.10.0 co-driver: the prompter and anyone's questions -->
+  <section class="pnl-sec" id="codriver" data-section="codriver">
+    <div class="wrap pnl-lang">
+      <div class="pnl-lang__text pnl-rv">
+        <p class="pnl-label">{T.cd.eyebrow}</p>
+        <h2 class="pnl-h2" id="co-driver">{T.cd.h}</h2>
+        <p class="pnl-lead">{T.cd.sub}</p>
+        <ul class="pnl-dots">{T.cd.pts.map(([h, t]) => <li><b>{h}.</b> {t}</li>)}</ul>
+      </div>
+      <div class="pnl-rv">
+        <figure class="ltshot pnl-cdshot"><img class="ltshot__img ltshot--dark" src={`${SH('codriver')}-dark.webp`} alt={T.cd.alt} width="1120" height="1600" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src={`${SH('codriver')}-light.webp`} alt={T.cd.alt} width="1120" height="1600" loading="lazy" decoding="async" /><figcaption>{T.cd.cap}</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
   {variant === 'a' && (
   <!-- Before / during / after: three columns with detail crops -->
   <section class="pnl-sec" id="phases" data-section="phases">
@@ -397,7 +437,7 @@ const SEAT_MAX = 24;
       </article>
       <article class="pnl-mode pnl-rv">
         <div class="pnl-mode__vis pnl-mode__vis--present">
-          <figure class="ltshot"><img class="ltshot__img ltshot--dark" src={`${SH('tips-compact')}-dark.webp`} alt={T.compact} width="1120" height="364" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src={`${SH('tips-compact')}-light.webp`} alt={T.compact} width="1120" height="364" loading="lazy" decoding="async" /><figcaption>{T.compact}</figcaption></figure>
+          <figure class="ltshot"><img class="ltshot__img ltshot--dark" src={`${SH('tips-presentation')}-dark.webp`} alt={T.compact} width="1600" height="923" loading="lazy" decoding="async" /><img class="ltshot__img ltshot--light" src={`${SH('tips-presentation')}-light.webp`} alt={T.compact} width="1600" height="923" loading="lazy" decoding="async" /><figcaption>{T.compact}</figcaption></figure>
         </div>
         <p class="pnl-label">{T.modes[1].k}</p><h3 class="pnl-h3">{T.modes[1].h}</h3>{T.modes[1].l.map((x) => <p class="pnl-body">{x}</p>)}
       </article>

@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Перевірено, v: "28 жовтня 2026" }
   - { k: Порівнюємо, v: "Підготовка, підказки, запис, підсумок, CRM, дані, ціна" }
-  - { k: Pacenote, v: "0.9.5, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.10.0, macOS (Apple Silicon)" }
 ---
 
 ## Коротко
@@ -72,7 +72,7 @@ facts:
 | Бриф для продажу | ✓ пошук компанії в інтернеті (лише назва чи домен), ймовірні заперечення, питання |
 | Після дзвінка з продажу | ✓ секція Sales і scorecard, на сторінці дзвінка і в Notion |
 
-<p class="smallprint">Власні можливості Pacenote у 0.9.5. Fireflies і Fathom порівняно в таблиці вище.</p>
+<p class="smallprint">Власні можливості Pacenote у 0.10.0. Fireflies і Fathom порівняно в таблиці вище.</p>
 
 ## Ціна
 

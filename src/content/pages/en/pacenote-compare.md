@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
   - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
-  - { k: Pacenote, v: "0.9.5, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.10.0, macOS (Apple Silicon)" }
 ---
 
 ## At a glance
@@ -72,7 +72,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Sales brief | ✓ company web search (name or domain only), likely objections, questions to ask |
 | After a sales call | ✓ a Sales section and a scorecard, on the call page and in Notion |
 
-<p class="smallprint">Pacenote's own capabilities in 0.9.5. Fireflies and Fathom are compared in the table above.</p>
+<p class="smallprint">Pacenote's own capabilities in 0.10.0. Fireflies and Fathom are compared in the table above.</p>
 
 ## Price
 

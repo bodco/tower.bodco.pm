@@ -4,7 +4,7 @@ lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short vers
 description: "Pacenote privacy policy: call audio never leaves your Mac, only text goes to the AI you set up (your key or your Claude, ChatGPT or Gemini account), nothing is sent to the author unless you opt in to usage counts, and the website counts visits only if you allow it."
 parent: pacenote
 facts:
-  - { k: Updated, v: "5 November 2026" }
+  - { k: Updated, v: "12 November 2026" }
   - { k: Audio, v: "stays on your Mac" }
   - { k: Telemetry, v: "off unless you turn it on" }
   - { k: Website, v: "analytics only if you allow it" }
@@ -37,6 +37,7 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 - **Call recordings to Google Drive (0.9.5), only if you upload them.** By a click on the call page, or after every call if you choose so: into your own Drive (My Drive > Pacenote > the project), with the `drive.file` permission that lets Pacenote see only the files it made.
 - **Company web search before sales calls (0.8.7).** On by default, switch it off in Settings > AI. Only the company's name or domain goes into the search, never anything from your files; the brief says what was searched.
 - **Links you give for preparation.** If your preparation names web pages (for example a public Google Doc or Notion page), the app reads only those pages.
+- **Meeting Sheet sources (0.10.0).** A website you add gets a crawl plan you see before it starts: the same site, at most 2 levels and 15 pages, robots.txt respected, sign-in, cart and policy pages skipped, a pause between pages. LinkedIn is never crawled: you add a profile yourself (a PDF, pasted text, or one page at a time in the Pacenote browser). The Pacenote browser has its own session that lives only in its window and ends when you close it; Pacenote never signs in for you and keeps no passwords. From a LinkedIn profile only its own sections are kept, and emails and phone numbers are removed before anything is saved. The text of these sources goes to the AI you chose for the preparation.
 - **One-time downloads.** Setup downloads the speech, search and voice models (Hugging Face, GitHub) and Python packages (PyPI). Each model file is checked against its SHA-256. These services see an ordinary download request.
 - **Budgets.** The call and monthly limits in Settings stop the paid calls when reached.
 
