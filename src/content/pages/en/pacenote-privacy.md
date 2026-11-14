@@ -1,12 +1,12 @@
 ---
 title: Pacenote privacy policy
-lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short version: audio never leaves your Mac, text goes to the AI provider you set up with your own key or account, and nothing is sent to the author unless you turn on Help improve Pacenote."
+lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short version: audio never leaves your Mac, text goes to the AI provider you set up with your own key or account, and the only thing sent to the author is Help improve Pacenote: event names and numbers once a week, on by default, with a switch to turn it off."
 description: "Pacenote privacy policy: call audio never leaves your Mac, only text goes to the AI you set up (your key or your Claude, ChatGPT or Gemini account), nothing is sent to the author unless you opt in to usage counts, and the website counts visits only if you allow it."
 parent: pacenote
 facts:
-  - { k: Updated, v: "12 November 2026" }
+  - { k: Updated, v: "14 November 2026" }
   - { k: Audio, v: "stays on your Mac" }
-  - { k: Telemetry, v: "off unless you turn it on" }
+  - { k: Telemetry, v: "on by default, one switch turns it off" }
   - { k: Website, v: "analytics only if you allow it" }
 ---
 
@@ -29,7 +29,7 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 
 - **Text to the AI you chose.** To make tips, the call picture, answers to what you type, the call preparation, the folder search and the wrap-up, the app sends **text** (recent lines of the transcript, your preparation, passages from your project files) to the provider you picked for each job: Anthropic (Claude, with your own API key, your Claude Code or your Claude account), OpenAI (with your API key or your ChatGPT account) or Google (Gemini, with your API key or your Google account). Each handles the text under your agreement with it. For a Gemini API key, use a project with billing on: Google may use content sent on the free tier to improve its products and does not use paid-tier content. If you point the app to another OpenAI-compatible provider, that provider receives the same text under your agreement with it.
 - **Gemini account (0.9.3), if you choose it.** The preparation and the wrap-up run through Google's Antigravity CLI (`agy`) on your Mac, under your Google plan and with no API key. Each request runs in an empty folder, so the CLI cannot read your files, run a shell or write anything, and Pacenote deletes the CLI's own copy of the conversation afterwards. Google's Antigravity terms let Google use and review the conversations and forbid use through third-party software, so your Google account may be suspended; Pacenote shows a red warning with a link to the terms when you choose it. Turning telemetry off in the CLI does not stop Google from storing the conversations. It is not used for tips during a call.
-- **Help improve Pacenote (0.9.4), off by default.** Only if you turn it on in Settings > General > Privacy, the usage log above goes to me once a week: event names and small numbers of whole days since you turned it on (for example how many tips you rated useful, fine but off the point or not useful, and the reason chip), the app and rules versions, the interface language and which way to the AI each job uses. Never the words of a call, your comments on tips, names, projects, files or titles. A random id made on your Mac when you turn it on tells your batches apart from other people's; it is forgotten when you turn it off. The batches go to my Cloudflare Worker, which keeps no IP address and refuses anything else; Show what is sent opens the next batch before it goes.
+- **Help improve Pacenote (0.9.4; on by default since 0.10.1).** Unless you turn it off in Settings > General > Privacy (or in the last onboarding step), the usage log above goes to me once a week: event names and small numbers of whole days since you turned it on (for example how many tips you rated useful, fine but off the point or not useful, and the reason chip), the app and rules versions, the interface language and which way to the AI each job uses. Never the words of a call, the text of tips or of your edits to them, your comments on tips, names, projects, files or titles: what Pacenote learns from your edits and ratings stays on your Mac. If you turned the usage log itself off, sharing stays off. Updating from an earlier version switches sharing on once and tells you so at the next launch. A random id made on your Mac when you turn it on tells your batches apart from other people's; it is forgotten when you turn it off. The batches go to my Cloudflare Worker, which keeps no IP address and refuses anything else; Show what is sent opens the next batch before it goes.
 - **Plan B through Gemini (0.9.3), off by default.** If you switch on Use Gemini when Claude or ChatGPT is out, the text of a call goes to Google when the chosen way has no credit, hits its plan limit or has a bad key, and goes back as soon as the chosen way answers.
 - **Notion.** With a Notion token set, the wrap-up and the transcript (as a child page) go to the meeting's page in your workspace, and the app reads your project pages to keep a local mirror.
 - **HubSpot (0.8.7), if you connect it.** The service key stays in the macOS Keychain. Pacenote reads the company, the deal, contacts and recent activity into a local snapshot next to the brief. It writes a note, deal fields and a task only after you tick them in Update HubSpot and press Apply; the transcript goes into the note only if you turn that on (off by default).
@@ -43,7 +43,7 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 
 ## What is never sent
 
-- Nothing goes to me unless you turn on Help improve Pacenote (above). The app and the skill have **no analytics SDK, no tracking and no crash reporting**; the skill sends nothing to me at all.
+- Nothing goes to me except Help improve Pacenote (above), which you can turn off. The app and the skill have **no analytics SDK, no tracking and no crash reporting**; the skill sends nothing to me at all.
 - Nothing is sent to the client or posted anywhere by itself. Drafts and notes are for you.
 - Pacenote does not see your screen unless you record a call with the screen (above), and never your chats or files outside the project folders you choose.
 

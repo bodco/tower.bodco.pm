@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Перевірено, v: "28 жовтня 2026" }
   - { k: Порівнюємо, v: "Підготовка, підказки, запис, підсумок, CRM, дані, ціна" }
-  - { k: Pacenote, v: "0.10.0, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.10.1, macOS (Apple Silicon)" }
 ---
 
 ## Коротко
@@ -72,17 +72,17 @@ facts:
 | Бриф для продажу | ✓ пошук компанії в інтернеті (лише назва чи домен), ймовірні заперечення, питання |
 | Після дзвінка з продажу | ✓ секція Sales і scorecard, на сторінці дзвінка і в Notion |
 
-<p class="smallprint">Власні можливості Pacenote у 0.10.0. Fireflies і Fathom порівняно в таблиці вище.</p>
+<p class="smallprint">Власні можливості Pacenote у 0.10.1. Fireflies і Fathom порівняно в таблиці вище.</p>
 
 ## Ціна
 
 <div class="grid" style="--min: 240px;">
-<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 застосунок, без місць</h3><p class="card__text">На API-ключі 30-хвилинний дзвінок коштує близько $1.33 з брифом, підказками і нотатками: 10 дзвінків на місяць близько $13, команда з 10 людей близько $130. Або план Claude, ChatGPT чи Gemini, який у вас уже є. Місячний ліміт задаєте ви. <a href="/uk/pacenote/pricing/">Таблиця вартості</a></p></div>
+<div class="card"><p class="card__tag">Pacenote</p><h3 class="card__title">$0 застосунок, без місць</h3><p class="card__text">На API-ключі 30-хвилинний дзвінок коштує близько $1.39 з брифом, підказками і нотатками: 10 дзвінків на місяць близько $14, команда з 10 людей близько $139. Або план Claude, ChatGPT чи Gemini, який у вас уже є. Місячний ліміт задаєте ви. <a href="/uk/pacenote/pricing/">Таблиця вартості</a></p></div>
 <div class="card"><p class="card__tag">Fireflies</p><h3 class="card__title">$10-18 за місце на місяць</h3><p class="card__text">Безкоштовно: 400 хв сховища на команду, 20 AI-кредитів, до 2 год на запис. Pro $10 / $18, Business $19 / $29, Enterprise $39 (річна / місячна).</p></div>
 <div class="card"><p class="card__tag">Fathom</p><h3 class="card__title">$0-20 за місце на місяць</h3><p class="card__text">Безкоштовно: необмежені записи, розширені підсумки для 5 дзвінків на місяць. Premium $16 / $20, Team $15 / $19 (від 2 місць), Business $25 / $34.</p></div>
 </div>
 
-<p class="smallprint">Pacenote на API-ключі: одна підготовка близько $0.8 з Sonnet; живі підказки на Haiku близько $0.05 за 14 хв. Деталі в <a href="https://github.com/bodco/live-tips/blob/main/docs/uk/live-tips.md">документації</a>.</p>
+<p class="smallprint">Pacenote на API-ключі: одна підготовка близько $0.8 з Sonnet; живі підказки на Haiku близько $0.17 за 30 хв. Деталі в <a href="https://github.com/bodco/live-tips/blob/main/docs/uk/live-tips.md">документації</a>.</p>
 
 ## Відгуки
 

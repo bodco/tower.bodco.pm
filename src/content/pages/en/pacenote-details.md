@@ -8,8 +8,8 @@ facts:
   - { k: Speech, v: "Whisper, on your Mac" }
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
-  - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $13 a month</a>' }
-  - { k: Version, v: "0.10.0" }
+  - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $14 a month</a>' }
+  - { k: Version, v: "0.10.1" }
 ---
 
 | At a glance | |
@@ -20,7 +20,7 @@ facts:
 | **After the call** | Decisions, what is on you, a Notion page and a follow-up draft. |
 | **Sales calls** | General sales, BANT, SPICED or MEDDIC, a Deal tab, HubSpot on your click. |
 | **Privacy** | Audio is transcribed on your Mac. Only text goes to the AI you chose (Claude, ChatGPT or Gemini). |
-| **Cost** | The app is free; you pay for the AI. A 30-min call: $1.33 on Claude, $0.74 on OpenAI, $0.73 on Gemini. [Pricing](/pacenote/pricing/) |
+| **Cost** | The app is free; you pay for the AI. A 30-min call: ~$1.39 on Claude, ~$0.77 on OpenAI, $0.73 on Gemini. [Pricing](/pacenote/pricing/) |
 
 ## When it speaks
 
@@ -204,7 +204,7 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 
 ## AI and costs
 
-The app is free; you pay only for the AI. A 30-minute call costs **$1.33** on Claude, **$0.74** on OpenAI and **$0.73** on Gemini: about **$7 to $13 a month** for 10 calls. Seats your team already pays for: about **$1 a month**. Everything on your Mac: **$0**.
+The app is free; you pay only for the AI. A 30-minute call costs **~$1.39** on Claude, **~$0.77** on OpenAI and **$0.73** on Gemini: about **$7 to $14 a month** for 10 calls. Seats your team already pays for: about **$1.7 a month**. Everything on your Mac: **$0**.
 
 Each job (preparation, live tips, after the call) picks its own provider and model in Settings > AI: Claude, ChatGPT or Gemini, on your account or on an API key. A Gemini account runs through Google's Antigravity CLI and does the preparation and the notes, not live tips (a request takes 20 to 30 seconds); it carries a warning, see the [privacy policy](/pacenote/privacy/). A soft and a hard limit per call and a monthly cap keep a bad month in check.
 
