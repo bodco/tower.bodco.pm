@@ -1,19 +1,19 @@
 ---
 title: Pacenote privacy policy
-lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short version: audio never leaves your Mac, text goes to the AI provider you set up with your own key or account, and the author gets only Help improve Pacenote (event names and numbers once a week, on by default, one switch turns it off) and, if you sign in to the optional Pacenote account, your account and the list of your Macs."
+lead: "What the Pacenote Mac app and Cowork skill do with your calls. Short version: audio never leaves your Mac, text goes to the AI provider you set up with your own key or account, and the author gets only Help improve Pacenote (event names and numbers once a week, on by default, one switch turns it off) and, if you sign in to the optional Pacenote account, your account, the list of your Macs and the notes of calls from the projects you turn on."
 description: "Pacenote privacy policy: call audio never leaves your Mac, only text goes to the AI you set up (your key or your Claude, ChatGPT or Gemini account), the author gets only usage counts you can switch off and, if you sign in, an optional Pacenote account, and the website counts visits only if you allow it."
 parent: pacenote
 facts:
   - { k: Updated, v: "15 November 2026" }
   - { k: Audio, v: "stays on your Mac" }
   - { k: Telemetry, v: "on by default, one switch turns it off" }
-  - { k: Account, v: "optional, nothing about calls sent yet" }
+  - { k: Account, v: "optional, calls only from projects you turn on" }
   - { k: Website, v: "analytics only if you allow it" }
 ---
 
 This policy covers **Pacenote**: the Mac app, the recorder it runs and the Cowork skill of the same name. This website, pacenote.bodco.pm, is covered too (see [This website](#this-website)). PM Control Tower, another project of the same author, has its own site and [privacy policy](https://tower.bodco.pm/privacy/).
 
-Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me"). It works without any account with me. Since 0.11.0 you can sign in to an optional Pacenote account on a server of mine ([below](#pacenote-account)); in this version it keeps only your account and your signed-in Macs, nothing about your calls. **You** decide which calls it listens to and where the results go, so for the people on your calls you are the one responsible for their data (in GDPR terms, usually the controller).
+Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me"). It works without any account with me. Since 0.11.0 you can sign in to an optional Pacenote account on a server of mine ([below](#pacenote-account)); it keeps your account, your signed-in Macs and, since 0.12.0, the notes of calls from the projects you turn on (off by default). **You** decide which calls it listens to and where the results go, so for the people on your calls you are the one responsible for their data (in GDPR terms, usually the controller).
 
 ## What stays on your Mac
 
@@ -43,13 +43,13 @@ Pacenote is a personal open-source project of its author, Bohdan N. ("I", "me").
 - **One-time downloads.** Setup downloads the speech, search and voice models (Hugging Face, GitHub) and Python packages (PyPI). Each model file is checked against its SHA-256. These services see an ordinary download request.
 - **Budgets.** The call and monthly limits in Settings stop the paid calls when reached.
 
-<h2 id="pacenote-account">Pacenote account and server (0.11.0, optional)</h2>
+<h2 id="pacenote-account">Pacenote account and server (0.11.0, calls since 0.12.0, optional)</h2>
 
 Settings > Account can sign you in to the Pacenote server with Google. Without signing in nothing changes, and everything above works as before.
 
 - **What the sign-in gives me.** Only your Google email, name and picture (`openid`, `email`, `profile`). This sign-in is separate from the Google accounts you connect for calendars and Drive, keeps no Google token and gives the server no access to your Drive, Calendar or Docs. The server's own sign-in tokens stay in the macOS Keychain.
-- **What the server keeps now.** Your account (email, name, picture) and the list of the Macs signed in to it (name, app version, last activity). Nothing about your calls is sent in this version.
-- **What it will keep later.** From the next version, after each call, the app will send the summary, decisions, tasks, the call's details (title, time, length, type, project, participants' names and emails, the consent record) and the Meeting Sheet, plus links to your recording and transcript in Google Drive, with a switch per project and per call. This policy will say so before it starts.
+- **What the server keeps.** Your account (email, name, picture) and the list of the Macs signed in to it (name, app version, last activity).
+- **Your calls (0.12.0), off by default.** Only for the projects where you turn on Sync to Pacenote server (Settings > Projects > the project's menu). After each call, and again when its notes or Meeting Sheet change, the app sends the call's title, time, length, type, audience and language, its project, the call notes as the summary, decisions, tasks and the Meeting Sheet, plus links to your recording and transcript in Google Drive. A call's page can leave that one call out. Participants' names and emails and the consent record are not sent yet; this policy will say so before they are.
 - **What never goes there.** Audio, video, transcripts, voice prints and the text of live tips.
 - **Where and how.** The server and its backups are in the EU (Hetzner, Finland). The content of your calls is encrypted with a key of your own, kept apart from the database.
 - **Organizations (later).** If you join an organization in Pacenote, its team leads and department heads will see the summaries, decisions, tasks and call details of the people they manage, as the organization sets it up; admins manage people but do not read call content. Recordings and transcripts in Google Drive are seen by whoever has access to that Drive folder, which you or your organization decide in Google Drive.
@@ -74,7 +74,7 @@ This section applies if you connect a Google account in Settings > Integrations 
 - **Google Meet conference data** (`meetings.space.readonly`): only when you choose More > Google Meet record on a past call, to read the participants and, if transcription was on in Meet, the transcript.
 - **Files Pacenote creates** (`drive.file`): only when you choose Export to Google Docs, upload a call recording or turn on Transcript in Drive: to create that Google Doc, recording or transcript in your Drive (My Drive > Pacenote > the project, or wherever you move that folder), and to rename or update the files it created. With this permission Pacenote can see only the files it created.
 
-**Where the data is stored.** The refresh token stays in the macOS Keychain on your Mac; access tokens live only in memory. Text of linked documents is copied into your project folder on your Mac. Nothing from the Google accounts you connect is sent to me or to the Pacenote server. The only Google data the server gets is the email, name and picture of the optional sign-in; from the next version it will also keep the links to your recording and transcript in Drive, if you sign in and leave sending on.
+**Where the data is stored.** The refresh token stays in the macOS Keychain on your Mac; access tokens live only in memory. Text of linked documents is copied into your project folder on your Mac. Nothing from the Google accounts you connect is sent to me or to the Pacenote server. The only Google data the server gets is the email, name and picture of the optional sign-in; since 0.12.0 it also keeps the links to your recording and transcript in Drive, only for the projects where you turn on Sync to Pacenote server.
 
 **Who receives it.** Calendar data is used on your Mac to show and prepare your calls. The text of documents you link goes to the AI service you set up for the preparation (Anthropic by default, or another provider you choose), under your own key or account, in the same way as your other project files. Google user data is not sold, not used for advertising, not used to train generalized AI models, and not read by humans except as you do on your own Mac.
 
