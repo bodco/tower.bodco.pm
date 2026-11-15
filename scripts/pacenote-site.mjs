@@ -26,6 +26,9 @@ cpSync(join(SRC, 'pacenote'), join(OUT, 'pacenote'), {
 });
 // The site icons are Pacenote's own (not the PM Control Tower ones); the manifest names Pacenote.
 for (const f of ['favicon.svg', 'favicon-32.png', 'apple-touch-icon.png']) cpSync(join(SRC, 'pacenote', f), join(OUT, f));
+// 0.16.0 (Pacenote updates, Sparkle 2): the app reads https://pacenote.bodco.pm/appcast.xml. Its source is
+// public/pacenote/appcast.xml, written by live-tips tools/make_appcast.py at a release (pacenote-ship).
+if (existsSync(join(SRC, 'pacenote', 'appcast.xml'))) cpSync(join(SRC, 'pacenote', 'appcast.xml'), join(OUT, 'appcast.xml'));
 writeFileSync(join(OUT, 'site.webmanifest'), JSON.stringify({
   name: 'Pacenote', short_name: 'Pacenote', start_url: '/', display: 'browser',
   background_color: '#0E1014', theme_color: '#0E1014',
