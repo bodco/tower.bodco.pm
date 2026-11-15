@@ -4,9 +4,10 @@ lead: "Pacenote is free, open source and given as is. You decide which calls it 
 description: "Pacenote terms of use: a free, open-source (MIT) Mac app given as is. You choose the calls, get consent from the people on them and check what the AI says."
 parent: pacenote
 facts:
-  - { k: Updated, v: "5 November 2026" }
+  - { k: Updated, v: "15 November 2026" }
   - { k: Licence, v: "MIT" }
   - { k: Status, v: "beta" }
+  - { k: Account, v: "optional" }
 ---
 
 These terms cover **Pacenote**: the Mac app, the recorder and the Cowork skill, with the code at [github.com/bodco/live-tips](https://github.com/bodco/live-tips). This website, pacenote.bodco.pm, is covered by these terms too. PM Control Tower, another project of the same author, has [its own terms](https://tower.bodco.pm/terms/).
@@ -27,6 +28,18 @@ Pacenote is a beta built and used by one project manager. It is provided **as is
 - **Your data and your employer's rules.** Make sure that processing work calls and project files with AI is allowed by your employer and your clients. Keep transcripts and voice prints out of public places.
 - **Nothing is sent for you.** Pacenote prepares notes and drafts; sending anything to a client is always your own action.
 - **Fair use of the site.** Do not attack or overload this website.
+
+<h2 id="pacenote-account">Pacenote account and server (0.11.0, optional)</h2>
+
+The Pacenote account is optional: without it the app works as before. If you sign in in Settings > Account:
+
+- **Beta, no uptime promise.** The server is in beta and can be down or change. Keep your own copies: your calls stay on your Mac and your recordings in your Drive.
+- **What you send is your responsibility.** You, or the organization you use Pacenote for, are responsible for what you send to the server, including confidential and personal information in summaries and Meeting Sheets, and for having the right to send it. If you use Pacenote for an employer or a client, follow their rules on where their information may be stored.
+- **Organizations.** An organization's owner decides who sees what within it and how long data is kept.
+- **Fair use.** Do not store on the server what you are not allowed to store, and do not try to reach other people's data; I may suspend an account that does.
+- **Leaving.** You can delete your account at any time in Settings > Account. If the service ends, you get at least 30 days to export.
+
+How the server handles your data is in the [privacy policy](/pacenote/privacy/#pacenote-account).
 
 ## Trademarks
 
