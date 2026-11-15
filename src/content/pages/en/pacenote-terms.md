@@ -22,7 +22,7 @@ Pacenote is a beta built and used by one project manager. It is provided **as is
 
 ## Your responsibility
 
-- **Consent of the people on the call.** You are responsible for telling participants that you transcribe the call and use an AI assistant, and for getting their consent where the law, your employer or your client requires it. Do not use Pacenote where recording or transcription is not allowed.
+- **Consent of the people on the call.** You are responsible for telling participants that you transcribe the call and use an AI assistant, and for getting their consent where the law, your employer or your client requires it. Do not use Pacenote where recording or transcription is not allowed. Pacenote's consent record only notes that a message was said or copied, not that anyone agreed.
 - **AI can be wrong.** Tips, summaries and transcripts can mishear names, numbers and terms or miss context. Check them before you say, send or decide anything on their basis.
 - **Your accounts and costs.** Pacenote uses your own Claude, ChatGPT or Gemini key or account (or another provider's key), your Notion and your Mac. Their terms, limits and costs apply to you. Set the call and monthly budgets in Settings. A Gemini account runs through Google's Antigravity CLI, whose terms forbid use through third-party software and let Google use and review the conversations: choosing it is your decision and your risk, including the suspension of your Google account.
 - **Your data and your employer's rules.** Make sure that processing work calls and project files with AI is allowed by your employer and your clients. Keep transcripts and voice prints out of public places.
