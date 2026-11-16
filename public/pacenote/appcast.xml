@@ -5,5 +5,15 @@
     <link>https://pacenote.bodco.pm/appcast.xml</link>
     <description>Pacenote updates</description>
     <language>en</language>
+    <item>
+      <title>Pacenote 0.16.0</title>
+      <pubDate>Mon, 16 Nov 2026 05:40:56 GMT</pubDate>
+      <sparkle:version>245</sparkle:version>
+      <sparkle:shortVersionString>0.16.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.16.0</sparkle:releaseNotesLink>
+      <description><![CDATA[]]></description>
+      <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.16.0/Pacenote-0.16.0-beta.dmg" length="11950689" type="application/octet-stream" sparkle:edSignature="WbtXop1Z/VujQQNNgHzd17fpfLEaJK02D6Qgkmv/LyQ+df8XlHxepZ7i6LfaBlHn2u5Y9/eE2YTknkBPVDvcDw=="/>
+    </item>
   </channel>
 </rss>
