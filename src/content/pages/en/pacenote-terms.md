@@ -34,7 +34,7 @@ Pacenote is a beta built and used by one project manager. It is provided **as is
 The Pacenote account is optional: without it the app works as before. If you sign in in Settings > Account:
 
 - **Beta, no uptime promise.** The server is in beta and can be down or change. Keep your own copies: your calls stay on your Mac and your recordings in your Drive.
-- **What you send is your responsibility.** You, or the organization you use Pacenote for, are responsible for what you send to the server, including confidential and personal information in summaries and Meeting Sheets, and for having the right to send it. If you use Pacenote for an employer or a client, follow their rules on where their information may be stored.
+- **What you send is your responsibility.** You, or the organization you use Pacenote for, are responsible for what you send to the server, including confidential and personal information in summaries, Meeting Sheets and shared project cards, project state and file descriptions, and for having the right to send it. If you use Pacenote for an employer or a client, follow their rules on where their information may be stored.
 - **Organizations.** An organization's owner decides who sees what within it and how long data is kept.
 - **Fair use.** Do not store on the server what you are not allowed to store, and do not try to reach other people's data; I may suspend an account that does.
 - **Leaving.** You can delete your account at any time in Settings > Account. If the service ends, you get at least 30 days to export.
