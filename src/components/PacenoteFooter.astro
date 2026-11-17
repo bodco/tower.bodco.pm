@@ -11,7 +11,7 @@ const T = lang === 'uk'
   ? {
       about: 'Ваш штурман на дзвінках. Бета. Безкоштовно, відкритий код.',
       beta: 'бета', product: 'Продукт', get: 'Взяти', legal: 'Правила', also: 'Ще від bodco',
-      overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', compare: 'Порівняння з іншими',
+      overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', roadmap: 'Роадмап', compare: 'Порівняння з іншими',
       dmg: 'Завантажити для Мака', skill: 'Скіл для Cowork', repo: 'Репозиторій GitHub', changes: 'Список змін', docs: 'Документація',
       privacy: 'Конфіденційність', terms: 'Умови використання', consent: 'Налаштування аналітики',
       tower: 'PM Control Tower', towerNote: 'AI для рутини ПМа в Notion',
@@ -19,7 +19,7 @@ const T = lang === 'uk'
   : {
       about: 'Your co-driver on calls. Beta. Free and open source.',
       beta: 'beta', product: 'Product', get: 'Get it', legal: 'Legal', also: 'Also by bodco',
-      overview: 'Overview', details: 'How it works', pricing: 'Pricing', compare: 'Compared with others',
+      overview: 'Overview', details: 'How it works', pricing: 'Pricing', roadmap: 'Roadmap', compare: 'Compared with others',
       dmg: 'Download for Mac', skill: 'Skill for Cowork', repo: 'GitHub repository', changes: 'Changelog', docs: 'Documentation',
       privacy: 'Privacy', terms: 'Terms of use', consent: 'Analytics settings',
       tower: 'PM Control Tower', towerNote: 'AI for the routine of project management, in Notion',
@@ -40,6 +40,7 @@ const TOWER = lang === 'uk' ? 'https://tower.bodco.pm/uk/' : 'https://tower.bodc
         <a href={pnHref(lang, 'details')}>{T.details}</a>
         <a href={pnHref(lang, 'pricing')}>{T.pricing}</a>
         <a href={pnHref(lang, 'compare')}>{T.compare}</a>
+        <a href={pnHref(lang, 'roadmap')}>{T.roadmap}</a>
       </div>
       <div class="footer__col">
         <span class="label">{T.get}</span>
