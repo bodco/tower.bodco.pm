@@ -30,7 +30,7 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Now</p>
-<div class="rm-item"><h3>Plans and modules</h3><p>Solo, Team and Enterprise with their real limits, free during the beta. The server decides which features a plan opens, the app follows.</p></div>
+<div class="rm-item"><h3>Plans and modules</h3><p>Solo, Team and Enterprise with their real limits, free during the beta. The server decides which features a plan opens, the app follows. The server part is live since 17 November: plans with versions, signed access rights and a place for anonymous usage counts. The app starts following them next.</p></div>
 <div class="rm-item"><h3>Security hardening</h3><p>Fixes from our own security review of the app and the update channel, before the team version grows.</p></div>
 <div class="rm-item"><h3>Better briefs and tips</h3><p>Every call is reviewed after it ends: which tips helped, which were noise, what was missed. The prompts change from that.</p></div>
 </div>
