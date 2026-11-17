@@ -6,6 +6,16 @@
     <description>Pacenote updates</description>
     <language>en</language>
     <item>
+      <title>Pacenote 0.17.1</title>
+      <pubDate>Tue, 17 Nov 2026 05:52:36 GMT</pubDate>
+      <sparkle:version>258</sparkle:version>
+      <sparkle:shortVersionString>0.17.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.17.1</sparkle:releaseNotesLink>
+      <description><![CDATA[]]></description>
+      <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.17.1/Pacenote-0.17.1-beta.dmg" length="12866336" type="application/octet-stream" sparkle:edSignature="H3NtbPVJ0wNPDZ13yc2E7FiJ5ZEJaM9175JLoat4ugfiwB4n4lKGdUS5SCyb4g9b61snqUOyVWXrWgWzadi9Aw=="/>
+    </item>
+    <item>
       <title>Pacenote 0.17.0</title>
       <pubDate>Mon, 16 Nov 2026 21:58:13 GMT</pubDate>
       <sparkle:version>257</sparkle:version>
