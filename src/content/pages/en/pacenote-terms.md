@@ -4,7 +4,7 @@ lead: "Pacenote is free, open source and given as is. You decide which calls it 
 description: "Pacenote terms of use: a free, open-source (MIT) Mac app given as is. You choose the calls, get consent from the people on them and check what the AI says."
 parent: pacenote
 facts:
-  - { k: Updated, v: "15 November 2026" }
+  - { k: Updated, v: "17 November 2026" }
   - { k: Licence, v: "MIT" }
   - { k: Status, v: "beta" }
   - { k: Account, v: "optional" }
@@ -36,6 +36,7 @@ The Pacenote account is optional: without it the app works as before. If you sig
 - **Beta, no uptime promise.** The server is in beta and can be down or change. Keep your own copies: your calls stay on your Mac and your recordings in your Drive.
 - **What you send is your responsibility.** You, or the organization you use Pacenote for, are responsible for what you send to the server, including confidential and personal information in summaries, Meeting Sheets and shared project cards, project state and file descriptions, and for having the right to send it. If you use Pacenote for an employer or a client, follow their rules on where their information may be stored.
 - **Organizations.** An organization's owner decides who sees what within it and how long data is kept.
+- **Plans in the beta (0.19.0).** During the beta every plan is free. An owner or admin of an organization can switch its plan, and a person on Solo can start a team organization; a switch applies at once. Planned prices are shown struck through and may change; we will tell you 30 days before any plan costs money. A custom plan is changed by Pacenote on request.
 - **Fair use.** Do not store on the server what you are not allowed to store, and do not try to reach other people's data; I may suspend an account that does.
 - **Leaving.** You can delete your account at any time in Settings > Account. If the service ends, you get at least 30 days to export.
 
