@@ -18,8 +18,9 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.11-0.13</span><span class="rm-stop__name">Акаунт і синк</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.14-0.16</span><span class="rm-stop__name">Редизайн і оновлення</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.17</span><span class="rm-stop__name">Організації</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Плани і безпека</span></div>
-<div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Далі</span><span class="rm-stop__name">Команди глибше</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.19</span><span class="rm-stop__name">Плани в застосунку</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Команди глибше</span></div>
+<div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Далі</span><span class="rm-stop__name">Вхід через email і безпека</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Пізніше</span><span class="rm-stop__name">Платні плани і мобільний</span></div>
 </div>
 
@@ -30,16 +31,15 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Зараз</p>
-<div class="rm-item"><h3>Плани і модулі</h3><p>Solo, Team і Enterprise зі справжніми лімітами, безкоштовно на час бети. Сервер вирішує, які функції відкриває план, застосунок слідує. Серверна частина працює з 17 листопада: плани з версіями, підписані права доступу і місце для анонімних лічильників використання. Далі застосунок починає їм слідувати. З сервера 0.10.0 план може мати й пробний період; у беті після нього план просто триває далі, безкоштовно.</p></div>
-<div class="rm-item"><h3>Посилення безпеки</h3><p>Виправлення з нашої власної перевірки безпеки застосунку і каналу оновлень, до того як командна версія виросте.</p></div>
+<div class="rm-item"><h3>Командні дзвінки глибше</h3><p>Спільний список дзвінків команди, пошук по них і аналіз дзвінків для лідів команд.</p></div>
+<div class="rm-item"><h3>Більше інструментів для продажів</h3><p>Більше методів кваліфікації поруч із BANT, заперечення і відповіді, конкуренти, карта стейкхолдерів, наступний крок з датою.</p></div>
 <div class="rm-item"><h3>Кращі брифи і підказки</h3><p>Кожен дзвінок розбираємо після завершення: які підказки допомогли, які були шумом, що пропущено. Звідси змінюються промпти.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Далі</p>
 <div class="rm-item"><h3>Вхід через email</h3><p>Email і пароль поруч із Google, потім двофакторний вхід з будь-яким застосунком-автентифікатором.</p></div>
+<div class="rm-item"><h3>Посилення безпеки</h3><p>Виправлення з нашої власної перевірки безпеки застосунку і каналу оновлень, до того як командна версія виросте.</p></div>
 <div class="rm-item"><h3>Підпис і нотаризація Apple</h3><p>Без "Open Anyway" при першому запуску і без запиту Keychain після оновлення.</p></div>
-<div class="rm-item"><h3>Командні дзвінки глибше</h3><p>Спільний список дзвінків команди, пошук по них і аналіз дзвінків для лідів команд.</p></div>
-<div class="rm-item"><h3>Більше інструментів для продажів</h3><p>Більше методів кваліфікації поруч із BANT, заперечення і відповіді, конкуренти, карта стейкхолдерів, наступний крок з датою.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Пізніше</p>
@@ -52,6 +52,7 @@ facts:
 ## Що вже випущено
 
 <ol class="rm-log">
+<li><span class="rm-log__when">17 лист · 0.19</span><b>Плани в застосунку.</b> Порівняння планів і зміна плану організації в Settings, команда з Solo одним кроком, пробний період на кожному плані, власне використання за останні 30 днів, сторінка Console для кожного, хто ввійшов. Продуктова аналітика, яку можна вимкнути: екрани, помилки за кодами і швидкодія, ніколи не те, що сказано в дзвінку. Дзвінок із записом сам зупиняється, коли мітинг закінчився.</li>
 <li><span class="rm-log__when">16-17 лист · 0.17</span><b>Організації.</b> Запрошення, команди з лідом, приватні дзвінки, проєкти організації зі спільними рішеннями, задачами і ризиками, консоль адміністратора в застосунку.</li>
 <li><span class="rm-log__when">15-16 лист · 0.14-0.16</span><b>Спокійніший застосунок.</b> Новий Get Ready, Settings групами з пошуком, онбординг з вибором, що встановити, додатки можна видалити, автоматичні оновлення і "Що нового".</li>
 <li><span class="rm-log__when">15 лист · 0.11-0.13</span><b>Акаунт і синк.</b> Вхід у Pacenote, записи і транскрипти у вашому Google Drive, нотатки дзвінків синкаються по проєктах (за замовчуванням вимкнено), один список рішень, задач і ризиків усюди.</li>

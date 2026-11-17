@@ -18,8 +18,9 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.11-0.13</span><span class="rm-stop__name">Account and sync</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.14-0.16</span><span class="rm-stop__name">Redesign and updates</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.17</span><span class="rm-stop__name">Organizations</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Now</span><span class="rm-stop__name">Plans and security</span></div>
-<div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Next</span><span class="rm-stop__name">Teams in depth</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.19</span><span class="rm-stop__name">Plans in the app</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Now</span><span class="rm-stop__name">Teams in depth</span></div>
+<div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Next</span><span class="rm-stop__name">Email sign-in and security</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Later</span><span class="rm-stop__name">Paid plans and mobile</span></div>
 </div>
 
@@ -30,16 +31,15 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Now</p>
-<div class="rm-item"><h3>Plans and modules</h3><p>Solo, Team and Enterprise with their real limits, free during the beta. The server decides which features a plan opens, the app follows. The server part is live since 17 November: plans with versions, signed access rights and a place for anonymous usage counts. The app starts following them next. Since server 0.10.0 a plan can also have a trial; during the beta the plan simply goes on after it, free.</p></div>
-<div class="rm-item"><h3>Security hardening</h3><p>Fixes from our own security review of the app and the update channel, before the team version grows.</p></div>
+<div class="rm-item"><h3>Team calls in depth</h3><p>A shared list of the team's calls, search across them and call analysis for team leads.</p></div>
+<div class="rm-item"><h3>More sales tools</h3><p>More qualification methods next to BANT, objections and answers, competitors, stakeholder map, next step with a date.</p></div>
 <div class="rm-item"><h3>Better briefs and tips</h3><p>Every call is reviewed after it ends: which tips helped, which were noise, what was missed. The prompts change from that.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Next</p>
 <div class="rm-item"><h3>Sign in with email</h3><p>An email and password next to Google, then two-factor sign-in with any authenticator app.</p></div>
+<div class="rm-item"><h3>Security hardening</h3><p>Fixes from our own security review of the app and the update channel, before the team version grows.</p></div>
 <div class="rm-item"><h3>Signed and notarized by Apple</h3><p>No more "Open Anyway" on first launch and no Keychain prompt after an update.</p></div>
-<div class="rm-item"><h3>Team calls in depth</h3><p>A shared list of the team's calls, search across them and call analysis for team leads.</p></div>
-<div class="rm-item"><h3>More sales tools</h3><p>More qualification methods next to BANT, objections and answers, competitors, stakeholder map, next step with a date.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Later</p>
@@ -52,6 +52,7 @@ facts:
 ## What shipped
 
 <ol class="rm-log">
+<li><span class="rm-log__when">17 Nov · 0.19</span><b>Plans in the app.</b> Compare plans and switch an organization's plan in Settings, start a team from Solo, a trial on every plan, your own use for the last 30 days, a Console page for everyone signed in. Product analytics you can turn off: screens, errors by code and speed, never what is said in a call. A recorded call stops by itself when the meeting ends.</li>
 <li><span class="rm-log__when">16-17 Nov · 0.17</span><b>Organizations.</b> Invites, teams with a lead, private calls, organization projects with shared decisions, tasks and risks, the admin console inside the app.</li>
 <li><span class="rm-log__when">15-16 Nov · 0.14-0.16</span><b>A calmer app.</b> New Get Ready, Settings in groups with search, onboarding where you pick what to install, removable add-ons, automatic updates and "What's new".</li>
 <li><span class="rm-log__when">15 Nov · 0.11-0.13</span><b>Account and sync.</b> Sign in to Pacenote, recordings and transcripts in your Google Drive, call notes synced per project (off by default), one list of decisions, tasks and risks everywhere.</li>
