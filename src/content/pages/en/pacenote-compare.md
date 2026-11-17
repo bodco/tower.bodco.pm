@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
   - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
-  - { k: Pacenote, v: "0.17.1, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.17.2, macOS (Apple Silicon)" }
 ---
 
 ## At a glance
