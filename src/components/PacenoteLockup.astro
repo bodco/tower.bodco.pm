@@ -1,0 +1,10 @@
+---
+// Redesign 0.23.0, block 8c (_wlock.html, WS-SiteHome r16): the Route P mark on its plate (markBg) plus the name in the
+// style's display font. Colours come from the theme tokens (src/styles/pacenote-theme.css).
+interface Props { size?: number }
+const { size = 34 } = Astro.props;
+---
+<span class="pn-lock" style={`--pn-lock: ${size}px`}>
+  <span class="pn-lock__mark" aria-hidden="true"><svg viewBox="320 206 460 626" focusable="false"><path d="M400 742V404C400 312 466 262 556 262C664 262 724 330 724 412C724 500 662 560 556 560H500" fill="none" stroke-width="92" stroke-linecap="round" stroke-linejoin="round"/><circle cx="400" cy="752" r="70"/></svg></span>
+  <span class="pn-lock__name">Pacenote</span>
+</span>

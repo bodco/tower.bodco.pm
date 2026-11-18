@@ -5,6 +5,8 @@ import Footer from '../components/Footer.astro';
 import PacenoteHeader from '../components/PacenoteHeader.astro';
 import PacenoteFooter from '../components/PacenoteFooter.astro';
 import Analytics from '../components/Analytics.astro';
+import PN_STYLE from '../data/pacenote-style.json';
+import { TOKENS_BG } from '../data/pacenote-style-bg';
 import { t, getLangFromUrl, switchLang, path, LINKS, VERSION } from '../i18n/ui';
 
 interface Props {
@@ -23,6 +25,10 @@ interface Props {
 const lang = getLangFromUrl(Astro.url);
 const { title, description, noindex = false, brand, crumbParent, ld = [], og } = Astro.props;
 const pn = brand === 'pacenote';
+// Redesign 0.23.0, block 8c: the Pacenote site has one style and mode, the server's (Platform > Style), taken at build
+// time from src/data/pacenote-style.json. Auto follows the visitor's system; there is no switch on the site.
+const pnStyle = PN_STYLE.style as 'roadbook' | 'classic' | 'broadsheet';
+const pnMode = PN_STYLE.mode as 'dark' | 'light' | 'auto';
 const site = Astro.site!;
 const fullTitle = title
   ? (pn ? (title === 'Pacenote' ? (lang === 'uk' ? 'Pacenote · Ваш штурман на дзвінках' : 'Pacenote · Your co-driver on calls') : title.includes('Pacenote') ? title : `${title} · Pacenote`)
@@ -107,7 +113,7 @@ const pnLd = pnHome
 const jsonLd = [...homeLd, ...pnLd, ...crumbs, ...ld];
 ---
 <!doctype html>
-<html lang={lang} data-theme="dark" data-brand={brand}>
+<html lang={lang} data-theme={pn ? pnMode : 'dark'} data-brand={brand} data-style={pn ? pnStyle : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -128,6 +134,16 @@ const jsonLd = [...homeLd, ...pnLd, ...crumbs, ...ld];
     <link rel="icon" href={pn ? '/pacenote/favicon-32.png' : '/favicon-32.png'} type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href={pn ? '/pacenote/apple-touch-icon.png' : '/apple-touch-icon.png'} />
     <link rel="manifest" href="/site.webmanifest" />
+    {pn
+      ? <>
+          <meta name="theme-color" content={TOKENS_BG[`${pnStyle}/${pnMode === 'light' ? 'light' : 'dark'}`]} />
+          <meta name="color-scheme" content={pnMode === 'auto' ? 'light dark' : pnMode} />
+          {pnMode === 'auto' && <script is:inline>
+            // Auto: light or dark as the visitor's system, so the light-only rules of global.css apply too.
+            document.documentElement.dataset.theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+          </script>}
+        </>
+      : <>
     <meta name="theme-color" content="#0E1014" />
     <meta name="color-scheme" content="light dark" />
     <script is:inline>
@@ -141,6 +157,7 @@ const jsonLd = [...homeLd, ...pnLd, ...crumbs, ...ld];
         if (m) m.setAttribute('content', t === 'light' ? '#F6F5F1' : '#0E1014');
       })();
     </script>
+        </>}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={pn ? 'Pacenote' : 'PM Control Tower'} />
     <meta property="og:title" content={fullTitle} />

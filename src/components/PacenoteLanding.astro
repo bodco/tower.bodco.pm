@@ -9,8 +9,13 @@
 // Build b with PN_LANDING=b npm run build:pacenote (preview only); the default is a.
 // One content width (.wrap) for every section. EN and UK texts live side by side and mean the same.
 // Self-hosted script only; without it, and with prefers-reduced-motion, everything shows its end state.
+// Redesign 0.23.0, block 8c-2 (WS-SiteHome r16): the sections in the site style. The three seconds are two cards side
+// by side (without / with), the phases are three steps with the brand mark instead of screenshot crops, the
+// "only in Pacenote" column, the recommended option and the last call to action use the style's inverted card.
 import type { Lang } from '../i18n/ui';
 import '../styles/pacenote-landing.css';
+import PnMark from './PnMark.astro';
+import PnBars from './PnBars.astro';
 
 interface Props { lang: Lang; variant?: 'a' | 'b' }
 const { lang } = Astro.props;
@@ -35,7 +40,7 @@ const T = uk ? {
     eyebrow: 'Ті три секунди', h: 'Клієнт питає. Відповідь уже під камерою.',
     sub: 'Pacenote знаходить факт у ваших матеріалах і показує його за 1-2\u00a0с. Ви й далі дивитесь на клієнта.',
     without: 'Без Pacenote', with: 'Із Pacenote', replay: 'Ще раз', you: 'Ви',
-    files: 'Ваші вкладки', card: 'картка', note: 'Відповідь була в нотатках стартової зустрічі.', vNo: '3 с. Відповіді нема.', vYes: '1,4 с. Відповідь є.', sec: 'с', lab: { ans: 'ВІДПОВІДЬ', now: 'зараз', docs: 'З ДОКУМЕНТІВ' },
+    files: 'Ваші вкладки', card: 'картка', note: 'Відповідь була в нотатках стартової зустрічі.', vNo: '3 с. Відповіді нема.', vYes: '1,4 с. Відповідь є.', nNo: '3 с', tNo: 'Відповіді нема.', nYes: '1,4 с', tYes: 'Відповідь є.', sec: 'с', lab: { ans: 'ВІДПОВІДЬ', now: 'зараз', docs: 'З ДОКУМЕНТІВ' },
     caption: 'Відтворення за сценарієм. Дзвінок англійською, тож і фраза англійською. Картки з вашої підготовки зʼявляються за 1-2 с.',
     alt: 'Порівняння. Без Pacenote: Emily питає, коли експорт буде в користувачів; ви шукаєте в нотатках, Slack і Drive і за три секунди кажете «Let me get back to you on that». З Pacenote: за 1,4 с під камерою зʼявляється картка з нотаток kickoff, і ви відповідаєте одразу.',
     listening: 'Слухаю', cta: 'Завантажити для Мака', under: 'Безкоштовна бета · Apple Silicon, macOS 14.4+', how: 'Як обирається підказка',
@@ -129,7 +134,7 @@ const T = uk ? {
     eyebrow: 'The three seconds', h: 'A client asks. The answer is already under your camera.',
     sub: 'Pacenote finds the fact in your own material and shows it in 1-2\u00a0s. You keep looking at the client.',
     without: 'Without Pacenote', with: 'With Pacenote', replay: 'Replay', you: 'You',
-    files: 'Your open tabs', card: 'card', note: 'The answer was in your kickoff notes.', vNo: '3 s. No answer.', vYes: '1.4 s. Answered.', sec: 's', lab: { ans: 'ANSWER', now: 'now', docs: 'FROM DOCS' },
+    files: 'Your open tabs', card: 'card', note: 'The answer was in your kickoff notes.', vNo: '3 s. No answer.', vYes: '1.4 s. Answered.', nNo: '3 s', tNo: 'No answer.', nYes: '1.4 s', tYes: 'Answered.', sec: 's', lab: { ans: 'ANSWER', now: 'now', docs: 'FROM DOCS' },
     caption: 'A scripted replay. Fact cards from your own prep show in 1-2 s.',
     alt: 'A comparison. Without Pacenote: Emily asks when the export is live; you search your notes, Slack and Drive and after three seconds say "Let me get back to you on that." With Pacenote: at 1.4 s a card from your kickoff notes appears under the camera and you answer at once.',
     listening: 'Listening', cta: 'Download for Mac', under: 'Free beta · Apple Silicon, macOS 14.4+', how: 'How a tip is chosen',
@@ -237,61 +242,36 @@ const SEAT_MAX = 24;
 <div class="pnl" data-pnl>
 
   <section class="pnl-trust" aria-label={uk ? 'Коротко' : 'In short'}>
-    <div class="wrap"><ul>{T.trust.map((f) => <li>{f}</li>)}</ul></div>
+    <div class="wrap"><ul>{T.trust.map((f) => <li><i aria-hidden="true"></i>{f}</li>)}</ul></div>
   </section>
 
   {variant === 'a' ? (
   <!-- A. The three seconds: a without / with replay -->
   <section class="pnl-sec pnl-sec--sig" id="moment" data-section="moment">
     <div class="wrap">
-      <div class="pnl-head pnl-rv">
-        <p class="pnl-label">{T.rp.eyebrow}</p>
-        <h2 class="pnl-h2" id="the-three-seconds">{T.rp.h}</h2>
+      <div class="pnl-head pnl-head--split pnl-rv">
+        <div><p class="pnl-label">{T.rp.eyebrow}</p><h2 class="pnl-h2" id="the-three-seconds">{T.rp.h}</h2></div>
         <p class="pnl-lead">{T.rp.sub}</p>
       </div>
       <div class="pnl-rp" data-rp>
         <div class="pnl-rp__bar" data-rp-bar hidden>
-          <div class="pnl-seg" role="group" aria-label={T.rp.eyebrow}>
-            <button type="button" class="pnl-seg__opt" data-rp-mode="without" aria-pressed="false">{T.rp.without}</button>
-            <button type="button" class="pnl-seg__opt" data-rp-mode="with" aria-pressed="true">{T.rp.with}</button>
-            <span class="pnl-seg__pill" aria-hidden="true"></span>
-          </div>
           <button type="button" class="pnl-rp__replay" data-rp-replay><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.5-3.6M3 2.5v2.4h2.4" /></svg>{T.rp.replay}</button>
         </div>
         <p class="pn-sr">{T.rp.alt}</p>
-        <div class="pnl-rp__stages" aria-hidden="true">
+        <div class="pnl-duo" aria-hidden="true">
           {(['without', 'with'] as const).map((k) => {
             const lines = k === 'without' ? RP_WITHOUT : RP_WITH;
             return (
-            <div class={`pnl-rp__stage pnl-rp__stage--${k}`} data-rp-stage={k}>
-              <p class="pnl-rp__name">{k === 'without' ? T.rp.without : T.rp.with}</p>
-              <div class="pnl-rp__grid">
-                <div class="pnl-rp__call">
-                  <div class="pnl-rp__cam"><span class="pnl-rp__avatar">E</span><span class="pnl-rp__avatar pnl-rp__avatar--d">D</span><span class="pnl-rp__live">12:04</span></div>
-                  {lines.map((l) => <p class:list={['pnl-rp__line', { 'is-cl': l.cl, 'is-bad': (l as any).bad, 'is-good': (l as any).good }]} data-at={l.at}><b>{l.who}</b><span>{l.t}</span></p>)}
-                  {k === 'without' && <p class="pnl-rp__note" data-at="4400">{T.rp.note}</p>}
-                </div>
-                <div class:list={['pnl-rp__win', { 'pnl-rp__win--tabs': k === 'without' }]}>
-                  {k === 'without'
-                    ? <div class="pnl-mini__bar"><span class="pnl-mini__dots"><i></i><i></i><i></i></span><span>{T.rp.files}</span></div>
-                    : <div class="pnl-mini__bar"><span class="pnl-mini__dots"><i></i><i></i><i></i></span><span>Pacenote · Orbit weekly</span><span class="pnl-mini__rec"></span></div>}
-                  {k === 'without'
-                    ? <div class="pnl-mini__body pnl-mini__body--tabs"><p class="pnl-tabrow" data-at="900"><b>notes.md</b><span>kickoff, Oct 28</span></p><p class="pnl-tabrow" data-at="1700"><b>Slack #orbit</b><span>412 messages</span></p><p class="pnl-tabrow" data-at="2500"><b>Drive: release plan</b><span>v3, 14 pages</span></p></div>
-                    : <div class="pnl-mini__body">
-                        <div class="pnl-ans" data-at="1400">
-                          <p class="pnl-ans__tag">{T.rp.lab.ans} <span>{T.rp.lab.now}</span></p>
-                          <p class="pnl-ans__q">when is the export live?</p>
-                          <p class="pnl-ans__a">It is on dev now, production on Tuesday after the review.</p>
-                          <p class="pnl-ans__src">{T.rp.lab.docs} · kickoff-notes.md</p>
-                        </div>
-                      </div>}
-                </div>
+            <div class={`pnl-duo__card pnl-duo__card--${k}`} data-rp-stage={k}>
+              <p class="pnl-label pnl-duo__h">{k === 'without' ? T.rp.without : T.rp.with}</p>
+              <div class="pnl-duo__lines">
+                {lines.map((l) => <p class:list={['pnl-duo__line', { 'is-good': (l as any).good }]} data-at={l.at}><b>{l.who}</b><span>{l.t}</span></p>)}
               </div>
-              <div class="pnl-ruler" data-ruler>
-                <div class="pnl-ruler__track"><span class="pnl-ruler__fill" data-fill={k === 'without' ? '100' : '46.7'}></span>{k === 'with' && <span class="pnl-ruler__mark" data-at="1400" style="left: 46.7%">{T.rp.card} · {uk ? '1,4' : '1.4'}{'\u00a0'}{T.rp.sec}</span>}</div>
-                <div class="pnl-ruler__ticks">{[0, 1, 2, 3].map((n) => <span>{n}{'\u00a0'}{T.rp.sec}</span>)}</div>
+              <div class="pnl-duo__meter">
+                <div class="pnl-duo__track"><i data-fill={k === 'without' ? '100' : '46.7'}></i></div>
+                <div class="pnl-duo__ticks">{[0, 1, 2, 3].map((n) => <span>{n}{'\u00a0'}{T.rp.sec}</span>)}</div>
               </div>
-              <p class="pnl-rp__verdict" data-at={k === 'without' ? '4400' : '1400'}>{k === 'without' ? T.rp.vNo : T.rp.vYes}</p>
+              <p class="pnl-duo__res" data-at={k === 'without' ? '4000' : '1400'}><span class="pnl-duo__n">{k === 'without' ? T.rp.nNo : T.rp.nYes}</span><span class="pnl-duo__v"><span>{k === 'without' ? T.rp.tNo : T.rp.tYes}</span></span></p>
             </div>
           ); })}
         </div>
@@ -341,8 +321,8 @@ const SEAT_MAX = 24;
     <div class="wrap">
       <div class="pnl-head pnl-rv"><h2 class="pnl-h2" id="one-line-of-fact">{T.fH}</h2><p class="pnl-lead">{T.fSub}</p></div>
       <div class="pnl-tips">
-        {T.tips.map((t) => <div class="pnl-tip pnl-rv"><p class={`pnl-tip__k pnl-tip__k--${t.c}`}><i></i>{t.k}</p><p class="pnl-tip__t">{t.t}</p>{t.p && <p class="pnl-tip__p">{t.p}</p>}{(t as any).s && <p class="pnl-tip__s">{(t as any).s}</p>}</div>)}
-        <div class="pnl-tip pnl-tip--empty pnl-rv"><p class="pnl-tip__k"><span class="pnl-wait"><i></i><i></i><i></i></span>{T.empty.k}</p><p class="pnl-tip__t">{T.empty.t}</p><p class="pnl-tip__s">{T.empty.s}</p></div>
+        {T.tips.map((t) => <div class={`pnl-tip pnl-tip--${t.c} pnl-rv`}><p class="pnl-tip__k"><span>{t.k}</span></p><p class="pnl-tip__t">{t.t}</p>{t.p && <p class="pnl-tip__p">{t.p}</p>}{(t as any).s && <p class="pnl-tip__s">{(t as any).s}</p>}</div>)}
+        <div class="pnl-tip pnl-tip--empty pnl-rv"><p class="pnl-tip__k"><PnBars h={12} /><span>{T.empty.k}</span></p><p class="pnl-tip__t">{T.empty.t}</p><p class="pnl-tip__s">{T.empty.s}</p></div>
       </div>
       <p class="pnl-small pnl-rv">{T.fFoot}</p>
     </div>
@@ -368,19 +348,16 @@ const SEAT_MAX = 24;
   <section class="pnl-sec" id="phases" data-section="phases">
     <div class="wrap">
       <div class="pnl-head pnl-rv"><p class="pnl-label">{T.phL}</p><h2 class="pnl-h2" id="before-during-after">{T.phH}</h2></div>
-      <div class="pnl-phases">
-        {T.ph.map((p) => (
-          <article class="pnl-phase pnl-rv">
-            <div class="pnl-crop" style={`aspect-ratio: ${p.w} / ${p.hh}`} role="img" aria-label={p.alt}>
-              {['dark', 'light'].map((th) => <img class={`ltshot--${th}`} src={`${SH(p.img)}-${th}.webp`} alt="" width={p.W} height={p.H} loading="lazy" decoding="async" style={`width: ${(p.W / p.w * 100).toFixed(3)}%; left: ${(-p.x / p.w * 100).toFixed(3)}%; top: ${(-p.y / p.hh * 100).toFixed(3)}%`} />)}
-            </div>
-            <p class="pnl-label">{p.k}</p>
+      <ol class="pnl-steps">
+        {T.ph.map((p, i) => (
+          <li class="pnl-step pnl-rv">
+            <p class="pnl-step__time"><PnMark kind={i === 2 ? 'spin' : 'still'} dot={i === 1 ? 'rec' : 'mark'} size={22} /><span>{p.k}</span></p>
             <h3 class="pnl-h3">{p.h}</h3>
             <p class="pnl-body">{p.l}</p>
             {(p as any).small && <p class="pnl-small">{(p as any).small}</p>}
-          </article>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
   )}
@@ -388,10 +365,10 @@ const SEAT_MAX = 24;
   <!-- Everything a note taker does, plus the call itself -->
   <section class="pnl-sec" id="switch" data-section="switch">
     <div class="wrap">
-      <div class="pnl-head pnl-rv"><h2 class="pnl-h2" id="everything-your-note-taker-does">{T.sH}</h2><p class="pnl-lead">{T.sSub}</p></div>
+      <div class="pnl-head pnl-head--split pnl-rv"><h2 class="pnl-h2" id="everything-your-note-taker-does">{T.sH}</h2><p class="pnl-lead">{T.sSub}</p></div>
       <div class="pnl-parity pnl-rv">
         <div class="pnl-parity__col"><p class="pnl-label">{T.baseH}</p><ul>{T.baseList.map(([a, b]) => <li><span>{a}</span>{b && <em>{b}</em>}</li>)}</ul></div>
-        <div class="pnl-parity__col pnl-parity__col--only"><p class="pnl-label">{T.onlyH}</p><ul>{T.onlyList.map((a) => <li><span>{a}</span></li>)}</ul></div>
+        <div class="pnl-parity__col pnl-parity__col--only pn-hot"><p class="pnl-label">{T.onlyH}</p><ul>{T.onlyList.map((a) => <li><span>{a}</span></li>)}</ul></div>
       </div>
       <div class="pnl-switch pnl-rv" data-switch>
         <p class="pnl-switch__lbl pnl-label">{T.swH}</p>
@@ -416,7 +393,7 @@ const SEAT_MAX = 24;
         <p class="pnl-lang__close">{T.lClose}</p>
       </div>
       <div class="pnl-lang__cards pnl-rv" aria-hidden="true">
-        <div class="pnl-ans pnl-ans--solo"><p class="pnl-ans__tag">{T.lCard1.k} <span>{T.rp.lab.now}</span></p><p class="pnl-ans__q">{T.lCard1.q}</p><p class="pnl-ans__a">{T.lCard1.a}</p></div>
+        <div class="pn-ans pnl-ans--solo"><p class="pn-ans__tag"><b>{T.lCard1.k}</b><span>{T.rp.lab.now} · {T.lCard1.q}</span></p><p class="pn-ans__a" lang="en"><span class="pn-ph">{T.lCard1.a}</span></p></div>
         <div class="pnl-draft"><p class="pnl-draft__k">{T.lCard2.k}</p>{T.lCard2.lines.map((x) => <p>{x}</p>)}</div>
       </div>
     </div>
@@ -451,7 +428,7 @@ const SEAT_MAX = 24;
     <div class="wrap">
       <div class="pnl-head pnl-rv"><h2 class="pnl-h2" id="pay-for-calls">{T.cH}</h2><p class="pnl-lead">{T.cSub}</p></div>
       <div class="pnl-opts">
-        {T.opts.map((o, i) => <div class:list={['pnl-opt pnl-rv', { 'is-rec': i === 0 }]}><p class="pnl-label">{o.tag}</p><h3 class="pnl-opt__t">{o.t}</h3><p class="pnl-opt__big">{o.big}<span>{o.u}</span></p><p class="pnl-body">{o.d}</p></div>)}
+        {T.opts.map((o, i) => <div class:list={['pnl-opt pnl-rv', { 'is-rec pn-hot': i === 0 }]}><p class="pnl-label">{o.tag}</p><h3 class="pnl-opt__t">{o.t}</h3><p class="pnl-opt__big">{o.big}<span>{o.u}</span></p><p class="pnl-body">{o.d}</p></div>)}
       </div>
       <div class="pnl-calc pnl-rv" data-calc data-rates={JSON.stringify(RATES)} data-unit={uk ? 'uk' : 'en'}>
         <div class="pnl-calc__in" data-calc-ui hidden>
@@ -499,7 +476,7 @@ const SEAT_MAX = 24;
   <!-- Final CTA -->
   <section class="pnl-sec pnl-end" id="get" data-section="get">
     <div class="wrap">
-      <div class="pnl-end__in pnl-rv">
+      <div class="pnl-end__in pnl-rv" aria-labelledby="try-it">
         <div>
           <h2 class="pnl-h2" id="try-it">{variant === 'a' ? T.end.h : T.end.hB}</h2>
           <p class="pnl-lead">{T.end.sub}</p>
@@ -529,48 +506,36 @@ const SEAT_MAX = 24;
       root.querySelectorAll('.pnl-rv').forEach((el) => io.observe(el));
     }
 
-    // Replay: plays "without", then "with", once; the toggle and Replay are in the visitor's hands.
+    // Replay (8c-2): both cards play at once, "without" runs out the three seconds, "with" answers at 1.4 s.
+    // Without script, or with reduced motion, both show their end state.
     const rp = root.querySelector<HTMLElement>('[data-rp]');
     if (rp) {
       const bar = rp.querySelector<HTMLElement>('[data-rp-bar]')!;
-      const opts = [...rp.querySelectorAll<HTMLButtonElement>('[data-rp-mode]')];
-      const stages = Object.fromEntries([...rp.querySelectorAll<HTMLElement>('[data-rp-stage]')].map((s) => [s.dataset.rpStage, s]));
+      const stages = [...rp.querySelectorAll<HTMLElement>('[data-rp-stage]')];
       let timers: number[] = [];
-      let mode = 'with';
       const clear = () => { timers.forEach((t) => clearTimeout(t)); timers = []; };
-      const show = (m: string) => {
-        mode = m; rp.dataset.mode = m;
-        opts.forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.rpMode === m)));
-      };
       const finish = (s: HTMLElement) => {
         s.querySelectorAll('[data-at]').forEach((el) => el.classList.add('on'));
         s.querySelectorAll<HTMLElement>('[data-fill]').forEach((f) => { f.style.transition = 'none'; f.style.width = `${f.dataset.fill}%`; });
       };
-      const play = (m: string, then?: () => void) => {
-        clear(); show(m);
-        const s = stages[m]; if (!s) return;
-        if (reduce) { finish(s); then?.(); return; }
-        s.querySelectorAll('[data-at]').forEach((el) => el.classList.remove('on'));
-        const fill = s.querySelector<HTMLElement>('[data-fill]');
-        const dur = m === 'without' ? 3000 : 1400;
-        if (fill) { fill.style.transition = 'none'; fill.style.width = '0%'; void fill.offsetWidth; fill.style.transition = `width ${dur}ms linear`; timers.push(window.setTimeout(() => { fill.style.width = `${fill.dataset.fill}%`; }, 300)); }
-        let last = 0;
-        s.querySelectorAll<HTMLElement>('[data-at]').forEach((el) => { const at = Number(el.dataset.at); last = Math.max(last, at); timers.push(window.setTimeout(() => el.classList.add('on'), at + 200)); });
-        if (then) timers.push(window.setTimeout(then, last + 1400));
+      const play = () => {
+        clear();
+        stages.forEach((s) => {
+          if (reduce) { finish(s); return; }
+          s.querySelectorAll('[data-at]').forEach((el) => el.classList.remove('on'));
+          const fill = s.querySelector<HTMLElement>('[data-fill]');
+          const dur = s.dataset.rpStage === 'without' ? 3000 : 1400;
+          if (fill) { fill.style.transition = 'none'; fill.style.width = '0%'; void fill.offsetWidth; fill.style.transition = `width ${dur}ms linear`; timers.push(window.setTimeout(() => { fill.style.width = `${fill.dataset.fill}%`; }, 300)); }
+          s.querySelectorAll<HTMLElement>('[data-at]').forEach((el) => timers.push(window.setTimeout(() => el.classList.add('on'), Number(el.dataset.at) + 300)));
+        });
       };
       rp.classList.add('is-js');
-      bar.hidden = false;
-      Object.values(stages).forEach((s) => finish(s as HTMLElement));
-      show('with');
-      opts.forEach((o) => o.addEventListener('click', () => play(o.dataset.rpMode!)));
-      rp.querySelector('[data-rp-replay]')?.addEventListener('click', () => play(mode));
+      stages.forEach(finish);
       if (!reduce) {
-        const vo = new IntersectionObserver((es) => {
-          if (!es[0].isIntersecting) return;
-          vo.disconnect();
-          play('without', () => play('with'));
-        }, { threshold: 0.4 });
-        vo.observe(rp.querySelector('.pnl-rp__stages')!);
+        bar.hidden = false;
+        rp.querySelector('[data-rp-replay]')?.addEventListener('click', play);
+        const vo = new IntersectionObserver((es) => { if (!es[0].isIntersecting) return; vo.disconnect(); play(); }, { threshold: 0.4 });
+        vo.observe(rp.querySelector('.pnl-duo')!);
       }
     }
 

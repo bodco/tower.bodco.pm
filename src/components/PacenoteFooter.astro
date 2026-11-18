@@ -1,6 +1,9 @@
 ---
 // 2026-11-04 (owner): the footer of the Pacenote site. PM Control Tower is only a link ("Also by bodco").
+// Redesign 0.23.0, block 8c (_wsite.foot.html, WS-SiteHome r16): lockup and the line, Product, More, Get Pacenote with
+// the version and the download button. The line above it is the style's (3 px ink in Roadbook and Broadsheet).
 import PN_VERSION from '../data/pacenote-version.json';
+import PacenoteLockup from './PacenoteLockup.astro';
 import { getLangFromUrl, pnHref } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
@@ -9,67 +12,53 @@ const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
 const T = lang === 'uk'
   ? {
-      about: 'Ваш штурман на дзвінках. Бета. Безкоштовно, відкритий код.',
-      beta: 'бета', product: 'Продукт', get: 'Взяти', legal: 'Правила', also: 'Ще від bodco',
-      overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', roadmap: 'Роадмап', compare: 'Порівняння з іншими',
-      dmg: 'Завантажити для Мака', skill: 'Скіл для Cowork', repo: 'Репозиторій GitHub', changes: 'Список змін', docs: 'Документація',
+      about: 'Ваш штурман на дзвінках. Аудіо лишається на вашому Маку.', product: 'Продукт', more: 'Ще', get: 'Взяти Pacenote',
+      overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', compare: 'Порівняння', roadmap: 'Роадмап',
+      skill: 'Скіл для Cowork', changes: 'Список змін', docs: 'Документація',
       privacy: 'Конфіденційність', terms: 'Умови використання', consent: 'Налаштування аналітики',
-      tower: 'PM Control Tower', towerNote: 'AI для рутини ПМа в Notion',
+      ver: `Версія ${PN_VERSION.version} · бета · macOS 14.4+, Apple Silicon`, dmg: 'Завантажити для Мака',
+      also: 'Ще від bodco:', tower: 'PM Control Tower',
     }
   : {
-      about: 'Your co-driver on calls. Beta. Free and open source.',
-      beta: 'beta', product: 'Product', get: 'Get it', legal: 'Legal', also: 'Also by bodco',
-      overview: 'Overview', details: 'How it works', pricing: 'Pricing', roadmap: 'Roadmap', compare: 'Compared with others',
-      dmg: 'Download for Mac', skill: 'Skill for Cowork', repo: 'GitHub repository', changes: 'Changelog', docs: 'Documentation',
+      about: 'Your co-driver on calls. Audio stays on your Mac.', product: 'Product', more: 'More', get: 'Get Pacenote',
+      overview: 'Overview', details: 'How it works', pricing: 'Pricing', compare: 'Compare', roadmap: 'Roadmap',
+      skill: 'Skill for Cowork', changes: 'Changelog', docs: 'Documentation',
       privacy: 'Privacy', terms: 'Terms of use', consent: 'Analytics settings',
-      tower: 'PM Control Tower', towerNote: 'AI for the routine of project management, in Notion',
+      ver: `Version ${PN_VERSION.version} · beta · macOS 14.4+, Apple Silicon`, dmg: 'Download for Mac',
+      also: 'Also by bodco:', tower: 'PM Control Tower',
     };
 const TOWER = lang === 'uk' ? 'https://tower.bodco.pm/uk/' : 'https://tower.bodco.pm/';
 ---
 <footer class="site-footer">
-  <div class="footer wrap">
-    <div class="footer__about">
-      <b>Pacenote</b>
-      <span>{T.about}</span>
-      <span class="label">v{PN_VERSION.version} · {T.beta} · MIT</span>
+  <div class="pn-foot wrap">
+    <div class="pn-foot__about">
+      <PacenoteLockup />
+      <p>{T.about}</p>
+      <span class="pn-foot__lbl">© 2026 Bodco · MIT</span>
+      <span class="pn-foot__also">{T.also} <a href={TOWER}>{T.tower}</a></span>
     </div>
-    <div class="footer__cols">
-      <div class="footer__col">
-        <span class="label">{T.product}</span>
-        <a href={pnHref(lang)}>{T.overview}</a>
-        <a href={pnHref(lang, 'details')}>{T.details}</a>
-        <a href={pnHref(lang, 'pricing')}>{T.pricing}</a>
-        <a href={pnHref(lang, 'compare')}>{T.compare}</a>
-        <a href={pnHref(lang, 'roadmap')}>{T.roadmap}</a>
-      </div>
-      <div class="footer__col">
-        <span class="label">{T.get}</span>
-        <a href={DMG} download>{T.dmg}</a>
-        <a href={SKILL} download>{T.skill}</a>
-        <a href={REPO}>{T.repo}</a>
-        <a href={`${REPO}/blob/main/CHANGELOG.md`}>{T.changes}</a>
-        <a href={`${REPO}/blob/main/docs/${lang}/live-tips.md`}>{T.docs}</a>
-      </div>
-      <div class="footer__col">
-        <span class="label">{T.legal}</span>
-        <a href={pnHref(lang, 'privacy')}>{T.privacy}</a>
-        <a href={pnHref(lang, 'terms')}>{T.terms}</a>
-        <button type="button" class="footer__consent" id="consent-reset">{T.consent}</button>
-      </div>
-      <div class="footer__col">
-        <span class="label">{T.also}</span>
-        <a href={TOWER}>{T.tower}</a>
-      </div>
+    <div class="pn-foot__col">
+      <span class="pn-foot__lbl">{T.product}</span>
+      <a href={pnHref(lang)}>{T.overview}</a>
+      <a href={pnHref(lang, 'details')}>{T.details}</a>
+      <a href={pnHref(lang, 'pricing')}>{T.pricing}</a>
+      <a href={pnHref(lang, 'compare')}>{T.compare}</a>
+      <a href={pnHref(lang, 'roadmap')}>{T.roadmap}</a>
+    </div>
+    <div class="pn-foot__col">
+      <span class="pn-foot__lbl">{T.more}</span>
+      <a href={REPO}>GitHub</a>
+      <a href={SKILL} download>{T.skill}</a>
+      <a href={`${REPO}/blob/main/CHANGELOG.md`}>{T.changes}</a>
+      <a href={`${REPO}/blob/main/docs/${lang}/live-tips.md`}>{T.docs}</a>
+      <a href={pnHref(lang, 'privacy')}>{T.privacy}</a>
+      <a href={pnHref(lang, 'terms')}>{T.terms}</a>
+      <button type="button" id="consent-reset">{T.consent}</button>
+    </div>
+    <div class="pn-foot__get">
+      <span class="pn-foot__lbl">{T.get}</span>
+      <span>{T.ver}</span>
+      <a class="pn-btn" href={DMG} download>{T.dmg}</a>
     </div>
   </div>
 </footer>
-<script is:inline>
-  // Forget the analytics choice and show the consent banner again.
-  (function () {
-    var b = document.getElementById('consent-reset');
-    if (b) b.addEventListener('click', function () {
-      try { localStorage.removeItem('analytics-consent'); } catch (e) {}
-      location.reload();
-    });
-  })();
-</script>

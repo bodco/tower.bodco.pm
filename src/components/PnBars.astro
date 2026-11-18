@@ -1,0 +1,11 @@
+---
+// Redesign 0.23.0, block 8c-2 (MO-Motion r15, _web.js BR): five level bars, "listening". The style sets the curve and
+// the corners (Roadbook steps and square, the others smooth and round). Reduced motion leaves them still.
+interface Props { h?: number; class?: string; still?: boolean }
+const { h = 14, class: cls, still = false } = Astro.props;
+const S = [0.5, 0.9, 0.35, 0.75, 0.55];
+const DUR = [0.9, 1.1, 1.3, 1.0, 1.2];
+---
+<span class:list={['pn-bars', { 'is-still': still }, cls]} style={`--h: ${h}px`} aria-hidden="true">
+  {S.map((s, i) => <i class="pn-m" style={`--sy: ${s}; --d: ${DUR[i]}s; --dl: -${(i * 0.17).toFixed(2)}s`}></i>)}
+</span>

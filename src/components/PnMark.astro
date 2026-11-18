@@ -1,0 +1,20 @@
+---
+// Redesign 0.23.0, block 8c-2 (MO-Motion r15, _web.js PG / SP): the Route P mark in motion, for the site.
+//   ping  : the mark on its plate, a ring leaves the red start dot (listening).
+//   spin  : the brand spinner, the route is drawn from the start dot over a quiet track.
+//   still : the spinner at rest (the whole route drawn); dot 'rec' paints the start dot red.
+// Curves come from the style (--pn-ring, --pn-draw); prefers-reduced-motion stops everything (.pn-m in the theme CSS).
+// Decorative: the text next to it carries the meaning.
+interface Props { kind?: 'ping' | 'spin' | 'still'; size?: number; dot?: 'mark' | 'rec'; class?: string }
+const { kind = 'ping', size = 22, dot = 'mark', class: cls } = Astro.props;
+const D = 'M400 742V404C400 312 466 262 556 262C664 262 724 330 724 412C724 500 662 560 556 560H500';
+---
+{kind === 'ping' ? (
+  <span class:list={['pn-mk pn-mk--ping', cls]} style={`--s: ${size}px`} aria-hidden="true">
+    <svg viewBox="320 206 460 626" focusable="false"><path d={D} /><circle class="pn-m pn-mk__ring" cx="400" cy="752" r="70" /><circle cx="400" cy="752" r="70" /></svg>
+  </span>
+) : (
+  <span class:list={['pn-mk pn-mk--spin', { 'is-still': kind === 'still', 'is-rec': dot === 'rec' }, cls]} style={`--s: ${size}px`} aria-hidden="true">
+    <svg viewBox="320 206 460 626" focusable="false"><path class="pn-mk__track" d={D} /><path class="pn-m pn-mk__line" d={D} pathLength="1" /><circle cx="400" cy="752" r="70" /></svg>
+  </span>
+)}

@@ -1,0 +1,129 @@
+/* Redesign 0.23.0, block 8c: pacenote.bodco.pm in the web styles (WS-SiteHome, WP-SitePages, WM-SiteMobile r16).
+   One style and mode for the whole site, the same as the console and the emails (Platform > Style on the server);
+   the static site takes it at build time from src/data/pacenote-style.json. No style or mode switch on the site.
+   The tokens (--pn-*) are generated: src/styles/pacenote-theme.css, by Pacenote server/scripts/gen-web-theme.py.
+   Here the site's own variables (global.css) are pointed at the tokens, and the shapes follow the style. */
+
+html[data-brand='pacenote'][data-style][data-theme] {
+  --bg: var(--pn-bg);
+  --bg-deep: var(--pn-bg);
+  --surface: var(--pn-surface);
+  --surface-warm: var(--pn-surface-2);
+  --tip: var(--pn-surface-2);
+  --line: var(--pn-rule);
+  --line-strong: var(--pn-frame);
+  --line-button: var(--pn-rule-strong);
+  --text: var(--pn-ink);
+  --text-2: var(--pn-ink-2);
+  --text-3: var(--pn-ink-3);
+  --accent: var(--pn-accent);
+  --accent-hover: var(--pn-accent);
+  --on-accent: var(--pn-on-accent);
+  --ok: var(--pn-ready-text);
+  --warn: var(--pn-notready-text);
+  --band: var(--pn-bg);
+  --header: var(--pn-bg);
+  --code-text: var(--pn-ink-2);
+  --chip-active: var(--pn-surface-2);
+  --muted-sep: var(--pn-ink-3);
+  --ink-bg: var(--pn-ink);
+  --ink-bg-hover: var(--pn-ink-2);
+  --ink-text: var(--pn-bg);
+  --pn-tint: var(--pn-surface-2);
+  --yes: var(--pn-ready-text);
+  --part: var(--pn-notready-text);
+  --sans: var(--pn-font-text);
+  --mono: var(--pn-font-mono);
+  --header-h: 72px;
+  --grid-line: transparent;
+  background: var(--pn-bg);
+  color: var(--pn-ink);
+}
+html[data-brand='pacenote'][data-style] body { background: var(--pn-bg); color: var(--pn-ink); font-family: var(--pn-font-text); border-left: 0; }
+html[data-brand='pacenote'][data-style] a { color: inherit; }
+html[data-brand='pacenote'][data-style] .prose a:not(.btn) { color: var(--pn-link); }
+html[data-brand='pacenote'][data-style] ::selection { background: var(--pn-sel-bg); color: var(--pn-sel-fg); }
+html[data-brand='pacenote'][data-style] :focus-visible { outline: 2px solid var(--pn-link); outline-offset: 2px; }
+
+/* Shapes: Classic rounds, Roadbook and Broadsheet are square */
+html[data-brand='pacenote'][data-style] :is(.cmp-wrap, .prose table, .newlist, .verdict__card, .aimix, .ltshot__img, .card, .shot, .docs-cta) { border-radius: var(--pn-r); }
+html[data-brand='pacenote'][data-style] :is(.btn, .vbadge, .lang) { border-radius: var(--pn-rb); }
+html[data-brand='pacenote'][data-style] :is(input, select, textarea) { border-radius: var(--pn-rf); }
+
+/* Type: titles, labels and buttons in the style's display face */
+html[data-brand='pacenote'][data-style] :is(.h1, .h2, .prose h1, .prose h2) {
+  font-family: var(--pn-font-display); font-weight: var(--pn-hero-w); text-transform: var(--pn-hero-case);
+  letter-spacing: var(--pn-h-2track); line-height: 1;
+}
+html[data-brand='pacenote'][data-style] :is(.prose h3, h3) { font-family: var(--pn-font-display); text-transform: var(--pn-caps); letter-spacing: var(--pn-b-track); }
+html[data-brand='pacenote'][data-style] .label { font-family: var(--pn-font-mono); text-transform: var(--pn-lbl-case); letter-spacing: var(--pn-lbl-track); color: var(--pn-ink-3); }
+html[data-brand='pacenote'][data-style] .btn {
+  font-family: var(--pn-font-display); font-weight: 800; text-transform: var(--pn-caps); letter-spacing: var(--pn-b-track);
+  border: var(--pn-bw) solid var(--pn-rule-strong); color: var(--pn-ink); background: transparent;
+}
+html[data-brand='pacenote'][data-style] .btn--primary,
+html[data-brand='pacenote'][data-style] .btn--primary:hover { background: var(--pn-btn-bg); border-color: var(--pn-btn-bg); color: var(--pn-btn-fg); }
+html[data-brand='pacenote'][data-style] .btn:not(.btn--primary):hover { border-color: var(--pn-ink); }
+html[data-brand='pacenote'][data-style] .prose h2 { border-top: var(--pn-sec-bd); padding-top: var(--pn-sec-pad); }
+html[data-brand='pacenote'][data-style='classic'] .prose h2 { border-top: 1px solid var(--pn-rule); padding-top: 1.2em; }
+html[data-brand='pacenote'][data-style] .prose h2:first-child { border-top: 0; padding-top: 0; }
+
+/* The highlighted word and the phrase on a plate (Roadbook yellow, the others the link colour) */
+.pn-hi { background: var(--pn-hi-bg); color: var(--pn-hi-fg); padding: var(--pn-hi-pad); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.pn-ph { background: var(--pn-ph-bg); color: var(--pn-ph-fg); padding: var(--pn-ph-pad); box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+
+/* Lockup */
+.pn-lock { display: inline-flex; align-items: center; gap: 10px; flex: none; color: var(--pn-ink); }
+.pn-lock__mark { width: var(--pn-lock, 34px); height: var(--pn-lock, 34px); background: var(--pn-mark-bg); display: inline-flex; align-items: center; justify-content: center; flex: none; }
+.pn-lock__mark svg { height: 74%; aspect-ratio: 460 / 626; overflow: visible; }
+.pn-lock__mark path { stroke: var(--pn-mark-fg); }
+.pn-lock__mark circle { fill: var(--pn-mark-dot); }
+.pn-lock__name { font-family: var(--pn-font-display); font-size: var(--pn-name-size); font-weight: var(--pn-name-w); letter-spacing: var(--pn-name-track); text-transform: var(--pn-name-case); line-height: 1; }
+
+/* Header (_wsite.hdr.html) */
+html[data-brand='pacenote'][data-style] .site-header { background: var(--pn-bg); backdrop-filter: none; -webkit-backdrop-filter: none; border-bottom: 1px solid var(--pn-rule); }
+.pn-nav { display: flex; align-items: stretch; gap: 36px; min-height: 72px; }
+.pn-nav__home { display: flex; align-items: center; text-decoration: none; }
+.pn-nav__links { display: flex; gap: 26px; align-items: stretch; margin: 0; padding: 0; list-style: none; }
+.pn-nav__links li { display: flex; }
+.pn-nav__links a { display: flex; align-items: center; border-top: 3px solid transparent; border-bottom: 3px solid transparent; color: var(--pn-ink-2); text-decoration: none;
+  font-family: var(--pn-font-display); font-size: var(--pn-tab-size); font-weight: 600; letter-spacing: var(--pn-b-track); text-transform: var(--pn-caps); }
+.pn-nav__links a:hover { color: var(--pn-ink); }
+.pn-nav__links a[aria-current='page'] { color: var(--pn-ink); font-weight: 800; border-bottom-color: var(--pn-tab-on); }
+.pn-nav__tools { margin-left: auto; display: flex; align-items: center; gap: 22px; }
+.pn-langs.lang { border: 0; }
+.pn-langs { display: flex; align-items: center; gap: 6px; font-family: var(--pn-font-mono); font-size: 12px; text-transform: var(--pn-lbl-case); color: var(--pn-ink-3); }
+.pn-langs.lang a { color: var(--pn-ink-3); text-decoration: none; min-height: 44px; min-width: 0; padding: 0 2px; display: inline-flex; align-items: center; background: none; }
+.pn-langs.lang a[aria-current='true'] { color: var(--pn-ink); background: none; }
+.pn-gh { font-size: 14px; font-weight: 600; color: var(--pn-ink-2); text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; }
+.pn-gh:hover, .pn-langs a:hover { color: var(--pn-ink); }
+.pn-btn { display: inline-flex; align-items: center; justify-content: center; height: 38px; padding: 0 18px; border: 0; border-radius: var(--pn-rb);
+  background: var(--pn-btn-bg); color: var(--pn-btn-fg) !important; text-decoration: none; white-space: nowrap;
+  font-family: var(--pn-font-display); font-size: var(--pn-b-size); font-weight: 800; letter-spacing: var(--pn-b-track); text-transform: var(--pn-caps); }
+.pn-menu-btn { display: none; width: 44px; height: 44px; align-items: center; justify-content: center; background: transparent; color: var(--pn-ink);
+  border: var(--pn-bw) solid var(--pn-rule-strong); border-radius: var(--pn-rb); cursor: pointer; }
+@media (max-width: 900px) {
+  .pn-nav { gap: 16px; min-height: 64px; flex-wrap: wrap; }
+  .pn-nav__links { display: none; order: 3; width: 100%; flex-direction: column; gap: 0; padding: 8px 0 16px; }
+  .pn-nav[data-open='true'] .pn-nav__links { display: flex; }
+  .pn-nav__links a { min-height: 48px; border: 0; border-left: 3px solid transparent; padding-left: 12px; font-size: 20px; }
+  .pn-nav__links a[aria-current='page'] { border-left-color: var(--pn-tab-on); }
+  .pn-gh, .pn-nav__tools .pn-btn { display: none; }
+  .pn-menu-btn { display: inline-flex; }
+  .pn-nav__links .pn-nav__dl { display: flex; }
+}
+.pn-nav__links .pn-nav__dl { display: none; }
+
+/* Footer (_wsite.foot.html) */
+html[data-brand='pacenote'][data-style] .site-footer { background: var(--pn-bg); border-top: var(--pn-foot-bd); }
+.pn-foot { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.6fr; gap: 32px; padding-top: 44px; padding-bottom: 40px; font-size: 14px; }
+.pn-foot__about, .pn-foot__col, .pn-foot__get { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.pn-foot__about { gap: 12px; }
+.pn-foot__about p { margin: 0; color: var(--pn-ink-2); line-height: 1.5; max-width: 300px; }
+.pn-foot__lbl { font-family: var(--pn-font-mono); font-size: 11px; color: var(--pn-ink-3); text-transform: var(--pn-lbl-case); letter-spacing: var(--pn-lbl-track); margin-bottom: 4px; }
+.pn-foot__col a, .pn-foot__col button { color: var(--pn-ink); text-decoration: none; background: none; border: 0; padding: 0; font: inherit; cursor: pointer; text-align: left; }
+.pn-foot__col a:hover, .pn-foot__col button:hover { color: var(--pn-link); }
+.pn-foot__get span { color: var(--pn-ink-2); }
+.pn-foot__also { color: var(--pn-ink-3); font-size: 13px; }
+.pn-foot__also a { color: var(--pn-ink-2); }
+@media (max-width: 900px) { .pn-foot { grid-template-columns: 1fr 1fr; } .pn-foot__about, .pn-foot__get { grid-column: 1 / -1; } }

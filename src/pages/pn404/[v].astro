@@ -1,19 +1,26 @@
 ---
 // 2026-11-04 (owner): the 404 page of pacenote.bodco.pm. It exists only in the build that feeds that site
 // (PACENOTE_KEEP=1); the PM Control Tower build gets no such page. scripts/pacenote-site.mjs turns it into 404.html.
+// Redesign 0.23.0, block 8c-2 (WP-SitePages r16, row 4): the mark with a red start dot, "Off the route.", both languages.
 import Base from '../../layouts/Base.astro';
-import PacenoteLogo from '../../components/PacenoteLogo.astro';
 export function getStaticPaths() {
   return process.env.PACENOTE_KEEP ? [{ params: { v: 'index' } }] : [];
 }
+const D = 'M400 742V404C400 312 466 262 556 262C664 262 724 330 724 412C724 500 662 560 556 560H500';
 ---
 <Base title="Page not found · Pacenote" noindex brand="pacenote">
-  <section class="wrap section stack" style="align-items: flex-start;">
-    <div style="width:44px;height:44px;color:var(--text)"><PacenoteLogo /></div>
-    <p class="eyebrow">404</p>
-    <h1 class="h1 h1--page">This page is off the route</h1>
-    <p class="lead">The link may be old, or the page moved. Start from the Pacenote home page.</p>
-    <p class="lead" lang="uk">Цієї сторінки немає на маршруті. Почніть з головної сторінки Pacenote.</p>
-    <div class="btns"><a class="btn btn--primary" href="/pacenote/">Home</a><a class="btn" href="/uk/pacenote/">Головна</a></div>
+  <section class="wrap pn404" aria-labelledby="pn404-h">
+    <span class="pn404__mark" role="img" aria-label="Pacenote mark with a red start dot"><svg viewBox="320 206 460 626" aria-hidden="true" focusable="false"><path d={D} /><circle cx="400" cy="752" r="70" /></svg></span>
+    <div class="pn404__text">
+      <p class="pn404__code">404</p>
+      <h1 class="pn404__h" id="pn404-h">Off the route.</h1>
+      <p class="pn404__p">This page is not on the map. It may have moved when the site changed.</p>
+      <p class="pn404__p" lang="uk">Цієї сторінки немає на маршруті. Можливо, вона переїхала, коли сайт змінювався.</p>
+      <div class="pn404__btns">
+        <a class="pn-btn" href="/pacenote/">Back to Overview</a>
+        <a class="pn-btn pn-btn--ghost" href="/uk/pacenote/" lang="uk">На головну</a>
+        <a class="pn-btn pn-btn--ghost" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>Download</a>
+      </div>
+    </div>
   </section>
 </Base>

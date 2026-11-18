@@ -1,0 +1,229 @@
+/* Redesign 0.23.0, block 8c-2: the parts of pacenote.bodco.pm on top of the brand layer (pacenote-brand.css).
+   Sources: WS-SiteHome, WP-SitePages, WM-SiteMobile, MO-Motion (Pacenote research/redesign-src, r16).
+   Everything reads the generated tokens (pacenote-theme.css); per-style rules only where the board itself
+   differs by style (the inverted "hot" card, the Download banner button, the motion curves). */
+
+/* ---------- motion: curves and corners by style ---------- */
+html[data-brand='pacenote'][data-style] { --pn-bar-ease: ease-in-out; --pn-bar-r: 99px; --pn-lbl-w: 600; --pn-big-btn: 16px; }
+html[data-brand='pacenote'][data-style='roadbook'] { --pn-bar-ease: steps(3, end); --pn-bar-r: 0; }
+html[data-brand='pacenote'][data-style='classic'] { --pn-lbl-w: 500; }
+@keyframes pn-ping { 0% { transform: scale(1); opacity: 0.6; } 70%, 100% { transform: scale(2.4); opacity: 0; } }
+@keyframes pn-bar { 0%, 100% { transform: scaleY(0.25); } 50% { transform: scaleY(1); } }
+
+.pn-mk { width: var(--s); height: var(--s); flex: none; display: inline-flex; align-items: center; justify-content: center; }
+.pn-mk svg { display: block; aspect-ratio: 460 / 626; overflow: visible; }
+.pn-mk path { fill: none; stroke-width: 92; stroke-linecap: round; stroke-linejoin: round; }
+.pn-mk--ping { background: var(--pn-mark-bg); }
+.pn-mk--ping svg { height: 74%; }
+.pn-mk--ping path { stroke: var(--pn-mark-fg); }
+.pn-mk--ping circle { fill: var(--pn-rec); }
+.pn-mk__ring { transform-box: fill-box; transform-origin: center; opacity: 0; animation: pn-ping 1.6s var(--pn-ring) infinite; }
+.pn-mk--spin svg { height: 100%; }
+.pn-mk__track { stroke: var(--pn-rule); }
+.pn-mk__line { stroke: var(--pn-ink); stroke-dasharray: 1 1; stroke-dashoffset: 1; animation: pn-draw 1.6s var(--pn-draw) infinite; }
+.pn-mk--spin circle { fill: var(--pn-mark-dot); }
+.pn-mk--spin.is-rec circle { fill: var(--pn-rec); }
+.pn-mk--spin.is-still .pn-mk__line { animation: none; stroke-dashoffset: 0; }
+
+.pn-bars { display: inline-flex; align-items: flex-end; gap: 2px; height: var(--h); flex: none; }
+.pn-bars i { width: 3px; height: 100%; background: var(--pn-rec); border-radius: var(--pn-bar-r); transform-origin: bottom; transform: scaleY(var(--sy)); animation: pn-bar var(--d) var(--pn-bar-ease) var(--dl) infinite; }
+.pn-bars.is-still i { animation: none; }
+@media (prefers-reduced-motion: reduce) { .pn-mk__ring { opacity: 0 !important; } .pn-bars i { animation: none !important; } }
+
+/* ---------- shared bits ---------- */
+.pn-lbl { margin: 0; font-family: var(--pn-font-mono); font-size: 11px; line-height: 1.4; font-weight: var(--pn-lbl-w); letter-spacing: var(--pn-lbl-track); text-transform: var(--pn-lbl-case); color: var(--pn-ink-3); }
+.pn-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.pn-btn--lg { height: 52px; padding: 0 26px; font-size: var(--pn-big-btn); }
+.pn-btn--ghost { background: transparent; color: var(--pn-ink) !important; border: var(--pn-bw) solid var(--pn-rule-strong); }
+.pn-btn--ghost:hover { border-color: var(--pn-ink); }
+.pn-btn:focus-visible { outline: 2px solid var(--pn-link); outline-offset: 3px; }
+html[data-brand='pacenote'][data-style][data-theme] .btn--primary,
+html[data-brand='pacenote'][data-style][data-theme] .btn--primary:hover { background: var(--pn-btn-bg); border-color: var(--pn-btn-bg); color: var(--pn-btn-fg); }
+
+/* The inverted card the board uses for "Only in Pacenote", the hot plan and the Pacenote verdict:
+   Roadbook on yellow, Broadsheet in ink, Classic on the second surface with the accent for the ticks. */
+/* The originals, resolved on <html>, so a card can repaint the tokens without reading its own overrides. */
+html[data-brand='pacenote'][data-style][data-theme] { --o-ink: var(--pn-ink); --o-ink3: var(--pn-ink-3); --o-bg: var(--pn-bg); --o-s2: var(--pn-surface-2); --o-rule: var(--pn-rule); --o-acc: var(--pn-accent); }
+html[data-brand='pacenote'][data-style] :is(.pn-hot, .verdict__card--pn) { --h-bg: var(--o-s2); --h-fg: var(--o-ink); --h-mute: var(--o-ink3); --h-rule: var(--o-rule); --h-mk: var(--o-acc); --h-bd: var(--o-rule); }
+html[data-brand='pacenote'][data-style='roadbook'] :is(.pn-hot, .verdict__card--pn) { --h-bg: #FFD60A; --h-fg: #0D0D0B; --h-mute: #4D4B45; --h-rule: #0D0D0B33; --h-mk: #0D0D0B; --h-bd: transparent; }
+html[data-brand='pacenote'][data-style='broadsheet'] :is(.pn-hot, .verdict__card--pn) { --h-bg: var(--o-ink); --h-fg: var(--o-bg); --h-mute: color-mix(in srgb, var(--o-bg) 62%, var(--o-ink)); --h-rule: color-mix(in srgb, var(--o-ink) 80%, var(--o-bg)); --h-mk: var(--o-bg); --h-bd: transparent; }
+html[data-brand='pacenote'][data-style] :is(.pn-hot, .verdict__card--pn) {
+  background: var(--h-bg) !important; color: var(--h-fg); border-color: var(--h-bd) !important;
+  --pn-ink: var(--h-fg); --pn-ink-2: var(--h-fg); --pn-ink-3: var(--h-mute); --pn-rule: var(--h-rule); --pn-answer: var(--h-fg); --pn-link: var(--h-fg);
+  --text: var(--h-fg); --text-2: var(--h-fg); --text-3: var(--h-mute); --line: var(--h-rule); --accent: var(--h-mk); --yes: var(--h-mk);
+}
+
+/* ---------- hero (WS-SiteHome) ---------- */
+html[data-brand='pacenote'][data-style] .pn-hero { position: relative; }
+.pn-hero__in { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 64px; }
+.pn-hero__text { display: flex; flex-direction: column; gap: 22px; min-width: 0; }
+.pn-hero__lbl { color: var(--pn-ink-2); }
+.pn-hero__h { margin: 0; color: var(--pn-ink); font-family: var(--pn-font-display); font-weight: var(--pn-hero-w); text-transform: var(--pn-hero-case);
+  letter-spacing: var(--pn-hero-track); line-height: var(--pn-hero-lh); font-size: clamp(calc(var(--pn-hero-size) * 0.55), 9.2vw, var(--pn-hero-size)); overflow-wrap: break-word; }
+.pn-hero__lead { margin: 0; max-width: 560px; font-size: 20px; line-height: 1.45; color: var(--pn-ink-2); }
+.pn-hero__btns { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 6px; }
+.pn-hero__ver { margin: 0; font-family: var(--pn-font-mono); font-size: 12px; color: var(--pn-ink-3); }
+.pn-hero__phone, .pn-hero__mail { display: none !important; }
+@media (max-width: 1000px) { .pn-hero__in { grid-template-columns: minmax(0, 1fr); gap: 40px; } .pn-hero .pn-win { max-width: 520px; } }
+@media (max-width: 900px) { .pn-hero__h { font-size: clamp(calc(var(--pn-hero-size) * 0.55), 11vw, var(--pn-hero-size)); } }
+/* A phone: the app is Mac-only, so "Email me the link" instead of the downloads (WM-SiteMobile). */
+@media (max-width: 640px) {
+  .pn-hero__in { padding-top: 32px; padding-bottom: 28px; gap: 28px; }
+  .pn-hero__text { gap: 16px; }
+  .pn-hero__lead { font-size: 17px; }
+  .pn-hero__mac { display: none !important; }
+  .pn-hero__phone { display: block !important; margin: 0; font-size: 14px; line-height: 1.45; padding: 12px 14px; background: var(--pn-surface-2); border-radius: var(--pn-r); }
+  .pn-hero__mail { display: inline-flex !important; width: 100%; height: 50px; }
+}
+
+/* ---------- the tips window (an HTML picture of the app) ---------- */
+.pn-win { margin: 0; min-width: 0; background: var(--pn-surface); color: var(--pn-ink); border: 1px solid var(--pn-frame); border-radius: var(--pn-r); overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.14); }
+html[data-brand='pacenote'][data-theme='dark'] .pn-win { box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5); }
+.pn-win p { margin: 0; }
+.pn-win__bar { height: 44px; padding: 0 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid var(--pn-rule); }
+.pn-win__title { font-family: var(--pn-font-display); font-size: 15px; font-weight: 800; letter-spacing: var(--pn-b-track); text-transform: var(--pn-caps); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pn-win__rec { margin-left: auto; display: inline-flex; align-items: center; gap: 8px; font-family: var(--pn-font-mono); font-size: 11px; font-weight: 600; text-transform: var(--pn-lbl-case); color: var(--pn-rec-text); white-space: nowrap; }
+.pn-win__time { font-family: var(--pn-font-mono); font-size: 11px; color: var(--pn-ink-3); }
+.pn-win__body { padding: 18px; display: flex; flex-direction: column; gap: 12px; }
+.pn-ans { background: var(--pn-ans-bg); border: var(--pn-bw) solid var(--pn-ans-bd); border-radius: var(--pn-r); padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 8px; }
+/* the top rule is Broadsheet only; Roadbook keeps the full frame (--pn-ans-top is 0 there) */
+html[data-brand='pacenote'][data-style='broadsheet'] .pn-ans { border-top: var(--pn-ans-top) solid var(--pn-ink); }
+.pn-ans p { margin: 0; }
+.pn-ans__tag { display: flex; gap: 8px; align-items: baseline; font-family: var(--pn-font-mono); font-size: 11px; }
+.pn-ans__tag b { font-weight: 600; text-transform: uppercase; color: var(--pn-answer); }
+.pn-ans__tag span { color: var(--pn-ink-3); }
+.pn-ans__a { border-left: var(--pn-ans-bar) solid var(--pn-accent); font-family: var(--pn-font-display); font-size: 24px; font-weight: 800; letter-spacing: var(--pn-i-track); line-height: 1.2; color: var(--pn-ink); }
+html[data-brand='pacenote'][data-style='broadsheet'] .pn-ans__a { padding-left: 12px; }
+.pn-ans__src { font-family: var(--pn-font-mono); font-size: 11px; color: var(--pn-ink-3); }
+.pn-win__nr { padding: 10px 0 2px; border-top: 1px solid var(--pn-rule); display: flex; flex-direction: column; gap: 4px; }
+.pn-win__nrk { font-family: var(--pn-font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--pn-notready-text); }
+.pn-win__nrk span { background: var(--pn-nr-bg); padding: var(--pn-nr-pad); }
+.pn-win__nrt { font-size: 15px; line-height: 1.45; color: var(--pn-ink-2); }
+@media (max-width: 640px) {
+  .pn-win__bar { height: 40px; padding: 0 12px; gap: 8px; }
+  .pn-win__title { font-size: 14px; }
+  .pn-win__rec { font-size: 10px; gap: 6px; }
+  .pn-win__time { display: none; }
+  .pn-win__body { padding: 14px; }
+  .pn-ans__a { font-size: 20px; }
+}
+
+/* ---------- inner pages (WP-SitePages): page head, contents, tables, badges, lists ---------- */
+html[data-brand='pacenote'][data-style] .page-hero { border-bottom: 0; }
+html[data-brand='pacenote'][data-style] .page-hero::before { content: none; }
+html[data-brand='pacenote'][data-style] .page-hero__in { padding-top: 64px; padding-bottom: 40px; align-items: flex-end; }
+html[data-brand='pacenote'][data-style] .page-hero__text { gap: 14px; }
+html[data-brand='pacenote'][data-style] .crumbs { font-family: var(--pn-font-mono); font-size: 11px; font-weight: var(--pn-lbl-w); letter-spacing: var(--pn-lbl-track); text-transform: var(--pn-lbl-case); color: var(--pn-answer); }
+html[data-brand='pacenote'][data-style] .crumbs a { color: var(--pn-ink-3); text-decoration: none; }
+html[data-brand='pacenote'][data-style] .crumbs a:hover { color: var(--pn-ink); }
+html[data-brand='pacenote'][data-style] .h1--page { font-size: clamp(36px, 5vw, var(--pn-h-2size)); letter-spacing: var(--pn-h-2track); line-height: 1; max-width: 980px; }
+html[data-brand='pacenote'][data-style] .page-hero .lead { font-size: 17px; line-height: 1.5; color: var(--pn-ink-2); max-width: 720px; }
+html[data-brand='pacenote'][data-style] .facts { gap: 0; background: none; border: 0; border-top: var(--pn-sec-bd); }
+html[data-brand='pacenote'][data-style='classic'] .facts { border-top: 1px solid var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .facts div { background: none; padding: 10px 14px 10px 0; border-bottom: 1px solid var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .facts dt { font-family: var(--pn-font-mono); letter-spacing: var(--pn-lbl-track); text-transform: var(--pn-lbl-case); color: var(--pn-ink-3); }
+html[data-brand='pacenote'][data-style] .facts dd { color: var(--pn-ink); font-weight: 600; }
+
+html[data-brand='pacenote'][data-style] .page-body { padding-top: 40px; }
+html[data-brand='pacenote'][data-style] .toc { font-family: var(--pn-font-text); }
+html[data-brand='pacenote'][data-style] .toc__sum { font-family: var(--pn-font-mono); font-size: 11px; color: var(--pn-ink-3); }
+html[data-brand='pacenote'][data-style] .toc a { border-left: 3px solid var(--pn-rule); color: var(--pn-ink-2); text-decoration: none; }
+html[data-brand='pacenote'][data-style] .toc a:hover, html[data-brand='pacenote'][data-style] .toc a.is-active { border-left-color: var(--pn-tab-on); color: var(--pn-ink); font-weight: 600; }
+html[data-brand='pacenote'][data-style] .toc--chips .toc__links a { border: var(--pn-bw) solid var(--pn-rule-strong); border-radius: var(--pn-rb); }
+html[data-brand='pacenote'][data-style] .toc--chips .toc__links a:hover { border-color: var(--pn-ink); }
+@media (max-width: 960px) { html[data-brand='pacenote'][data-style] .toc { border: var(--pn-bw) solid var(--pn-rule); background: var(--pn-surface); border-radius: var(--pn-r); } }
+
+html[data-brand='pacenote'][data-style] .prose { color: var(--pn-ink-2); }
+html[data-brand='pacenote'][data-style] .prose h2 { color: var(--pn-ink); font-size: clamp(26px, 3vw, 36px); line-height: 1.05; }
+html[data-brand='pacenote'][data-style] .prose h3 { color: var(--pn-ink); font-weight: 800; }
+html[data-brand='pacenote'][data-style] .prose :is(strong, b) { color: var(--pn-ink); }
+html[data-brand='pacenote'][data-style] .prose code { font-family: var(--pn-font-mono); }
+html[data-brand='pacenote'][data-style] .prose blockquote { border-left: 3px solid var(--pn-tab-on); }
+
+/* Plain tables: rows with lines, a mono header row (the board's "What one hour of calls costs"). */
+html[data-brand='pacenote'][data-style] .prose table:not(.cmp) { background: none; border: 0; border-top: var(--pn-bw) solid var(--pn-rule-strong); border-radius: 0; }
+html[data-brand='pacenote'][data-style] .prose table:not(.cmp) th { font-family: var(--pn-font-mono); font-size: 11px; font-weight: var(--pn-lbl-w); letter-spacing: var(--pn-lbl-track); text-transform: var(--pn-lbl-case); color: var(--pn-ink-3); background: none; border-color: var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .prose table:not(.cmp) td { border-color: var(--pn-rule); color: var(--pn-ink-2); background: none; }
+html[data-brand='pacenote'][data-style] .prose table:not(.cmp) td:first-child { color: var(--pn-ink); font-weight: 600; }
+
+/* Comparison (.cmp): square, the Pacenote column tinted with the accent, marks in the status colours. */
+html[data-brand='pacenote'][data-style] { --pn-tint: color-mix(in srgb, var(--pn-accent) 9%, transparent); --yes: var(--pn-ready-text); --part: var(--pn-notready-text); --no: var(--pn-ink-3); }
+html[data-brand='pacenote'][data-style] .cmp-wrap { background: none; border: var(--pn-bw) solid var(--pn-rule-strong); }
+html[data-brand='pacenote'][data-style] .prose .cmp thead th { background: var(--pn-bg); font-family: var(--pn-font-display); font-weight: 800; text-transform: var(--pn-caps); letter-spacing: var(--pn-b-track); color: var(--pn-ink-2); border-radius: 0 !important; }
+html[data-brand='pacenote'][data-style] .prose .cmp thead th.is-pn { color: var(--pn-ink); background: linear-gradient(var(--pn-tint), var(--pn-tint)), var(--pn-bg); box-shadow: inset 0 -3px 0 var(--pn-tab-on); }
+html[data-brand='pacenote'][data-style] .prose .cmp td { border-color: var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .prose .cmp tr.cmp__grp th { background: var(--pn-bg); font-family: var(--pn-font-mono); letter-spacing: var(--pn-lbl-track); text-transform: var(--pn-lbl-case); color: var(--pn-answer); border-top: var(--pn-bw) solid var(--pn-rule-strong); }
+html[data-brand='pacenote'][data-style] .mk { border-radius: var(--pn-status-r); }
+html[data-brand='pacenote'][data-style] .mk--part::after { border-radius: var(--pn-status-r); }
+
+/* Version badge, the "new" list, the verdict cards. */
+html[data-brand='pacenote'][data-style][data-theme] .vbadge:not(.vbadge--soft) { background: var(--pn-btn-bg); color: var(--pn-btn-fg); }
+html[data-brand='pacenote'][data-style] .vbadge { font-family: var(--pn-font-mono); font-weight: 600; }
+html[data-brand='pacenote'][data-style] .vbadge--soft { color: var(--pn-answer); box-shadow: inset 0 0 0 var(--pn-bw) var(--pn-answer); }
+html[data-brand='pacenote'][data-style] .newlist { background: var(--pn-ans-bg); border: var(--pn-bw) solid var(--pn-ans-bd); border-top: var(--pn-sec-bd); }
+html[data-brand='pacenote'][data-style='classic'] .newlist { border: 0; }
+html[data-brand='pacenote'][data-style] .newlist__head { font-family: var(--pn-font-display); text-transform: var(--pn-caps); letter-spacing: var(--pn-b-track); font-weight: 800; }
+html[data-brand='pacenote'][data-style] .newlist li::before { background: var(--pn-accent); border-radius: var(--pn-status-r); }
+html[data-brand='pacenote'][data-style] .verdict__card { background: var(--pn-surface); border: var(--pn-bw) solid var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .verdict__title { font-family: var(--pn-font-display); font-weight: 800; text-transform: var(--pn-caps); letter-spacing: var(--pn-b-track); }
+html[data-brand='pacenote'][data-style] .verdict__title span { font-family: var(--pn-font-mono); letter-spacing: var(--pn-lbl-track); text-transform: var(--pn-lbl-case); color: var(--pn-ink-3); }
+html[data-brand='pacenote'][data-style] .verdict li::before { content: '✓'; background: none; width: auto; color: var(--pn-ink-3); font-size: 14px; font-weight: 800; }
+html[data-brand='pacenote'][data-style] .verdict__card--pn li::before { color: var(--h-mk); background: none; }
+html[data-brand='pacenote'][data-style] .verdict li { color: var(--pn-ink-2); }
+html[data-brand='pacenote'][data-style] .docs-cta { background: var(--pn-surface); border: var(--pn-bw) solid var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .aimix { border: var(--pn-bw) solid var(--pn-rule); border-left: 3px solid var(--pn-tab-on); background: var(--pn-surface); }
+html[data-brand='pacenote'][data-style] :is(.card, .shot) { background: var(--pn-surface); border-color: var(--pn-rule); }
+html[data-brand='pacenote'][data-style] .card__icon { border-radius: var(--pn-rb); background: var(--pn-tint); color: var(--pn-answer); }
+html[data-brand='pacenote'][data-style] .card__num { font-family: var(--pn-font-display); font-weight: var(--pn-hero-w); }
+html[data-brand='pacenote'][data-style] .ltshot__img { border-radius: var(--pn-r); border-color: var(--pn-frame); }
+
+/* ---------- 404 (WP-SitePages, row 4) ---------- */
+.pn404 { display: flex; align-items: center; gap: 56px; padding-top: 96px; padding-bottom: 120px; }
+.pn404__mark { width: 180px; height: 180px; flex: none; background: var(--pn-mark-bg); display: flex; align-items: center; justify-content: center; }
+.pn404__mark svg { height: 74%; aspect-ratio: 460 / 626; overflow: visible; }
+.pn404__mark path { fill: none; stroke: var(--pn-mark-fg); stroke-width: 92; stroke-linecap: round; stroke-linejoin: round; }
+.pn404__mark circle { fill: var(--pn-rec); }
+.pn404__text { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+.pn404__code { margin: 0; font-family: var(--pn-font-mono); font-size: 13px; font-weight: 600; color: var(--pn-ink-3); }
+.pn404__h { margin: 0; font-family: var(--pn-font-display); font-size: clamp(40px, 6vw, var(--pn-h-2size)); font-weight: var(--pn-hero-w); letter-spacing: var(--pn-h-2track); text-transform: var(--pn-hero-case); line-height: 1; }
+.pn404__p { margin: 0; font-size: 17px; line-height: 1.5; color: var(--pn-ink-2); max-width: 560px; }
+.pn404__btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
+.pn404__btns .pn-btn { height: 44px; padding: 0 20px; }
+@media (max-width: 640px) { .pn404 { flex-direction: column; align-items: flex-start; gap: 28px; padding-top: 48px; padding-bottom: 72px; } .pn404__mark { width: 112px; height: 112px; } }
+
+/* ---------- phone header and menu (WM-SiteMobile) ---------- */
+/* the menu-only rows: beat .pn-nav__links li { display: flex } from pacenote-brand.css */
+.pn-nav__links .pn-nav__extra { display: none; }
+.pn-nav__links a { white-space: nowrap; }
+@media (max-width: 900px) {
+  html[data-brand='pacenote'][data-style] { --header-h: 60px; }
+  .pn-nav { min-height: 60px; gap: 12px; flex-wrap: nowrap; }
+  .pn-nav__tools { gap: 6px; }
+  .pn-nav__tools .pn-langs, .pn-gh { display: none; }
+  .pn-nav__tools .pn-btn { display: inline-flex; height: 34px; padding: 0 14px; }
+  .pn-menu-btn { width: 44px; height: 44px; border: 0; }
+  .pn-nav .pn-lock { --pn-lock: 30px !important; }
+  .pn-nav__links { display: none; position: fixed; z-index: 60; left: 0; right: 0; top: var(--header-h); bottom: 0; overflow-y: auto; overscroll-behavior: contain;
+    background: var(--pn-bg); padding: 8px 20px 32px; flex-direction: column; gap: 0; }
+  .pn-nav[data-open='true'] .pn-nav__links { display: flex; }
+  .pn-nav__links li { display: block; }
+  .pn-nav__links a { min-height: 0; padding: 16px 0; border: 0; border-bottom: 1px solid var(--pn-rule); display: flex; align-items: center; gap: 10px; color: var(--pn-ink);
+    font-family: var(--pn-font-display); font-size: clamp(26px, 8vw, 34px); font-weight: var(--pn-hero-w); letter-spacing: var(--pn-h-2track); text-transform: var(--pn-hero-case); line-height: 1.05; }
+  .pn-nav__links a::before { content: ''; width: 6px; align-self: stretch; background: transparent; flex: none; }
+  .pn-nav__links a[aria-current='page'] { border-left: 0; border-bottom-color: var(--pn-rule); }
+  .pn-nav__links a[aria-current='page']::before { background: var(--pn-tab-on); }
+  .pn-nav__links .pn-nav__dl { display: block; }
+  .pn-nav__links .pn-nav__extra { display: flex; gap: 18px; padding-top: 24px; }
+  .pn-nav__extra a { border: 0 !important; padding: 10px 0 !important; font-family: var(--pn-font-text) !important; font-size: 15px !important; font-weight: 600 !important; text-transform: none !important; letter-spacing: 0 !important; color: var(--pn-ink-2) !important; }
+  .pn-nav__extra a::before { content: none !important; }
+  .pn-nav__extra a[aria-current='true'] { color: var(--pn-ink) !important; }
+  .pn-nav__extra .pn-nav__gh { margin-left: auto; }
+  html.pn-menu-open, html.pn-menu-open body { overflow: hidden; }
+}
+@media (max-width: 380px) { .pn-nav__tools .pn-btn { padding: 0 10px; } }
+/* The phone language row keeps class "lang" (Analytics counts lang_switch by it); undo the generic .lang look. */
+.pn-nav__extra.lang { border: 0; font-family: var(--pn-font-text); font-size: 15px; }
+.pn-nav__extra.lang a { min-width: 0; min-height: 44px; justify-content: flex-start; background: none !important; }
+/* Classic Light: the answer blue on the grey card is 4.19:1; the small labels there take a deeper blue (5.6:1). */
+html[data-brand='pacenote'][data-style='classic'][data-theme='light'] :is(.pn-ans__tag b, .pnl-tip:not(.pnl-tip--amber, .pnl-tip--red, .pnl-tip--empty) .pnl-tip__k) { color: #0058D6; }

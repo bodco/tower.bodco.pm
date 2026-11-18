@@ -1,12 +1,12 @@
 ---
 import Base from './Base.astro';
 import Arrow from '../components/Arrow.astro';
-import GithubLogo from '../components/GithubLogo.astro';
 import LiveTipsVisual from '../components/LiveTipsVisual.astro';
-import Shot from '../components/Shot.astro';
 import PacenoteLanding from '../components/PacenoteLanding.astro';
+import PacenoteTipsWindow from '../components/PacenoteTipsWindow.astro';
 import { t, path, neighbours, LINKS, type Lang } from '../i18n/ui';
 import PN_VERSION from '../data/pacenote-version.json';
+import PN_DOMAIN from '../data/pacenote-domain.json';
 
 interface Props {
   lang: Lang;
@@ -32,9 +32,18 @@ const { prev, next } = neighbours(slug);
 const product = slug === 'pacenote';     // 2026-10-27 (owner): a product hero (title, subtitle, buttons, a picture)
 // 2026-10-28 (owner): Pacenote pages carry the Pacenote brand layer (blue accent, its own icon and favicon).
 const brand = slug === 'pacenote' || slug.startsWith('pacenote-') ? 'pacenote' : undefined;
+// Redesign 0.23.0, block 8c-2 (WS-SiteHome r16, WM-SiteMobile r16): the hero says what Pacenote is in the style's
+// display face, with the highlighted word; the picture is the tips window in HTML, not a screenshot. On a phone the
+// app cannot be installed, so the buttons give way to "Email me the link" (a mailto to yourself, no server).
+const PN_HOME = PN_DOMAIN.origin + (lang === 'uk' ? '/uk/' : '/');
 const P = lang === 'uk'
-  ? { sub: 'Ваш штурман на дзвінках', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork', note: `Безкоштовно, відкритий код · macOS 14.4+, Apple Silicon · версія ${PN_VERSION.version}` }
-  : { sub: 'Your co-driver on calls', mac: 'Download for Mac', skill: 'Skill for Cowork', note: `Free and open source · macOS 14.4+, Apple Silicon · version ${PN_VERSION.version}` };
+  ? { lbl: 'Безкоштовна бета · macOS 14.4+ · Apple Silicon', h1a: 'Ваш ', hi: 'штурман', h1b: ' на дзвінках.', mac: 'Завантажити для Мака', skill: 'Скіл для Cowork',
+      phone: 'Pacenote працює на Маку. Надішліть собі посилання й завантажте його там.', mail: 'Надіслати собі посилання', subj: 'Pacenote для Мака',
+      note: `Безкоштовно, відкритий код · версія ${PN_VERSION.version} · близько 2,5 ГБ із Setup` }
+  : { lbl: 'Free beta · macOS 14.4+ · Apple Silicon', h1a: 'Your ', hi: 'co\u2011driver', h1b: ' on calls.', mac: 'Download for Mac', skill: 'Skill for Cowork',
+      phone: 'Pacenote runs on a Mac. Send yourself the link and download it there.', mail: 'Email me the link', subj: 'Pacenote for Mac',
+      note: `Free and open source · version ${PN_VERSION.version} · about 2.5 GB with Setup` };
+const MAILTO = `mailto:?subject=${encodeURIComponent(P.subj)}&body=${encodeURIComponent(PN_HOME)}`;
 ---
 <Base title={title} description={description ?? lead} brand={brand}
   og={slug === 'dashboard' ? { src: `/dashboard/og-${lang}.png`, alt: title } : undefined}
@@ -60,22 +69,21 @@ const P = lang === 'uk'
     inLanguage: ['en', 'uk'],
   }] : []}>
   {product ? (
-  <section class="page-hero product-hero">
-    <div class="wrap product-hero__in">
-      <div class="product-hero__text">
-        <div class="product-hero__name"><img class="pn-theme--dark" src="/pacenote/icon-dark-128.png" alt="" width="64" height="64" /><img class="pn-theme--light" src="/pacenote/icon-light-128.png" alt="" width="64" height="64" /><h1 class="h1 h1--hero product-hero__wm"><span class="pn-sr">{title}</span><img class="pn-theme--dark" src="/pacenote/wordmark-white.svg" alt="" width="230" height="53" /><img class="pn-theme--light" src="/pacenote/wordmark-ink.svg" alt="" width="230" height="53" /></h1></div>
-        <p class="product-hero__sub">{P.sub}</p>
-        <p class="lead">{lead}</p>
-        <div class="btns btns--one">
-          <a class="btn btn--primary" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>{P.mac} <Arrow /></a>
+  <section class="pn-hero" aria-labelledby="pn-hero-h">
+    <div class="wrap pn-hero__in">
+      <div class="pn-hero__text">
+        <p class="pn-lbl pn-hero__lbl">{P.lbl}</p>
+        <h1 class="pn-hero__h" id="pn-hero-h"><span class="pn-sr">Pacenote. </span>{P.h1a}<span class="pn-hi">{P.hi}</span>{P.h1b}</h1>
+        <p class="pn-hero__lead">{lead}</p>
+        <p class="pn-hero__phone">{P.phone}</p>
+        <div class="pn-hero__btns">
+          <a class="pn-btn pn-btn--lg pn-hero__mac" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>{P.mac}</a>
+          <a class="pn-btn pn-btn--lg pn-btn--ghost pn-hero__mac" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{P.skill}</a>
+          <a class="pn-btn pn-btn--lg pn-btn--ghost pn-hero__mail" href={MAILTO}>{P.mail}</a>
         </div>
-        <p class="hero-alt">
-          <a href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{P.skill}</a>
-          <a href="https://github.com/bodco/live-tips"><GithubLogo /> GitHub</a>
-        </p>
-        <p class="smallprint">{P.note}</p>
+        <p class="pn-hero__ver">{P.note}</p>
       </div>
-      <div class="product-hero__vis"><Shot name={lang === 'uk' ? 'uk-hero' : 'hero'} width={1600} height={1034} eager alt={lang === 'uk' ? 'Pacenote: Home з наступним дзвінком і живий дзвінок з агендою, готовою відповіддю і транскриптом' : 'Pacenote: Home with the next call, and a live call with the agenda, a ready answer and the transcript'} /></div>
+      <PacenoteTipsWindow lang={lang} />
     </div>
   </section>
   ) : (
@@ -135,24 +143,6 @@ const P = lang === 'uk'
   )}
 </Base>
 
-<style>
-  .product-hero__in { display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 72px; }
-  .product-hero__text { flex: 1 1 440px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-  .product-hero__vis { flex: 1 1 380px; min-width: 0; }
-  /* 2026-11-04 (owner): a bigger picture, about 2/3 of the width, reaching a little under the text column. */
-  @media (min-width: 1000px) {
-    .product-hero__in { flex-wrap: nowrap; gap: 0; }
-    .product-hero__text { flex: 0 0 36%; padding-right: 3%; position: relative; z-index: 2; }
-    .product-hero__vis { flex: 0 0 66%; margin-left: -2%; position: relative; z-index: 1; }
-  }
-  .product-hero__name { display: flex; align-items: center; gap: 18px; }
-  .product-hero__name img { border-radius: 14px; }
-  .product-hero__name h1 { margin: 0; }
-  .product-hero__wm img { width: 230px; height: auto; border-radius: 0; }
-  @media (max-width: 720px) { .product-hero__wm img { width: 180px; } }
-  .product-hero__sub { margin: 0; font-size: 24px; line-height: 1.3; color: var(--text); font-weight: 500; }
-  @media (max-width: 720px) { .product-hero__in { padding-top: 40px; padding-bottom: 48px; gap: 36px; } .product-hero__sub { font-size: 20px; } }
-</style>
 
 <script>
   // Copy buttons on every code block, so nobody has to select text by hand.
