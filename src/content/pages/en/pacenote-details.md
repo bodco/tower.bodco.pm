@@ -9,7 +9,7 @@ facts:
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
   - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $14 a month</a>' }
-  - { k: Version, v: "0.22.0" }
+  - { k: Version, v: "0.23.0" }
 ---
 
 | At a glance | |
