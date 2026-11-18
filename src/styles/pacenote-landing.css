@@ -280,3 +280,4 @@ html[data-brand='pacenote'][data-style='broadsheet'][data-theme] .pnl-end .btn--
 @media (prefers-reduced-motion: reduce) {
   .pnl *, .pnl *::before, .pnl *::after { animation: none !important; transition: none !important; }
 }
+.pnl-nowrap { white-space: nowrap; }

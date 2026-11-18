@@ -126,6 +126,9 @@ html[data-brand='pacenote'][data-style] .facts dt { font-family: var(--pn-font-m
 html[data-brand='pacenote'][data-style] .facts dd { color: var(--pn-ink); font-weight: 600; }
 
 html[data-brand='pacenote'][data-style] .page-body { padding-top: 40px; }
+/* a page without a side TOC (compare): start at the same edge as the hero, not a centred 1000 px column from global.css */
+html[data-brand='pacenote'][data-style] .page-body--solo .page-main,
+html[data-brand='pacenote'][data-style] .page-body--solo .toc { max-width: none; margin-left: 0; margin-right: 0; }
 html[data-brand='pacenote'][data-style] .toc { font-family: var(--pn-font-text); }
 html[data-brand='pacenote'][data-style] .toc__sum { font-family: var(--pn-font-mono); font-size: 11px; color: var(--pn-ink-3); }
 html[data-brand='pacenote'][data-style] .toc a { border-left: 3px solid var(--pn-rule); color: var(--pn-ink-2); text-decoration: none; }
