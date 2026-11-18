@@ -4,7 +4,7 @@ import Arrow from '../components/Arrow.astro';
 import LiveTipsVisual from '../components/LiveTipsVisual.astro';
 import PacenoteLanding from '../components/PacenoteLanding.astro';
 import PacenoteTipsWindow from '../components/PacenoteTipsWindow.astro';
-import { t, path, neighbours, LINKS, type Lang } from '../i18n/ui';
+import { t, path, pnHref, neighbours, LINKS, type Lang } from '../i18n/ui';
 import PN_VERSION from '../data/pacenote-version.json';
 import PN_DOMAIN from '../data/pacenote-domain.json';
 
@@ -12,6 +12,7 @@ interface Props {
   lang: Lang;
   slug: string;
   title: string;
+  h1?: string;
   lead: string;
   description?: string;
   facts?: { k: string; v: string }[];
@@ -19,7 +20,7 @@ interface Props {
   parent?: string;
   headings?: { depth: number; slug: string; text: string }[];
 }
-const { lang, slug, title, lead, description, facts = [], doc, parent, headings = [] } = Astro.props;
+const { lang, slug, title, h1, lead, description, facts = [], doc, parent, headings = [] } = Astro.props;
 const docHref = doc ? (doc.startsWith('http') ? doc : LINKS.docs(lang, doc)) : '';
 const docName = doc ? (doc.startsWith('http') ? doc.replace(/^https:\/\/github\.com\/bodco\//, '').replace('/blob/main/', '/') : `docs/${lang}/${doc}`) : '';
 const toc = headings.filter((h) => h.depth === 2);
@@ -77,7 +78,7 @@ const MAILTO = `mailto:?subject=${encodeURIComponent(P.subj)}&body=${encodeURICo
         <p class="pn-hero__lead">{lead}</p>
         <p class="pn-hero__phone">{P.phone}</p>
         <div class="pn-hero__btns">
-          <a class="pn-btn pn-btn--lg pn-hero__mac" href="https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg" download>{P.mac}</a>
+          <a class="pn-btn pn-btn--lg pn-hero__mac" href={pnHref(lang, 'download')}>{P.mac}</a>
           <a class="pn-btn pn-btn--lg pn-btn--ghost pn-hero__mac" href="https://github.com/bodco/live-tips/releases/latest/download/live-tips.skill" download>{P.skill}</a>
           <a class="pn-btn pn-btn--lg pn-btn--ghost pn-hero__mail" href={MAILTO}>{P.mail}</a>
         </div>
@@ -93,7 +94,7 @@ const MAILTO = `mailto:?subject=${encodeURIComponent(P.subj)}&body=${encodeURICo
         {brand
           ? <p class="crumbs"><a href={path(lang, 'pacenote')}>Pacenote</a> / {t(lang, `nav.${slug}` as any)}</p>
           : <p class="crumbs"><a href={path(lang)}>{t(lang, 'home')}</a> / {parent && <><a href={path(lang, parent as any)}>{t(lang, `nav.${parent}` as any)}</a> / </>}{t(lang, `nav.${slug}` as any)}</p>}
-        <h1 class="h1 h1--page">{title}</h1>
+        <h1 class="h1 h1--page">{h1 ?? title}</h1>
         <p class="lead">{lead}</p>
       </div>
       {facts.length > 0 && (

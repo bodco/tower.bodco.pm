@@ -1,9 +1,11 @@
 ---
 title: Ціни Pacenote
-lead: "Застосунок безкоштовний. Платите лише за ШІ: приблизно $7-14 на місяць за 10 дзвінків, або $0 на вашому Маку. Скільки коштує кожен провайдер і як справляється кожна модель."
+h1: Безкоштовно, поки бета. Платите лише за ШІ, яким користуєтесь.
+lead: "Поки Pacenote у беті, кожен план коштує $0, а Solo лишиться безкоштовним і після неї. Транскрипт і запис працюють на вашому Маку і коштують $0; ШІ працює на вашому плані чи ключі Claude, ChatGPT або Gemini чи на моделі на Маку: приблизно $7-14 на місяць за 10 дзвінків, або $0."
+description: "Pacenote безкоштовний, поки бета: плани Solo, Team і Enterprise і скільки коштує ШІ за дзвінок на Claude, OpenAI, Gemini чи вашому Маку."
 parent: pacenote
 facts:
-  - { k: Застосунок, v: "Безкоштовний, відкритий код" }
+  - { k: Плани в беті, v: "$0, Solo лишиться безкоштовним" }
   - { k: Дзвінок на 30 хв, v: "$0.73-1.39 (~)" }
   - { k: 10 дзвінків на місяць, v: "$7-14" }
   - { k: Команда з 10 людей, v: "$73-139 на місяць (~)" }
@@ -11,7 +13,17 @@ facts:
   - { k: Виміряно на реальних дзвінках, v: "9-12 листопада 2026" }
 ---
 
-## Коротко
+## Плани
+
+<div class="pn-plans" role="list">
+<div class="pn-plan" role="listitem"><p class="pn-plan__name">Solo</p><p class="pn-plan__price"><b>$0</b><span>для вас, безкоштовно і після бети</span></p><p class="pn-plan__lead">Усе на вашому Маку, з вашим власним ШІ.</p><ul class="pn-plan__fs"><li>Підказки, Meeting Sheet, нотатки</li><li>Транскрипт і запис на вашому Маку</li><li>500 МБ синхронізації, 12 місяців історії</li></ul><a class="pn-btn pn-btn--ghost pn-plan__btn" href="/uk/pacenote/download/">Завантажити</a></div>
+<div class="pn-plan pn-hot" role="listitem"><p class="pn-plan__name">Team <span class="pn-plan__tag">Бета</span></p><p class="pn-plan__price"><b>$0</b><span>у беті, потім $12 за місце на місяць</span></p><p class="pn-plan__lead">Спільні проєкти й команди, дзвінки синхронізуються для колег.</p><ul class="pn-plan__fs"><li>Усе, що в Solo</li><li>До 25 місць, команди з лідом</li><li>Консоль організації, ролі, політика</li><li>2 ГБ на місце, уся історія</li></ul><a class="pn-btn pn-plan__btn" href="/uk/pacenote/download/">Створити команду в застосунку</a></div>
+<div class="pn-plan" role="listitem"><p class="pn-plan__name">Enterprise <span class="pn-plan__tag">Бета</span></p><p class="pn-plan__price"><b>$0</b><span>у беті, потім $29 за місце на місяць</span></p><p class="pn-plan__lead">Уся компанія, з контекстом проєкту з індексу ваших файлів.</p><ul class="pn-plan__fs"><li>Усе, що в Team</li><li>Скільки завгодно місць, роль C-level</li><li>Індекс файлів для контексту проєкту</li><li>5 ГБ на місце, повна політика</li></ul><a class="pn-btn pn-btn--ghost pn-plan__btn" href="/uk/pacenote/download/">Обрати в застосунку</a></div>
+</div>
+
+<p class="smallprint">Ціни в доларах США, без податків. Платні плани почнуться після бети, з попередженням за 30 днів для всіх у беті; до того кожен план коштує $0. Плани порівнюють і змінюють у Settings > Account > Plan, там же план із командами створює свою організацію. Власний ключ ШІ лишається можливим на кожному плані.</p>
+
+## Скільки коштує ШІ
 
 <div class="tiles pn-price" style="--min: 200px;">
 <div class="card card--tile"><p class="card__tag">Claude API</p><p class="pn-price__big">~$14</p><p class="card__text">на місяць за 10 дзвінків. ~$1.39 за дзвінок. Найкраща якість.</p></div>

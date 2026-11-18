@@ -12,7 +12,7 @@
 // Redesign 0.23.0, block 8c-2 (WS-SiteHome r16): the sections in the site style. The three seconds are two cards side
 // by side (without / with), the phases are three steps with the brand mark instead of screenshot crops, the
 // "only in Pacenote" column, the recommended option and the last call to action use the style's inverted card.
-import type { Lang } from '../i18n/ui';
+import { pnHref, type Lang } from '../i18n/ui';
 import '../styles/pacenote-landing.css';
 import PnMark from './PnMark.astro';
 import PnBars from './PnBars.astro';
@@ -23,7 +23,8 @@ const variant = Astro.props.variant ?? ((process.env.PN_LANDING === 'b' ? 'b' : 
 const uk = lang === 'uk';
 const B = uk ? '/uk/pacenote' : '/pacenote';
 const REPO = 'https://github.com/bodco/live-tips';
-const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
+// 2026-11-18 (Bohdan): the download buttons open the download page, not the .dmg itself.
+const DL = pnHref(uk ? 'uk' : 'en', 'download');
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
 // Ukrainian screenshots exist for these; the rest fall back to English.
 const UK_SHOTS = ['home-092', 'tips', 'tips-wide', 'tips-ready', 'callpage-095', 'live-092', 'hero', 'codriver', 'codriver-wide', 'tips-presentation'];
@@ -279,7 +280,7 @@ const SEAT_MAX = 24;
       </div>
       <p class="pnl-rp__quick pnl-rv">{T.rp.quick}</p>
       <div class="pnl-ctarow pnl-rv">
-        <a class="btn btn--primary" href={DMG} download>{T.rp.cta}</a>
+        <a class="btn btn--primary" href={DL}>{T.rp.cta}</a>
         <span class="pnl-ctarow__under">{T.rp.under}</span>
         <a class="pnl-link" href={`${B}/details/#when-it-speaks`}>{T.rp.how} <span aria-hidden="true">→</span></a>
       </div>
@@ -309,7 +310,7 @@ const SEAT_MAX = 24;
         </ol>
       </div>
       <div class="pnl-ctarow pnl-rv">
-        <a class="btn btn--primary" href={DMG} download>{T.rp.cta}</a>
+        <a class="btn btn--primary" href={DL}>{T.rp.cta}</a>
         <span class="pnl-ctarow__under">{T.rp.under}</span>
       </div>
     </div>
@@ -457,7 +458,7 @@ const SEAT_MAX = 24;
       </div>
       <p class="pnl-small pnl-foot">{T.cFoot} <a href={`${B}/pricing/`}>{T.cLink}</a></p>
       <div class="pnl-ctarow pnl-rv">
-        <a class="btn btn--primary" href={DMG} download>{T.rp.cta}</a>
+        <a class="btn btn--primary" href={DL}>{T.rp.cta}</a>
         <span class="pnl-ctarow__under">{T.rp.under}</span>
       </div>
     </div>
@@ -482,7 +483,7 @@ const SEAT_MAX = 24;
           <p class="pnl-lead">{T.end.sub}</p>
         </div>
         <div class="pnl-end__act">
-          <a class="btn btn--primary pnl-btn-lg" href={DMG} download>{T.end.btn}</a>
+          <a class="btn btn--primary pnl-btn-lg" href={DL}>{T.end.btn}</a>
           <p class="pnl-ctarow__under">{T.end.under}</p>
           <p class="pnl-small">{T.end.first} <a class="pnl-nowrap" href={`${REPO}/releases/latest/download/SHA256SUMS.txt`}>SHA-256</a></p>
           <p class="pnl-small">{T.end.it}</p>

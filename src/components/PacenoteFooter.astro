@@ -8,7 +8,6 @@ import { getLangFromUrl, pnHref } from '../i18n/ui';
 
 const lang = getLangFromUrl(Astro.url);
 const REPO = 'https://github.com/bodco/live-tips';
-const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
 const T = lang === 'uk'
   ? {
@@ -58,7 +57,7 @@ const TOWER = lang === 'uk' ? 'https://tower.bodco.pm/uk/' : 'https://tower.bodc
     <div class="pn-foot__get">
       <span class="pn-foot__lbl">{T.get}</span>
       <span>{T.ver}</span>
-      <a class="pn-btn" href={DMG} download>{T.dmg}</a>
+      <a class="pn-btn" href={pnHref(lang, 'download')}>{T.dmg}</a>
     </div>
   </div>
 </footer>

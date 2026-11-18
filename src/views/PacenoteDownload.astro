@@ -1,0 +1,127 @@
+---
+// 2026-11-18 (Bohdan, 0.23.0): the download page of pacenote.bodco.pm (WP-SitePages r16, rows 2-3). Every Download
+// button of the site opens it. The version, size, date and file come from /appcast.xml (the feed the app updates from,
+// same origin, so the CSP's connect-src 'self' allows it; no GitHub API). Until the feed answers the brand spinner says
+// "Getting the latest version…"; without the script, or when the feed fails, the button is the static latest .dmg with
+// the version of this build. On a phone, where Pacenote cannot be installed, "Email me the link" (as in the home hero).
+import Base from '../layouts/Base.astro';
+import PnMark from '../components/PnMark.astro';
+import PN_VERSION from '../data/pacenote-version.json';
+import PN_DOMAIN from '../data/pacenote-domain.json';
+import { pnHref, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const uk = lang === 'uk';
+const REPO = 'https://github.com/bodco/live-tips';
+const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
+const SUMS = `${REPO}/releases/latest/download/SHA256SUMS.txt`;
+const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
+const PAGE = PN_DOMAIN.origin + (uk ? '/uk/download/' : '/download/');
+const T = uk
+  ? {
+      title: 'Завантажити Pacenote для Мака',
+      desc: 'Остання версія Pacenote для Мака: файл .dmg, кроки встановлення, що потрібно і контрольна сума SHA-256. Безкоштовна бета для Apple Silicon, macOS 14.4+.',
+      lbl: 'Завантаження', h: 'Pacenote для Мака', busy: 'Отримуємо останню версію…', btn: 'Завантажити', ver: 'версія', beta: 'бета',
+      phone: 'Pacenote працює на Маку. Надішліть собі посилання й завантажте його там.', mail: 'Надіслати собі посилання', subj: 'Pacenote для Мака',
+      steps: [
+        ['Відкрийте файл', ' з теки Downloads.'],
+        ['Перетягніть Pacenote в Applications', 'Далі він оновлюється сам, ця сторінка більше не знадобиться.'],
+        ['Першого разу: Open Anyway', 'Бета ще не нотаризована. System Settings > Privacy & Security > Open Anyway.'],
+        ['Решту робить Setup', 'Моделі мовлення і рушій, близько 2,5 ГБ. Для початку досить календаря й одного документа чи теки.'],
+      ],
+      need: 'Що потрібно',
+      req: [['Мак', 'Apple Silicon (M1 і новіші)'], ['macOS', '14.4 Sonoma і новіші'], ['Диск', 'близько 3 ГБ'], ['ШІ', 'Claude, ChatGPT, Gemini чи локальний'], ['Дзвінки', 'Meet, Zoom, Teams, будь-який застосунок']],
+      sum: 'Звірте файл із', sumLink: 'контрольними сумами SHA-256', skill: 'Або візьміть Pacenote як скіл для Cowork →',
+      mb: 'МБ', locale: 'uk-UA',
+    }
+  : {
+      title: 'Download Pacenote for Mac',
+      desc: 'The latest Pacenote for Mac: the .dmg, the steps to install it, what you need and the SHA-256 checksum. Free beta for Apple Silicon, macOS 14.4+.',
+      lbl: 'Download', h: 'Pacenote for Mac', busy: 'Getting the latest version…', btn: 'Download', ver: 'version', beta: 'beta',
+      phone: 'Pacenote runs on a Mac. Send yourself the link and download it there.', mail: 'Email me the link', subj: 'Pacenote for Mac',
+      steps: [
+        ['Open the file', ' from your Downloads.'],
+        ['Drag Pacenote to Applications', 'It updates itself after that; you do not need this page again.'],
+        ['The first time: Open Anyway', 'The beta is not notarized yet. System Settings > Privacy & Security > Open Anyway.'],
+        ['Setup does the rest', 'Speech models and the engine, about 2.5 GB. A calendar and one doc or folder are enough to start.'],
+      ],
+      need: 'What you need',
+      req: [['Mac', 'Apple Silicon (M1 or later)'], ['macOS', '14.4 Sonoma or later'], ['Disk', 'about 3 GB'], ['AI', 'Claude, ChatGPT, Gemini or local'], ['Calls', 'Meet, Zoom, Teams, any app']],
+      sum: 'Check the file with the', sumLink: 'SHA-256 checksums', skill: 'Or use Pacenote as a Cowork skill →',
+      mb: 'MB', locale: 'en-US',
+    };
+const MAILTO = `mailto:?subject=${encodeURIComponent(T.subj)}&body=${encodeURIComponent(PAGE)}`;
+---
+<Base title={T.title} description={T.desc} brand="pacenote">
+  <section class="wrap pn-dl" aria-labelledby="pn-dl-h" data-lang={lang} data-mb={T.mb} data-locale={T.locale} data-btn={T.btn} data-ver={T.ver} data-beta={T.beta}>
+    <script is:inline>(function () { var s = document.currentScript.parentElement; if (window.fetch && window.DOMParser && window.Promise) { s.classList.add('is-busy'); setTimeout(function () { s.classList.remove('is-busy'); }, 6000); } })();</script>
+    <div class="pn-dl__main">
+      <p class="pn-lbl pn-dl__lbl"><a href={pnHref(lang)}>Pacenote</a> / {T.lbl}</p>
+      <h1 class="pn-dl__h" id="pn-dl-h">{T.h}</h1>
+      <div class="pn-dl__get" aria-live="polite">
+        <span class="pn-dl__busy"><PnMark kind="spin" size={24} />{T.busy}</span>
+        <span class="pn-dl__ready">
+          <a class="pn-btn pn-btn--lg" id="pn-dl-btn" href={DMG} download>{T.btn} {PN_VERSION.version}</a>
+          <span class="pn-dl__meta" id="pn-dl-meta">Pacenote.dmg · {T.ver} {PN_VERSION.version} · {T.beta}</span>
+        </span>
+      </div>
+      <p class="pn-dl__phone">{T.phone}</p>
+      <a class="pn-btn pn-btn--lg pn-btn--ghost pn-dl__mail" href={MAILTO}>{T.mail}</a>
+      <ol class="pn-dl__steps">
+        {T.steps.map(([h, p], i) => (
+          <li><span class="pn-dl__n" aria-hidden="true">{i + 1}</span><span class="pn-dl__t"><b>{h}</b>{i === 0 ? <span class="pn-dl__p"><code class="pn-dl__file">Pacenote.dmg</code>{p}</span> : <span class="pn-dl__p">{p}</span>}</span></li>
+        ))}
+      </ol>
+    </div>
+    <aside class="pn-dl__req" aria-labelledby="pn-dl-need">
+      <p class="pn-lbl" id="pn-dl-need">{T.need}</p>
+      <dl>
+        {T.req.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+      </dl>
+      <p class="pn-dl__sum">{T.sum} <a id="pn-dl-sums" href={SUMS}>{T.sumLink}</a>: <code>shasum -a 256 ~/Downloads/<span class="pn-dl__file">Pacenote.dmg</span></code></p>
+      <a class="pn-dl__skill" href={SKILL} download>{T.skill}</a>
+    </aside>
+  </section>
+</Base>
+
+<script>
+  // The latest version from the update feed. Only a GitHub release asset of this repo is used as the link.
+  const sec = document.querySelector<HTMLElement>('.pn-dl');
+  const REL = 'https://github.com/bodco/live-tips/releases/download/';
+  const SP = 'http://www.andymatuschak.org/xml-namespaces/sparkle';
+  const done = () => sec?.classList.remove('is-busy');
+  async function latest() {
+    if (!sec) return;
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 4000);
+    try {
+      const res = await fetch('/appcast.xml', { signal: ctl.signal, cache: 'no-cache' });
+      if (!res.ok) return;
+      const xml = new DOMParser().parseFromString(await res.text(), 'application/xml');
+      const item = xml.querySelector('item');
+      const enc = item?.querySelector('enclosure');
+      const ver = item?.getElementsByTagNameNS(SP, 'shortVersionString')[0]?.textContent?.trim() ?? '';
+      const url = enc?.getAttribute('url') ?? '';
+      if (!/^\d+\.\d+(\.\d+)?$/.test(ver) || !url.startsWith(REL) || !/\.dmg$/i.test(url)) return;
+      const file = url.split('/').pop() ?? 'Pacenote.dmg';
+      const d = sec.dataset;
+      const parts = [file];
+      const bytes = Number(enc?.getAttribute('length'));
+      if (bytes > 0) parts.push(`${(bytes / 1e6).toLocaleString(d.locale, { maximumFractionDigits: 1 })} ${d.mb}`);
+      const when = new Date(item?.querySelector('pubDate')?.textContent ?? '');
+      if (!isNaN(when.getTime())) parts.push(when.toLocaleDateString(d.locale, { day: 'numeric', month: 'short', year: 'numeric' }));
+      const btn = document.getElementById('pn-dl-btn') as HTMLAnchorElement | null;
+      if (btn) { btn.href = url; btn.textContent = `${d.btn} ${ver}`; }
+      const meta = document.getElementById('pn-dl-meta');
+      if (meta) meta.textContent = parts.join(' · ');
+      const sums = document.getElementById('pn-dl-sums') as HTMLAnchorElement | null;
+      if (sums) sums.href = url.replace(/[^/]+$/, 'SHA256SUMS.txt');
+      document.querySelectorAll('.pn-dl__file').forEach((el) => { el.textContent = file; });
+    } catch { /* keep the static link */ } finally {
+      clearTimeout(timer);
+      done();
+    }
+  }
+  latest();
+</script>

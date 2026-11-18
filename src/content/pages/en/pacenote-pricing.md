@@ -1,9 +1,11 @@
 ---
 title: Pacenote pricing
-lead: "The app is free. You pay only for the AI: about $7 to $14 a month for 10 calls, or $0 on your own Mac. What each provider costs and how well each model does."
+h1: Free while in beta. You pay only for the AI you use.
+lead: "Every plan is $0 while Pacenote is in beta, and Solo stays free after it. Transcript and recording run on your Mac and cost $0; the AI runs on your Claude, ChatGPT or Gemini plan or key, or on a model on your Mac: about $7 to $14 a month for 10 calls, or $0."
+description: "Pacenote is free while in beta: Solo, Team and Enterprise plans, and what the AI costs per call on Claude, OpenAI, Gemini or your own Mac."
 parent: pacenote
 facts:
-  - { k: The app, v: "Free, open source" }
+  - { k: Plans in beta, v: "$0, Solo stays free" }
   - { k: One 30-min call, v: "$0.73 to ~$1.39" }
   - { k: 10 calls a month, v: "$7 to $14" }
   - { k: Team of 10, v: "$73 to ~$139 a month" }
@@ -11,7 +13,17 @@ facts:
   - { k: Measured on real calls, v: "9-12 November 2026" }
 ---
 
-## In short
+## Plans
+
+<div class="pn-plans" role="list">
+<div class="pn-plan" role="listitem"><p class="pn-plan__name">Solo</p><p class="pn-plan__price"><b>$0</b><span>for you, free after the beta too</span></p><p class="pn-plan__lead">Everything on your Mac, with your own AI.</p><ul class="pn-plan__fs"><li>Tips, Meeting Sheet, notes</li><li>Transcript and recording on your Mac</li><li>500 MB synced, 12 months of history</li></ul><a class="pn-btn pn-btn--ghost pn-plan__btn" href="/pacenote/download/">Download</a></div>
+<div class="pn-plan pn-hot" role="listitem"><p class="pn-plan__name">Team <span class="pn-plan__tag">Beta</span></p><p class="pn-plan__price"><b>$0</b><span>in beta, then $12 a seat a month</span></p><p class="pn-plan__lead">Shared projects and teams, calls synced for colleagues.</p><ul class="pn-plan__fs"><li>Everything in Solo</li><li>Up to 25 seats, teams with a lead</li><li>Organization console, roles, policy</li><li>2 GB a seat synced, the whole history</li></ul><a class="pn-btn pn-plan__btn" href="/pacenote/download/">Start a team in the app</a></div>
+<div class="pn-plan" role="listitem"><p class="pn-plan__name">Enterprise <span class="pn-plan__tag">Beta</span></p><p class="pn-plan__price"><b>$0</b><span>in beta, then $29 a seat a month</span></p><p class="pn-plan__lead">The whole company, with project context from an index of your files.</p><ul class="pn-plan__fs"><li>Everything in Team</li><li>Any number of seats, a C-level role</li><li>The file index for project context</li><li>5 GB a seat synced, the full policy</li></ul><a class="pn-btn pn-btn--ghost pn-plan__btn" href="/pacenote/download/">Choose it in the app</a></div>
+</div>
+
+<p class="smallprint">Prices in USD, before tax. Paid plans start after the beta, with 30 days' notice to everyone in the beta; until then every plan is $0. You compare and switch plans in Settings > Account > Plan, and a plan with teams starts its organization there. Your own AI key stays an option on every plan.</p>
+
+## What the AI costs
 
 <div class="tiles pn-price" style="--min: 200px;">
 <div class="card card--tile"><p class="card__tag">Claude API</p><p class="pn-price__big">~$14</p><p class="card__text">a month for 10 calls. ~$1.39 a call. The best quality.</p></div>

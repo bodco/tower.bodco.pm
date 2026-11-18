@@ -230,3 +230,71 @@ html[data-brand='pacenote'][data-style] .ltshot__img { border-radius: var(--pn-r
 .pn-nav__extra.lang a { min-width: 0; min-height: 44px; justify-content: flex-start; background: none !important; }
 /* Classic Light: the answer blue on the grey card is 4.19:1; the small labels there take a deeper blue (5.6:1). */
 html[data-brand='pacenote'][data-style='classic'][data-theme='light'] :is(.pn-ans__tag b, .pnl-tip:not(.pnl-tip--amber, .pnl-tip--red, .pnl-tip--empty) .pnl-tip__k) { color: #0058D6; }
+
+/* ---------- Pricing: the plans (WP-SitePages r16, row 1; facts from the server's plan catalog, migration 0014) ---------- */
+.pn-plans { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin: 8px 0 4px; }
+.pn-plan { display: flex; flex-direction: column; gap: 12px; padding: 24px; background: var(--pn-surface); color: var(--pn-ink);
+  border: var(--pn-bw) solid var(--pn-rule); border-radius: var(--pn-r); min-width: 0; }
+html[data-brand='pacenote'][data-style='classic'] .pn-plan.pn-hot { border-color: var(--pn-accent) !important; }
+.prose .pn-plan p { margin: 0; }
+.pn-plan__name { display: flex; align-items: center; gap: 10px; font-family: var(--pn-font-display); font-size: 26px; font-weight: var(--pn-hero-w);
+  letter-spacing: var(--pn-i-track); text-transform: var(--pn-caps); color: var(--pn-ink); line-height: 1.1; }
+.pn-plan__tag { font-family: var(--pn-font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; padding: 2px 6px;
+  border-radius: var(--pn-rf); background: var(--pn-btn-bg); color: var(--pn-btn-fg); }
+.pn-hot .pn-plan__tag { background: var(--h-fg); color: var(--h-bg); }
+.pn-plan__price { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+.prose .pn-plan__price b { font-family: var(--pn-font-display); font-size: 56px; font-weight: var(--pn-hero-w); line-height: 1; letter-spacing: var(--pn-d-track); color: var(--pn-ink); font-variant-numeric: tabular-nums; }
+.pn-plan__price span { font-size: 14px; color: var(--pn-ink-3); }
+.pn-plan__lead { font-size: 15px; line-height: 1.45; color: var(--pn-ink-2); min-height: 44px; }
+.prose ul.pn-plan__fs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.prose .pn-plan__fs li { margin: 0; padding: 8px 0 0; margin-top: 8px; border-top: 1px solid var(--pn-rule); display: flex; gap: 10px; font-size: 14px; color: var(--pn-ink); }
+.prose .pn-plan__fs li:first-child { margin-top: 0; }
+.prose .pn-plan__fs li::before { content: '✓'; flex: none; font-weight: 800; color: var(--pn-accent); background: none; position: static; width: auto; height: auto; }
+.pn-hot .pn-plan__fs li::before { color: var(--h-mk); }
+.pn-plan__btn { margin-top: auto; height: 44px; width: 100%; }
+.prose a.pn-plan__btn { text-decoration: none; }
+html[data-brand='pacenote'][data-style='roadbook'] .pn-hot .pn-plan__btn,
+html[data-brand='pacenote'][data-style='broadsheet'] .pn-hot .pn-plan__btn { background: var(--h-fg); color: var(--h-bg) !important; }
+@media (max-width: 900px) { .pn-plans { grid-template-columns: minmax(0, 1fr); } .pn-plan__lead { min-height: 0; } }
+
+/* ---------- Download (WP-SitePages r16, rows 2-3) ---------- */
+.pn-dl { display: grid; grid-template-columns: minmax(0, 1fr) 440px; gap: 56px; align-items: start; padding-top: 64px; padding-bottom: 72px; }
+.pn-dl__main { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.pn-dl__lbl { color: var(--pn-answer); }
+.pn-dl__lbl a { color: var(--pn-ink-3); text-decoration: none; }
+.pn-dl__lbl a:hover { color: var(--pn-ink); }
+.pn-dl__h { margin: 0; font-family: var(--pn-font-display); font-size: clamp(40px, 6vw, var(--pn-h-2size)); font-weight: var(--pn-hero-w); letter-spacing: var(--pn-h-2track);
+  text-transform: var(--pn-hero-case); line-height: 1; color: var(--pn-ink); }
+.pn-dl__get { display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; min-height: 52px; }
+.pn-dl__busy { display: none; align-items: center; gap: 12px; font-size: 16px; color: var(--pn-ink-2); }
+.pn-dl__ready { display: contents; }
+.pn-dl.is-busy .pn-dl__busy { display: flex; }
+.pn-dl.is-busy .pn-dl__ready { display: none; }
+.pn-dl__meta { font-family: var(--pn-font-mono); font-size: 12px; color: var(--pn-ink-3); }
+.pn-dl__phone, .pn-dl__mail { display: none !important; }
+.pn-dl__steps { margin: 12px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; }
+.pn-dl__steps li { border-top: 1px solid var(--pn-rule); padding: 14px 0; display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 8px; }
+.pn-dl__n { font-family: var(--pn-font-display); font-size: 26px; font-weight: var(--pn-hero-w); line-height: 1; color: var(--pn-ink-3); }
+.pn-dl__steps b { display: block; font-size: 16px; color: var(--pn-ink); }
+.pn-dl__t { display: flex; flex-direction: column; gap: 4px; }
+.pn-dl__p { font-size: 14px; line-height: 1.45; color: var(--pn-ink-2); }
+.pn-dl__p code { font-family: var(--pn-font-mono); font-size: 13px; color: var(--pn-ink); }
+.pn-dl__req { background: var(--pn-surface); border: var(--pn-bw) solid var(--pn-card-bd); border-radius: var(--pn-r); padding: 22px; display: flex; flex-direction: column; gap: 4px; }
+.pn-dl__req .pn-lbl { padding-bottom: 8px; }
+.pn-dl__req dl { margin: 0; }
+.pn-dl__req dl div { border-top: 1px solid var(--pn-rule); padding: 9px 0; display: flex; gap: 12px; font-size: 14px; }
+.pn-dl__req dt { color: var(--pn-ink-2); }
+.pn-dl__req dd { margin: 0 0 0 auto; font-weight: 600; text-align: right; color: var(--pn-ink); }
+.pn-dl__sum { margin: 0; padding-top: 10px; font-size: 13px; line-height: 1.5; color: var(--pn-ink-3); }
+.pn-dl__sum code { font-family: var(--pn-font-mono); font-size: 11px; word-break: break-all; color: var(--pn-ink-2); }
+.pn-dl__sum a, .pn-dl__skill { color: var(--pn-link); font-weight: 600; }
+.pn-dl__skill { padding-top: 6px; font-size: 14px; text-decoration: none; }
+.pn-dl__skill:hover { text-decoration: underline; }
+@media (max-width: 1000px) { .pn-dl { grid-template-columns: minmax(0, 1fr); gap: 40px; } }
+/* A phone: Pacenote is Mac-only, so the download gives way to "Email me the link" (as in the home hero). */
+@media (max-width: 640px) {
+  .pn-dl { padding-top: 32px; padding-bottom: 48px; gap: 28px; }
+  .pn-dl__get { display: none !important; }
+  .pn-dl__phone { display: block !important; margin: 0; font-size: 14px; line-height: 1.45; padding: 12px 14px; background: var(--pn-surface-2); border-radius: var(--pn-r); color: var(--pn-ink); }
+  .pn-dl__mail { display: inline-flex !important; width: 100%; height: 50px; }
+}

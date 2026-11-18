@@ -14,7 +14,8 @@ const lang = getLangFromUrl(Astro.url);
 const is404 = Astro.url.pathname.startsWith('/pn404');
 // 'pricing' for /pacenote/pricing/ and /uk/pacenote/pricing/, '' for the product page.
 const sub = Astro.url.pathname.split('/').filter(Boolean).filter((s) => s !== 'uk' && s !== 'pacenote')[0] ?? '';
-const DMG = 'https://github.com/bodco/live-tips/releases/latest/download/Pacenote.dmg';
+// 2026-11-18 (Bohdan): Download opens the download page (version, steps, requirements), not the .dmg itself.
+const DL = pnHref(lang, 'download');
 const REPO = 'https://github.com/bodco/live-tips';
 const T = lang === 'uk'
   ? { overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', compare: 'Порівняння', dl: 'Завантажити', menu: 'Меню', langLabel: 'Мова', home: 'Pacenote, головна' }
@@ -36,7 +37,7 @@ const LANG_NAME: Record<Lang, string> = { en: 'English', uk: 'Українськ
       {links.map((l) => (
         <li><a href={pnHref(lang, l.sub)} aria-current={!is404 && sub === l.sub ? 'page' : undefined}>{l.label}</a></li>
       ))}
-      <li class="pn-nav__dl"><a href={DMG} download>{T.dl}</a></li>
+      <li class="pn-nav__dl"><a href={DL} aria-current={sub === 'download' ? 'page' : undefined}>{T.dl}</a></li>
       {/* 8c-2 (WM-SiteMobile): on a phone the menu also carries the languages by name and GitHub. */}
       <li class="pn-nav__extra lang">
         {langs.map((l) => <a href={langHref(l)} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{LANG_NAME[l]}</a>)}
@@ -50,7 +51,7 @@ const LANG_NAME: Record<Lang, string> = { en: 'English', uk: 'Українськ
         ))}
       </div>
       <a class="pn-gh" href={REPO}>GitHub</a>
-      <a class="pn-btn" href={DMG} download>{T.dl}</a>
+      <a class="pn-btn" href={DL}>{T.dl}</a>
       <button class="pn-menu-btn menu-btn" type="button" aria-controls="nav-links" aria-expanded="false" aria-label={T.menu}>
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>

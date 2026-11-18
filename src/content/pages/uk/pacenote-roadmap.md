@@ -4,7 +4,7 @@ lead: "Звідки Pacenote прийшов і куди йде: що вже ви
 parent: pacenote
 facts:
   - { k: Поточна версія, v: "0.22.0, бета" }
-  - { k: Оновлено, v: "17 листопада 2026" }
+  - { k: Оновлено, v: "18 листопада 2026" }
   - { k: Плани в беті, v: "Усі безкоштовні" }
   - { k: Список змін, v: "Changelog на GitHub" }
 ---
@@ -19,8 +19,10 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.14-0.16</span><span class="rm-stop__name">Редизайн і оновлення</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.17</span><span class="rm-stop__name">Організації</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.19</span><span class="rm-stop__name">Плани в застосунку</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Команди глибше</span></div>
-<div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Далі</span><span class="rm-stop__name">Вхід через email і безпека</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.20-0.22</span><span class="rm-stop__name">Дзвінки команди, продажі, вхід через email</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.23</span><span class="rm-stop__name">Три вигляди</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Нові розкладки екранів</span></div>
+<div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Далі</span><span class="rm-stop__name">Двофакторний вхід і листи</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Пізніше</span><span class="rm-stop__name">Платні плани і мобільний</span></div>
 </div>
 
@@ -31,13 +33,14 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Зараз</p>
-<div class="rm-item"><h3>Командні дзвінки глибше</h3><p>Спільний список дзвінків команди, пошук по них і аналіз дзвінків для лідів команд.</p></div>
-<div class="rm-item"><h3>Більше інструментів для продажів</h3><p>Більше методів кваліфікації поруч із BANT, заперечення і відповіді, конкуренти, карта стейкхолдерів, наступний крок з датою.</p></div>
+<div class="rm-item"><h3>Нові розкладки екранів (0.24)</h3><p>Home, сторінки дзвінків, Meeting Sheet, Трекер, Налаштування й онбординг переходять на новий дизайн, екран за екраном, в усіх трьох стилях.</p></div>
 <div class="rm-item"><h3>Кращі брифи і підказки</h3><p>Кожен дзвінок розбираємо після завершення: які підказки допомогли, які були шумом, що пропущено. Звідси змінюються промпти.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Далі</p>
-<div class="rm-item"><h3>Вхід через email</h3><p>Email і пароль поруч із Google, потім двофакторний вхід з будь-яким застосунком-автентифікатором.</p></div>
+<div class="rm-item"><h3>Двофакторний вхід</h3><p>Код з будь-якого застосунку-автентифікатора, резервні коди і політика організації, яка робить його обовʼязковим. Touch ID або код доступу під час входу.</p></div>
+<div class="rm-item"><h3>Вхід через email у консолі і службові листи</h3><p>Вхід у веб-консоль з email і паролем. Листи для запрошень, входу з нового пристрою і відновлення двофакторного входу.</p></div>
+<div class="rm-item"><h3>Аналіз дзвінка за стандартом</h3><p>Пресети за типом команди (Sales, PM, Recruiting та інші), шаблон оцінки для кожного виду дзвінка, оцінка після дзвінка і огляд для лідів команд.</p></div>
 <div class="rm-item"><h3>Посилення безпеки</h3><p>Виправлення з нашої власної перевірки безпеки застосунку і каналу оновлень, до того як командна версія виросте.</p></div>
 <div class="rm-item"><h3>Підпис і нотаризація Apple</h3><p>Без "Open Anyway" при першому запуску і без запиту Keychain після оновлення.</p></div>
 </div>
@@ -46,12 +49,15 @@ facts:
 <div class="rm-item"><h3>Живі підказки без власного ключа</h3><p>Години підказок у плані, з докупівлею. Власний ключ AI лишається варіантом на будь-якому плані.</p></div>
 <div class="rm-item"><h3>Платні плани</h3><p>Оплата після бети, з попередженням за 30 днів усім учасникам бети. Solo лишається безкоштовним.</p></div>
 <div class="rm-item"><h3>На телефоні</h3><p>Вебзастосунок для телефона: календар, Meeting Sheet, нотатки після дзвінка, задачі.</p></div>
+<div class="rm-item"><h3>Посилання на завантаження листом</h3><p>На телефоні сайт сам надішле вам посилання, щойно запрацює наша сервісна пошта. Поки що він відкриває вашу пошту з готовим посиланням.</p></div>
 </div>
 </div>
 
 ## Що вже випущено
 
 <ol class="rm-log">
+<li><span class="rm-log__when">18 лист · 0.23</span><b>Три вигляди.</b> Classic, Roadbook і Broadsheet, кожен світлий чи темний, у Settings > General > Appearance. Нова марка Pacenote і рух, вікно підказок показує стан у стилі, а вікно і плашка повідомляють про нову версію. На сайті: плани на сторінці Ціни і сторінка Завантаження.</li>
+<li><span class="rm-log__when">17-18 лист · 0.20-0.22</span><b>Дзвінки команди, продажі, вхід через email.</b> Вкладка Team для лідів команд, більше методів продажу і блоки угоди, автор промови для презентації і вхід з email і паролем поруч із Google. Тепер потрібен акаунт.</li>
 <li><span class="rm-log__when">17 лист · 0.19</span><b>Плани в застосунку.</b> Порівняння планів і зміна плану організації в Settings, команда з Solo одним кроком, пробний період на кожному плані, власне використання за останні 30 днів, сторінка Console для кожного, хто ввійшов. Продуктова аналітика, яку можна вимкнути: екрани, помилки за кодами і швидкодія, ніколи не те, що сказано в дзвінку. Дзвінок із записом сам зупиняється, коли мітинг закінчився.</li>
 <li><span class="rm-log__when">16-17 лист · 0.17</span><b>Організації.</b> Запрошення, команди з лідом, приватні дзвінки, проєкти організації зі спільними рішеннями, задачами і ризиками, консоль адміністратора в застосунку.</li>
 <li><span class="rm-log__when">15-16 лист · 0.14-0.16</span><b>Спокійніший застосунок.</b> Новий Get Ready, Settings групами з пошуком, онбординг з вибором, що встановити, додатки можна видалити, автоматичні оновлення і "Що нового".</li>
