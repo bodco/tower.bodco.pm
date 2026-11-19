@@ -6,6 +6,16 @@
     <description>Pacenote updates</description>
     <language>en</language>
     <item>
+      <title>Pacenote 0.26.0</title>
+      <pubDate>Thu, 19 Nov 2026 14:44:22 GMT</pubDate>
+      <sparkle:version>267</sparkle:version>
+      <sparkle:shortVersionString>0.26.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.26.0</sparkle:releaseNotesLink>
+      <description><![CDATA[]]></description>
+      <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.26.0/Pacenote-0.26.0-beta.dmg" length="19487367" type="application/octet-stream" sparkle:edSignature="HfZxIHIkQ3BeUIs2NcuQPuYWpLqfjeW9gmW53b3qP2zxfxvTpT22IvdA4z4UrmQ1Qj3gEDgstXXxS82gGmmUBg=="/>
+    </item>
+    <item>
       <title>Pacenote 0.25.0</title>
       <pubDate>Thu, 19 Nov 2026 10:46:09 GMT</pubDate>
       <sparkle:version>266</sparkle:version>
@@ -94,16 +104,6 @@
       <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.17.1</sparkle:releaseNotesLink>
       <description><![CDATA[]]></description>
       <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.17.1/Pacenote-0.17.1-beta.dmg" length="12866336" type="application/octet-stream" sparkle:edSignature="H3NtbPVJ0wNPDZ13yc2E7FiJ5ZEJaM9175JLoat4ugfiwB4n4lKGdUS5SCyb4g9b61snqUOyVWXrWgWzadi9Aw=="/>
-    </item>
-    <item>
-      <title>Pacenote 0.17.0</title>
-      <pubDate>Mon, 16 Nov 2026 21:58:13 GMT</pubDate>
-      <sparkle:version>257</sparkle:version>
-      <sparkle:shortVersionString>0.17.0</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
-      <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.17.0</sparkle:releaseNotesLink>
-      <description><![CDATA[<ul><li>Organizations in the app (2026-11-16, B6b, server 0.6.0): invites show on Home and in Settings &gt; Account</li><li>Who sees a call, private calls (2026-11-16, B6b): the call page and the Meeting Sheet say &quot;Visible to your team</li><li>Move a project (2026-11-16): a project&#x27;s page moves it with its calls to another of your organizations or back</li><li>Organization projects (2026-11-16, D38, Enterprise): a project&#x27;s page links it to an organization project you</li><li>Colleagues&#x27; changes to decisions, tasks and risks survive the next sync (2026-11-16, D40, server 0.7.0): every</li><li>Colleagues&#x27; changes come back to your Mac (2026-11-16, D40, server 0.7.0): when someone on the same organization</li><li>Shared organization project card (2026-11-16, D40, server 0.7.0): a project linked to an organization project</li><li>Colleagues&#x27; decisions, tasks and risks in the Tracker (2026-11-16, D40, server 0.7.0): for a project linked to</li><li>Set up an organization (2026-11-16, D39): after the upgrade the owner gets &quot;Acme is ready. Set it up&quot; on Home</li><li>New project (2026-11-16, D39): Settings &gt; Projects &gt; Add &gt; New project... is a short window: the name and</li><li>Sample project (2026-11-16, D39): the first start makes a &quot;Sample project&quot; with a made-up client, three people,</li><li>Small fixes (2026-11-16, organizations smoke test): the Join window&#x27;s own button no longer has &quot;...&quot;; coming back</li></ul>]]></description>
-      <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.17.0/Pacenote-0.17.0-beta.dmg" length="12863524" type="application/octet-stream" sparkle:edSignature="jYJov6heZKNqwvz4tcEEgM4S+DXVN/dYQc25GSV1KV2qodaKmPmboX3r8Pe1LY60V/VckDa9yNeyOK0gvcaRBA=="/>
     </item>
   </channel>
 </rss>
