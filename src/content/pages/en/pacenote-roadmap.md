@@ -3,7 +3,7 @@ title: Pacenote roadmap
 lead: "Where Pacenote has been and where it is going: what shipped, what we build now, what comes next. Updated with every release."
 parent: pacenote
 facts:
-  - { k: Current version, v: "0.26.1, beta" }
+  - { k: Current version, v: "0.26.2, beta" }
   - { k: Updated, v: "18 November 2026" }
   - { k: Plans during the beta, v: "All free" }
   - { k: Release notes, v: "Changelog on GitHub" }
