@@ -4,7 +4,7 @@ lead: "Звідки Pacenote прийшов і куди йде: що вже ви
 parent: pacenote
 facts:
   - { k: Поточна версія, v: "0.26.4, бета" }
-  - { k: Оновлено, v: "18 листопада 2026" }
+  - { k: Оновлено, v: "20 листопада 2026" }
   - { k: Плани в беті, v: "Усі безкоштовні" }
   - { k: Список змін, v: "Changelog на GitHub" }
 ---
@@ -21,7 +21,9 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.19</span><span class="rm-stop__name">Плани в застосунку</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.20-0.22</span><span class="rm-stop__name">Дзвінки команди, продажі, вхід через email</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.23</span><span class="rm-stop__name">Три вигляди</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Нові розкладки екранів</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.24-0.25</span><span class="rm-stop__name">Нові розкладки екранів</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.26</span><span class="rm-stop__name">Notion і папки дзвінків</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Мова дзвінка</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Далі</span><span class="rm-stop__name">Двофакторний вхід і листи</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Пізніше</span><span class="rm-stop__name">Платні плани і мобільний</span></div>
 </div>
@@ -33,14 +35,16 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Зараз</p>
-<div class="rm-item"><h3>Нові розкладки екранів (0.24)</h3><p>Home, сторінки дзвінків, Meeting Sheet, Трекер, Налаштування й онбординг переходять на новий дизайн, екран за екраном, в усіх трьох стилях.</p></div>
+<div class="rm-item"><h3>Мова дзвінка всюди</h3><p>Транскрипт тримає мову, якою справді говорять, а бриф, підказки, нотатки й follow-up ідуть за мовою дзвінка. Перемикач у вікні підказок.</p></div>
 <div class="rm-item"><h3>Кращі брифи і підказки</h3><p>Кожен дзвінок розбираємо після завершення: які підказки допомогли, які були шумом, що пропущено. Звідси змінюються промпти.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Далі</p>
 <div class="rm-item"><h3>Двофакторний вхід</h3><p>Код з будь-якого застосунку-автентифікатора, резервні коди і політика організації, яка робить його обовʼязковим. Touch ID або код доступу під час входу.</p></div>
-<div class="rm-item"><h3>Вхід через email у консолі і службові листи</h3><p>Вхід у веб-консоль з email і паролем. Листи для запрошень, входу з нового пристрою і відновлення двофакторного входу.</p></div>
+<div class="rm-item"><h3>Службові листи</h3><p>Листи для запрошень, входу з нового пристрою і відновлення двофакторного входу.</p></div>
 <div class="rm-item"><h3>Аналіз дзвінка за стандартом</h3><p>Пресети за типом команди (Sales, PM, Recruiting та інші), шаблон оцінки для кожного виду дзвінка, оцінка після дзвінка і огляд для лідів команд.</p></div>
+<div class="rm-item"><h3>Промпти, які видно</h3><p>Промпти брифу, підготовки й нотаток у Налаштуваннях, з вашими доповненнями, і видно, яким промптом написано нотатку.</p></div>
+<div class="rm-item"><h3>Видалення дзвінка звідусіль</h3><p>Прибрати випадково записаний дзвінок з Pacenote, Notion, Мака і HubSpot, вибравши, звідки саме.</p></div>
 <div class="rm-item"><h3>Посилення безпеки</h3><p>Виправлення з нашої власної перевірки безпеки застосунку і каналу оновлень, до того як командна версія виросте.</p></div>
 <div class="rm-item"><h3>Підпис і нотаризація Apple</h3><p>Без "Open Anyway" при першому запуску і без запиту Keychain після оновлення.</p></div>
 </div>
@@ -56,6 +60,9 @@ facts:
 ## Що вже випущено
 
 <ol class="rm-log">
+<li><span class="rm-log__when">20 лист · 0.26.2-0.26.4</span><b>Дзвінки в папках, мовців можна виправити.</b> Кожен дзвінок у своїй папці, старі дзвінки переїжджають у свої самі. Після дзвінка можна виправити, хто що сказав, обʼєднати мовців і запамʼятати голос, а потім Rewrite notes перепише нотатки з правильними іменами. Списки моделей приходять від вашого AI-провайдера. Вхід у веб-консоль з email і паролем. Виправлення з бети.</li>
+<li><span class="rm-log__when">19 лист · 0.26-0.26.1</span><b>Connect with Notion.</b> Notion підключається одним кліком, і його локальна копія працює без Control Tower. Повідомлення всередині Pacenote замість спливних вікон, питання там, де ви клікнули, і що було на початку Summary.</li>
+<li><span class="rm-log__when">18-19 лист · 0.24-0.25</span><b>Нові розкладки екранів.</b> Home, сторінки дзвінків, кроки Meeting Sheet, Трекер, Минулі дзвінки, Статистика і Налаштування в новій розкладці. Roadbook і Broadsheet перемальовано, хто вирішив біля кожного рішення, підказки як key, detail і source, компактна картка підказки під камерою. Встановлення без Терміналу і браузера, оновлення одним кліком.</li>
 <li><span class="rm-log__when">18 лист · 0.23</span><b>Три вигляди.</b> Classic, Roadbook і Broadsheet, кожен світлий чи темний, у Settings > General > Appearance. Нова марка Pacenote і рух, вікно підказок показує стан у стилі, а вікно і плашка повідомляють про нову версію. На сайті: плани на сторінці Ціни і сторінка Завантаження.</li>
 <li><span class="rm-log__when">17-18 лист · 0.20-0.22</span><b>Дзвінки команди, продажі, вхід через email.</b> Вкладка Team для лідів команд, більше методів продажу і блоки угоди, автор промови для презентації і вхід з email і паролем поруч із Google. Тепер потрібен акаунт.</li>
 <li><span class="rm-log__when">17 лист · 0.19</span><b>Плани в застосунку.</b> Порівняння планів і зміна плану організації в Settings, команда з Solo одним кроком, пробний період на кожному плані, власне використання за останні 30 днів, сторінка Console для кожного, хто ввійшов. Продуктова аналітика, яку можна вимкнути: екрани, помилки за кодами і швидкодія, ніколи не те, що сказано в дзвінку. Дзвінок із записом сам зупиняється, коли мітинг закінчився.</li>

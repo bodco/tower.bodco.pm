@@ -4,7 +4,7 @@ lead: "Where Pacenote has been and where it is going: what shipped, what we buil
 parent: pacenote
 facts:
   - { k: Current version, v: "0.26.4, beta" }
-  - { k: Updated, v: "18 November 2026" }
+  - { k: Updated, v: "20 November 2026" }
   - { k: Plans during the beta, v: "All free" }
   - { k: Release notes, v: "Changelog on GitHub" }
 ---
@@ -21,7 +21,9 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.19</span><span class="rm-stop__name">Plans in the app</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.20-0.22</span><span class="rm-stop__name">Team calls, sales, email sign-in</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.23</span><span class="rm-stop__name">Three looks</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Now</span><span class="rm-stop__name">New screen layouts</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.24-0.25</span><span class="rm-stop__name">New screen layouts</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.26</span><span class="rm-stop__name">Notion and call folders</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Now</span><span class="rm-stop__name">Call language</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Next</span><span class="rm-stop__name">Two-factor sign-in and emails</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Later</span><span class="rm-stop__name">Paid plans and mobile</span></div>
 </div>
@@ -33,14 +35,16 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Now</p>
-<div class="rm-item"><h3>New screen layouts (0.24)</h3><p>Home, the call pages, Meeting Sheet, Tracker, Settings and onboarding move to the new design, screen by screen, in all three styles.</p></div>
+<div class="rm-item"><h3>Your call's language, everywhere</h3><p>The transcript keeps the language people actually speak, and the brief, tips, notes and follow-up follow the language of the call. Switch it from the tips window.</p></div>
 <div class="rm-item"><h3>Better briefs and tips</h3><p>Every call is reviewed after it ends: which tips helped, which were noise, what was missed. The prompts change from that.</p></div>
 </div>
 <div class="rm-lane">
 <p class="rm-lane__head">Next</p>
 <div class="rm-item"><h3>Two-factor sign-in</h3><p>A code from any authenticator app, backup codes, and an organization policy that makes it required. Touch ID or a passcode when you sign in.</p></div>
-<div class="rm-item"><h3>Email sign-in in the console and service emails</h3><p>Sign in to the web console with your email and password. Emails for invites, a sign-in from a new device and getting back into two-factor sign-in.</p></div>
+<div class="rm-item"><h3>Service emails</h3><p>Emails for invites, a sign-in from a new device and getting back into two-factor sign-in.</p></div>
 <div class="rm-item"><h3>Call analysis against a standard</h3><p>Presets by team type (Sales, PM, Recruiting and more), a scorecard for each kind of call, a score after the call and an overview for team leads.</p></div>
+<div class="rm-item"><h3>Prompts you can see</h3><p>The prompts behind your brief, preparation and notes in Settings, with your own additions, and which prompt wrote a note.</p></div>
+<div class="rm-item"><h3>Delete a call everywhere</h3><p>Remove a call you did not mean to record from Pacenote, Notion, your Mac and HubSpot, and pick where it goes from.</p></div>
 <div class="rm-item"><h3>Security hardening</h3><p>Fixes from our own security review of the app and the update channel, before the team version grows.</p></div>
 <div class="rm-item"><h3>Signed and notarized by Apple</h3><p>No more "Open Anyway" on first launch and no Keychain prompt after an update.</p></div>
 </div>
@@ -56,6 +60,9 @@ facts:
 ## What shipped
 
 <ol class="rm-log">
+<li><span class="rm-log__when">20 Nov · 0.26.2-0.26.4</span><b>Calls in folders, speakers you can fix.</b> A folder for every call, and older calls move into theirs on their own. Fix who said what after the call, merge speakers and remember a voice, then Rewrite notes with the right names. Model lists come from your AI provider. Sign in to the web console with your email and password. Fixes from the beta.</li>
+<li><span class="rm-log__when">19 Nov · 0.26-0.26.1</span><b>Connect with Notion.</b> Connect Notion in one click and keep a local copy of it without Control Tower. Notices inside Pacenote instead of pop-up alerts, questions right where you clicked, and what happened at the top of the Summary.</li>
+<li><span class="rm-log__when">18-19 Nov · 0.24-0.25</span><b>New screen layouts.</b> Home, the call pages, the Meeting Sheet steps, Tracker, Past calls, Statistics and Settings laid out anew. Roadbook and Broadsheet redrawn, who decided next to each decision, tips as key, detail and source, a compact tip card under the camera. Setup with no Terminal or browser, and updates in one click.</li>
 <li><span class="rm-log__when">18 Nov · 0.23</span><b>Three looks.</b> Classic, Roadbook and Broadsheet, each light or dark, in Settings > General > Appearance. The new Pacenote mark and motion, the tips window shows its state in the style, and a window and a banner tell you when a new version is out. On the site: plans on Pricing and a Download page.</li>
 <li><span class="rm-log__when">17-18 Nov · 0.20-0.22</span><b>Team calls, sales, email sign-in.</b> The Team tab for team leads, more sales methods and deal blocks, a speech writer for a deck, and sign-in with email and password next to Google. An account is now required.</li>
 <li><span class="rm-log__when">17 Nov · 0.19</span><b>Plans in the app.</b> Compare plans and switch an organization's plan in Settings, start a team from Solo, a trial on every plan, your own use for the last 30 days, a Console page for everyone signed in. Product analytics you can turn off: screens, errors by code and speed, never what is said in a call. A recorded call stops by itself when the meeting ends.</li>
