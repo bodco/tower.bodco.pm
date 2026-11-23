@@ -1,7 +1,7 @@
 ---
 // 2026-11-23 (Bohdan): the "Report a problem" page of pacenote.bodco.pm. The form itself is a public Notion form
 // (database Product Reports, where the agent team triages reports); this page embeds it and keeps a direct link for
-// when the embed does not load. The CSP allows framing only bodco.notion.site, and only on this page (scripts/csp.mjs).
+// when the embed does not load (a browser that blocks third-party cookies can leave the frame blank), above the frame. The CSP allows framing only bodco.notion.site, and only on this page (scripts/csp.mjs).
 // A later in-app button writes to the same database and goes alongside this form, it does not replace it.
 import Base from '../layouts/Base.astro';
 import { pnHref, type Lang } from '../i18n/ui';
@@ -17,7 +17,7 @@ const T = uk
       desc: 'Знайшли баг, маєте ідею чи питання про бету Pacenote? Короткий звіт зі скріншотом іде прямо команді.',
       lbl: 'Повідомити про проблему', h: 'Повідомити про проблему',
       lead: 'Знайшли баг, маєте ідею чи питання? Опишіть тут, звіт одразу потрапить до команди Pacenote.',
-      frame: 'Форма звіту про проблему', open: 'Форма не завантажилась? Відкрийте її в новій вкладці →',
+      frame: 'Форма звіту про проблему', btn: 'Відкрити форму', btnNote: 'Відкривається в новій вкладці. Нижче та сама форма, якщо вона завантажилась у вашому браузері.',
       tips: 'Перед відправкою',
       list: [
         ['Одна проблема на звіт', 'Так її швидше відтворити й виправити.'],
@@ -34,7 +34,7 @@ const T = uk
       desc: 'Found a bug, have an idea or a question about the Pacenote beta? A short report with a screenshot goes straight to the team.',
       lbl: 'Report a problem', h: 'Report a problem',
       lead: 'Found a bug, have an idea or a question? Tell us here, the report goes straight to the Pacenote team.',
-      frame: 'Problem report form', open: 'Form not loading? Open it in a new tab →',
+      frame: 'Problem report form', btn: 'Open the form', btnNote: 'Opens in a new tab. The same form is below if your browser loads it here.',
       tips: 'Before you send',
       list: [
         ['One problem per report', 'It is faster to reproduce and fix that way.'],
@@ -53,10 +53,13 @@ const T = uk
       <p class="pn-lbl pn-dl__lbl"><a href={pnHref(lang)}>Pacenote</a> / {T.lbl}</p>
       <h1 class="pn-dl__h" id="pn-rp-h">{T.h}</h1>
       <p class="pn-rp__lead">{T.lead}</p>
+      <div class="pn-rp__cta">
+        <a class="pn-btn pn-btn--lg" href={FORM} target="_blank" rel="noopener">{T.btn}</a>
+        <span class="pn-rp__note">{T.btnNote}</span>
+      </div>
       <div class="pn-rp__frame">
         <iframe src={EMBED} title={T.frame} loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
-      <a class="pn-dl__skill" href={FORM} target="_blank" rel="noopener">{T.open}</a>
     </div>
     <aside class="pn-dl__req pn-rp__side" aria-labelledby="pn-rp-tips">
       <p class="pn-lbl" id="pn-rp-tips">{T.tips}</p>
