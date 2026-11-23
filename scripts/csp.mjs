@@ -39,7 +39,8 @@ for (const file of walk(DIST)) {
     `img-src 'self' data: ${GA_HITS}`,
     "style-src 'self' 'unsafe-inline'",
     "font-src 'self' data:",
-    "frame-src 'none'",
+    // 2026-11-23: only the Report a problem page frames the public Notion form; every other page frames nothing.
+    html.includes('src="https://bodco.notion.site/ebd/') ? "frame-src https://bodco.notion.site" : "frame-src 'none'",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'none'",

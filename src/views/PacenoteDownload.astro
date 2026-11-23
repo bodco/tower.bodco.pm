@@ -17,7 +17,6 @@ const REPO = 'https://github.com/bodco/live-tips';
 const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
 const SUMS = `${REPO}/releases/latest/download/SHA256SUMS.txt`;
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
-const REPORT = 'https://bodco.notion.site/421666a1bdda81a19dbeedc19d499db3';
 const PAGE = PN_DOMAIN.origin + (uk ? '/uk/download/' : '/download/');
 const T = uk
   ? {
@@ -82,7 +81,7 @@ const MAILTO = `mailto:?subject=${encodeURIComponent(T.subj)}&body=${encodeURICo
       </dl>
       <p class="pn-dl__sum">{T.sum} <a id="pn-dl-sums" href={SUMS}>{T.sumLink}</a>: <code>shasum -a 256 ~/Downloads/<span class="pn-dl__file">Pacenote.dmg</span></code></p>
       <a class="pn-dl__skill" href={SKILL} download>{T.skill}</a>
-      <a class="pn-dl__skill" href={REPORT}>{T.report}</a>
+      <a class="pn-dl__skill" href={pnHref(lang, 'report')}>{T.report}</a>
     </aside>
   </section>
 </Base>

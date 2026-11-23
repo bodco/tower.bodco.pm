@@ -1,0 +1,71 @@
+---
+// 2026-11-23 (Bohdan): the "Report a problem" page of pacenote.bodco.pm. The form itself is a public Notion form
+// (database Product Reports, where the agent team triages reports); this page embeds it and keeps a direct link for
+// when the embed does not load. The CSP allows framing only bodco.notion.site, and only on this page (scripts/csp.mjs).
+// A later in-app button writes to the same database and goes alongside this form, it does not replace it.
+import Base from '../layouts/Base.astro';
+import { pnHref, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const uk = lang === 'uk';
+const FORM = 'https://bodco.notion.site/421666a1bdda81a19dbeedc19d499db3';
+const EMBED = 'https://bodco.notion.site/ebd/421666a1bdda81a19dbeedc19d499db3';
+const T = uk
+  ? {
+      title: 'Повідомити про проблему в Pacenote',
+      desc: 'Знайшли баг, маєте ідею чи питання про бету Pacenote? Короткий звіт зі скріншотом іде прямо команді.',
+      lbl: 'Повідомити про проблему', h: 'Повідомити про проблему',
+      lead: 'Знайшли баг, маєте ідею чи питання? Опишіть тут, звіт одразу потрапить до команди Pacenote.',
+      frame: 'Форма звіту про проблему', open: 'Форма не завантажилась? Відкрийте її в новій вкладці →',
+      tips: 'Перед відправкою',
+      list: [
+        ['Одна проблема на звіт', 'Так її швидше відтворити й виправити.'],
+        ['Версія', 'Меню Pacenote > About Pacenote.'],
+        ['Скріншот або запис екрана', 'Cmd+Shift+5 на Маку. Відео до 100 МБ.'],
+        ['Логи', 'Help > Export diagnostics збирає zip без ключів і токенів.'],
+        ['Без даних клієнтів', 'Не вставляйте транскрипти дзвінків, імена клієнтів і їхні дані.'],
+      ],
+      next: 'Що далі', nextP: 'Команда читає кожен звіт. Якщо чогось бракує, вам напишуть на пошту, а коли проблему виправлено, ви дізнаєтесь, у якій версії.',
+      dl: 'Завантажити останню версію →',
+    }
+  : {
+      title: 'Report a problem in Pacenote',
+      desc: 'Found a bug, have an idea or a question about the Pacenote beta? A short report with a screenshot goes straight to the team.',
+      lbl: 'Report a problem', h: 'Report a problem',
+      lead: 'Found a bug, have an idea or a question? Tell us here, the report goes straight to the Pacenote team.',
+      frame: 'Problem report form', open: 'Form not loading? Open it in a new tab →',
+      tips: 'Before you send',
+      list: [
+        ['One problem per report', 'It is faster to reproduce and fix that way.'],
+        ['Version', 'Pacenote menu > About Pacenote.'],
+        ['A screenshot or a screen recording', 'Cmd+Shift+5 on a Mac. Videos up to 100 MB.'],
+        ['Logs', 'Help > Export diagnostics makes a zip without keys or tokens.'],
+        ['No client data', 'Please do not paste call transcripts, client names or their data.'],
+      ],
+      next: 'What happens next', nextP: 'The team reads every report. If something is unclear, we email you, and when it is fixed, you hear which version has the fix.',
+      dl: 'Download the latest version →',
+    };
+---
+<Base title={T.title} description={T.desc} brand="pacenote">
+  <section class="wrap pn-rp" aria-labelledby="pn-rp-h">
+    <div class="pn-rp__main">
+      <p class="pn-lbl pn-dl__lbl"><a href={pnHref(lang)}>Pacenote</a> / {T.lbl}</p>
+      <h1 class="pn-dl__h" id="pn-rp-h">{T.h}</h1>
+      <p class="pn-rp__lead">{T.lead}</p>
+      <div class="pn-rp__frame">
+        <iframe src={EMBED} title={T.frame} loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <a class="pn-dl__skill" href={FORM} target="_blank" rel="noopener">{T.open}</a>
+    </div>
+    <aside class="pn-dl__req pn-rp__side" aria-labelledby="pn-rp-tips">
+      <p class="pn-lbl" id="pn-rp-tips">{T.tips}</p>
+      <ul class="pn-rp__tips">
+        {T.list.map(([b, p]) => <li><b>{b}</b><span>{p}</span></li>)}
+      </ul>
+      <p class="pn-lbl pn-rp__next">{T.next}</p>
+      <p class="pn-rp__p">{T.nextP}</p>
+      <a class="pn-dl__skill" href={pnHref(lang, 'download')}>{T.dl}</a>
+    </aside>
+  </section>
+</Base>
