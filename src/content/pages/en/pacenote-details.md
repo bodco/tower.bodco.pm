@@ -9,7 +9,7 @@ facts:
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
   - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $14 a month</a>' }
-  - { k: Version, v: "0.26.4" }
+  - { k: Version, v: "0.27.0" }
 ---
 
 | At a glance | |
@@ -180,8 +180,9 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 - In HubSpot: Settings > Development > Keys > Service Keys > Create service key, named Pacenote, with the scopes listed in Settings > Integrations > HubSpot (Copy list).
 - In Pacenote: Settings > Integrations > HubSpot, paste the key, Save, Test. The key stays in the macOS Keychain.
 - **Before the call:** Refresh in Start call reads the company, its open deal, contacts, the last 10 activities and open tasks into a local snapshot next to the brief.
-- **After the call:** Update HubSpot on the call page. A note, deal fields and a follow-up task, each with a checkbox; Apply writes, Undo works for 8 s.
-- Nothing is written without a click. The transcript goes into the note only if you turn that on.
+- **After the call:** Update HubSpot on the call page logs the Call, finds or adds the contacts, company and Lead, suggests deal fields with the evidence from the call, and adds the meeting notes and your follow-up email to the HubSpot timeline. Each row has a checkbox, Apply writes, Undo takes it back, and the call keeps a sync log with Retry.
+- **Tasks:** your open HubSpot tasks show in On you and the Tracker; Add to HubSpot tasks makes a task on the call's contacts, company and deal.
+- Nothing is written without a click unless you turn on a Write automatically switch in Settings > Integrations > HubSpot > Sync (all off by default). Transcript text is never sent.
 
 </details>
 
@@ -244,7 +245,7 @@ Best together: prepare in Cowork, and the app picks the prep up when the titles 
 - **Voice prints stay on your Mac.** In many countries they are biometric data: tell people.
 - **Transcripts stay in your project folder.** Keep them out of public repositories.
 - **Nothing goes to the client.** The Meetings page is internal; drafts wait for you.
-- **HubSpot only on your click.** The key stays in the Keychain; the transcript is off by default.
+- **HubSpot on your click.** Automatic writes are off until you turn them on; the key stays in the Keychain and the transcript is never sent.
 - **Company web search:** only the company's name or domain, never your files.
 - **Local usage log.** Event names and numbers, stays on your Mac. Switch it off in Settings > General > Privacy.
 - **Nothing goes to the author.** No analytics, no tracking.

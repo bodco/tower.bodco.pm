@@ -3,8 +3,8 @@ title: Pacenote roadmap
 lead: "Where Pacenote has been and where it is going: what shipped, what we build now, what comes next. Updated with every release."
 parent: pacenote
 facts:
-  - { k: Current version, v: "0.26.4, beta" }
-  - { k: Updated, v: "20 November 2026" }
+  - { k: Current version, v: "0.27.0, beta" }
+  - { k: Updated, v: "23 November 2026" }
   - { k: Plans during the beta, v: "All free" }
   - { k: Release notes, v: "Changelog on GitHub" }
 ---
@@ -23,7 +23,8 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.23</span><span class="rm-stop__name">Three looks</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.24-0.25</span><span class="rm-stop__name">New screen layouts</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.26</span><span class="rm-stop__name">Notion and call folders</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Now</span><span class="rm-stop__name">Call language</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.27</span><span class="rm-stop__name">Call language and HubSpot</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Now</span><span class="rm-stop__name">Better briefs and tips</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Next</span><span class="rm-stop__name">Two-factor sign-in and emails</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Later</span><span class="rm-stop__name">Paid plans and mobile</span></div>
 </div>
@@ -35,7 +36,6 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Now</p>
-<div class="rm-item"><h3>Your call's language, everywhere</h3><p>The transcript keeps the language people actually speak, and the brief, tips, notes and follow-up follow the language of the call. Switch it from the tips window.</p></div>
 <div class="rm-item"><h3>Better briefs and tips</h3><p>Every call is reviewed after it ends: which tips helped, which were noise, what was missed. The prompts change from that.</p></div>
 </div>
 <div class="rm-lane">
@@ -60,6 +60,7 @@ facts:
 ## What shipped
 
 <ol class="rm-log">
+<li><span class="rm-log__when">23 Nov · 0.27</span><b>Call language and HubSpot.</b> Notes, Summary, the follow-up, the Meeting Sheet, the brief and Notion follow the language of the call, and a call in two or three languages can be regenerated in another one. A Transcript button and a call language chip in the tips window. Update HubSpot logs the call, its people, deal fields, the meeting notes and your follow-up email, each with Undo, and your HubSpot tasks show in the Tracker. Downloads you can cancel. Gemini now through an API key.</li>
 <li><span class="rm-log__when">20 Nov · 0.26.2-0.26.4</span><b>Calls in folders, speakers you can fix.</b> A folder for every call, and older calls move into theirs on their own. Fix who said what after the call, merge speakers and remember a voice, then Rewrite notes with the right names. Model lists come from your AI provider. Sign in to the web console with your email and password. Fixes from the beta.</li>
 <li><span class="rm-log__when">19 Nov · 0.26-0.26.1</span><b>Connect with Notion.</b> Connect Notion in one click and keep a local copy of it without Control Tower. Notices inside Pacenote instead of pop-up alerts, questions right where you clicked, and what happened at the top of the Summary.</li>
 <li><span class="rm-log__when">18-19 Nov · 0.24-0.25</span><b>New screen layouts.</b> Home, the call pages, the Meeting Sheet steps, Tracker, Past calls, Statistics and Settings laid out anew. Roadbook and Broadsheet redrawn, who decided next to each decision, tips as key, detail and source, a compact tip card under the camera. Setup with no Terminal or browser, and updates in one click.</li>

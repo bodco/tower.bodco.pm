@@ -7,7 +7,7 @@ parent: pacenote
 facts:
   - { k: Checked, v: "28 October 2026" }
   - { k: Compared, v: "Prep, live help, recording, summary, CRM, data, price" }
-  - { k: Pacenote, v: "0.26.4, macOS (Apple Silicon)" }
+  - { k: Pacenote, v: "0.27.0, macOS (Apple Silicon)" }
 ---
 
 ## At a glance
@@ -51,7 +51,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 | Summary and follow-up draft | ✓ never sent for you | ◐ Email Assistant, Pro+ | ✓ one-click follow-up email |
 | Search past calls | ✓ call memory, Command-F | ✓ AskFred | ◐ Ask Fathom, Team and up |
 | Notion | ✓ your Meetings database | ✓ sub-page under a chosen page | ◐ through Zapier or Make |
-| CRM | ✓ HubSpot, writes only on your click | ✓ HubSpot, Salesforce, more | ◐ HubSpot, Salesforce on Business |
+| CRM | ✓ HubSpot, writes on your click, automatic writes off by default | ✓ HubSpot, Salesforce, more | ◐ HubSpot, Salesforce on Business |
 | **Privacy** | | | |
 | Audio stays on your computer | ✓ Whisper runs on your Mac | ✗ uploaded to the cloud (US) | ✗ uploaded to the cloud (US) |
 | Certifications | ✗ open code you can audit | ✓ SOC 2, ISO 42001, HIPAA | ✓ SOC 2, GDPR, HIPAA |
@@ -66,7 +66,7 @@ They work together: Pacenote while you talk, Fireflies or Fathom as the archive 
 
 | | Pacenote |
 |---|---|
-| CRM (HubSpot) | ✓ a snapshot before the call; after it, tick what to write, Apply, Undo for 8 s |
+| CRM (HubSpot) | ✓ a snapshot before the call; after it, the Call, people, deal fields, meeting notes and the follow-up email, each ticked, with Undo and a sync log; HubSpot tasks in the Tracker |
 | Sales qualification | ✓ General sales, BANT, SPICED or MEDDIC, tracked live on a Deal tab |
 | Sales tips | ✓ objection, qualify, pain, next step, competitor, buying signal |
 | Sales brief | ✓ company web search (name or domain only), likely objections, questions to ask |

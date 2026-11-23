@@ -3,8 +3,8 @@ title: Роадмап Pacenote
 lead: "Звідки Pacenote прийшов і куди йде: що вже випущено, що робимо зараз, що далі. Оновлюється з кожним релізом."
 parent: pacenote
 facts:
-  - { k: Поточна версія, v: "0.26.4, бета" }
-  - { k: Оновлено, v: "20 листопада 2026" }
+  - { k: Поточна версія, v: "0.27.0, бета" }
+  - { k: Оновлено, v: "23 листопада 2026" }
   - { k: Плани в беті, v: "Усі безкоштовні" }
   - { k: Список змін, v: "Changelog на GitHub" }
 ---
@@ -23,7 +23,8 @@ facts:
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.23</span><span class="rm-stop__name">Три вигляди</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.24-0.25</span><span class="rm-stop__name">Нові розкладки екранів</span></div>
 <div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.26</span><span class="rm-stop__name">Notion і папки дзвінків</span></div>
-<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Мова дзвінка</span></div>
+<div class="rm-stop is-done" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">0.27</span><span class="rm-stop__name">Мова дзвінка і HubSpot</span></div>
+<div class="rm-stop is-now" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Зараз</span><span class="rm-stop__name">Кращі брифи і підказки</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Далі</span><span class="rm-stop__name">Двофакторний вхід і листи</span></div>
 <div class="rm-stop" role="listitem"><span class="rm-stop__dot"></span><span class="rm-stop__when">Пізніше</span><span class="rm-stop__name">Платні плани і мобільний</span></div>
 </div>
@@ -35,7 +36,6 @@ facts:
 <div class="rm-lanes">
 <div class="rm-lane is-now">
 <p class="rm-lane__head">Зараз</p>
-<div class="rm-item"><h3>Мова дзвінка всюди</h3><p>Транскрипт тримає мову, якою справді говорять, а бриф, підказки, нотатки й follow-up ідуть за мовою дзвінка. Перемикач у вікні підказок.</p></div>
 <div class="rm-item"><h3>Кращі брифи і підказки</h3><p>Кожен дзвінок розбираємо після завершення: які підказки допомогли, які були шумом, що пропущено. Звідси змінюються промпти.</p></div>
 </div>
 <div class="rm-lane">
@@ -60,6 +60,7 @@ facts:
 ## Що вже випущено
 
 <ol class="rm-log">
+<li><span class="rm-log__when">23 лист · 0.27</span><b>Мова дзвінка і HubSpot.</b> Нотатки, Summary, follow-up, Meeting Sheet, бриф і Notion ідуть за мовою дзвінка, а дзвінок двома-трьома мовами можна згенерувати знову іншою. Кнопка Transcript і чип мови дзвінка у вікні підказок. Update HubSpot записує дзвінок, його людей, поля угоди, нотатки зустрічі і ваш follow-up лист, усе з Undo, а ваші задачі HubSpot видно в Трекері. Завантаження можна скасувати. Gemini тепер через API-ключ.</li>
 <li><span class="rm-log__when">20 лист · 0.26.2-0.26.4</span><b>Дзвінки в папках, мовців можна виправити.</b> Кожен дзвінок у своїй папці, старі дзвінки переїжджають у свої самі. Після дзвінка можна виправити, хто що сказав, обʼєднати мовців і запамʼятати голос, а потім Rewrite notes перепише нотатки з правильними іменами. Списки моделей приходять від вашого AI-провайдера. Вхід у веб-консоль з email і паролем. Виправлення з бети.</li>
 <li><span class="rm-log__when">19 лист · 0.26-0.26.1</span><b>Connect with Notion.</b> Notion підключається одним кліком, і його локальна копія працює без Control Tower. Повідомлення всередині Pacenote замість спливних вікон, питання там, де ви клікнули, і що було на початку Summary.</li>
 <li><span class="rm-log__when">18-19 лист · 0.24-0.25</span><b>Нові розкладки екранів.</b> Home, сторінки дзвінків, кроки Meeting Sheet, Трекер, Минулі дзвінки, Статистика і Налаштування в новій розкладці. Roadbook і Broadsheet перемальовано, хто вирішив біля кожного рішення, підказки як key, detail і source, компактна картка підказки під камерою. Встановлення без Терміналу і браузера, оновлення одним кліком.</li>

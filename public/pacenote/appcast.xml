@@ -6,6 +6,16 @@
     <description>Pacenote updates</description>
     <language>en</language>
     <item>
+      <title>Pacenote 0.27.0</title>
+      <pubDate>Mon, 23 Nov 2026 07:29:41 GMT</pubDate>
+      <sparkle:version>273</sparkle:version>
+      <sparkle:shortVersionString>0.27.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
+      <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.27.0</sparkle:releaseNotesLink>
+      <description><![CDATA[]]></description>
+      <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.27.0/Pacenote-0.27.0-beta.dmg" length="20672774" type="application/octet-stream" sparkle:edSignature="8Yji/aD9Q438oW/j3R7CqmORURsPFc/k17Pig3LR6NIIrbeZAAIJyKxkSL7MhYDA1+RTHX2UzZbn0SUbPsEJCw=="/>
+    </item>
+    <item>
       <title>Pacenote 0.26.4</title>
       <pubDate>Fri, 20 Nov 2026 16:45:35 GMT</pubDate>
       <sparkle:version>272</sparkle:version>
@@ -94,16 +104,6 @@
       <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.22.0</sparkle:releaseNotesLink>
       <description><![CDATA[]]></description>
       <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.22.0/Pacenote-0.22.0-beta.dmg" length="14962472" type="application/octet-stream" sparkle:edSignature="01+N3FzCOhGC+q54geEtyBJsw2X1UM/3QyDBegaKVQbgYVanMsXgvRSYHnIPT2diDbp+T+GGIfeF8lne4YyHDQ=="/>
-    </item>
-    <item>
-      <title>Pacenote 0.19.2</title>
-      <pubDate>Tue, 17 Nov 2026 19:04:17 GMT</pubDate>
-      <sparkle:version>262</sparkle:version>
-      <sparkle:shortVersionString>0.19.2</sparkle:shortVersionString>
-      <sparkle:minimumSystemVersion>14.4</sparkle:minimumSystemVersion>
-      <sparkle:releaseNotesLink>https://github.com/bodco/live-tips/releases/tag/v0.19.2</sparkle:releaseNotesLink>
-      <description><![CDATA[]]></description>
-      <enclosure url="https://github.com/bodco/live-tips/releases/download/v0.19.2/Pacenote-0.19.2-beta.dmg" length="14363050" type="application/octet-stream" sparkle:edSignature="94YubcUwKFOLv6KEXinNYnmw7GuSKCvzvEL6FT1qGYRJJBeo+ymPGmAvoUCAtasnCIh2H5DnapwQvRI76lgWDw=="/>
     </item>
   </channel>
 </rss>
