@@ -9,7 +9,7 @@ facts:
   - { k: Fact cards, v: "1-2 s, under your camera" }
   - { k: Writes to, v: "Notion and your project folder" }
   - { k: AI cost, v: '<a href="/pacenote/pricing/">$7 to $14 a month</a>' }
-  - { k: Version, v: "0.27.0" }
+  - { k: Version, v: "0.27.1" }
 ---
 
 | At a glance | |
@@ -177,8 +177,9 @@ Sales is an option on top of any call type: Start call > Options > Sales. The de
 <details>
 <summary>Connect HubSpot</summary>
 
-- In HubSpot: Settings > Development > Keys > Service Keys > Create service key, named Pacenote, with the scopes listed in Settings > Integrations > HubSpot (Copy list).
-- In Pacenote: Settings > Integrations > HubSpot, paste the key, Save, Test. The key stays in the macOS Keychain.
+- In HubSpot (a Super Admin, or a user with access to Development): More in the left navigation > Development > Keys > Service Keys > Create service key, named Pacenote.
+- Add new scope: the list is long, so type each scope into the search field and tick it: `crm.objects.contacts.read`, `crm.objects.contacts.write`, `crm.objects.companies.read`, `crm.objects.companies.write`, `crm.objects.deals.read`, `crm.objects.deals.write`, `crm.objects.owners.read`, `crm.schemas.contacts.read`, `crm.schemas.companies.read`, `crm.schemas.deals.read`. Using Leads? Add `crm.objects.leads.read` and `crm.objects.leads.write` too. Then Update, Create, and Copy the key (it starts with `pat-`).
+- In Pacenote: Settings > Integrations > HubSpot, paste the key, Save, Test. A green tick next to each scope means the key has it. The key stays in the macOS Keychain.
 - **Before the call:** Refresh in Start call reads the company, its open deal, contacts, the last 10 activities and open tasks into a local snapshot next to the brief.
 - **After the call:** Update HubSpot on the call page logs the Call, finds or adds the contacts, company and Lead, suggests deal fields with the evidence from the call, and adds the meeting notes and your follow-up email to the HubSpot timeline. Each row has a checkbox, Apply writes, Undo takes it back, and the call keeps a sync log with Retry.
 - **Tasks:** your open HubSpot tasks show in On you and the Tracker; Add to HubSpot tasks makes a task on the call's contacts, company and deal.

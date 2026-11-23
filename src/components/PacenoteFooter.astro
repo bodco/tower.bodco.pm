@@ -9,11 +9,13 @@ import { getLangFromUrl, pnHref } from '../i18n/ui';
 const lang = getLangFromUrl(Astro.url);
 const REPO = 'https://github.com/bodco/live-tips';
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
+// 2026-11-23 (owner): beta reports go to the Notion form (Product Reports, the triage agent picks them up).
+const REPORT = 'https://bodco.notion.site/421666a1bdda81a19dbeedc19d499db3';
 const T = lang === 'uk'
   ? {
       about: 'Ваш штурман на дзвінках. Аудіо лишається на вашому Маку.', product: 'Продукт', more: 'Ще', get: 'Взяти Pacenote',
       overview: 'Огляд', details: 'Як працює', pricing: 'Ціни', compare: 'Порівняння', roadmap: 'Роадмап',
-      skill: 'Скіл для Cowork', changes: 'Список змін', docs: 'Документація',
+      skill: 'Скіл для Cowork', changes: 'Список змін', docs: 'Документація', report: 'Повідомити про проблему',
       privacy: 'Конфіденційність', terms: 'Умови використання', consent: 'Налаштування аналітики',
       ver: `Версія ${PN_VERSION.version} · бета · macOS 14.4+, Apple Silicon`, dmg: 'Завантажити для Мака',
       also: 'Ще від bodco:', tower: 'PM Control Tower',
@@ -21,7 +23,7 @@ const T = lang === 'uk'
   : {
       about: 'Your co-driver on calls. Audio stays on your Mac.', product: 'Product', more: 'More', get: 'Get Pacenote',
       overview: 'Overview', details: 'How it works', pricing: 'Pricing', compare: 'Compare', roadmap: 'Roadmap',
-      skill: 'Skill for Cowork', changes: 'Changelog', docs: 'Documentation',
+      skill: 'Skill for Cowork', changes: 'Changelog', docs: 'Documentation', report: 'Report a problem',
       privacy: 'Privacy', terms: 'Terms of use', consent: 'Analytics settings',
       ver: `Version ${PN_VERSION.version} · beta · macOS 14.4+, Apple Silicon`, dmg: 'Download for Mac',
       also: 'Also by bodco:', tower: 'PM Control Tower',
@@ -50,6 +52,7 @@ const TOWER = lang === 'uk' ? 'https://tower.bodco.pm/uk/' : 'https://tower.bodc
       <a href={SKILL} download>{T.skill}</a>
       <a href={`${REPO}/blob/main/CHANGELOG.md`}>{T.changes}</a>
       <a href={`${REPO}/blob/main/docs/${lang}/live-tips.md`}>{T.docs}</a>
+      <a href={REPORT}>{T.report}</a>
       <a href={pnHref(lang, 'privacy')}>{T.privacy}</a>
       <a href={pnHref(lang, 'terms')}>{T.terms}</a>
       <button type="button" id="consent-reset">{T.consent}</button>

@@ -17,6 +17,7 @@ const REPO = 'https://github.com/bodco/live-tips';
 const DMG = `${REPO}/releases/latest/download/Pacenote.dmg`;
 const SUMS = `${REPO}/releases/latest/download/SHA256SUMS.txt`;
 const SKILL = `${REPO}/releases/latest/download/live-tips.skill`;
+const REPORT = 'https://bodco.notion.site/421666a1bdda81a19dbeedc19d499db3';
 const PAGE = PN_DOMAIN.origin + (uk ? '/uk/download/' : '/download/');
 const T = uk
   ? {
@@ -32,7 +33,7 @@ const T = uk
       ],
       need: 'Що потрібно',
       req: [['Мак', 'Apple Silicon (M1 і новіші)'], ['macOS', '14.4 Sonoma і новіші'], ['Диск', 'близько 3 ГБ'], ['ШІ', 'Claude, ChatGPT, Gemini чи локальний'], ['Дзвінки', 'Meet, Zoom, Teams, будь-який застосунок']],
-      sum: 'Звірте файл із', sumLink: 'контрольними сумами SHA-256', skill: 'Або візьміть Pacenote як скіл для Cowork →',
+      sum: 'Звірте файл із', sumLink: 'контрольними сумами SHA-256', skill: 'Або візьміть Pacenote як скіл для Cowork →', report: 'Знайшли баг чи маєте ідею? Напишіть нам →',
       mb: 'МБ', locale: 'uk-UA',
     }
   : {
@@ -48,7 +49,7 @@ const T = uk
       ],
       need: 'What you need',
       req: [['Mac', 'Apple Silicon (M1 or later)'], ['macOS', '14.4 Sonoma or later'], ['Disk', 'about 3 GB'], ['AI', 'Claude, ChatGPT, Gemini or local'], ['Calls', 'Meet, Zoom, Teams, any app']],
-      sum: 'Check the file with the', sumLink: 'SHA-256 checksums', skill: 'Or use Pacenote as a Cowork skill →',
+      sum: 'Check the file with the', sumLink: 'SHA-256 checksums', skill: 'Or use Pacenote as a Cowork skill →', report: 'Found a bug or have an idea? Tell us →',
       mb: 'MB', locale: 'en-US',
     };
 const MAILTO = `mailto:?subject=${encodeURIComponent(T.subj)}&body=${encodeURIComponent(PAGE)}`;
@@ -81,6 +82,7 @@ const MAILTO = `mailto:?subject=${encodeURIComponent(T.subj)}&body=${encodeURICo
       </dl>
       <p class="pn-dl__sum">{T.sum} <a id="pn-dl-sums" href={SUMS}>{T.sumLink}</a>: <code>shasum -a 256 ~/Downloads/<span class="pn-dl__file">Pacenote.dmg</span></code></p>
       <a class="pn-dl__skill" href={SKILL} download>{T.skill}</a>
+      <a class="pn-dl__skill" href={REPORT}>{T.report}</a>
     </aside>
   </section>
 </Base>

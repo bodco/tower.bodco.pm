@@ -9,7 +9,7 @@ facts:
   - { k: Картки фактів, v: "1-2 с, під камерою" }
   - { k: Пише в, v: "Notion і папку проєкту" }
   - { k: Вартість ШІ, v: '<a href="/uk/pacenote/pricing/">$7-14 на місяць</a>' }
-  - { k: Версія, v: "0.27.0" }
+  - { k: Версія, v: "0.27.1" }
 ---
 
 | Коротко | |
@@ -177,8 +177,9 @@ Sales це опція поверх будь-якого типу дзвінка: 
 <details>
 <summary>Підключити HubSpot</summary>
 
-- У HubSpot: Settings > Development > Keys > Service Keys > Create service key, назва Pacenote, зі scope зі списку в Settings > Integrations > HubSpot (Copy list).
-- У Pacenote: Settings > Integrations > HubSpot, вставте ключ, Save, Test. Ключ лежить у Keychain macOS.
+- У HubSpot (Super Admin або користувач з доступом до Development): More у лівій навігації > Development > Keys > Service Keys > Create service key, назва Pacenote.
+- Add new scope: список довгий, тож вводьте кожен scope в поле пошуку і позначайте його: `crm.objects.contacts.read`, `crm.objects.contacts.write`, `crm.objects.companies.read`, `crm.objects.companies.write`, `crm.objects.deals.read`, `crm.objects.deals.write`, `crm.objects.owners.read`, `crm.schemas.contacts.read`, `crm.schemas.companies.read`, `crm.schemas.deals.read`. Користуєтесь Leads? Додайте ще `crm.objects.leads.read` і `crm.objects.leads.write`. Далі Update, Create і Copy ключа (він починається з `pat-`).
+- У Pacenote: Settings > Integrations > HubSpot, вставте ключ, Save, Test. Зелена галочка біля scope означає, що він є в ключа. Ключ лежить у Keychain macOS.
 - **Перед дзвінком:** Refresh у Start call читає компанію, її відкриту угоду, контакти, 10 останніх активностей і відкриті задачі в локальний знімок поруч із брифом.
 - **Після дзвінка:** Update HubSpot на сторінці дзвінка записує Call, знаходить або додає контакти, компанію і Lead, пропонує поля угоди з доказами з дзвінка і додає нотатки зустрічі та ваш follow-up лист у таймлайн HubSpot. Кожен рядок з галочкою, Apply записує, Undo повертає, а дзвінок має журнал синку з Retry.
 - **Задачі:** ваші відкриті задачі HubSpot видно в On you і Трекері; Add to HubSpot tasks робить задачу на контактах, компанії і угоді дзвінка.
